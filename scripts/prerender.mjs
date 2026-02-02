@@ -1,110 +1,69 @@
-// scripts/prerender.mjs
-import fs from "fs";
-import path from "path";
-import http from "http";
-import { fileURLToPath } from "url";
-import puppeteer from "puppeteer";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Routes you want as real HTML files (SSG output)
-const ROUTES = ["/", "/challenge", "/solution", "/proof", "/about", "/contact"];
-
-// Where Vite outputs the build
 const DIST_DIR = path.resolve(__dirname, "..", "dist");
 
-// Small static server to serve /dist locally so Puppeteer can render it
-function serveStatic(distDir, port = 4173) {
-  const server = http.createServer((req, res) => {
-    const urlPath = decodeURIComponent((req.url || "/").split("?")[0]);
+// ✅ Make sure this matches your routes
+const routes = ["/", "/challenge", "/solution", "/proof", "/about", "/contact"];
 
-    // SPA fallback: always serve dist/index.html for routes without a file
-    let filePath = path.join(distDir, urlPath);
+async function ensureDir(dir) {
+  await fs.promises.mkdir(dir, { recursive: true });
+}
 
-    // If requesting a directory, try index.html
-    if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
-      filePath = path.join(filePath, "index.html");
-    }
+async function writeRouteHtml(route, html) {
+  const outDir = route === "/" ? DIST_DIR : path.join(DIST_DIR, route.replace(/^\//, ""));
+  await ensureDir(outDir);
+  const outFile = path.join(outDir, "index.html");
+  await fs.promises.writeFile(outFile, html, "utf8");
+  console.log(`✅ Wrote ${path.relative(process.cwd(), outFile)}`);
+}
 
-    // If file doesn't exist, fallback to SPA entry
-    if (!fs.existsSync(filePath)) {
-      filePath = path.join(distDir, "index.html");
-    }
+async function run() {
+  // Vercel build will not have a dev server running.
+  // We use the built files by serving them via file:// is NOT reliable with SPA routing,
+  // so we use a simple local server.
+  const http = await import("node:http");
+  const serveHandler = (await import("serve-handler")).default;
 
-    try {
-      const data = fs.readFileSync(filePath);
-      res.writeHead(200, { "Content-Type": contentType(filePath) });
-      res.end(data);
-    } catch (e) {
-      res.writeHead(500);
-      res.end("Server error");
-    }
+  const server = http.createServer((req, res) => serveHandler(req, res, { public: DIST_DIR }));
+  await new Promise((resolve) => server.listen(4173, resolve));
+  console.log("🟢 Serving dist on http://localhost:4173");
+
+  const browser = await puppeteer.launch({
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(),
+    headless: chromium.headless,
   });
 
-  return new Promise((resolve) => {
-    server.listen(port, () => resolve(server));
-  });
-}
+  try {
+    const page = await browser.newPage();
 
-function contentType(filePath) {
-  if (filePath.endsWith(".html")) return "text/html; charset=utf-8";
-  if (filePath.endsWith(".css")) return "text/css; charset=utf-8";
-  if (filePath.endsWith(".js")) return "application/javascript; charset=utf-8";
-  if (filePath.endsWith(".json")) return "application/json; charset=utf-8";
-  if (filePath.endsWith(".png")) return "image/png";
-  if (filePath.endsWith(".jpg") || filePath.endsWith(".jpeg")) return "image/jpeg";
-  if (filePath.endsWith(".svg")) return "image/svg+xml";
-  return "application/octet-stream";
-}
+    for (const route of routes) {
+      const url = `http://localhost:4173${route}`;
+      console.log(`➡️ Rendering ${url}`);
+      await page.goto(url, { waitUntil: "networkidle0" });
 
-function ensureDir(p) {
-  fs.mkdirSync(p, { recursive: true });
-}
+      // grab fully rendered HTML
+      const html = await page.content();
+      await writeRouteHtml(route, html);
+    }
 
-function routeToFile(route) {
-  // "/" => dist/index.html
-  // "/challenge" => dist/challenge/index.html
-  if (route === "/") return path.join(DIST_DIR, "index.html");
-  const clean = route.replace(/^\//, "");
-  return path.join(DIST_DIR, clean, "index.html");
-}
-
-(async () => {
-  if (!fs.existsSync(DIST_DIR)) {
-    console.error("❌ dist folder not found. Run `npm run build` first.");
-    process.exit(1);
+    console.log("🎉 Prerender complete.");
+  } finally {
+    await browser.close();
+    server.close();
   }
+}
 
-  const port = 4173;
-  const server = await serveStatic(DIST_DIR, port);
-  const baseUrl = `http://localhost:${port}`;
-
-  const browser = await puppeteer.launch({ headless: "new" });
-  const page = await browser.newPage();
-
-  // Make it deterministic + closer to Google
-  await page.setViewport({ width: 1280, height: 800 });
-
-  for (const route of ROUTES) {
-    const url = `${baseUrl}${route}`;
-    console.log(`➡️  Rendering ${url}`);
-
-    await page.goto(url, { waitUntil: "networkidle0" });
-
-    // Wait a tiny bit for any last animations/fonts
-    await new Promise((r) => setTimeout(r, 250));
-
-    const html = await page.content();
-    const outFile = routeToFile(route);
-    ensureDir(path.dirname(outFile));
-    fs.writeFileSync(outFile, html, "utf-8");
-
-    console.log(`✅ Wrote ${outFile.replace(DIST_DIR + path.sep, "dist/")}`);
-  }
-
-  await browser.close();
-  server.close();
-
-  console.log("🎉 Prerender complete. You should now have dist/<route>/index.html files.");
-})();
+run().catch((err) => {
+  console.error("❌ Prerender failed:", err);
+  process.exit(1);
+});
