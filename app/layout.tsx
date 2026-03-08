@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     shortcut: ["/favicon-32.png"],
   },
+  manifest: "/manifest.webmanifest",
 };
 
 const organizationSchema = {

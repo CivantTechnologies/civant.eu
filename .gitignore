@@ -15,6 +15,7 @@ node_modules
 dist
 dist-ssr
 .next
+.next-main
 out
 *.tsbuildinfo
 *.local
@@ -31,3 +32,4 @@ out
 *.sw?
 
 .env
+.vercel
