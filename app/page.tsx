@@ -72,7 +72,7 @@ const modules = [
     benefit:
       "Replace reactive tender chasing with timing-led engagement plans.",
     workflowRole: "Timing intelligence",
-    label: "Predictive Layer",
+    label: "Forecast Layer",
   },
   {
     title: "Competitors",
@@ -175,7 +175,7 @@ const coverageBlocks = [
 const resources = [
   {
     title: "Procurement Intelligence Briefings",
-    body: "Regional and category-level market briefings for teams building predictable public-sector pipeline.",
+    body: "Regional and category-level market briefings for teams building reliable public-sector pipeline.",
   },
   {
     title: "Signal Method Playbooks",

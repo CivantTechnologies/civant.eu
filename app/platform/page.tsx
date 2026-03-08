@@ -1,3 +1,10 @@
+import {
+  CircleGauge,
+  Crosshair,
+  ScanSearch,
+  Target,
+  type LucideIcon,
+} from "lucide-react";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { buildPageMetadata } from "../../lib/seo";
@@ -13,22 +20,22 @@ export const metadata = buildPageMetadata({
 
 const systemLayers = [
   {
-    step: "01",
+    icon: CircleGauge as LucideIcon,
     title: "Unify market context",
     body: "Panorama creates a single intelligence layer across buyers, categories, and procurement momentum.",
   },
   {
-    step: "02",
+    icon: ScanSearch as LucideIcon,
     title: "Select strategic targets",
     body: "Finder narrows the field to institutions and segments aligned to your commercial focus.",
   },
   {
-    step: "03",
-    title: "Predict opportunity timing",
+    icon: Crosshair as LucideIcon,
+    title: "Estimate opportunity timing",
     body: "Forecast applies lifecycle and behavior signals to estimate where opportunities will likely emerge.",
   },
   {
-    step: "04",
+    icon: Target as LucideIcon,
     title: "Execute with confidence",
     body: "Competitors, Alerts, and Bids connect market intelligence to bid planning and team ownership.",
   },
@@ -60,7 +67,7 @@ const modules = [
     benefit:
       "Helps teams engage early, plan resources, and reduce reactive bid cycles.",
     role: "Workflow role: timing intelligence and planning trigger.",
-    label: "Predictive Engine",
+    label: "Forecast Engine",
   },
   {
     title: "Competitors",
@@ -118,9 +125,13 @@ export default function PlatformPage() {
         </div>
         <div className="flow-track">
           {systemLayers.map((layer) => (
-            <article key={layer.step} className="flow-card">
-              <div className="flow-index">{layer.step}</div>
-              <h3 className="card-title">{layer.title}</h3>
+            <article key={layer.title} className="flow-card">
+              <div className="flow-title-row">
+                <span className="flow-icon" aria-hidden="true">
+                  <layer.icon />
+                </span>
+                <h3 className="card-title">{layer.title}</h3>
+              </div>
               <p className="card-body">{layer.body}</p>
             </article>
           ))}
