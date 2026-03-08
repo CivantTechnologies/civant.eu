@@ -1,0 +1,153 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Civant home" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "Civant" [ref=e6]
+        - navigation "Primary" [ref=e7]:
+          - link "Platform" [ref=e8] [cursor=pointer]:
+            - /url: /platform
+          - link "Use Cases" [ref=e9] [cursor=pointer]:
+            - /url: /use-cases
+          - link "Methodology" [ref=e10] [cursor=pointer]:
+            - /url: /methodology
+          - link "Resources" [ref=e11] [cursor=pointer]:
+            - /url: /resources
+          - link "Company" [ref=e12] [cursor=pointer]:
+            - /url: /company
+        - link "Get in Touch" [ref=e13] [cursor=pointer]:
+          - /url: /contact
+    - main [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e17]:
+          - paragraph [ref=e18]: Methodology
+          - heading "How Civant procurement intelligence works" [level=1] [ref=e19]
+          - paragraph [ref=e20]: Civant analyzes historical public procurement data, contract lifecycles, and market activity to identify likely upcoming tender opportunities across European public sector markets.
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - paragraph [ref=e24]: Data Sources
+            - heading "Built on public procurement and contract evidence" [level=2] [ref=e25]
+          - generic [ref=e26]:
+            - article [ref=e27]:
+              - heading "European procurement notices" [level=3] [ref=e28]
+            - article [ref=e29]:
+              - heading "Contract award records" [level=3] [ref=e30]
+            - article [ref=e31]:
+              - heading "Supplier participation data" [level=3] [ref=e32]
+            - article [ref=e33]:
+              - heading "Contract lifecycle information" [level=3] [ref=e34]
+            - article [ref=e35]:
+              - heading "Public expenditure budgets" [level=3] [ref=e36]
+            - article [ref=e37]:
+              - heading "Buyer activity patterns" [level=3] [ref=e38]
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - paragraph [ref=e42]: Core Signals
+            - heading "The procurement-cycle signals Civant tracks continuously" [level=2] [ref=e43]
+          - generic [ref=e44]:
+            - article [ref=e45]:
+              - heading "Procurement history" [level=3] [ref=e46]
+              - paragraph [ref=e47]: Historical notice and award sequences reveal how institutions buy over time.
+            - article [ref=e48]:
+              - heading "Contract duration signals" [level=3] [ref=e49]
+              - paragraph [ref=e50]: Known and inferred contract windows highlight likely retender time ranges.
+            - article [ref=e51]:
+              - heading "Renewal patterns" [level=3] [ref=e52]
+              - paragraph [ref=e53]: Category-level renewal behavior helps identify repeatable procurement cycles.
+            - article [ref=e54]:
+              - heading "Buyer behavior" [level=3] [ref=e55]
+              - paragraph [ref=e56]: Institution-specific buying cadence and category emphasis support targeting accuracy.
+            - article [ref=e57]:
+              - heading "Market participation" [level=3] [ref=e58]
+              - paragraph [ref=e59]: Supplier entry, repeat participation, and award dynamics indicate competitive movement.
+            - article [ref=e60]:
+              - heading "Competitor incumbency exposure" [level=3] [ref=e61]
+              - paragraph [ref=e62]: Incumbent supplier footprint and concentration patterns reveal where competitive defensibility may be strongest.
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - paragraph [ref=e66]: How Analysis Works
+            - heading "From structured procurement data to actionable intelligence" [level=2] [ref=e67]
+          - generic [ref=e68]:
+            - article [ref=e69]:
+              - generic [ref=e70]:
+                - img [ref=e72]
+                - heading "Ingest and normalize" [level=3] [ref=e76]
+              - paragraph [ref=e77]: Civant standardizes procurement data across sources, structures, and jurisdictions.
+            - article [ref=e78]:
+              - generic [ref=e79]:
+                - img [ref=e81]
+                - heading "Extract lifecycle context" [level=3] [ref=e86]
+              - paragraph [ref=e87]: Contract timelines and renewal indicators are modeled into comparable procurement-cycle signals.
+            - article [ref=e88]:
+              - generic [ref=e89]:
+                - img [ref=e91]
+                - heading "Model market behavior" [level=3] [ref=e94]
+              - paragraph [ref=e95]: Participation and award patterns are analyzed to estimate where demand is likely to emerge.
+            - article [ref=e96]:
+              - generic [ref=e97]:
+                - img [ref=e99]
+                - heading "Prioritize opportunities" [level=3] [ref=e103]
+              - paragraph [ref=e104]: Signals are translated into ranked intelligence outputs for planning and execution workflows.
+        - generic [ref=e106]:
+          - generic [ref=e107]:
+            - paragraph [ref=e108]: Validation
+            - heading "Continuously tested against subsequently published tenders" [level=2] [ref=e109]
+            - paragraph [ref=e110]: Civant continuously compares identified procurement-cycle signals with tenders that are later published. This allows signal tuning, confidence calibration, and transparent methodology refinement over time.
+          - article [ref=e111]:
+            - paragraph [ref=e112]:
+              - strong [ref=e113]: "Validation principle:"
+              - text: signal quality is measured by observed downstream publication alignment, not by marketing claims.
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - paragraph [ref=e117]: Responsible Interpretation
+            - heading "Intelligence for planning and prioritization, not guarantees" [level=2] [ref=e118]
+          - article [ref=e119]:
+            - paragraph [ref=e120]: Civant supports earlier planning, sharper prioritization, and better resource allocation. It does not guarantee tender publication dates, procurement decisions, or contract award outcomes.
+        - generic [ref=e123]:
+          - heading "See Civant methodology in practice" [level=2] [ref=e124]
+          - paragraph [ref=e125]: Request a demo to review how Civant methodology applies to your target institutions, categories, and procurement-cycle strategy.
+          - generic [ref=e126]:
+            - link "Request Demo" [ref=e127] [cursor=pointer]:
+              - /url: /contact
+            - link "Explore the Platform" [ref=e128] [cursor=pointer]:
+              - /url: /platform
+    - contentinfo [ref=e129]:
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - heading "Civant" [level=3] [ref=e133]
+            - paragraph [ref=e134]: Product-led intelligence for enterprise teams operating in European public procurement markets.
+          - generic [ref=e135]:
+            - heading "Navigation" [level=3] [ref=e136]
+            - list [ref=e137]:
+              - listitem [ref=e138]:
+                - link "Home" [ref=e139] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e140]:
+                - link "Platform" [ref=e141] [cursor=pointer]:
+                  - /url: /platform
+              - listitem [ref=e142]:
+                - link "Use Cases" [ref=e143] [cursor=pointer]:
+                  - /url: /use-cases
+              - listitem [ref=e144]:
+                - link "Methodology" [ref=e145] [cursor=pointer]:
+                  - /url: /methodology
+              - listitem [ref=e146]:
+                - link "Resources" [ref=e147] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e148]:
+                - link "Company" [ref=e149] [cursor=pointer]:
+                  - /url: /company
+          - generic [ref=e150]:
+            - heading "Contact" [level=3] [ref=e151]
+            - list [ref=e152]:
+              - listitem [ref=e153]:
+                - link "hello@civant.eu" [ref=e154] [cursor=pointer]:
+                  - /url: mailto:hello@civant.eu
+              - listitem [ref=e155]:
+                - link "Request Demo" [ref=e156] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e157]: Registered in Ireland
+        - paragraph [ref=e158]: © 2026 Civant Technologies Limited. All rights reserved.
+  - alert [ref=e159]

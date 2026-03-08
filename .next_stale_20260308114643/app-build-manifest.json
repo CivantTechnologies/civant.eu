@@ -1,0 +1,108 @@
+{
+  "pages": {
+    "/not-found": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/not-found-aaf32b74e32e8949.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/app/_not-found/page-c1bbe1b4bc8170a6.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/css/36110b3647016d5e.css",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/layout-afab305f918dc8e5.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/contact/page-de18172e67919ddb.js"
+    ],
+    "/methodology/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/methodology/page-15506de31a57ba64.js"
+    ],
+    "/company/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/company/page-93c103c1a2685af9.js"
+    ],
+    "/platform/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/platform/page-958f7efcc6aa9e76.js"
+    ],
+    "/resources/contract-lifecycle-signals/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/resources/contract-lifecycle-signals/page-388cac9f1db34615.js"
+    ],
+    "/resources/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/resources/page-387a5e0cb369a586.js"
+    ],
+    "/use-cases/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/use-cases/page-b6caf47652b70350.js"
+    ],
+    "/resources/public-procurement-cycles/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/resources/public-procurement-cycles/page-8765e9265e38faa5.js"
+    ],
+    "/resources/what-is-procurement-intelligence/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/resources/what-is-procurement-intelligence/page-14dd9de6db6609a6.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-c8441f2d519541e3.js",
+      "static/chunks/fd9d1056-749e5812300142af.js",
+      "static/chunks/117-e5476d4bdcce692a.js",
+      "static/chunks/main-app-7e1779449b5c6116.js",
+      "static/chunks/972-fe008c56cc430895.js",
+      "static/chunks/app/page-04e342254693cafe.js"
+    ]
+  }
+}

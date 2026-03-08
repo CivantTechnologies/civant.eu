@@ -1,0 +1,112 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Civant home" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "Civant" [ref=e6]
+        - button "Open menu" [ref=e7] [cursor=pointer]:
+          - img [ref=e8]
+    - main [ref=e9]:
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: Company
+        - heading "Who we are and why we exist" [level=1] [ref=e13]
+        - paragraph [ref=e14]: Civant was built from practical procurement operating experience and is focused on enabling structured, earlier, and better-timed decisions in public-sector markets.
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: Background
+        - heading "Civant originated from real operational procurement pressure" [level=2] [ref=e19]
+        - paragraph [ref=e20]: Civant Technologies was founded in Ireland by David Manrique, after more than 15 years working in SaaS and educational technology with public-sector buyers and suppliers across international markets.
+        - paragraph [ref=e21]: Over time, David saw strong teams lose opportunities not because solutions were weak, but because tenders surfaced too late and decisions were forced under compressed timelines.
+        - paragraph [ref=e22]: While entering new markets, he manually mapped institutions, incumbents, and renewal cycles with spreadsheets and reminders. That manual process exposed a systemic visibility gap in procurement planning and became the first real iteration of Civant.
+        - paragraph [ref=e23]: "The underlying issue was structural: public procurement data exists, but it has not been consistently usable, connected, or organized for proactive decision-making."
+        - blockquote [ref=e24]:
+          - paragraph [ref=e25]: "\"When preparation replaces reaction, tenders stop being feared and start becoming a viable, repeatable path to growth.\""
+          - paragraph [ref=e26]:
+            - text: — David Manrique
+            - text: Founder, Civant
+        - link "View David Manrique on LinkedIn →" [ref=e27] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/davidmanriquec/
+      - generic [ref=e30]:
+        - paragraph [ref=e31]: Mission
+        - heading "What Civant is built to do" [level=2] [ref=e32]
+        - paragraph [ref=e33]: Civant exists to transform complex public procurement processes into structured, confident, and well-timed decisions for suppliers, buyers, and the public sector.
+      - generic [ref=e36]:
+        - paragraph [ref=e37]: Why This Matters
+        - heading "Procurement intelligence has system-level impact" [level=2] [ref=e38]
+        - paragraph [ref=e39]: Public procurement is designed to support fair competition, stronger outcomes, and responsible use of public funds.
+        - paragraph [ref=e40]: "When preparation time is uneven and timing visibility is poor, those goals weaken: capable suppliers are excluded, buyers receive fewer high-quality responses, and public value is reduced."
+        - paragraph [ref=e41]: Making timing visible helps teams compete on merit rather than reaction speed, improves planning quality, and supports healthier market participation.
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: Commitment to Transparency
+          - heading "How Civant defines its role" [level=2] [ref=e46]
+        - generic [ref=e47]:
+          - article [ref=e48]:
+            - heading "What Civant is" [level=3] [ref=e49]
+            - list [ref=e50]:
+              - listitem [ref=e51]: Civant brings visibility to public procurement opportunities.
+              - listitem [ref=e52]: Civant reconciles and normalizes data from EU and national procurement sources.
+              - listitem [ref=e53]: Civant analyzes publicly available procurement data.
+              - listitem [ref=e54]: Civant supports earlier preparation and more intentional planning.
+          - article [ref=e55]:
+            - heading "What Civant is not" [level=3] [ref=e56]
+            - list [ref=e57]:
+              - listitem [ref=e58]: Civant is not an insider tool or source of non-public information.
+              - listitem [ref=e59]: Civant is not a tender issuer, influencer, or intermediary.
+              - listitem [ref=e60]: Civant does not guarantee tender outcomes.
+              - listitem [ref=e61]: Civant does not replace sales strategy, account management expertise, or commercial judgement.
+      - generic [ref=e64]:
+        - paragraph [ref=e65]: Advisory Network
+        - heading "Guidance from experienced domain and operating leaders" [level=2] [ref=e66]
+        - paragraph [ref=e67]: "Civant benefits from advisors with experience across:"
+        - generic [ref=e68]:
+          - generic [ref=e69]: Public procurement
+          - generic [ref=e70]: Enterprise technology
+          - generic [ref=e71]: Data and analytics
+          - generic [ref=e72]: Go-to-market leadership
+      - generic [ref=e75]:
+        - heading "Continue the conversation" [level=2] [ref=e76]
+        - generic [ref=e77]:
+          - link "Request Demo" [ref=e78] [cursor=pointer]:
+            - /url: /contact
+          - link "Explore the Platform" [ref=e79] [cursor=pointer]:
+            - /url: /platform
+    - contentinfo [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - heading "Civant" [level=3] [ref=e84]
+            - paragraph [ref=e85]: Product-led intelligence for enterprise teams operating in European public procurement markets.
+          - generic [ref=e86]:
+            - heading "Navigation" [level=3] [ref=e87]
+            - list [ref=e88]:
+              - listitem [ref=e89]:
+                - link "Home" [ref=e90] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e91]:
+                - link "Platform" [ref=e92] [cursor=pointer]:
+                  - /url: /platform
+              - listitem [ref=e93]:
+                - link "Use Cases" [ref=e94] [cursor=pointer]:
+                  - /url: /use-cases
+              - listitem [ref=e95]:
+                - link "Methodology" [ref=e96] [cursor=pointer]:
+                  - /url: /methodology
+              - listitem [ref=e97]:
+                - link "Resources" [ref=e98] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e99]:
+                - link "Company" [ref=e100] [cursor=pointer]:
+                  - /url: /company
+          - generic [ref=e101]:
+            - heading "Contact" [level=3] [ref=e102]
+            - list [ref=e103]:
+              - listitem [ref=e104]:
+                - link "hello@civant.eu" [ref=e105] [cursor=pointer]:
+                  - /url: mailto:hello@civant.eu
+              - listitem [ref=e106]:
+                - link "Request Demo" [ref=e107] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e108]: Registered in Ireland
+        - paragraph [ref=e109]: © 2026 Civant Technologies Limited. All rights reserved.
+  - alert [ref=e110]

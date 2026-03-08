@@ -1,0 +1,76 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Civant home" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "Civant" [ref=e6]
+        - button "Open menu" [ref=e7] [cursor=pointer]:
+          - img [ref=e8]
+    - main [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e12]:
+          - paragraph [ref=e13]: Resources
+          - heading "Procurement intelligence insights" [level=1] [ref=e14]
+          - paragraph [ref=e15]: Civant resources explain how procurement-cycle intelligence supports earlier planning, stronger prioritization, and better execution in public-sector markets.
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - paragraph [ref=e19]: Foundational Articles
+            - heading "Start with the core concepts behind Civant" [level=2] [ref=e20]
+          - generic [ref=e21]:
+            - link "What Is Procurement Intelligence? A practical explanation of procurement intelligence, why alert-only tools are limited, and how cycle-based analysis improves planning. Read Article" [ref=e22] [cursor=pointer]:
+              - /url: /resources/what-is-procurement-intelligence
+              - heading "What Is Procurement Intelligence?" [level=2] [ref=e23]
+              - paragraph [ref=e24]: A practical explanation of procurement intelligence, why alert-only tools are limited, and how cycle-based analysis improves planning.
+              - generic [ref=e25]: Read Article
+            - link "Public Procurement Cycles How public procurement cycles operate, how contract duration and renewal patterns influence timing, and why buyer behavior matters. Read Article" [ref=e26] [cursor=pointer]:
+              - /url: /resources/public-procurement-cycles
+              - heading "Public Procurement Cycles" [level=2] [ref=e27]
+              - paragraph [ref=e28]: How public procurement cycles operate, how contract duration and renewal patterns influence timing, and why buyer behavior matters.
+              - generic [ref=e29]: Read Article
+            - link "Contract Lifecycle Signals How contract lifecycle indicators and historical procurement data can reveal likely upcoming tender opportunities. Read Article" [ref=e30] [cursor=pointer]:
+              - /url: /resources/contract-lifecycle-signals
+              - heading "Contract Lifecycle Signals" [level=2] [ref=e31]
+              - paragraph [ref=e32]: How contract lifecycle indicators and historical procurement data can reveal likely upcoming tender opportunities.
+              - generic [ref=e33]: Read Article
+          - link "Request Demo" [ref=e35] [cursor=pointer]:
+            - /url: /contact
+    - contentinfo [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "Civant" [level=3] [ref=e40]
+            - paragraph [ref=e41]: Product-led intelligence for enterprise teams operating in European public procurement markets.
+          - generic [ref=e42]:
+            - heading "Navigation" [level=3] [ref=e43]
+            - list [ref=e44]:
+              - listitem [ref=e45]:
+                - link "Home" [ref=e46] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e47]:
+                - link "Platform" [ref=e48] [cursor=pointer]:
+                  - /url: /platform
+              - listitem [ref=e49]:
+                - link "Use Cases" [ref=e50] [cursor=pointer]:
+                  - /url: /use-cases
+              - listitem [ref=e51]:
+                - link "Methodology" [ref=e52] [cursor=pointer]:
+                  - /url: /methodology
+              - listitem [ref=e53]:
+                - link "Resources" [ref=e54] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e55]:
+                - link "Company" [ref=e56] [cursor=pointer]:
+                  - /url: /company
+          - generic [ref=e57]:
+            - heading "Contact" [level=3] [ref=e58]
+            - list [ref=e59]:
+              - listitem [ref=e60]:
+                - link "hello@civant.eu" [ref=e61] [cursor=pointer]:
+                  - /url: mailto:hello@civant.eu
+              - listitem [ref=e62]:
+                - link "Request Demo" [ref=e63] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e64]: Registered in Ireland
+        - paragraph [ref=e65]: © 2026 Civant Technologies Limited. All rights reserved.
+  - alert [ref=e66]

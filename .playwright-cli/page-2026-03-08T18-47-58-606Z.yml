@@ -1,0 +1,135 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Civant home" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "Civant" [ref=e6]
+        - navigation "Primary" [ref=e7]:
+          - link "Platform" [ref=e8] [cursor=pointer]:
+            - /url: /platform
+          - link "Use Cases" [ref=e9] [cursor=pointer]:
+            - /url: /use-cases
+          - link "Methodology" [ref=e10] [cursor=pointer]:
+            - /url: /methodology
+          - link "Resources" [ref=e11] [cursor=pointer]:
+            - /url: /resources
+          - link "Company" [ref=e12] [cursor=pointer]:
+            - /url: /company
+        - link "Get in Touch" [ref=e13] [cursor=pointer]:
+          - /url: /contact
+    - main [ref=e14]:
+      - generic [ref=e16]:
+        - paragraph [ref=e17]: Platform
+        - heading "Inside the Civant Intelligence Platform" [level=1] [ref=e18]
+        - paragraph [ref=e19]: Civant is a procurement intelligence platform built around procurement cycles. It combines market context, contract lifecycle signals, and participation dynamics to help enterprise teams identify, prioritize, and execute opportunities earlier.
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - paragraph [ref=e23]: How Modules Work Together
+          - heading "One connected workflow from market signal to bid execution" [level=2] [ref=e24]
+          - paragraph [ref=e25]: Each module has a defined role, but the advantage comes from how they connect into a single decision workflow.
+        - generic [ref=e26]:
+          - article [ref=e27]:
+            - generic [ref=e28]: "01"
+            - heading "Unify market context" [level=3] [ref=e29]
+            - paragraph [ref=e30]: Panorama creates a single intelligence layer across buyers, categories, and procurement momentum.
+          - article [ref=e31]:
+            - generic [ref=e32]: "02"
+            - heading "Select strategic targets" [level=3] [ref=e33]
+            - paragraph [ref=e34]: Finder narrows the field to institutions and segments aligned to your commercial focus.
+          - article [ref=e35]:
+            - generic [ref=e36]: "03"
+            - heading "Predict opportunity timing" [level=3] [ref=e37]
+            - paragraph [ref=e38]: Forecast applies lifecycle and behavior signals to estimate where opportunities will likely emerge.
+          - article [ref=e39]:
+            - generic [ref=e40]: "04"
+            - heading "Execute with confidence" [level=3] [ref=e41]
+            - paragraph [ref=e42]: Competitors, Alerts, and Bids connect market intelligence to bid planning and team ownership.
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - paragraph [ref=e46]: Platform Modules
+          - heading "Purpose-built capabilities for each stage" [level=2] [ref=e47]
+        - generic [ref=e48]:
+          - article [ref=e49]:
+            - paragraph [ref=e50]: Market Intelligence
+            - heading "Panorama" [level=3] [ref=e51]
+            - paragraph [ref=e52]: Provides a macro-level view of procurement activity by institution, category, and market segment.
+            - paragraph [ref=e53]: Gives leadership teams a strategic map of where momentum is building or cooling.
+            - paragraph [ref=e54]: "Workflow role: market baseline and opportunity prioritization."
+          - article [ref=e55]:
+            - paragraph [ref=e56]: Target Discovery
+            - heading "Finder" [level=3] [ref=e57]
+            - paragraph [ref=e58]: Discovers buyer organizations, procurement segments, and target categories that match your strategy.
+            - paragraph [ref=e59]: Eliminates broad searching and focuses teams on the highest-fit institutions.
+            - paragraph [ref=e60]: "Workflow role: target account and category selection."
+          - article [ref=e61]:
+            - paragraph [ref=e62]: Predictive Engine
+            - heading "Forecast" [level=3] [ref=e63]
+            - paragraph [ref=e64]: Generates confidence-scored projections for likely procurement windows by buyer and category.
+            - paragraph [ref=e65]: Helps teams engage early, plan resources, and reduce reactive bid cycles.
+            - paragraph [ref=e66]: "Workflow role: timing intelligence and planning trigger."
+          - article [ref=e67]:
+            - paragraph [ref=e68]: Competitive Insight
+            - heading "Competitors" [level=3] [ref=e69]
+            - paragraph [ref=e70]: Tracks incumbent position, participation intensity, and historical win dynamics in target markets.
+            - paragraph [ref=e71]: Improves positioning decisions before committing to high-effort opportunities.
+            - paragraph [ref=e72]: "Workflow role: competitive strategy context."
+          - article [ref=e73]:
+            - paragraph [ref=e74]: Signal Monitoring
+            - heading "Alerts" [level=3] [ref=e75]
+            - paragraph [ref=e76]: Monitors procurement and participation signals across your tracked buyers and categories.
+            - paragraph [ref=e77]: Moves teams from static reporting to time-sensitive action when conditions change.
+            - paragraph [ref=e78]: "Workflow role: operational signal monitoring."
+          - article [ref=e79]:
+            - paragraph [ref=e80]: Execution Workspace
+            - heading "Bids" [level=3] [ref=e81]
+            - paragraph [ref=e82]: Connects intelligence outputs to execution workflows for ownership, timing, and follow-through.
+            - paragraph [ref=e83]: Bridges strategy and delivery so opportunity intelligence becomes measurable execution.
+            - paragraph [ref=e84]: "Workflow role: bid orchestration and accountability."
+      - generic [ref=e87]:
+        - heading "See the platform in your market context" [level=2] [ref=e88]
+        - paragraph [ref=e89]: Request a demo to review how Civant can support your target categories, institutions, and procurement-cycle planning workflow.
+        - generic [ref=e90]:
+          - link "Request Demo" [ref=e91] [cursor=pointer]:
+            - /url: /contact
+          - link "Explore Use Cases" [ref=e92] [cursor=pointer]:
+            - /url: /use-cases
+    - contentinfo [ref=e93]:
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - heading "Civant" [level=3] [ref=e97]
+            - paragraph [ref=e98]: Product-led intelligence for enterprise teams operating in European public procurement markets.
+          - generic [ref=e99]:
+            - heading "Navigation" [level=3] [ref=e100]
+            - list [ref=e101]:
+              - listitem [ref=e102]:
+                - link "Home" [ref=e103] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e104]:
+                - link "Platform" [ref=e105] [cursor=pointer]:
+                  - /url: /platform
+              - listitem [ref=e106]:
+                - link "Use Cases" [ref=e107] [cursor=pointer]:
+                  - /url: /use-cases
+              - listitem [ref=e108]:
+                - link "Methodology" [ref=e109] [cursor=pointer]:
+                  - /url: /methodology
+              - listitem [ref=e110]:
+                - link "Resources" [ref=e111] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e112]:
+                - link "Company" [ref=e113] [cursor=pointer]:
+                  - /url: /company
+          - generic [ref=e114]:
+            - heading "Contact" [level=3] [ref=e115]
+            - list [ref=e116]:
+              - listitem [ref=e117]:
+                - link "hello@civant.eu" [ref=e118] [cursor=pointer]:
+                  - /url: mailto:hello@civant.eu
+              - listitem [ref=e119]:
+                - link "Request Demo" [ref=e120] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e121]: Registered in Ireland
+        - paragraph [ref=e122]: © 2026 Civant Technologies Limited. All rights reserved.
+  - alert [ref=e123]

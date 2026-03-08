@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://civant.eu
+Sitemap: https://civant.eu/sitemap.xml

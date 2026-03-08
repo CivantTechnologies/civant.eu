@@ -1,0 +1,256 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Civant home" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "Civant" [ref=e6]
+        - navigation "Primary" [ref=e7]:
+          - link "Platform" [ref=e8] [cursor=pointer]:
+            - /url: /platform
+          - link "Use Cases" [ref=e9] [cursor=pointer]:
+            - /url: /use-cases
+          - link "Methodology" [ref=e10] [cursor=pointer]:
+            - /url: /methodology
+          - link "Resources" [ref=e11] [cursor=pointer]:
+            - /url: /resources
+          - link "Company" [ref=e12] [cursor=pointer]:
+            - /url: /company
+        - link "Get in Touch" [ref=e13] [cursor=pointer]:
+          - /url: /contact
+    - main [ref=e14]:
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: Procurement Intelligence Platform
+        - heading "Win Before the Tender" [level=1] [ref=e19]
+        - paragraph [ref=e20]: Civant analyzes procurement history, contract lifecycles, and market activity to surface likely upcoming tenders across European public sector markets.
+        - generic [ref=e21]:
+          - link "Request Demo" [ref=e22] [cursor=pointer]:
+            - /url: /contact
+          - link "Explore the Platform" [ref=e23] [cursor=pointer]:
+            - /url: /platform
+        - paragraph [ref=e24]: Built on European procurement data and continuously validated against published tenders.
+        - generic [ref=e25]:
+          - article [ref=e26]:
+            - paragraph [ref=e27]: Coverage Focus
+            - paragraph [ref=e28]: EU Public Sector Markets
+          - article [ref=e29]:
+            - paragraph [ref=e30]: Signal Model
+            - paragraph [ref=e31]: Lifecycle + Participation
+          - article [ref=e32]:
+            - paragraph [ref=e33]: Verification Loop
+            - paragraph [ref=e34]: Checked Against Published Tenders
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - paragraph [ref=e38]: How Civant Works
+          - heading "Four connected layers from data signal to action" [level=2] [ref=e39]
+        - generic [ref=e40]:
+          - article [ref=e41]:
+            - generic [ref=e42]:
+              - img [ref=e44]
+              - heading "Procurement history" [level=3] [ref=e48]
+            - paragraph [ref=e49]: Structured historical records reveal recurring institutional purchasing behavior and category cadence.
+          - article [ref=e50]:
+            - generic [ref=e51]:
+              - img [ref=e53]
+              - heading "Contract lifecycle signals" [level=3] [ref=e57]
+            - paragraph [ref=e58]: Duration windows and renewal patterns surface likely retender windows before publication.
+          - article [ref=e59]:
+            - generic [ref=e60]:
+              - img [ref=e62]
+              - heading "Market activity analysis" [level=3] [ref=e64]
+            - paragraph [ref=e65]: Supplier participation and award outcomes expose shifts in competitive pressure and buyer intent.
+          - article [ref=e66]:
+            - generic [ref=e67]:
+              - img [ref=e69]
+              - heading "Actionable insights" [level=3] [ref=e73]
+            - paragraph [ref=e74]: Civant turns signal complexity into ranked opportunities and clear action paths for teams.
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - paragraph [ref=e78]: Platform Overview
+          - heading "A modular procurement intelligence platform" [level=2] [ref=e79]
+          - paragraph [ref=e80]: Designed to move enterprise teams from reactive monitoring to proactive market positioning.
+        - generic [ref=e81]:
+          - article [ref=e82]:
+            - paragraph [ref=e83]: Market View
+            - heading "Panorama" [level=3] [ref=e84]
+            - paragraph [ref=e85]: Unified market-wide visibility across buyers, categories, and procurement momentum.
+            - paragraph [ref=e86]: See where activity is accelerating before teams commit effort to the wrong markets.
+            - paragraph [ref=e87]: Prioritization baseline
+          - article [ref=e88]:
+            - paragraph [ref=e89]: Target Discovery
+            - heading "Finder" [level=3] [ref=e90]
+            - paragraph [ref=e91]: High-precision discovery of institutions, buyer segments, and categories that fit your strategy.
+            - paragraph [ref=e92]: Focus account planning on opportunities that match your commercial strengths.
+            - paragraph [ref=e93]: Target selection
+          - article [ref=e94]:
+            - paragraph [ref=e95]: Predictive Layer
+            - heading "Forecast" [level=3] [ref=e96]
+            - paragraph [ref=e97]: Confidence-scored forecasts for likely tender timing by buyer, segment, and category.
+            - paragraph [ref=e98]: Replace reactive tender chasing with timing-led engagement plans.
+            - paragraph [ref=e99]: Timing intelligence
+          - article [ref=e100]:
+            - paragraph [ref=e101]: Competitive Signal
+            - heading "Competitors" [level=3] [ref=e102]
+            - paragraph [ref=e103]: Track incumbent footprint, participation trends, and win patterns across key accounts.
+            - paragraph [ref=e104]: Understand competitive pressure before deciding where to position or partner.
+            - paragraph [ref=e105]: Competitive strategy
+          - article [ref=e106]:
+            - paragraph [ref=e107]: Monitoring
+            - heading "Alerts" [level=3] [ref=e108]
+            - paragraph [ref=e109]: Real-time notifications when procurement signals shift across your strategic targets.
+            - paragraph [ref=e110]: Trigger action when market conditions change instead of reviewing static dashboards.
+            - paragraph [ref=e111]: Signal monitoring
+          - article [ref=e112]:
+            - paragraph [ref=e113]: Execution
+            - heading "Bids" [level=3] [ref=e114]
+            - paragraph [ref=e115]: Execution workspace that links opportunity intelligence to bid planning and ownership.
+            - paragraph [ref=e116]: Connect intelligence directly to delivery workflows and accountability.
+            - paragraph [ref=e117]: Execution orchestration
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - paragraph [ref=e121]: Use Cases Preview
+          - heading "Built for high-accountability teams" [level=2] [ref=e122]
+        - generic [ref=e123]:
+          - article [ref=e124]:
+            - heading "Bid Management Teams" [level=3] [ref=e125]
+            - paragraph [ref=e126]: Prioritize likely near-term opportunities and allocate bid resources before deadlines compress.
+          - article [ref=e127]:
+            - heading "Sales & Partnerships" [level=3] [ref=e128]
+            - paragraph [ref=e129]: Engage accounts earlier, align partnerships faster, and improve timing in strategic public deals.
+          - article [ref=e130]:
+            - heading "Market Intelligence Teams" [level=3] [ref=e131]
+            - paragraph [ref=e132]: Track demand shifts, buyer behavior, and participation dynamics with a continuously updated signal base.
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - paragraph [ref=e136]: Why Civant
+          - heading "More than tender monitoring. Built for procurement intelligence." [level=2] [ref=e137]
+        - generic [ref=e138]:
+          - article [ref=e139]:
+            - paragraph [ref=e140]: Primary output
+            - paragraph [ref=e141]:
+              - strong [ref=e142]: "Monitoring tools:"
+              - text: Alerts for already published tenders
+            - paragraph [ref=e143]:
+              - strong [ref=e144]: "Civant:"
+              - text: Likely upcoming opportunity windows with confidence context
+          - article [ref=e145]:
+            - paragraph [ref=e146]: Timing advantage
+            - paragraph [ref=e147]:
+              - strong [ref=e148]: "Monitoring tools:"
+              - text: Post-publication visibility
+            - paragraph [ref=e149]:
+              - strong [ref=e150]: "Civant:"
+              - text: Pre-publication preparation signal
+          - article [ref=e151]:
+            - paragraph [ref=e152]: Decision layer
+            - paragraph [ref=e153]:
+              - strong [ref=e154]: "Monitoring tools:"
+              - text: Notification feed
+            - paragraph [ref=e155]:
+              - strong [ref=e156]: "Civant:"
+              - text: Intelligence workflow for prioritization and execution
+        - generic [ref=e157]:
+          - article [ref=e158]:
+            - heading "Contract lifecycle intelligence" [level=3] [ref=e159]
+            - paragraph [ref=e160]: Civant models contract windows and renewal behavior to identify where demand is likely to emerge before publication.
+          - article [ref=e161]:
+            - heading "Procurement behavior analysis" [level=3] [ref=e162]
+            - paragraph [ref=e163]: Civant analyzes how institutions actually buy over time, revealing repeatable decision patterns that alerts alone miss.
+          - article [ref=e164]:
+            - heading "Market participation signals" [level=3] [ref=e165]
+            - paragraph [ref=e166]: Civant quantifies supplier participation and award outcomes to expose where competition is strengthening or fragmenting.
+      - generic [ref=e168]:
+        - generic [ref=e169]:
+          - paragraph [ref=e170]: Data Coverage
+          - heading "Credible inputs engineered for enterprise decision confidence" [level=2] [ref=e171]
+        - generic [ref=e172]:
+          - article [ref=e173]:
+            - heading "Core datasets" [level=3] [ref=e174]
+            - list [ref=e175]:
+              - listitem [ref=e176]: European procurement datasets
+              - listitem [ref=e177]: Award records and outcomes
+              - listitem [ref=e178]: Supplier participation histories
+              - listitem [ref=e179]: Contract lifecycle information
+          - article [ref=e180]:
+            - heading "Signal quality framework" [level=3] [ref=e181]
+            - list [ref=e182]:
+              - listitem [ref=e183]: Cross-source normalization
+              - listitem [ref=e184]: Deterministic enrichment and mapping
+              - listitem [ref=e185]: Confidence-based prioritization
+              - listitem [ref=e186]: Continuous verification against published tenders
+        - paragraph [ref=e187]: Data quality is continuously monitored as new tenders and awards are published across covered markets.
+      - generic [ref=e189]:
+        - generic [ref=e190]:
+          - paragraph [ref=e191]: Resources Preview
+          - heading "A growing authority layer for procurement intelligence teams" [level=2] [ref=e192]
+        - generic [ref=e193]:
+          - article [ref=e194]:
+            - heading "Procurement Intelligence Briefings" [level=3] [ref=e195]
+            - paragraph [ref=e196]: Regional and category-level market briefings for teams building predictable public-sector pipeline.
+          - article [ref=e197]:
+            - heading "Signal Method Playbooks" [level=3] [ref=e198]
+            - paragraph [ref=e199]: Practical guides for translating procurement and contract lifecycle data into commercial actions.
+          - article [ref=e200]:
+            - heading "Platform Notes" [level=3] [ref=e201]
+            - paragraph [ref=e202]: Product insights on how enterprise teams operationalize Civant forecasts and monitoring workflows.
+        - link "Explore Resources" [ref=e204] [cursor=pointer]:
+          - /url: /resources
+      - generic [ref=e207]:
+        - generic [ref=e208]:
+          - paragraph [ref=e209]: About Civant Preview
+          - heading "An Irish-founded company focused on European procurement intelligence" [level=2] [ref=e210]
+          - paragraph [ref=e211]: Civant is building a durable intelligence platform for teams that need better timing, sharper prioritization, and stronger strategic preparation in public-sector markets.
+          - link "Learn About Civant" [ref=e213] [cursor=pointer]:
+            - /url: /company
+        - article [ref=e214]:
+          - heading "Enterprise credibility focus" [level=3] [ref=e215]
+          - list [ref=e216]:
+            - listitem [ref=e217]: Deterministic data workflows with explainable outputs
+            - listitem [ref=e218]: Procurement-cycle intelligence over alert-only feeds
+            - listitem [ref=e219]: Positioned for cross-market expansion across Europe
+      - generic [ref=e222]:
+        - heading "Start mastering procurement cycles" [level=2] [ref=e223]
+        - generic [ref=e224]:
+          - link "Request Demo" [ref=e225] [cursor=pointer]:
+            - /url: /contact
+          - link "Explore the Platform" [ref=e226] [cursor=pointer]:
+            - /url: /platform
+    - contentinfo [ref=e227]:
+      - generic [ref=e228]:
+        - generic [ref=e229]:
+          - generic [ref=e230]:
+            - heading "Civant" [level=3] [ref=e231]
+            - paragraph [ref=e232]: Product-led intelligence for enterprise teams operating in European public procurement markets.
+          - generic [ref=e233]:
+            - heading "Navigation" [level=3] [ref=e234]
+            - list [ref=e235]:
+              - listitem [ref=e236]:
+                - link "Home" [ref=e237] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e238]:
+                - link "Platform" [ref=e239] [cursor=pointer]:
+                  - /url: /platform
+              - listitem [ref=e240]:
+                - link "Use Cases" [ref=e241] [cursor=pointer]:
+                  - /url: /use-cases
+              - listitem [ref=e242]:
+                - link "Methodology" [ref=e243] [cursor=pointer]:
+                  - /url: /methodology
+              - listitem [ref=e244]:
+                - link "Resources" [ref=e245] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e246]:
+                - link "Company" [ref=e247] [cursor=pointer]:
+                  - /url: /company
+          - generic [ref=e248]:
+            - heading "Contact" [level=3] [ref=e249]
+            - list [ref=e250]:
+              - listitem [ref=e251]:
+                - link "hello@civant.eu" [ref=e252] [cursor=pointer]:
+                  - /url: mailto:hello@civant.eu
+              - listitem [ref=e253]:
+                - link "Request Demo" [ref=e254] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e255]: Registered in Ireland
+        - paragraph [ref=e256]: © 2026 Civant Technologies Limited. All rights reserved.
+  - alert [ref=e257]

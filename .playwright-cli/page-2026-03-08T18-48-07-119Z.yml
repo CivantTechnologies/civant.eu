@@ -1,0 +1,116 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Civant home" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "Civant" [ref=e6]
+        - navigation "Primary" [ref=e7]:
+          - link "Platform" [ref=e8] [cursor=pointer]:
+            - /url: /platform
+          - link "Use Cases" [ref=e9] [cursor=pointer]:
+            - /url: /use-cases
+          - link "Methodology" [ref=e10] [cursor=pointer]:
+            - /url: /methodology
+          - link "Resources" [ref=e11] [cursor=pointer]:
+            - /url: /resources
+          - link "Company" [ref=e12] [cursor=pointer]:
+            - /url: /company
+        - link "Get in Touch" [ref=e13] [cursor=pointer]:
+          - /url: /contact
+    - main [ref=e14]:
+      - generic [ref=e16]:
+        - paragraph [ref=e17]: Contact
+        - heading "Contact the Civant Team" [level=1] [ref=e18]
+        - paragraph [ref=e19]: Select the path that matches your request. We route each inquiry type directly to the right team so follow-up is faster and more relevant.
+      - generic [ref=e22]:
+        - heading "How can we help?" [level=2] [ref=e23]
+        - article [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]: Name *
+              - textbox "Name *" [ref=e28]:
+                - /placeholder: Your name
+            - generic [ref=e29]:
+              - generic [ref=e30]: Email *
+              - textbox "Email *" [ref=e31]:
+                - /placeholder: email@example.com
+            - generic [ref=e32]:
+              - generic [ref=e33]: Conversation topic *
+              - combobox "Conversation topic *" [ref=e34]:
+                - option "Select one" [selected]
+                - option "Grants & Funding"
+                - option "Investment & Finance"
+                - option "Partnerships"
+                - option "Research & Collaboration"
+            - generic [ref=e35]:
+              - generic [ref=e36]: Message *
+              - textbox "Message *" [ref=e37]:
+                - /placeholder: Tell us what you'd like to discuss
+            - button "Send" [disabled] [ref=e38]
+            - generic [ref=e39]:
+              - generic [ref=e40]:
+                - checkbox "I consent to Civant storing and processing my contact details and message for the purpose of responding to this enquiry. *" [ref=e41]
+                - generic [ref=e42]: I consent to Civant storing and processing my contact details and message for the purpose of responding to this enquiry. *
+              - generic [ref=e43]:
+                - checkbox "I would like to receive occasional updates and insights from Civant. (Optional)" [ref=e44]
+                - generic [ref=e45]: I would like to receive occasional updates and insights from Civant. (Optional)
+            - paragraph [ref=e46]: We typically respond within two business days. We only use your details to respond to your enquiry. You can unsubscribe from updates at any time.
+      - generic [ref=e49]:
+        - heading "Common reasons people reach out" [level=3] [ref=e50]
+        - generic [ref=e51]:
+          - button "Grants & Funding EU and national grant programs, innovation funding, ecosystem support" [ref=e52] [cursor=pointer]:
+            - img [ref=e54]
+            - heading "Grants & Funding" [level=4] [ref=e56]
+            - paragraph [ref=e57]: EU and national grant programs, innovation funding, ecosystem support
+          - button "Investment & Finance Angel, seed, and early-stage investment conversations" [ref=e58] [cursor=pointer]:
+            - img [ref=e60]
+            - heading "Investment & Finance" [level=4] [ref=e63]
+            - paragraph [ref=e64]: Angel, seed, and early-stage investment conversations
+          - button "Partnerships Commercial partnerships, pilot opportunities, strategic collaboration" [ref=e65] [cursor=pointer]:
+            - img [ref=e67]
+            - heading "Partnerships" [level=4] [ref=e72]
+            - paragraph [ref=e73]: Commercial partnerships, pilot opportunities, strategic collaboration
+          - button "Research & Collaboration Academic partnerships, procurement research, data science collaboration" [ref=e74] [cursor=pointer]:
+            - img [ref=e76]
+            - heading "Research & Collaboration" [level=4] [ref=e79]
+            - paragraph [ref=e80]: Academic partnerships, procurement research, data science collaboration
+    - contentinfo [ref=e81]:
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - generic [ref=e84]:
+            - heading "Civant" [level=3] [ref=e85]
+            - paragraph [ref=e86]: Product-led intelligence for enterprise teams operating in European public procurement markets.
+          - generic [ref=e87]:
+            - heading "Navigation" [level=3] [ref=e88]
+            - list [ref=e89]:
+              - listitem [ref=e90]:
+                - link "Home" [ref=e91] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e92]:
+                - link "Platform" [ref=e93] [cursor=pointer]:
+                  - /url: /platform
+              - listitem [ref=e94]:
+                - link "Use Cases" [ref=e95] [cursor=pointer]:
+                  - /url: /use-cases
+              - listitem [ref=e96]:
+                - link "Methodology" [ref=e97] [cursor=pointer]:
+                  - /url: /methodology
+              - listitem [ref=e98]:
+                - link "Resources" [ref=e99] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e100]:
+                - link "Company" [ref=e101] [cursor=pointer]:
+                  - /url: /company
+          - generic [ref=e102]:
+            - heading "Contact" [level=3] [ref=e103]
+            - list [ref=e104]:
+              - listitem [ref=e105]:
+                - link "hello@civant.eu" [ref=e106] [cursor=pointer]:
+                  - /url: mailto:hello@civant.eu
+              - listitem [ref=e107]:
+                - link "Request Demo" [ref=e108] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e109]: Registered in Ireland
+        - paragraph [ref=e110]: © 2026 Civant Technologies Limited. All rights reserved.
+  - alert [ref=e111]

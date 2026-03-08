@@ -1,0 +1,111 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Civant home" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "Civant" [ref=e6]
+        - button "Open menu" [ref=e7] [cursor=pointer]:
+          - img [ref=e8]
+    - main [ref=e9]:
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: Use Cases
+        - heading "How teams apply Civant in public-sector markets" [level=1] [ref=e13]
+        - paragraph [ref=e14]: Civant supports organizations operating in public-sector markets by translating procurement-cycle signals into practical planning and execution workflows.
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - paragraph [ref=e18]: Primary Audiences
+          - heading "Three high-impact use cases for procurement intelligence" [level=2] [ref=e19]
+        - generic [ref=e20]:
+          - article [ref=e21]:
+            - heading "Bid Management Teams" [level=2] [ref=e22]
+            - generic [ref=e23]:
+              - article [ref=e24]:
+                - paragraph [ref=e25]: Core challenge
+                - paragraph [ref=e26]: Teams are often forced into late-stage bid decisions with limited preparation time and unclear opportunity quality.
+              - article [ref=e27]:
+                - paragraph [ref=e28]: How Civant helps
+                - paragraph [ref=e29]: Civant identifies likely upcoming opportunities earlier, ranks signal strength, and helps teams sequence effort before deadlines compress.
+              - article [ref=e30]:
+                - paragraph [ref=e31]: Practical outcomes
+                - list [ref=e32]:
+                  - listitem [ref=e33]: Better bid resource allocation across high-probability targets
+                  - listitem [ref=e34]: Earlier qualification and go/no-go decisions
+                  - listitem [ref=e35]: Reduced reactive workload from last-minute tender discovery
+          - article [ref=e36]:
+            - heading "Sales & Partnerships" [level=2] [ref=e37]
+            - generic [ref=e38]:
+              - article [ref=e39]:
+                - paragraph [ref=e40]: Core challenge
+                - paragraph [ref=e41]: Account teams struggle to time engagement in public-sector markets where buying cycles are opaque and relationship windows are narrow.
+              - article [ref=e42]:
+                - paragraph [ref=e43]: How Civant helps
+                - paragraph [ref=e44]: Civant maps procurement cycles and buyer behavior so commercial teams can engage accounts and partners before formal tender publication.
+              - article [ref=e45]:
+                - paragraph [ref=e46]: Practical outcomes
+                - list [ref=e47]:
+                  - listitem [ref=e48]: Improved account timing and stakeholder planning
+                  - listitem [ref=e49]: Stronger partner alignment before bid windows open
+                  - listitem [ref=e50]: More strategic, less reactive public-sector pipeline development
+          - article [ref=e51]:
+            - heading "Market Intelligence Teams" [level=2] [ref=e52]
+            - generic [ref=e53]:
+              - article [ref=e54]:
+                - paragraph [ref=e55]: Core challenge
+                - paragraph [ref=e56]: Analysts need to monitor fragmented procurement data and explain market movement to leadership with confidence.
+              - article [ref=e57]:
+                - paragraph [ref=e58]: How Civant helps
+                - paragraph [ref=e59]: Civant consolidates procurement and participation signals into one intelligence layer with clear contextual interpretation.
+              - article [ref=e60]:
+                - paragraph [ref=e61]: Practical outcomes
+                - list [ref=e62]:
+                  - listitem [ref=e63]: Faster market monitoring across institutions and categories
+                  - listitem [ref=e64]: Clearer visibility into participation and competitive shifts
+                  - listitem [ref=e65]: Actionable insight outputs for commercial and bid teams
+      - generic [ref=e68]:
+        - heading "See your team’s use case in a live walkthrough" [level=2] [ref=e69]
+        - paragraph [ref=e70]: Request a demo to review the Civant workflow most relevant to your team’s priorities.
+        - generic [ref=e71]:
+          - link "Request Demo" [ref=e72] [cursor=pointer]:
+            - /url: /contact
+          - link "Explore the Platform" [ref=e73] [cursor=pointer]:
+            - /url: /platform
+    - contentinfo [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - heading "Civant" [level=3] [ref=e78]
+            - paragraph [ref=e79]: Product-led intelligence for enterprise teams operating in European public procurement markets.
+          - generic [ref=e80]:
+            - heading "Navigation" [level=3] [ref=e81]
+            - list [ref=e82]:
+              - listitem [ref=e83]:
+                - link "Home" [ref=e84] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e85]:
+                - link "Platform" [ref=e86] [cursor=pointer]:
+                  - /url: /platform
+              - listitem [ref=e87]:
+                - link "Use Cases" [ref=e88] [cursor=pointer]:
+                  - /url: /use-cases
+              - listitem [ref=e89]:
+                - link "Methodology" [ref=e90] [cursor=pointer]:
+                  - /url: /methodology
+              - listitem [ref=e91]:
+                - link "Resources" [ref=e92] [cursor=pointer]:
+                  - /url: /resources
+              - listitem [ref=e93]:
+                - link "Company" [ref=e94] [cursor=pointer]:
+                  - /url: /company
+          - generic [ref=e95]:
+            - heading "Contact" [level=3] [ref=e96]
+            - list [ref=e97]:
+              - listitem [ref=e98]:
+                - link "hello@civant.eu" [ref=e99] [cursor=pointer]:
+                  - /url: mailto:hello@civant.eu
+              - listitem [ref=e100]:
+                - link "Request Demo" [ref=e101] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e102]: Registered in Ireland
+        - paragraph [ref=e103]: © 2026 Civant Technologies Limited. All rights reserved.
+  - alert [ref=e104]
