@@ -1,5 +1,5 @@
 {
-  "name": "base44-app",
+  "name": "civant-marketing-site",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -26,8 +26,6 @@
     "setup:hooks": "git config core.hooksPath .githooks && chmod +x .githooks/pre-commit .githooks/pre-push"
   },
   "dependencies": {
-    "@base44/sdk": "^0.8.3",
-    "@base44/vite-plugin": "^0.2.15",
     "@hello-pangea/dnd": "^17.0.0",
     "@hookform/resolvers": "^4.1.2",
     "@radix-ui/react-accordion": "^1.2.3",

@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import { TOP_LEVEL_ROUTES } from "../../lib/routes";
 import { PageContainer } from "./PageContainer";
 
-const BRAND_LOGO_URL =
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/697a52afa63291e0147b78b4/ba393f483_CivantLogo.png";
+const BRAND_LOGO_URL = "/civant-logo.png";
 
 export function Navbar() {
   const pathname = usePathname() ?? "";
