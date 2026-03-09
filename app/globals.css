@@ -383,7 +383,22 @@ a {
   z-index: 0;
 }
 
+.home-hero-watermark {
+  position: absolute;
+  inset: -34% -22% -26%;
+  background-image: url("https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/697a52afa63291e0147b78b4/0733be937_Civant-Micrologo.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(98vw, 1160px) auto;
+  opacity: 0.028;
+  filter: saturate(0.78) blur(0.2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .home-hero-container {
+  position: relative;
+  z-index: 1;
   width: min(1280px, calc(100% - 2rem));
 }
 

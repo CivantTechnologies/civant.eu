@@ -24,81 +24,57 @@ const howItWorks = [
     step: "01",
     icon: CircleGauge as LucideIcon,
     title: "Procurement history",
-    body: "Structured historical records reveal recurring institutional purchasing behavior and category cadence.",
+    body: "Historical procurement records reveal recurring buying cadence.",
   },
   {
     step: "02",
     icon: CalendarClock as LucideIcon,
     title: "Contract lifecycle signals",
-    body: "Duration windows and renewal patterns surface likely retender windows before publication.",
+    body: "Lifecycle and renewal windows indicate likely retender periods.",
   },
   {
     step: "03",
     icon: Activity as LucideIcon,
     title: "Market activity analysis",
-    body: "Supplier participation and award outcomes expose shifts in competitive pressure and buyer intent.",
+    body: "Participation and award patterns surface demand and competition shifts.",
   },
   {
     step: "04",
     icon: Target as LucideIcon,
     title: "Actionable insights",
-    body: "Civant turns signal complexity into ranked opportunities and clear action paths for teams.",
+    body: "Signals are ranked into prioritized opportunities and action paths.",
   },
 ];
 
 const modules = [
   {
     title: "Panorama",
-    purpose:
-      "Unified market-wide visibility across buyers, categories, and procurement momentum.",
-    benefit:
-      "See where activity is accelerating before teams commit effort to the wrong markets.",
-    workflowRole: "Prioritization baseline",
+    purpose: "Maps buyer, category, and market momentum in one view.",
     label: "Market View",
   },
   {
     title: "Finder",
-    purpose:
-      "High-precision discovery of institutions, buyer segments, and categories that fit your strategy.",
-    benefit:
-      "Focus account planning on opportunities that match your commercial strengths.",
-    workflowRole: "Target selection",
+    purpose: "Identifies institutions and segments aligned to your focus.",
     label: "Target Discovery",
   },
   {
     title: "Forecast",
-    purpose:
-      "Confidence-scored forecasts for likely tender timing by buyer, segment, and category.",
-    benefit:
-      "Replace reactive tender chasing with timing-led engagement plans.",
-    workflowRole: "Timing intelligence",
+    purpose: "Estimates likely tender windows by buyer, segment, and category.",
     label: "Forecast Layer",
   },
   {
     title: "Competitors",
-    purpose:
-      "Track incumbent footprint, participation trends, and win patterns across key accounts.",
-    benefit:
-      "Understand competitive pressure before deciding where to position or partner.",
-    workflowRole: "Competitive strategy",
+    purpose: "Shows incumbent footprint and competitive pressure by account.",
     label: "Competitive Signal",
   },
   {
     title: "Alerts",
-    purpose:
-      "Real-time notifications when procurement signals shift across your strategic targets.",
-    benefit:
-      "Trigger action when market conditions change instead of reviewing static dashboards.",
-    workflowRole: "Signal monitoring",
+    purpose: "Flags material signal changes across your tracked targets.",
     label: "Monitoring",
   },
   {
     title: "Bids",
-    purpose:
-      "Execution workspace that links opportunity intelligence to bid planning and ownership.",
-    benefit:
-      "Connect intelligence directly to delivery workflows and accountability.",
-    workflowRole: "Execution orchestration",
+    purpose: "Connects intelligence to bid planning, ownership, and follow-through.",
     label: "Execution",
   },
 ];
@@ -106,84 +82,30 @@ const modules = [
 const useCases = [
   {
     title: "Bid Management Teams",
-    body: "Prioritize likely near-term opportunities and allocate bid resources before deadlines compress.",
+    body: "Allocate bid effort earlier on higher-probability opportunities.",
   },
   {
     title: "Sales & Partnerships",
-    body: "Engage accounts earlier, align partnerships faster, and improve timing in strategic public deals.",
+    body: "Time account and partner engagement before tender publication.",
   },
   {
     title: "Market Intelligence Teams",
-    body: "Track demand shifts, buyer behavior, and participation dynamics with a continuously updated signal base.",
+    body: "Deliver clear market signals leadership can prioritize with confidence.",
   },
 ];
 
-const differentiators = [
+const trustBlocks = [
   {
-    title: "Contract lifecycle intelligence",
-    body: "Civant models contract windows and renewal behavior to identify where demand is likely to emerge before publication.",
+    title: "Procurement-cycle intelligence",
+    body: "Civant is built for early planning and prioritization, not post-publication alert chasing.",
   },
   {
-    title: "Procurement behavior analysis",
-    body: "Civant analyzes how institutions actually buy over time, revealing repeatable decision patterns that alerts alone miss.",
+    title: "Built on public procurement evidence",
+    body: "Coverage includes notices, award records, supplier participation, and contract lifecycle data.",
   },
   {
-    title: "Market participation signals",
-    body: "Civant quantifies supplier participation and award outcomes to expose where competition is strengthening or fragmenting.",
-  },
-];
-
-const comparisonRows = [
-  {
-    label: "Primary output",
-    monitoring: "Alerts for already published tenders",
-    civant: "Likely upcoming opportunity windows with confidence context",
-  },
-  {
-    label: "Timing advantage",
-    monitoring: "Post-publication visibility",
-    civant: "Pre-publication preparation signal",
-  },
-  {
-    label: "Decision layer",
-    monitoring: "Notification feed",
-    civant: "Intelligence workflow for prioritization and execution",
-  },
-];
-
-const coverageBlocks = [
-  {
-    title: "Core datasets",
-    items: [
-      "European procurement datasets",
-      "Award records and outcomes",
-      "Supplier participation histories",
-      "Contract lifecycle information",
-    ],
-  },
-  {
-    title: "Signal quality framework",
-    items: [
-      "Cross-source normalization",
-      "Deterministic enrichment and mapping",
-      "Confidence-based prioritization",
-      "Continuous verification against published tenders",
-    ],
-  },
-];
-
-const resources = [
-  {
-    title: "Procurement Intelligence Briefings",
-    body: "Regional and category-level market briefings for teams building reliable public-sector pipeline.",
-  },
-  {
-    title: "Signal Method Playbooks",
-    body: "Practical guides for translating procurement and contract lifecycle data into commercial actions.",
-  },
-  {
-    title: "Platform Notes",
-    body: "Product insights on how enterprise teams operationalize Civant forecasts and monitoring workflows.",
+    title: "Continuously validated",
+    body: "Signals are continuously checked against subsequently published tenders.",
   },
 ];
 
@@ -194,6 +116,7 @@ export default function HomePage() {
         className="hero-block hero-section home-hero"
         containerClassName="home-hero-container"
       >
+        <div className="home-hero-watermark" aria-hidden="true" />
         <div className="home-hero-main">
           <p className="eyebrow">Procurement Intelligence Platform</p>
           <h1 className="headline-xl hero-headline">Win Before the Tender</h1>
@@ -235,6 +158,10 @@ export default function HomePage() {
           <h2 className="headline-lg">
             Four connected layers from data signal to action
           </h2>
+          <p className="text-lead section-intro">
+            A focused sequence that turns fragmented procurement data into
+            prioritized opportunities.
+          </p>
         </div>
         <div className="flow-track">
           {howItWorks.map((item) => (
@@ -258,8 +185,8 @@ export default function HomePage() {
             A modular procurement intelligence platform
           </h2>
           <p className="text-lead section-intro">
-            Designed to move enterprise teams from reactive monitoring to
-            proactive market positioning.
+            A concise preview of the core modules that power planning,
+            prioritization, and execution.
           </p>
         </div>
         <div className="grid grid-3 module-grid">
@@ -268,10 +195,13 @@ export default function HomePage() {
               <p className="module-label">{module.label}</p>
               <h3 className="card-title">{module.title}</h3>
               <p className="card-body">{module.purpose}</p>
-              <p className="module-benefit">{module.benefit}</p>
-              <p className="module-role">{module.workflowRole}</p>
             </article>
           ))}
+        </div>
+        <div className="button-row">
+          <Link href="/platform" className="btn btn-secondary">
+            Explore Platform Details
+          </Link>
         </div>
       </Section>
 
@@ -279,6 +209,10 @@ export default function HomePage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Use Cases Preview</p>
           <h2 className="headline-lg">Built for high-accountability teams</h2>
+          <p className="text-lead section-intro">
+            Three common teams use Civant to plan earlier and execute with
+            tighter focus.
+          </p>
         </div>
         <div className="grid grid-3 use-case-grid">
           {useCases.map((item) => (
@@ -288,72 +222,26 @@ export default function HomePage() {
             </article>
           ))}
         </div>
+        <div className="button-row">
+          <Link href="/use-cases" className="btn btn-secondary">
+            Explore Use Cases
+          </Link>
+        </div>
       </Section>
 
       <Section>
         <div className="section-heading-wrap">
           <p className="eyebrow">Why Civant</p>
           <h2 className="headline-lg">
-            More than tender monitoring. Built for procurement intelligence.
+            Procurement intelligence, not alert-only tender monitoring
           </h2>
-        </div>
-        <div className="comparison-grid">
-          {comparisonRows.map((row) => (
-            <article key={row.label} className="card comparison-card">
-              <p className="module-label">{row.label}</p>
-              <p className="comparison-line">
-                <strong>Monitoring tools:</strong> {row.monitoring}
-              </p>
-              <p className="comparison-line">
-                <strong>Civant:</strong> {row.civant}
-              </p>
-            </article>
-          ))}
+          <p className="text-lead section-intro">
+            Civant combines public procurement evidence, lifecycle analysis, and
+            continuous validation to support stronger enterprise decisions.
+          </p>
         </div>
         <div className="grid grid-3">
-          {differentiators.map((item) => (
-            <article key={item.title} className="card">
-              <h3 className="card-title">{item.title}</h3>
-              <p className="card-body">{item.body}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Data Coverage</p>
-          <h2 className="headline-lg">
-            Credible inputs engineered for enterprise decision confidence
-          </h2>
-        </div>
-        <div className="grid grid-2 coverage-grid">
-          {coverageBlocks.map((block) => (
-            <article key={block.title} className="card">
-              <h3 className="card-title">{block.title}</h3>
-              <ul className="stack-list coverage-list">
-                {block.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-        <p className="cred-line">
-          Data quality is continuously monitored as new tenders and awards are
-          published across covered markets.
-        </p>
-      </Section>
-
-      <Section>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Resources Preview</p>
-          <h2 className="headline-lg">
-            A growing authority layer for procurement intelligence teams
-          </h2>
-        </div>
-        <div className="grid grid-3">
-          {resources.map((item) => (
+          {trustBlocks.map((item) => (
             <article key={item.title} className="card">
               <h3 className="card-title">{item.title}</h3>
               <p className="card-body">{item.body}</p>
@@ -361,39 +249,9 @@ export default function HomePage() {
           ))}
         </div>
         <div className="button-row">
-          <Link href="/resources" className="btn btn-secondary">
-            Explore Resources
+          <Link href="/methodology" className="btn btn-secondary">
+            Explore Methodology
           </Link>
-        </div>
-      </Section>
-
-      <Section muted>
-        <div className="grid grid-2 about-preview-grid">
-          <div>
-            <p className="eyebrow">About Civant Preview</p>
-            <h2 className="headline-lg">
-              An Irish-founded company focused on European procurement
-              intelligence
-            </h2>
-            <p className="text-lead section-intro">
-              Civant is building a durable intelligence platform for teams that
-              need better timing, sharper prioritization, and stronger strategic
-              preparation in public-sector markets.
-            </p>
-            <div className="button-row">
-              <Link href="/company" className="btn btn-secondary">
-                Learn About Civant
-              </Link>
-            </div>
-          </div>
-          <article className="card">
-            <h3 className="card-title">Enterprise credibility focus</h3>
-            <ul className="stack-list coverage-list">
-              <li>Deterministic data workflows with explainable outputs</li>
-              <li>Procurement-cycle intelligence over alert-only feeds</li>
-              <li>Positioned for cross-market expansion across Europe</li>
-            </ul>
-          </article>
         </div>
       </Section>
 
