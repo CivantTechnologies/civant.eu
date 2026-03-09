@@ -567,9 +567,7 @@ function RoiCalculator() {
       </div>
 
       <p style={{ fontSize: "0.75rem", color: "#4b5563", marginTop: "1.2rem", lineHeight: 1.6 }}>
-        * Based on 40% more opportunities identified through early signals and a 35% relative win
-        rate improvement from better preparation, earlier positioning, and buyer relationship
-        development. Actual results will vary.
+        *Based on industry averages. Your results will vary.
       </p>
     </div>
   );
