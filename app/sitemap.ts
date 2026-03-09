@@ -25,5 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route.priority,
   }));
 
-  return [...topLevelEntries, ...resourceEntries];
+  const legalEntries: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/legal/terms`, lastModified, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/legal/privacy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/legal/fair-use`, lastModified, changeFrequency: "yearly", priority: 0.3 },
+  ];
+
+  return [...topLevelEntries, ...resourceEntries, ...legalEntries];
 }

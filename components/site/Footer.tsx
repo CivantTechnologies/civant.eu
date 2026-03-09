@@ -25,6 +25,20 @@ export function Footer() {
             </ul>
           </div>
           <div>
+            <h3 className="footer-title">Legal</h3>
+            <ul className="footer-list">
+              <li>
+                <Link href="/legal/terms">Terms of Service</Link>
+              </li>
+              <li>
+                <Link href="/legal/privacy">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link href="/legal/fair-use">Fair Usage Policy</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
             <h3 className="footer-title">Contact</h3>
             <ul className="footer-list">
               <li>

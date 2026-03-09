@@ -14,6 +14,7 @@ export const TOP_LEVEL_ROUTES: SiteRoute[] = [
   { href: "/platform", label: "Platform" },
   { href: "/use-cases", label: "Use Cases" },
   { href: "/methodology", label: "Methodology" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/resources", label: "Resources" },
   { href: "/company", label: "Company" },
   { href: "/contact", label: "Contact" },

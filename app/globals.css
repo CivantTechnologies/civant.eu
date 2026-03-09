@@ -337,7 +337,7 @@ a {
   content: "";
   position: absolute;
   inset: -32% -24%;
-  background-image: url("https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/697a52afa63291e0147b78b4/0733be937_Civant-Micrologo.jpg");
+  background-image: url("/civant-micrologo.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: min(94vw, 1120px) auto;
@@ -386,7 +386,7 @@ a {
 .home-hero-watermark {
   position: absolute;
   inset: -34% -22% -26%;
-  background-image: url("https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/697a52afa63291e0147b78b4/0733be937_Civant-Micrologo.jpg");
+  background-image: url("/civant-micrologo.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: min(98vw, 1160px) auto;
@@ -1391,7 +1391,56 @@ a {
 .footer-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.legal-effective {
+  margin-top: 1.2rem;
+  color: var(--text-muted);
+  font-size: var(--fs-support);
+  letter-spacing: 0.02em;
+}
+
+.legal-body {
+  max-width: var(--reading-max);
+  margin: 0 auto;
+}
+
+.legal-body h2 {
+  margin: 2.4rem 0 0.8rem;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-tight);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.legal-body h2:first-child {
+  margin-top: 0;
+}
+
+.legal-body p {
+  margin: 0.6rem 0;
+  color: #d1d5db;
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+}
+
+.legal-body ul {
+  margin: 0.6rem 0;
+  padding-left: 1.3rem;
+  color: #d1d5db;
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+}
+
+.legal-body ul li + li {
+  margin-top: 0.35rem;
+}
+
+.legal-body strong {
+  color: #f3f4f6;
+  font-weight: 600;
 }
 
 .footer-title {
