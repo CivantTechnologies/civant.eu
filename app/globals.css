@@ -1736,3 +1736,151 @@ a {
     transform: none;
   }
 }
+
+.billing-banner {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 196, 196, 0.35);
+  background: rgba(0, 196, 196, 0.08);
+  color: var(--text-main);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.billing-banner p {
+  margin: 0;
+}
+
+.billing-banner.is-cancelled {
+  border-color: rgba(148, 163, 184, 0.36);
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.billing-banner.is-error {
+  border-color: rgba(239, 68, 68, 0.45);
+  background: rgba(239, 68, 68, 0.1);
+  color: #fecaca;
+}
+
+.billing-banner-dismiss {
+  border: 0;
+  border-radius: 0.45rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+}
+
+.billing-cycle-toggle {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+}
+
+.billing-cycle-btn {
+  border: 0;
+  background: transparent;
+  color: var(--text-dim);
+  font: inherit;
+  font-weight: 600;
+  padding: 0.66rem 0.95rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.billing-cycle-btn.is-active {
+  background: rgba(0, 196, 196, 0.17);
+  color: var(--text-main);
+}
+
+.billing-plan-grid {
+  margin-top: 0.5rem;
+}
+
+.billing-plan-card,
+.billing-state-card {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.billing-price {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.billing-price-key {
+  margin: 0;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  word-break: break-all;
+}
+
+.pricing-signup-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(2, 6, 23, 0.76);
+  backdrop-filter: blur(3px);
+}
+
+.pricing-signup-modal {
+  width: min(560px, 100%);
+  border-color: rgba(0, 196, 196, 0.44);
+  background: linear-gradient(
+    152deg,
+    rgba(10, 22, 40, 0.96) 0%,
+    rgba(13, 28, 52, 0.95) 66%
+  );
+  box-shadow: 0 20px 46px rgba(3, 7, 18, 0.48);
+}
+
+.pricing-signup-modal-title {
+  margin-bottom: 0.45rem;
+}
+
+.pricing-signup-plan-readonly {
+  margin: 0 0 1.15rem;
+  border: 1px solid rgba(0, 196, 196, 0.34);
+  border-radius: 0.58rem;
+  background: rgba(0, 196, 196, 0.08);
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 0.72rem 0.86rem;
+}
+
+.pricing-signup-workspace-preview {
+  color: var(--text-dim);
+  font-size: 0.84rem;
+}
+
+.pricing-signup-error {
+  margin: 0.2rem 0 0;
+  color: #fda4af;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .billing-banner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .billing-cycle-toggle {
+    width: 100%;
+  }
+
+  .pricing-signup-modal {
+    padding: 1.2rem;
+  }
+}

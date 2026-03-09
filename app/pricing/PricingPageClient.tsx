@@ -1,6 +1,6 @@
 "use client";
 
-import { type CSSProperties, useState } from "react";
+import { type CSSProperties, type FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { Check, Shield, ChevronDown, ChevronUp, Minus, Plus } from "lucide-react";
 import { Section } from "../../components/site/Section";
@@ -26,6 +26,23 @@ type FaqItem = {
   q: string;
   a: string;
 };
+
+type PriceKey =
+  | "vanguard_monthly"
+  | "vanguard_annual"
+  | "summit_monthly"
+  | "summit_annual";
+
+type SignupIntent = {
+  planName: "Vanguard" | "Summit";
+  priceLabel: string;
+  priceKey: PriceKey;
+};
+
+const CHECKOUT_ENDPOINT =
+  "https://ossoggqkqifdkihybbew.supabase.co/functions/v1/create-checkout-session";
+const CHECKOUT_SUCCESS_URL = "https://app.civant.eu/welcome";
+const CHECKOUT_CANCEL_URL = "https://civant.eu/pricing";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -136,6 +153,220 @@ function fmt(n: number): string {
 
 function clamp(val: number, min: number, max: number) {
   return Math.min(Math.max(val, min), max);
+}
+
+function slugifyWorkspace(value: string): string {
+  const slug = value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 40)
+    .replace(/-+$/g, "");
+
+  return slug || "workspace";
+}
+
+function isValidEmail(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
+function buildSignupIntent(plan: Plan, annual: boolean): SignupIntent | null {
+  if (plan.name !== "Vanguard" && plan.name !== "Summit") {
+    return null;
+  }
+
+  const priceValue = annual ? plan.annualPrice : plan.monthlyPrice;
+  if (priceValue === null) {
+    return null;
+  }
+
+  const priceKey: PriceKey =
+    plan.name === "Vanguard"
+      ? annual
+        ? "vanguard_annual"
+        : "vanguard_monthly"
+      : annual
+        ? "summit_annual"
+        : "summit_monthly";
+
+  return {
+    planName: plan.name,
+    priceLabel: `€${priceValue}/month`,
+    priceKey,
+  };
+}
+
+function SignupModal({
+  intent,
+  onClose,
+}: {
+  intent: SignupIntent;
+  onClose: () => void;
+}) {
+  const [companyName, setCompanyName] = useState("");
+  const [ownerName, setOwnerName] = useState("");
+  const [ownerEmail, setOwnerEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const workspaceSlug = useMemo(() => slugifyWorkspace(companyName), [companyName]);
+  const canSubmit =
+    companyName.trim().length > 0 &&
+    ownerName.trim().length > 0 &&
+    isValidEmail(ownerEmail) &&
+    !submitting;
+
+  useEffect(() => {
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [onClose]);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!canSubmit) {
+      return;
+    }
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch(CHECKOUT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          new_signup: true,
+          company_name: companyName.trim(),
+          owner_name: ownerName.trim(),
+          owner_email: ownerEmail.trim(),
+          price_key: intent.priceKey,
+          success_url: CHECKOUT_SUCCESS_URL,
+          cancel_url: CHECKOUT_CANCEL_URL,
+        }),
+      });
+
+      const payload = (await response.json().catch(() => ({}))) as {
+        url?: string;
+        message?: string;
+        error?: string;
+      };
+
+      if (!response.ok) {
+        throw new Error(payload.message || payload.error || "Unable to start checkout.");
+      }
+
+      if (!payload.url) {
+        throw new Error("Checkout URL was not returned.");
+      }
+
+      window.location.assign(payload.url);
+    } catch (cause) {
+      const message =
+        cause instanceof Error ? cause.message : "Unable to start checkout.";
+      setError(message);
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <div
+      className="pricing-signup-modal-backdrop"
+      role="presentation"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) {
+          onClose();
+        }
+      }}
+    >
+      <div
+        className="pricing-signup-modal card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="pricing-signup-modal-title"
+      >
+        <p className="eyebrow">Complete signup</p>
+        <h2 id="pricing-signup-modal-title" className="headline-lg pricing-signup-modal-title">
+          Continue with {intent.planName}
+        </h2>
+        <p className="pricing-signup-plan-readonly">
+          {intent.planName} — {intent.priceLabel}
+        </p>
+
+        <form className="contact-live-form-grid" onSubmit={handleSubmit}>
+          <label className="contact-field">
+            <span className="contact-label">Company name</span>
+            <input
+              type="text"
+              className="contact-input"
+              value={companyName}
+              onChange={(event) => setCompanyName(event.target.value)}
+              required
+              autoComplete="organization"
+              placeholder="Civant Technologies"
+            />
+            <span className="pricing-signup-workspace-preview">
+              Your workspace: {workspaceSlug}
+            </span>
+          </label>
+
+          <label className="contact-field">
+            <span className="contact-label">Full name</span>
+            <input
+              type="text"
+              className="contact-input"
+              value={ownerName}
+              onChange={(event) => setOwnerName(event.target.value)}
+              required
+              autoComplete="name"
+              placeholder="David Manrique"
+            />
+          </label>
+
+          <label className="contact-field">
+            <span className="contact-label">Work email</span>
+            <input
+              type="email"
+              className="contact-input"
+              value={ownerEmail}
+              onChange={(event) => setOwnerEmail(event.target.value)}
+              required
+              autoComplete="email"
+              placeholder="you@company.com"
+            />
+          </label>
+
+          <button type="submit" className="btn btn-primary" disabled={!canSubmit}>
+            {submitting ? (
+              <>
+                <span className="contact-live-spinner" aria-hidden="true" />
+                Processing...
+              </>
+            ) : (
+              "Continue to payment"
+            )}
+          </button>
+
+          {error ? <p className="pricing-signup-error">{error}</p> : null}
+        </form>
+      </div>
+    </div>
+  );
 }
 
 // ─── Stepper ──────────────────────────────────────────────────────────────────
@@ -411,8 +642,17 @@ function BillingToggle({ annual, onChange }: { annual: boolean; onChange: (v: bo
 
 // ─── Plan card ────────────────────────────────────────────────────────────────
 
-function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
+function PlanCard({
+  plan,
+  annual,
+  onPlanPurchase,
+}: {
+  plan: Plan;
+  annual: boolean;
+  onPlanPurchase: (intent: SignupIntent) => void;
+}) {
   const price = plan.monthlyPrice === null ? null : annual ? plan.annualPrice : plan.monthlyPrice;
+  const signupIntent = buildSignupIntent(plan, annual);
 
   return (
     <article
@@ -467,9 +707,24 @@ function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
         ))}
       </ul>
 
-      <Link href={plan.ctaHref} className={plan.featured ? "btn btn-primary" : "btn btn-secondary"} style={{ textAlign: "center" }}>
-        {plan.ctaLabel}
-      </Link>
+      {signupIntent ? (
+        <button
+          type="button"
+          className={plan.featured ? "btn btn-primary" : "btn btn-secondary"}
+          style={{ textAlign: "center" }}
+          onClick={() => onPlanPurchase(signupIntent)}
+        >
+          {plan.ctaLabel}
+        </button>
+      ) : (
+        <Link
+          href={plan.ctaHref}
+          className={plan.featured ? "btn btn-primary" : "btn btn-secondary"}
+          style={{ textAlign: "center" }}
+        >
+          {plan.ctaLabel}
+        </Link>
+      )}
     </article>
   );
 }
@@ -531,6 +786,7 @@ function FaqAccordion() {
 
 export default function PricingPageClient() {
   const [annual, setAnnual] = useState(false);
+  const [activeIntent, setActiveIntent] = useState<SignupIntent | null>(null);
 
   return (
     <>
@@ -580,7 +836,12 @@ export default function PricingPageClient() {
           }}
         >
           {plans.map((plan) => (
-            <PlanCard key={plan.name} plan={plan} annual={annual} />
+            <PlanCard
+              key={plan.name}
+              plan={plan}
+              annual={annual}
+              onPlanPurchase={(intent) => setActiveIntent(intent)}
+            />
           ))}
         </div>
 
@@ -613,6 +874,10 @@ export default function PricingPageClient() {
           />
         </div>
       </Section>
+
+      {activeIntent ? (
+        <SignupModal intent={activeIntent} onClose={() => setActiveIntent(null)} />
+      ) : null}
     </>
   );
 }
