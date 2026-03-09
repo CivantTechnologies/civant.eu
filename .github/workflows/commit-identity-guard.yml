@@ -1,0 +1,52 @@
+name: Commit Identity Guard
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify-commit-identity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate commit author and committer emails
+        env:
+          ALLOWED_EMAIL: 258097577+CivantTechnologies@users.noreply.github.com
+        run: |
+          set -euo pipefail
+
+          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+            RANGE="${BASE_SHA}..${HEAD_SHA}"
+          else
+            BEFORE_SHA="${{ github.event.before }}"
+            AFTER_SHA="${{ github.sha }}"
+            if [[ "${BEFORE_SHA}" == "0000000000000000000000000000000000000000" ]]; then
+              RANGE="${AFTER_SHA}"
+            else
+              RANGE="${BEFORE_SHA}..${AFTER_SHA}"
+            fi
+          fi
+
+          mapfile -t COMMITS < <(git rev-list "${RANGE}")
+          if [[ ${#COMMITS[@]} -eq 0 ]]; then
+            echo "No commits to validate."
+            exit 0
+          fi
+
+          FAIL=0
+          for COMMIT in "${COMMITS[@]}"; do
+            AUTHOR_EMAIL="$(git show -s --format='%ae' "${COMMIT}")"
+            COMMITTER_EMAIL="$(git show -s --format='%ce' "${COMMIT}")"
+            if [[ "${AUTHOR_EMAIL}" != "${ALLOWED_EMAIL}" || "${COMMITTER_EMAIL}" != "${ALLOWED_EMAIL}" ]]; then
+              echo "::error title=Invalid commit identity::Commit ${COMMIT} has author=${AUTHOR_EMAIL}, committer=${COMMITTER_EMAIL}. Expected ${ALLOWED_EMAIL}."
+              FAIL=1
+            fi
+          done
+
+          exit ${FAIL}

@@ -22,7 +22,8 @@
     "marketing:build": "next build",
     "marketing:start": "next start",
     "marketing:typecheck": "tsc -p tsconfig.json --noEmit --incremental false",
-    "marketing:lint": "node -e \"console.log('marketing lint is deferred during transition; use marketing:typecheck and marketing:build')\""
+    "marketing:lint": "node -e \"console.log('marketing lint is deferred during transition; use marketing:typecheck and marketing:build')\"",
+    "setup:hooks": "git config core.hooksPath .githooks && chmod +x .githooks/pre-commit .githooks/pre-push"
   },
   "dependencies": {
     "@base44/sdk": "^0.8.3",

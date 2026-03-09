@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ "${SKIP_GIT_IDENTITY_CHECK:-}" == "1" ]]; then
+  exit 0
+fi
+
+REQUIRED_NAME="David Manrique"
+REQUIRED_EMAIL="258097577+CivantTechnologies@users.noreply.github.com"
+
+extract_email() {
+  sed -E 's/.*<([^>]+)>.*/\1/' <<<"$1"
+}
+
+CURRENT_NAME="$(git config --get user.name || true)"
+CURRENT_EMAIL="$(git config --get user.email || true)"
+USE_CONFIG_ONLY="$(git config --get user.useConfigOnly || true)"
+
+AUTHOR_IDENT="$(git var GIT_AUTHOR_IDENT 2>/dev/null || true)"
+COMMITTER_IDENT="$(git var GIT_COMMITTER_IDENT 2>/dev/null || true)"
+AUTHOR_EMAIL="$(extract_email "$AUTHOR_IDENT")"
+COMMITTER_EMAIL="$(extract_email "$COMMITTER_IDENT")"
+
+if [[ "$CURRENT_NAME" != "$REQUIRED_NAME" ]]; then
+  echo "ERROR: git user.name is '$CURRENT_NAME' but must be '$REQUIRED_NAME'." >&2
+  exit 1
+fi
+
+if [[ "$CURRENT_EMAIL" != "$REQUIRED_EMAIL" ]]; then
+  echo "ERROR: git user.email is '$CURRENT_EMAIL' but must be '$REQUIRED_EMAIL'." >&2
+  exit 1
+fi
+
+if [[ "$USE_CONFIG_ONLY" != "true" ]]; then
+  echo "ERROR: git user.useConfigOnly must be true." >&2
+  echo "Run: git config --global user.useConfigOnly true" >&2
+  exit 1
+fi
+
+if [[ "$AUTHOR_EMAIL" != "$REQUIRED_EMAIL" || "$COMMITTER_EMAIL" != "$REQUIRED_EMAIL" ]]; then
+  echo "ERROR: author/committer identity does not match required Civant email." >&2
+  echo "Author:    $AUTHOR_IDENT" >&2
+  echo "Committer: $COMMITTER_IDENT" >&2
+  exit 1
+fi

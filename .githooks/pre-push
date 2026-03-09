@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ "${SKIP_GIT_IDENTITY_CHECK:-}" == "1" ]]; then
+  exit 0
+fi
+
+REQUIRED_LOGIN="CivantTechnologies"
+REQUIRED_EMAIL="258097577+CivantTechnologies@users.noreply.github.com"
+
+CURRENT_EMAIL="$(git config --get user.email || true)"
+if [[ "$CURRENT_EMAIL" != "$REQUIRED_EMAIL" ]]; then
+  echo "ERROR: git user.email is '$CURRENT_EMAIL' but must be '$REQUIRED_EMAIL' before push." >&2
+  exit 1
+fi
+
+if ! command -v gh >/dev/null 2>&1; then
+  echo "ERROR: GitHub CLI (gh) is required for account verification." >&2
+  exit 1
+fi
+
+ACTIVE_LOGIN="$(gh api user --jq .login 2>/dev/null || true)"
+if [[ "$ACTIVE_LOGIN" != "$REQUIRED_LOGIN" ]]; then
+  echo "ERROR: active gh account is '$ACTIVE_LOGIN' but must be '$REQUIRED_LOGIN' before push." >&2
+  echo "Run: gh auth login" >&2
+  exit 1
+fi

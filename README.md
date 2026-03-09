@@ -28,6 +28,24 @@ VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
 
 Run the app: `npm run dev`
 
+**Git identity guard (required)**
+
+This repo enforces a single commit identity:
+
+- Name: `David Manrique`
+- Email: `258097577+CivantTechnologies@users.noreply.github.com`
+
+One-time local setup:
+
+```bash
+git config --global user.name "David Manrique"
+git config --global user.email "258097577+CivantTechnologies@users.noreply.github.com"
+git config --global user.useConfigOnly true
+npm run setup:hooks
+```
+
+Pre-commit and pre-push hooks will block commits/pushes if identity is wrong or if `gh` is logged into a different account.
+
 **Publish your changes**
 
 Open [Base44.com](http://Base44.com) and click on Publish.
