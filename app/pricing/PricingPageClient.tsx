@@ -318,7 +318,7 @@ function SignupModal({
               onChange={(event) => setCompanyName(event.target.value)}
               required
               autoComplete="organization"
-              placeholder="Civant Technologies"
+              placeholder="Acme Procurement Ltd"
             />
             <span className="pricing-signup-workspace-preview">
               Your workspace: {workspaceSlug}
@@ -334,7 +334,7 @@ function SignupModal({
               onChange={(event) => setOwnerName(event.target.value)}
               required
               autoComplete="name"
-              placeholder="David Manrique"
+              placeholder="Alexander Collins"
             />
           </label>
 
