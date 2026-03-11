@@ -118,10 +118,10 @@ const plans: Plan[] = [
 ];
 
 const markets = [
-  { flag: "🇮🇪", label: "Ireland" },
-  { flag: "🇬🇧", label: "United Kingdom" },
-  { flag: "🇪🇸", label: "Spain" },
-  { flag: "🇫🇷", label: "France" },
+  { code: "IE", label: "Ireland" },
+  { code: "GB", label: "United Kingdom" },
+  { code: "ES", label: "Spain" },
+  { code: "FR", label: "France" },
 ];
 
 const faqs: FaqItem[] = [
@@ -400,7 +400,7 @@ function Stepper({
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <p
         style={{
           margin: "0 0 0.55rem",
@@ -413,7 +413,14 @@ function Stepper({
       >
         {label}
       </p>
-      <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "0.75rem",
+        }}
+      >
         <button
           onClick={onDecrement}
           disabled={atMin}
@@ -486,6 +493,56 @@ function RoiCalculator() {
     : 299 * 12;
 
   const multiple = planCost > 0 ? Math.round((revenue / planCost) * 10) / 10 : 0;
+  const calculatorColumns = [
+    {
+      id: "seats",
+      stepper: {
+        label: "Bid managers / users",
+        display: `${seats} ${seats === 1 ? "person" : "people"}`,
+        onDecrement: () => setSeatIdx((i) => clamp(i - 1, 0, SEAT_OPTIONS.length - 1)),
+        onIncrement: () => setSeatIdx((i) => clamp(i + 1, 0, SEAT_OPTIONS.length - 1)),
+        atMin: seatIdx === 0,
+        atMax: seatIdx === SEAT_OPTIONS.length - 1,
+      },
+      result: { value: `+${extraOpps}`, label: "Extra opportunities\nspotted / year" },
+    },
+    {
+      id: "tenders",
+      stepper: {
+        label: "Tenders per year",
+        display: String(tenders),
+        onDecrement: () => setTenderIdx((i) => clamp(i - 1, 0, TENDER_OPTIONS.length - 1)),
+        onIncrement: () => setTenderIdx((i) => clamp(i + 1, 0, TENDER_OPTIONS.length - 1)),
+        atMin: tenderIdx === 0,
+        atMax: tenderIdx === TENDER_OPTIONS.length - 1,
+      },
+      result: { value: `+${Math.round(extraWins * 10) / 10}`, label: "Additional wins\nestimated" },
+    },
+    {
+      id: "win-rate",
+      stepper: {
+        label: "Current win rate",
+        display: `${WIN_OPTIONS[winIdx]}%`,
+        onDecrement: () => setWinIdx((i) => clamp(i - 1, 0, WIN_OPTIONS.length - 1)),
+        onIncrement: () => setWinIdx((i) => clamp(i + 1, 0, WIN_OPTIONS.length - 1)),
+        atMin: winIdx === 0,
+        atMax: winIdx === WIN_OPTIONS.length - 1,
+      },
+      result: { value: fmt(revenue), label: "Estimated revenue\nuplift / year" },
+    },
+    {
+      id: "contract-value",
+      stepper: {
+        label: "Avg contract value",
+        display: fmt(contract),
+        onDecrement: () => setContractIdx((i) => clamp(i - 1, 0, CONTRACT_OPTIONS.length - 1)),
+        onIncrement: () => setContractIdx((i) => clamp(i + 1, 0, CONTRACT_OPTIONS.length - 1)),
+        atMin: contractIdx === 0,
+        atMax: contractIdx === CONTRACT_OPTIONS.length - 1,
+      },
+      result: { value: `${multiple}x`, label: "Return on\ninvestment" },
+    },
+  ];
 
   return (
     <div
@@ -504,64 +561,30 @@ function RoiCalculator() {
           gap: "1.8rem",
         }}
       >
-        <Stepper
-          label="Bid managers / users"
-          display={`${seats} ${seats === 1 ? "person" : "people"}`}
-          onDecrement={() => setSeatIdx((i) => clamp(i - 1, 0, SEAT_OPTIONS.length - 1))}
-          onIncrement={() => setSeatIdx((i) => clamp(i + 1, 0, SEAT_OPTIONS.length - 1))}
-          atMin={seatIdx === 0}
-          atMax={seatIdx === SEAT_OPTIONS.length - 1}
-        />
-        <Stepper
-          label="Tenders per year"
-          display={String(tenders)}
-          onDecrement={() => setTenderIdx((i) => clamp(i - 1, 0, TENDER_OPTIONS.length - 1))}
-          onIncrement={() => setTenderIdx((i) => clamp(i + 1, 0, TENDER_OPTIONS.length - 1))}
-          atMin={tenderIdx === 0}
-          atMax={tenderIdx === TENDER_OPTIONS.length - 1}
-        />
-        <Stepper
-          label="Current win rate"
-          display={`${WIN_OPTIONS[winIdx]}%`}
-          onDecrement={() => setWinIdx((i) => clamp(i - 1, 0, WIN_OPTIONS.length - 1))}
-          onIncrement={() => setWinIdx((i) => clamp(i + 1, 0, WIN_OPTIONS.length - 1))}
-          atMin={winIdx === 0}
-          atMax={winIdx === WIN_OPTIONS.length - 1}
-        />
-        <Stepper
-          label="Avg contract value"
-          display={fmt(contract)}
-          onDecrement={() => setContractIdx((i) => clamp(i - 1, 0, CONTRACT_OPTIONS.length - 1))}
-          onIncrement={() => setContractIdx((i) => clamp(i + 1, 0, CONTRACT_OPTIONS.length - 1))}
-          atMin={contractIdx === 0}
-          atMax={contractIdx === CONTRACT_OPTIONS.length - 1}
-        />
-      </div>
-
-      {/* Results */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
-          gap: "1rem",
-          marginTop: "1.8rem",
-          paddingTop: "1.6rem",
-          borderTop: "1px solid rgba(255,255,255,0.08)",
-        }}
-      >
-        {[
-          { value: `+${extraOpps}`,                            label: "Extra opportunities\nspotted / year" },
-          { value: `+${Math.round(extraWins * 10) / 10}`,      label: "Additional wins\nestimated" },
-          { value: fmt(revenue),                               label: "Estimated revenue\nuplift / year" },
-          { value: `${multiple}x`,                             label: "Return on\ninvestment" },
-        ].map((stat) => (
-          <div key={stat.label} style={{ textAlign: "center" }}>
-            <p style={{ margin: 0, fontSize: "1.8rem", fontWeight: 700, color: "#00c4c4", letterSpacing: "-0.03em", lineHeight: 1 }}>
-              {stat.value}
-            </p>
-            <p style={{ margin: "0.4rem 0 0", fontSize: "0.75rem", color: "#9ca3af", lineHeight: 1.4, textTransform: "uppercase", letterSpacing: "0.07em", whiteSpace: "pre-line" }}>
-              {stat.label}
-            </p>
+        {calculatorColumns.map((column) => (
+          <div key={column.id} style={{ textAlign: "center" }}>
+            <Stepper
+              label={column.stepper.label}
+              display={column.stepper.display}
+              onDecrement={column.stepper.onDecrement}
+              onIncrement={column.stepper.onIncrement}
+              atMin={column.stepper.atMin}
+              atMax={column.stepper.atMax}
+            />
+            <div
+              style={{
+                marginTop: "1.8rem",
+                paddingTop: "1.6rem",
+                borderTop: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              <p style={{ margin: 0, fontSize: "1.8rem", fontWeight: 700, color: "#00c4c4", letterSpacing: "-0.03em", lineHeight: 1 }}>
+                {column.result.value}
+              </p>
+              <p style={{ margin: "0.4rem 0 0", fontSize: "0.75rem", color: "#9ca3af", lineHeight: 1.4, textTransform: "uppercase", letterSpacing: "0.07em", whiteSpace: "pre-line" }}>
+                {column.result.label}
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -632,7 +655,7 @@ function BillingToggle({ annual, onChange }: { annual: boolean; onChange: (v: bo
         transition: "all 250ms",
         boxShadow: annual ? "0 0 14px rgba(0,196,196,0.35)" : "none",
       }}>
-        {annual ? "💰 Save €600–€1,200 per year" : "Get annual billing and save €600–€1,200"}
+        {annual ? "Save €600–€1,200 per year" : "Get annual billing and save €600–€1,200"}
       </div>
     </div>
   );
@@ -745,7 +768,7 @@ function MarketCoverage() {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap" }}>
         {markets.map((m) => (
           <span key={m.label} style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontSize: "0.82rem", color: "#9ca3af", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 999, padding: "0.32rem 0.75rem" }}>
-            <span>{m.flag}</span>{m.label}
+            <span style={{ fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.05em", color: "#6b7280" }}>{m.code}</span>{m.label}
           </span>
         ))}
       </div>
