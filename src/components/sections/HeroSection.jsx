@@ -18,10 +18,21 @@ export default function HeroSection({
     : 'w-[1050px] h-[1050px] lg:w-[1350px] lg:h-[1350px]';
 
   return (
-    <section className={`relative bg-[#0A1628] ${heightClass} flex items-center overflow-hidden`}>
+    <section className={`relative bg-[hsl(var(--background))] ${heightClass} flex items-center overflow-hidden`}>
+      {/* Breathing aura glow */}
+      <div
+        aria-hidden="true"
+        className="aura-breathe pointer-events-none absolute left-1/2 top-1/2"
+        style={{
+          width: '900px',
+          height: '900px',
+          background: 'radial-gradient(circle at center, hsla(180,100%,38%,0.10) 0%, hsla(180,100%,38%,0.03) 50%, transparent 70%)'
+        }}
+      />
+
       {/* Background micro logo - absolute center, atmospheric accent */}
-      <div 
-        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${microLogoSize} opacity-[0.04] pointer-events-none`}
+      <div
+        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${microLogoSize} ${variant === 'home' ? 'opacity-[0.07]' : 'opacity-[0.04]'} pointer-events-none`}
         aria-hidden="true"
       >
         <img 
@@ -37,7 +48,7 @@ export default function HeroSection({
            {/* HeroTextGroup - text elements container */}
            <div>
              {/* Section eyebrow label - canonical token */}
-             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#00C4C4] mb-5">
+             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[hsl(var(--civant-teal))] mb-5">
                {label}
              </p>
 

@@ -158,7 +158,7 @@ export default function Layout({ children, currentPageName }) {
       `}</style>
       
       {/* Navigation */}
-      <header className="fixed top-0 left-0 right-0 bg-[#0A1628]/95 backdrop-blur-sm border-b border-white/10" style={{ zIndex: 1000 }}>
+      <header className="glass-heavy sticky top-0 z-50 border-b border-white/[0.06]" style={{ zIndex: 1000 }}>
         <nav className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
@@ -178,13 +178,13 @@ export default function Layout({ children, currentPageName }) {
                   to={createPageUrl(item.page)}
                   className={`px-4 py-2 text-sm font-medium transition-all duration-200 relative ${
                     currentPageName === item.page
-                      ? 'text-[#00C4C4]'
-                      : 'text-gray-300 hover:text-white'
+                      ? 'text-[hsl(var(--civant-teal))]'
+                      : 'text-[hsl(var(--civant-body))] hover:text-[hsl(var(--civant-heading))]'
                   }`}
                 >
                   {item.name}
                   {currentPageName === item.page && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#00C4C4] to-transparent rounded-full shadow-[0_0_12px_rgba(0,196,196,0.8)]" />
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[hsl(var(--civant-teal))] to-transparent rounded-full shadow-[0_0_12px_hsl(var(--civant-teal)/0.6)]" />
                   )}
                 </Link>
               ))}
@@ -193,7 +193,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Desktop CTA Button */}
             <Link 
               to={createPageUrl('contact')}
-              className="hidden lg:flex items-center px-4 py-2 bg-[#00C4C4]/80 text-[#0A1628] text-sm font-medium rounded hover:bg-[#00C4C4]/70 transition-colors duration-200 flex-shrink-0"
+              className="hidden lg:flex items-center px-4 py-2 bg-[hsl(var(--civant-teal))/80] text-[hsl(var(--background))] text-sm font-medium rounded hover:bg-[hsl(var(--civant-teal))/70] transition-colors duration-200 flex-shrink-0"
             >
               Get in Touch
             </Link>
@@ -201,7 +201,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Mobile/Tablet Menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-gray-300 hover:text-white transition-colors"
+              className="lg:hidden p-2 text-[hsl(var(--civant-body))] hover:text-[hsl(var(--civant-heading))] transition-colors"
               aria-label="Toggle menu"
               aria-expanded={mobileMenuOpen}
               >
@@ -226,7 +226,7 @@ export default function Layout({ children, currentPageName }) {
                       transition={{ duration: 0.2, ease: 'easeOut' }}
                     />
                     <motion.div 
-                      className="fixed top-4 left-4 right-4 mx-auto w-[calc(100vw-32px)] max-w-[520px] max-h-[80vh] bg-[#0A1628] border border-white/10 rounded-[20px] lg:hidden overflow-y-auto"
+                      className="fixed top-4 left-4 right-4 mx-auto w-[calc(100vw-32px)] max-w-[520px] max-h-[80vh] bg-[hsl(var(--background))] border border-white/[0.08] rounded-[20px] lg:hidden overflow-y-auto"
                       style={{ zIndex: 2147483647 }}
                       role="dialog"
                       aria-modal="true"
@@ -252,8 +252,8 @@ export default function Layout({ children, currentPageName }) {
                               onClick={() => setMobileMenuOpen(false)}
                               className={`block px-4 py-2.5 text-base font-medium rounded-lg transition-all duration-150 ease-out border-b-2 border-transparent active:scale-[0.97] ${
                                 currentPageName === item.page
-                                  ? 'text-[#00C4C4] bg-white/5 border-[#00C4C4]/20'
-                                  : 'text-gray-300 hover:text-white hover:bg-[#00C4C4]/10 hover:border-[#00C4C4]/15 active:bg-[#00C4C4]/15'
+                                  ? 'text-[hsl(var(--civant-teal))] bg-white/5 border-[hsl(var(--civant-teal))]/20'
+                                  : 'text-[hsl(var(--civant-body))] hover:text-[hsl(var(--civant-heading))] hover:bg-[hsl(var(--civant-teal))]/10 hover:border-[hsl(var(--civant-teal))]/15 active:bg-[hsl(var(--civant-teal))]/15'
                               }`}
                             >
                               {item.name}
@@ -264,7 +264,7 @@ export default function Layout({ children, currentPageName }) {
                         <Link
                           to={createPageUrl('contact')}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block mt-6 px-4 py-3 bg-[#00C4C4]/80 text-[#0A1628] text-base font-medium rounded-lg text-center hover:bg-[#00C4C4]/70 transition-colors duration-200"
+                          className="block mt-6 px-4 py-3 bg-[hsl(var(--civant-teal))]/80 text-[hsl(var(--background))] text-base font-medium rounded-lg text-center hover:bg-[hsl(var(--civant-teal))]/70 transition-colors duration-200"
                         >
                           Get in Touch
                         </Link>
@@ -275,7 +275,7 @@ export default function Layout({ children, currentPageName }) {
               </AnimatePresence>
 
       {/* Main Content */}
-      <main className="pt-16 lg:pt-20">
+      <main>
         {children}
       </main>
 
