@@ -11,7 +11,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "The Hidden Cost of Reactive Bidding in Public Procurement",
   description:
-    "Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, external c...",
+    "Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, exter...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -19,7 +19,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "The Hidden Cost of Reactive Bidding in Public Procurement",
   description:
-    "Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, external c...",
+    "Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, exter...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -31,107 +31,91 @@ export default function ArticlePage() {
         <p className="eyebrow">Resources</p>
         <h1 className="headline-xl">The Hidden Cost of Reactive Bidding in Public Procurement</h1>
         <p className="text-lead">
-          Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, external c...
+          Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, exter...
+        </p>
+        <p className="article-byline">
+          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
       </Section>
 
       <Section muted>
         <div className="article-shell">
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              1. CONTEXT
-            </h2>
-            <p className="article-copy">
-              Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, external consultancy for complex requirements, printing and production costs, and the opportunity cost of staff diverted from revenue-generating work. For major framework competitions or complex service contracts, total bid costs can reach six figures.
-            </p>
-            <p className="article-copy">
-              Despite these costs, many organisations approach bidding with a volume strategy: respond to every relevant opportunity and accept low win rates as the cost of market participation. This approach is understandable given the unpredictability of individual tender outcomes, but it represents a poor return on investment when examined systematically.
-            </p>
-            <p className="article-copy">
-              The core problem is that reactive bidding, where preparation begins only after tender publication, produces structurally weaker bids than proactive preparation would allow. The time constraints imposed by standard tender response windows are insufficient for developing the deep understanding, tailored solutions, and stakeholder alignment that characterise winning bids for complex procurement.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              2. MARKET DYNAMICS
-            </h2>
-            <p className="article-copy">
-              The economics of bidding in public procurement are challenging even for well-prepared organisations. Win rates in competitive public procurement vary significantly by sector and competition level, but rates of 20-30% are common for regular participants. For organisations entering new markets or competing against strong incumbents, rates can be considerably lower.
-            </p>
-            <p className="article-copy">
-              At a 25% win rate, an organisation must invest in four bids for every contract won. If each bid costs fifty thousand euros, the effective acquisition cost per contract is two hundred thousand euros. This cost must be absorbed by the contract value, reducing effective margins and competitiveness.
-            </p>
-            <p className="article-copy">
-              The relationship between preparation quality and win probability is well established in procurement practice. Bids that demonstrate deep understanding of the buyer's operational context, that offer tailored solutions rather than generic capabilities, and that address specific concerns identified through engagement score consistently higher in evaluations. These qualities require preparation time that reactive approaches do not provide.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              3. STRUCTURAL PATTERNS
-            </h2>
-            <p className="article-copy">
-              The pattern of reactive bidding creates a self-reinforcing cycle. Low win rates necessitate high bid volumes to maintain contract pipeline. High bid volumes stretch resources across many opportunities, reducing the preparation quality for each. Lower preparation quality produces lower win rates, which requires even higher volumes to compensate.
-            </p>
-            <p className="article-copy">
-              Breaking this cycle requires shifting the balance from volume to selectivity. This means reducing the total number of bids while increasing the preparation investment in each. The challenge is that selective bidding requires confidence in the pipeline of future opportunities, which reactive approaches cannot provide.
-            </p>
-            <p className="article-copy">
-              Organisations that can see upcoming procurement events months before publication can afford to be selective. They invest preparation time in opportunities where they have genuine competitive advantage, where the buyer's needs align with their strengths, and where adequate preparation time allows for the development of genuinely competitive proposals.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                1. CONTEXT
+              </h2>
+              <p className="article-copy">
+                Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, external consultancy for complex requirements, printing and production costs, and the opportunity cost of staff diverted from revenue-generating work. For major framework competitions or complex service contracts, total bid costs can reach six figures.
+              </p>
+              <p className="article-copy">
+                Despite these costs, many organisations approach bidding with a volume strategy: respond to every relevant opportunity and accept low win rates as the cost of market participation. This approach is understandable given the unpredictability of individual tender outcomes, but it represents a poor return on investment when examined systematically.
+              </p>
+              <p className="article-copy">
+                The core problem is that reactive bidding, where preparation begins only after tender publication, produces structurally weaker bids than proactive preparation would allow. The time constraints imposed by standard tender response windows are insufficient for developing the deep understanding, tailored solutions, and stakeholder alignment that characterise winning bids for complex procurement.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              4. IMPLICATIONS
-            </h2>
-            <p className="article-copy">
-              The financial implications of shifting from reactive to proactive bidding are significant. If improved preparation increases win rates from 25% to 35%, the same bid investment produces 40% more contract wins. Alternatively, the same number of wins can be achieved with fewer but higher-quality bids, freeing resources for delivery or further business development.
-            </p>
-            <p className="article-copy">
-              The qualitative improvements are equally important. Better-prepared bids lead to contracts that are better understood, more accurately priced, and more effectively delivered. This creates a positive cycle where contract performance builds reputation, references, and relationship capital that strengthens future bids.
-            </p>
-            <p className="article-copy">
-              The transition from reactive to proactive bidding is not binary. Most organisations will continue to respond reactively to some opportunities while building proactive preparation capability for priority markets. The key is shifting the ratio over time towards higher preparation investment in fewer, higher-probability opportunities.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                2. MARKET DYNAMICS
+              </h2>
+              <p className="article-copy">
+                The economics of bidding in public procurement are challenging even for well-prepared organisations. Win rates in competitive public procurement vary significantly by sector and competition level, but rates of 20-30% are common for regular participants. For organisations entering new markets or competing against strong incumbents, rates can be considerably lower.
+              </p>
+              <p className="article-copy">
+                At a 25% win rate, an organisation must invest in four bids for every contract won. If each bid costs fifty thousand euros, the effective acquisition cost per contract is two hundred thousand euros. This cost must be absorbed by the contract value, reducing effective margins and competitiveness.
+              </p>
+              <p className="article-copy">
+                The relationship between preparation quality and win probability is well established in procurement practice. Bids that demonstrate deep understanding of the buyer's operational context, that offer tailored solutions rather than generic capabilities, and that address specific concerns identified through engagement score consistently higher in evaluations. These qualities require preparation time that reactive approaches do not provide.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              5. PROCUREMENT INTELLIGENCE PERSPECTIVE
-            </h2>
-            <p className="article-copy">
-              Procurement intelligence enables the shift from reactive to proactive bidding by providing the forward visibility needed for selective, high-quality preparation. When organisations can see their pipeline of relevant opportunities twelve to eighteen months ahead, they can make informed decisions about where to invest preparation effort.
-            </p>
-            <p className="article-copy">
-              The intelligence dimension adds confidence scoring to pipeline opportunities, helping organisations differentiate between high-probability, strategically aligned opportunities and speculative ones. This scoring incorporates contract lifecycle data, competitive dynamics, buyer behaviour patterns, and timing analysis to produce a qualified view of each opportunity's attractiveness.
-            </p>
-            <p className="article-copy">
-              The result is a more disciplined, higher-return approach to bid investment that replaces volume-based reactive bidding with intelligence-informed selective preparation.
-            </p>
-            <p className="article-copy">
-              KEY TAKEAWAYS
-            </p>
-            <p className="article-copy">
-              1. Bid costs for major public contracts can reach six figures, making low win rates extremely costly in aggregate.
-            </p>
-            <p className="article-copy">
-              2. Reactive bidding produces structurally weaker proposals due to compressed preparation timelines.
-            </p>
-            <p className="article-copy">
-              3. Improving win rates from 25% to 35% through better preparation represents a 40% improvement in return on bid investment.
-            </p>
-            <p className="article-copy">
-              4. Breaking the volume bidding cycle requires forward pipeline visibility that only proactive intelligence can provide.
-            </p>
-            <p className="article-copy">
-              5. The shift from reactive to proactive bidding is the single most impactful change organisations can make to their procurement market strategy.
-            </p>
-            <p className="article-copy">
-              © Civant Technologies 2026 | civant.eu | Procurement Intelligence
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                3. STRUCTURAL PATTERNS
+              </h2>
+              <p className="article-copy">
+                The pattern of reactive bidding creates a self-reinforcing cycle. Low win rates necessitate high bid volumes to maintain contract pipeline. High bid volumes stretch resources across many opportunities, reducing the preparation quality for each. Lower preparation quality produces lower win rates, which requires even higher volumes to compensate.
+              </p>
+              <p className="article-copy">
+                Breaking this cycle requires shifting the balance from volume to selectivity. This means reducing the total number of bids while increasing the preparation investment in each. The challenge is that selective bidding requires confidence in the pipeline of future opportunities, which reactive approaches cannot provide.
+              </p>
+              <p className="article-copy">
+                Organisations that can see upcoming procurement events months before publication can afford to be selective. They invest preparation time in opportunities where they have genuine competitive advantage, where the buyer's needs align with their strengths, and where adequate preparation time allows for the development of genuinely competitive proposals.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                4. IMPLICATIONS
+              </h2>
+              <p className="article-copy">
+                The financial implications of shifting from reactive to proactive bidding are significant. If improved preparation increases win rates from 25% to 35%, the same bid investment produces 40% more contract wins. Alternatively, the same number of wins can be achieved with fewer but higher-quality bids, freeing resources for delivery or further business development.
+              </p>
+              <p className="article-copy">
+                The qualitative improvements are equally important. Better-prepared bids lead to contracts that are better understood, more accurately priced, and more effectively delivered. This creates a positive cycle where contract performance builds reputation, references, and relationship capital that strengthens future bids.
+              </p>
+              <p className="article-copy">
+                The transition from reactive to proactive bidding is not binary. Most organisations will continue to respond reactively to some opportunities while building proactive preparation capability for priority markets. The key is shifting the ratio over time towards higher preparation investment in fewer, higher-probability opportunities.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                5. PROCUREMENT INTELLIGENCE PERSPECTIVE
+              </h2>
+              <p className="article-copy">
+                Procurement intelligence enables the shift from reactive to proactive bidding by providing the forward visibility needed for selective, high-quality preparation. When organisations can see their pipeline of relevant opportunities twelve to eighteen months ahead, they can make informed decisions about where to invest preparation effort.
+              </p>
+              <p className="article-copy">
+                The intelligence dimension adds confidence scoring to pipeline opportunities, helping organisations differentiate between high-probability, strategically aligned opportunities and speculative ones. This scoring incorporates contract lifecycle data, competitive dynamics, buyer behaviour patterns, and timing analysis to produce a qualified view of each opportunity's attractiveness.
+              </p>
+              <p className="article-copy">
+                The result is a more disciplined, higher-return approach to bid investment that replaces volume-based reactive bidding with intelligence-informed selective preparation.
+              </p>
+            </article>
 
           <div className="button-row">
             <Link href="/resources" className="btn btn-secondary">

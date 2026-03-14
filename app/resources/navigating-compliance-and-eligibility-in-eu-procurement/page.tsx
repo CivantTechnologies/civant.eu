@@ -11,7 +11,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "Navigating Compliance and Eligibility in EU Procurement",
   description:
-    "Public procurement is governed by laws and regulations that set out how contracts must be tendered and awarded. Suppliers must meet eligibility criteria and ...",
+    "Public procurement is governed by laws and regulations that set out how contracts must be tendered and awarded. Suppliers must meet eligibility criteria...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -19,7 +19,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "Navigating Compliance and Eligibility in EU Procurement",
   description:
-    "Public procurement is governed by laws and regulations that set out how contracts must be tendered and awarded. Suppliers must meet eligibility criteria and ...",
+    "Public procurement is governed by laws and regulations that set out how contracts must be tendered and awarded. Suppliers must meet eligibility criteria...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -31,56 +31,61 @@ export default function ArticlePage() {
         <p className="eyebrow">Resources</p>
         <h1 className="headline-xl">Navigating Compliance and Eligibility in EU Procurement</h1>
         <p className="text-lead">
-          Public procurement is governed by laws and regulations that set out how contracts must be tendered and awarded. Suppliers must meet eligibility criteria and ...
+          Public procurement is governed by laws and regulations that set out how contracts must be tendered and awarded. Suppliers must meet eligibility criteria...
+        </p>
+        <p className="article-byline">
+          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
       </Section>
 
       <Section muted>
         <div className="article-shell">
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 1 — Context
-            </h2>
-            <p className="article-copy">
-              Public procurement is governed by laws and regulations that set out how contracts must be tendered and awarded. Suppliers must meet eligibility criteria and comply with procedural rules to participate. This brief outlines the key compliance and eligibility considerations in EU procurement and how suppliers can navigate them.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 2 — Market Dynamics
-            </h2>
-            <p className="article-copy">
-              Eligibility criteria may include financial thresholds, relevant experience, technical capacity and adherence to social or environmental standards. SMEs may struggle to meet high turnover requirements or provide extensive evidence, even though they may be capable of delivering the contract. Complex documentation and varying national interpretations of EU directives add to the burden. Disparities in compliance requirements can deter cross‑border participation and reduce competition.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 3 — Structural Patterns
-            </h2>
-            <p className="article-copy">
-              Procurement directives establish overarching rules—such as advertising thresholds, evaluation principles and remedies—but leave room for national variation. Below EU thresholds, local rules may apply, introducing additional variation. Common compliance pitfalls include failing to provide financial evidence, missing mandatory certifications or misunderstanding exclusion criteria. Policies aimed at simplifying procedures—such as using self‑declarations—are intended to reduce barriers but are not uniformly implemented.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 1 — Context
+              </h2>
+              <p className="article-copy">
+                Public procurement is governed by laws and regulations that set out how contracts must be tendered and awarded. Suppliers must meet eligibility criteria and comply with procedural rules to participate. This brief outlines the key compliance and eligibility considerations in EU procurement and how suppliers can navigate them.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 4 — Implications
-            </h2>
-            <p className="article-copy">
-              Suppliers must invest time in understanding the legal framework and tailoring submissions to each jurisdiction. They should develop checklists and templates to ensure compliance and consult experts when entering unfamiliar markets. Policymakers can improve participation by harmonising procedures, lowering unnecessary thresholds and providing clear guidance for SMEs.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 2 — Market Dynamics
+              </h2>
+              <p className="article-copy">
+                Eligibility criteria may include financial thresholds, relevant experience, technical capacity and adherence to social or environmental standards. SMEs may struggle to meet high turnover requirements or provide extensive evidence, even though they may be capable of delivering the contract. Complex documentation and varying national interpretations of EU directives add to the burden. Disparities in compliance requirements can deter cross‑border participation and reduce competition.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 5 — Procurement Intelligence Perspective
-            </h2>
-            <p className="article-copy">
-              Procurement intelligence platforms can highlight eligibility criteria early by summarising requirements in tender alerts. They may also provide insights into how similar suppliers have met requirements in past competitions, serving as a guide for compliance. Such tools reduce the risk of disqualification and help suppliers prepare comprehensive submissions.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 3 — Structural Patterns
+              </h2>
+              <p className="article-copy">
+                Procurement directives establish overarching rules—such as advertising thresholds, evaluation principles and remedies—but leave room for national variation. Below EU thresholds, local rules may apply, introducing additional variation. Common compliance pitfalls include failing to provide financial evidence, missing mandatory certifications or misunderstanding exclusion criteria. Policies aimed at simplifying procedures—such as using self‑declarations—are intended to reduce barriers but are not uniformly implemented.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 4 — Implications
+              </h2>
+              <p className="article-copy">
+                Suppliers must invest time in understanding the legal framework and tailoring submissions to each jurisdiction. They should develop checklists and templates to ensure compliance and consult experts when entering unfamiliar markets. Policymakers can improve participation by harmonising procedures, lowering unnecessary thresholds and providing clear guidance for SMEs.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 5 — Procurement Intelligence Perspective
+              </h2>
+              <p className="article-copy">
+                Procurement intelligence platforms can highlight eligibility criteria early by summarising requirements in tender alerts. They may also provide insights into how similar suppliers have met requirements in past competitions, serving as a guide for compliance. Such tools reduce the risk of disqualification and help suppliers prepare comprehensive submissions.
+              </p>
+            </article>
 
           <div className="button-row">
             <Link href="/resources" className="btn btn-secondary">

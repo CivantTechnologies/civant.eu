@@ -1236,6 +1236,22 @@ a {
   margin-bottom: 0.55rem;
 }
 
+.article-byline {
+  margin: 0.75rem 0 0;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.article-byline a {
+  color: #8ceeed;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.article-byline a:hover {
+  color: #d8ffff;
+  text-decoration: underline;
+}
+
 .article-copy {
   margin: 0.5rem 0 0;
   color: #d1d5db;

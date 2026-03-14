@@ -35,6 +35,9 @@ export default function WhatIsProcurementIntelligencePage() {
           history, contract lifecycle context, and market participation data into
           structured planning signals for commercial teams.
         </p>
+        <p className="article-byline">
+          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
+        </p>
       </Section>
 
       <Section muted>

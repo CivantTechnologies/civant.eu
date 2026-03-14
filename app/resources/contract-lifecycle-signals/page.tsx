@@ -35,6 +35,9 @@ export default function ContractLifecycleSignalsPage() {
           activity may emerge by combining lifecycle context with historical
           procurement evidence.
         </p>
+        <p className="article-byline">
+          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
+        </p>
       </Section>
 
       <Section muted>

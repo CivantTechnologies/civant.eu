@@ -11,7 +11,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "Centralised vs Local Procurement: Structural Differences Across the EU",
   description:
-    "The organisation of public procurement across Europe is far from uniform. Some countries run central purchasing bodies that handle large categories for the e...",
+    "The organisation of public procurement across Europe is far from uniform. Some countries run central purchasing bodies that handle large categories for ...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -19,7 +19,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "Centralised vs Local Procurement: Structural Differences Across the EU",
   description:
-    "The organisation of public procurement across Europe is far from uniform. Some countries run central purchasing bodies that handle large categories for the e...",
+    "The organisation of public procurement across Europe is far from uniform. Some countries run central purchasing bodies that handle large categories for ...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -31,56 +31,61 @@ export default function ArticlePage() {
         <p className="eyebrow">Resources</p>
         <h1 className="headline-xl">Centralised vs Local Procurement: Structural Differences Across the EU</h1>
         <p className="text-lead">
-          The organisation of public procurement across Europe is far from uniform. Some countries run central purchasing bodies that handle large categories for the e...
+          The organisation of public procurement across Europe is far from uniform. Some countries run central purchasing bodies that handle large categories for ...
+        </p>
+        <p className="article-byline">
+          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
       </Section>
 
       <Section muted>
         <div className="article-shell">
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 1 — Context
-            </h2>
-            <p className="article-copy">
-              The organisation of public procurement across Europe is far from uniform. Some countries run central purchasing bodies that handle large categories for the entire public sector; others rely heavily on regional or local authorities to conduct their own tenders. These structural differences influence how tenders are advertised, the degree of standardisation and the difficulty of discovering opportunities. This brief compares centralised and local procurement models and their implications for suppliers.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 2 — Market Dynamics
-            </h2>
-            <p className="article-copy">
-              In centralised models, such as those seen in France or Ireland, national procurement agencies aggregate demand and run large frameworks covering multiple buyers. This centralisation can deliver economies of scale and consistent processes. However, the resulting frameworks may be large and long‑term, limiting opportunities for SMEs. In decentralised systems—common in Germany or the Netherlands—municipalities and regional bodies issue tenders independently. While this increases the number of smaller contracts, it also fragments tender publication across numerous portals, increasing the cost of discovery【955963253296062†L97-L103】【110219375230456†L235-L253】.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 3 — Structural Patterns
-            </h2>
-            <p className="article-copy">
-              Centralised procurement tends to produce national frameworks with long durations and high thresholds, leading to fewer but larger competitions. Local procurement generates a larger volume of smaller contracts with shorter durations. Because each local authority may have its own portal or procurement system, suppliers must monitor multiple sources to capture opportunities【955963253296062†L97-L103】. Facilities management is a case in point: contracts worth billions are scattered across councils, requiring suppliers to log into numerous systems and still miss 30–40 % of opportunities【110219375230456†L235-L253】. Centralised bodies, on the other hand, may maintain a single platform but at the cost of fewer opportunities accessible to newcomers.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 1 — Context
+              </h2>
+              <p className="article-copy">
+                The organisation of public procurement across Europe is far from uniform. Some countries run central purchasing bodies that handle large categories for the entire public sector; others rely heavily on regional or local authorities to conduct their own tenders. These structural differences influence how tenders are advertised, the degree of standardisation and the difficulty of discovering opportunities. This brief compares centralised and local procurement models and their implications for suppliers.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 4 — Implications
-            </h2>
-            <p className="article-copy">
-              Suppliers should tailor their approach to the governance model. In centralised markets, focus on positioning for large frameworks, building capacity to handle national contracts and forming consortia where appropriate. In decentralised systems, allocate resources to monitor local portals, build relationships with regional buyers and target smaller, more frequent contracts. Understanding the structure helps prioritise market entry and manage discovery efforts.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 2 — Market Dynamics
+              </h2>
+              <p className="article-copy">
+                In centralised models, such as those seen in France or Ireland, national procurement agencies aggregate demand and run large frameworks covering multiple buyers. This centralisation can deliver economies of scale and consistent processes. However, the resulting frameworks may be large and long‑term, limiting opportunities for SMEs. In decentralised systems—common in Germany or the Netherlands—municipalities and regional bodies issue tenders independently. While this increases the number of smaller contracts, it also fragments tender publication across numerous portals, increasing the cost of discovery.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 5 — Procurement Intelligence Perspective
-            </h2>
-            <p className="article-copy">
-              Procurement intelligence tools play a crucial role in navigating fragmented markets. Aggregating tenders across local, regional and national portals reduces discovery costs and helps suppliers see a comprehensive picture【955963253296062†L97-L103】. By combining this data with renewal signals and market size analysis, intelligence platforms support strategic decisions about which jurisdictions to target and how to deploy resources.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 3 — Structural Patterns
+              </h2>
+              <p className="article-copy">
+                Centralised procurement tends to produce national frameworks with long durations and high thresholds, leading to fewer but larger competitions. Local procurement generates a larger volume of smaller contracts with shorter durations. Because each local authority may have its own portal or procurement system, suppliers must monitor multiple sources to capture opportunities. Facilities management is a case in point: contracts worth billions are scattered across councils, requiring suppliers to log into numerous systems and still miss 30–40 % of opportunities. Centralised bodies, on the other hand, may maintain a single platform but at the cost of fewer opportunities accessible to newcomers.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 4 — Implications
+              </h2>
+              <p className="article-copy">
+                Suppliers should tailor their approach to the governance model. In centralised markets, focus on positioning for large frameworks, building capacity to handle national contracts and forming consortia where appropriate. In decentralised systems, allocate resources to monitor local portals, build relationships with regional buyers and target smaller, more frequent contracts. Understanding the structure helps prioritise market entry and manage discovery efforts.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 5 — Procurement Intelligence Perspective
+              </h2>
+              <p className="article-copy">
+                Procurement intelligence tools play a crucial role in navigating fragmented markets. Aggregating tenders across local, regional and national portals reduces discovery costs and helps suppliers see a comprehensive picture. By combining this data with renewal signals and market size analysis, intelligence platforms support strategic decisions about which jurisdictions to target and how to deploy resources.
+              </p>
+            </article>
 
           <div className="button-row">
             <Link href="/resources" className="btn btn-secondary">

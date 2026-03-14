@@ -11,7 +11,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "Early Engagement: Leveraging Prior Information and Pre‑Market Engagement Notices",
   description:
-    "The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish prior ...",
+    "The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish p...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -19,7 +19,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "Early Engagement: Leveraging Prior Information and Pre‑Market Engagement Notices",
   description:
-    "The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish prior ...",
+    "The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish p...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -31,56 +31,61 @@ export default function ArticlePage() {
         <p className="eyebrow">Resources</p>
         <h1 className="headline-xl">Early Engagement: Leveraging Prior Information and Pre‑Market Engagement Notices</h1>
         <p className="text-lead">
-          The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish prior ...
+          The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish p...
+        </p>
+        <p className="article-byline">
+          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
       </Section>
 
       <Section muted>
         <div className="article-shell">
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 1 — Context
-            </h2>
-            <p className="article-copy">
-              The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish prior information notices, planned procurement notices and pre‑market engagement notices before issuing a contract notice. These signals give suppliers visibility of future procurements and invite them to inform the design of tenders【260720734738020†L245-L258】. This brief explores how early engagement transforms the bidding landscape.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 2 — Market Dynamics
-            </h2>
-            <p className="article-copy">
-              Prior information notices and PPNs must be published 35 days to 12 months before the contract notice【215481272335041†L603-L611】. When used, they allow authorities to shorten subsequent tender periods because suppliers have already been alerted【260720734738020†L284-L289】. Pre‑market engagement notices invite suppliers to participate in consultations, demonstrate capabilities and influence the procurement specification【260720734738020†L294-L300】. Suppliers monitoring these notices can plan resources, form consortia and shape the eventual tender to their strengths.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 3 — Structural Patterns
-            </h2>
-            <p className="article-copy">
-              Early engagement notices follow a predictable pattern. A PIN or PPN is published with high‑level information about the planned procurement and an estimated timeline. Pre‑market engagement sessions may be scheduled where suppliers can discuss requirements with the authority. After consultation, a formal contract notice is published, often with a shorter tender period because suppliers have had time to prepare. Suppliers who miss these early notices must react quickly within the compressed timetable.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 1 — Context
+              </h2>
+              <p className="article-copy">
+                The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish prior information notices, planned procurement notices and pre‑market engagement notices before issuing a contract notice. These signals give suppliers visibility of future procurements and invite them to inform the design of tenders. This brief explores how early engagement transforms the bidding landscape.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 4 — Implications
-            </h2>
-            <p className="article-copy">
-              For suppliers, early engagement is both a duty and an opportunity. Monitoring preliminary notices ensures they are aware of upcoming tenders and can allocate resources accordingly. Participating in pre‑market consultations allows suppliers to showcase expertise, influence procurement design and build relationships. Failing to engage early means reacting to a contract notice with little time to differentiate.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 2 — Market Dynamics
+              </h2>
+              <p className="article-copy">
+                Prior information notices and PPNs must be published 35 days to 12 months before the contract notice. When used, they allow authorities to shorten subsequent tender periods because suppliers have already been alerted. Pre‑market engagement notices invite suppliers to participate in consultations, demonstrate capabilities and influence the procurement specification. Suppliers monitoring these notices can plan resources, form consortia and shape the eventual tender to their strengths.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 5 — Procurement Intelligence Perspective
-            </h2>
-            <p className="article-copy">
-              Procurement intelligence platforms aggregate PINs, PPNs and pre‑market engagement notices from multiple authorities. They flag early signals and provide contextual data on past contracts in the same category, enabling suppliers to assess whether to engage. By integrating these signals with renewal forecasts, intelligence tools support a proactive strategy centred on early engagement.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 3 — Structural Patterns
+              </h2>
+              <p className="article-copy">
+                Early engagement notices follow a predictable pattern. A PIN or PPN is published with high‑level information about the planned procurement and an estimated timeline. Pre‑market engagement sessions may be scheduled where suppliers can discuss requirements with the authority. After consultation, a formal contract notice is published, often with a shorter tender period because suppliers have had time to prepare. Suppliers who miss these early notices must react quickly within the compressed timetable.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 4 — Implications
+              </h2>
+              <p className="article-copy">
+                For suppliers, early engagement is both a duty and an opportunity. Monitoring preliminary notices ensures they are aware of upcoming tenders and can allocate resources accordingly. Participating in pre‑market consultations allows suppliers to showcase expertise, influence procurement design and build relationships. Failing to engage early means reacting to a contract notice with little time to differentiate.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 5 — Procurement Intelligence Perspective
+              </h2>
+              <p className="article-copy">
+                Procurement intelligence platforms aggregate PINs, PPNs and pre‑market engagement notices from multiple authorities. They flag early signals and provide contextual data on past contracts in the same category, enabling suppliers to assess whether to engage. By integrating these signals with renewal forecasts, intelligence tools support a proactive strategy centred on early engagement.
+              </p>
+            </article>
 
           <div className="button-row">
             <Link href="/resources" className="btn btn-secondary">

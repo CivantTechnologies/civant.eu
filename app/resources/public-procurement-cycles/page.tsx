@@ -35,6 +35,9 @@ export default function PublicProcurementCyclesPage() {
           influence when opportunities appear, how teams should plan, and where
           market pressure is likely to increase.
         </p>
+        <p className="article-byline">
+          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
+        </p>
       </Section>
 
       <Section muted>

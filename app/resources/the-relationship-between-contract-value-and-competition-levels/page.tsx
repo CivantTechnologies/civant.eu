@@ -11,7 +11,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "The Relationship Between Contract Value and Competition Levels",
   description:
-    "Procurement dynamics vary significantly across economic sectors. Healthcare, defence, IT services, construction, and professional services each exhibit disti...",
+    "Contract value represents one of the strongest predictive indicators of competitive intensity in EU public procurement, with evidence consistently demon...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -19,7 +19,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "The Relationship Between Contract Value and Competition Levels",
   description:
-    "Procurement dynamics vary significantly across economic sectors. Healthcare, defence, IT services, construction, and professional services each exhibit disti...",
+    "Contract value represents one of the strongest predictive indicators of competitive intensity in EU public procurement, with evidence consistently demon...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -31,92 +31,76 @@ export default function ArticlePage() {
         <p className="eyebrow">Resources</p>
         <h1 className="headline-xl">The Relationship Between Contract Value and Competition Levels</h1>
         <p className="text-lead">
-          Procurement dynamics vary significantly across economic sectors. Healthcare, defence, IT services, construction, and professional services each exhibit disti...
+          Contract value represents one of the strongest predictive indicators of competitive intensity in EU public procurement, with evidence consistently demon...
+        </p>
+        <p className="article-byline">
+          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
       </Section>
 
       <Section muted>
         <div className="article-shell">
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              1. CONTEXT
-            </h2>
-            <p className="article-copy">
-              Procurement dynamics vary significantly across economic sectors. Healthcare, defence, IT services, construction, and professional services each exhibit distinct patterns in procurement timing, contract structure, competitive dynamics, and buyer behaviour. Understanding these sector-specific characteristics is essential for developing effective market strategies.
-            </p>
-            <p className="article-copy">
-              Sector specialisation in procurement is driven by regulatory requirements, technical complexity, market structure, and the nature of the goods or services being procured. These factors create sector-specific norms for contract duration, evaluation criteria, supplier qualification requirements, and competitive participation levels.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              2. MARKET DYNAMICS
-            </h2>
-            <p className="article-copy">
-              In healthcare procurement, long equipment lifecycles and clinical integration requirements create extended procurement cycles. Defence procurement follows distinct regulatory frameworks with security clearance requirements and longer evaluation periods. IT services procurement is increasingly dominated by framework agreements with four-year cycles.
-            </p>
-            <p className="article-copy">
-              Each sector presents different competitive dynamics. Healthcare procurement may require specific regulatory certifications. Defence procurement restricts participation based on security requirements. IT services procurement often requires demonstration of scale and financial stability that limits SME participation.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              3. STRUCTURAL PATTERNS
-            </h2>
-            <p className="article-copy">
-              Sector-specific procurement patterns are visible in historical data. Contract durations cluster around sector norms: healthcare equipment frameworks often span four years, construction contracts align with project timelines, and consulting services typically follow one-to-three-year engagement models.
-            </p>
-            <p className="article-copy">
-              Competitive participation also varies by sector. Specialised technical sectors tend to attract fewer but more qualified bidders. Commoditised categories attract larger bidder pools but may generate lower margins. Understanding where specific sectors fall on this spectrum informs both market entry decisions and competitive strategy.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 1 - Context
+              </h2>
+              <p className="article-copy">
+                Contract value represents one of the strongest predictive indicators of competitive intensity in EU public procurement, with evidence consistently demonstrating inverse relationships between contract value and tender competition levels across most procurement categories. Economic theory predicts that higher-value contracts attract increased supplier participation due to greater profit potential, yet empirical data from TED and eForms publications demonstrates the opposite pattern - smaller-value tenders frequently attract 8-15 bidders whilst large-value tenders receive 3-5 bids on average. This paradox reflects both participation cost barriers and supplier capacity constraints that create threshold effects in competition.
+              </p>
+              <p className="article-copy">
+                The relationship between value and competition varies substantially by sector and contract type, with services and supplies showing different competition patterns compared to works or specialised procurement categories. Small to medium-value contracts (150,000-500,000 EUR) typically exhibit highest competition levels, as values exceed minimum viable bidding costs whilst remaining accessible to diverse supplier pools. Very high-value contracts (&gt;5 million EUR) frequently operate under restricted procedures limiting participation, as capacity requirements and technical specifications restrict eligible supplier sets to established prime contractors and consortia.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              4. IMPLICATIONS
-            </h2>
-            <p className="article-copy">
-              Organisations targeting specific sectors in public procurement should develop sector-specific intelligence that captures the unique characteristics of procurement in that domain. Generic procurement monitoring across all sectors dilutes attention and may miss sector-specific signals that are critical for effective preparation.
-            </p>
-            <p className="article-copy">
-              Sector expertise also enhances bid quality. Evaluation panels in specialised sectors expect demonstrated understanding of sector-specific challenges, regulatory requirements, and operational contexts. This domain knowledge must be evident throughout the bid response, which requires preparation time that generic approaches do not provide.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 2 - Market Dynamics
+              </h2>
+              <p className="article-copy">
+                Bid preparation costs create participation thresholds that shift competition dynamics with contract value, with fixed costs of 5,000-25,000 EUR per tender making small-value bids economically unviable for large suppliers and large-value bids requiring substantial investment from smaller competitors. Supplier capacity constraints create de facto participation limits, as mid-market suppliers cannot absorb delivery risk on very high-value contracts, restricting competition to large, established contractors with financial and operational capacity to manage execution. Pricing strategies shift with value thresholds, with low-value contracts subject to unit cost competition while high-value contracts permit fixed-price negotiations and value engineering approaches.
+              </p>
+              <p className="article-copy">
+                Market power dynamics vary substantially with contract value, with high-value contracts enabling incumbent suppliers to leverage existing relationships and technical knowledge to deter new entry, whilst low-value contracts subject suppliers to more generic competition from diverse pools. Strategic bidding behaviour changes with contract value, as suppliers in low-value tenders pursue win-maximising strategies, whilst high-value tenders encourage selective bidding and strategic positioning. Geographic competition patterns shift with value, with low-value contracts attracting primarily local suppliers and high-value contracts enabling cross-border competition and pan-European supplier participation.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              5. PROCUREMENT INTELLIGENCE PERSPECTIVE
-            </h2>
-            <p className="article-copy">
-              Sector-focused procurement intelligence enables organisations to build deep understanding of procurement patterns within their target domains. By filtering and analysing procurement data through sector-specific lenses, organisations can identify the contract lifecycle patterns, competitive dynamics, and buyer behaviours that characterise their specific markets.
-            </p>
-            <p className="article-copy">
-              This sector intelligence supports more precise forecasting, more relevant preparation, and more competitive bid responses than generic cross-sector procurement monitoring.
-            </p>
-            <p className="article-copy">
-              KEY TAKEAWAYS
-            </p>
-            <p className="article-copy">
-              1. Procurement dynamics vary significantly across sectors in timing, structure, and competitive patterns.
-            </p>
-            <p className="article-copy">
-              2. Healthcare, defence, IT, construction, and consulting each follow distinct procurement norms.
-            </p>
-            <p className="article-copy">
-              3. Sector-specific intelligence captures patterns that generic monitoring misses.
-            </p>
-            <p className="article-copy">
-              4. Evaluation panels expect demonstrated sector expertise that requires deep preparation.
-            </p>
-            <p className="article-copy">
-              5. Sector-focused procurement intelligence enables more precise forecasting and more competitive bidding.
-            </p>
-            <p className="article-copy">
-              © Civant Technologies 2026 | civant.eu | Procurement Intelligence
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 3 - Structural Patterns
+              </h2>
+              <p className="article-copy">
+                Analysis of eForms and TED data shows median bid counts of 6-8 for contracts valued 250,000-750,000 EUR, declining to 3-4 bids for contracts exceeding 2 million EUR and declining further to 1-2 bids for utilities contracts and restricted procurements above 10 million EUR. Below-threshold procurement (where notice publication is not required) shows lower average competition than above-threshold, suggesting simplified procedures and direct awards reduce competitive intensity even where competition rules formally apply. Framework agreement procurement generally attracts fewer active bidders in subsequent call-off competitions compared to initial framework establishment, reflecting supplier lock-in and reduced participation from non-framework members.
+              </p>
+              <p className="article-copy">
+                Contract value bands reveal clustering of procurement notices, with significant concentrations in specific value ranges that correspond to authority budgeting practices and procurement categorisation rules. Lowest-cost winner procurement, dominant in value ranges below 1 million EUR, shows positive correlation between competition and average savings achieved, suggesting competitive intensity directly reduces prices. Highest and best value procurement, more common in high-value contracts, shows weaker relationship between bid count and outcome quality, as fewer bids enable larger suppliers to maintain premium pricing despite reduced competition.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 4 - Implications
+              </h2>
+              <p className="article-copy">
+                The inverse relationship between contract value and competition creates potential inefficiencies, as highest-value procurements frequently exhibit lowest competition levels, potentially resulting in suboptimal pricing and supplier selection in most value-intensive contracts. Authorities pursuing cost efficiency should recognise that splitting high-value contracts into multiple lots can increase competition and reduce prices, though lot structuring creates delivery risk through multiple contractor management. Conversely, aggregating small-value procurements into single framework agreements can reduce transaction costs and improve supplier performance management, though typically at cost of reduced competition in individual call-off awards.
+              </p>
+              <p className="article-copy">
+                The non-linear relationship between value and competition creates challenges for procurement analysis and benchmarking, as direct comparison of bid counts or price outcomes across different value ranges can misrepresent competitive effectiveness. Reserved procurement mechanisms and dynamic purchasing systems specifically designed to increase competition in high-value categories have shown limited effectiveness, as systemic barriers to participation remain despite rule changes. Suppliers should recognise that competition intensity varies substantially with contract value, informing different bidding strategies - participation in high-value contracts should reflect low expected competition and premium pricing opportunities, whilst low-value contracts require cost leadership positioning.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 5 - Procurement Intelligence Perspective
+              </h2>
+              <p className="article-copy">
+                Procurement intelligence analysis should treat contract value as a primary variable in competition modeling, recognising that value thresholds create distinct competitive environments and bidding dynamics. Intelligence operations should develop value-specific benchmarks for competition levels, tender response rates, and pricing outcomes, avoiding generic benchmarks that obscure value-driven competitive dynamics. Supplier positioning strategies should explicitly consider value thresholds and competition expectations, with differentiated bidding strategies for low-value high-competition segments versus high-value restricted-competition opportunities.
+              </p>
+              <p className="article-copy">
+                Market intelligence should focus on identifying value ranges and contract categories where competition is suppressed relative to theoretical expectations, as these represent areas where incumbent suppliers enjoy above-normal margins and new entrants face reduced barriers relative to low-competition baseline. Historical analysis of contract values and bid outcomes across similar authorities and time periods enables development of win-rate predictions and bidding efficiency metrics, informing portfolio-level bidding strategies. Intelligence teams should monitor policy discussions regarding lot sizing and contract aggregation, as regulatory changes in structuring rules directly affect competition levels across value ranges and create competitive repositioning opportunities.
+              </p>
+            </article>
 
           <div className="button-row">
             <Link href="/resources" className="btn btn-secondary">

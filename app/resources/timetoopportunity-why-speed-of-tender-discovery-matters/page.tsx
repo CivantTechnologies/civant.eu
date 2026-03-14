@@ -11,7 +11,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "Time‑to‑Opportunity: Why Speed of Tender Discovery Matters",
   description:
-    "In public procurement, timing is everything. Once a contract notice is published, suppliers have a finite window to understand the requirements, assemble a b...",
+    "In public procurement, timing is everything. Once a contract notice is published, suppliers have a finite window to understand the requirements, assembl...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -19,7 +19,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "Time‑to‑Opportunity: Why Speed of Tender Discovery Matters",
   description:
-    "In public procurement, timing is everything. Once a contract notice is published, suppliers have a finite window to understand the requirements, assemble a b...",
+    "In public procurement, timing is everything. Once a contract notice is published, suppliers have a finite window to understand the requirements, assembl...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -31,56 +31,61 @@ export default function ArticlePage() {
         <p className="eyebrow">Resources</p>
         <h1 className="headline-xl">Time‑to‑Opportunity: Why Speed of Tender Discovery Matters</h1>
         <p className="text-lead">
-          In public procurement, timing is everything. Once a contract notice is published, suppliers have a finite window to understand the requirements, assemble a b...
+          In public procurement, timing is everything. Once a contract notice is published, suppliers have a finite window to understand the requirements, assembl...
+        </p>
+        <p className="article-byline">
+          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
       </Section>
 
       <Section muted>
         <div className="article-shell">
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 1 — Context
-            </h2>
-            <p className="article-copy">
-              In public procurement, timing is everything. Once a contract notice is published, suppliers have a finite window to understand the requirements, assemble a bid team, obtain approvals and submit a compliant proposal. Delays in discovering new tenders—known as time‑to‑opportunity—can critically shrink this window and undermine bid quality【155603504327949†L37-L55】. This brief examines the consequences of slow tender discovery and strategies to improve it.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 2 — Market Dynamics
-            </h2>
-            <p className="article-copy">
-              Time‑to‑opportunity is influenced by the visibility of notices, the number of portals a supplier must monitor and the resources available for scanning. Fragmented procurement portals mean many opportunities are missed or discovered late【955963253296062†L97-L103】【110219375230456†L235-L253】. When discovery is slow, suppliers may have only a few days to analyse documents, organise partners and secure executive approval【155603504327949†L137-L158】. SMEs lacking dedicated bid teams face even greater challenges【155603504327949†L48-L55】.
-            </p>
-          </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 3 — Structural Patterns
-            </h2>
-            <p className="article-copy">
-              The impact of time‑to‑opportunity cascades through the procurement process. A delay of even twelve hours can reduce the time available for viability checks, technical assessments and leadership sign‑off【155603504327949†L137-L158】. Compressed timelines increase stress, drive up bid costs and lead to errors or incomplete proposals. By contrast, early discovery facilitates deeper analysis, allows time to form consortia and results in more competitive bids.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 1 — Context
+              </h2>
+              <p className="article-copy">
+                In public procurement, timing is everything. Once a contract notice is published, suppliers have a finite window to understand the requirements, assemble a bid team, obtain approvals and submit a compliant proposal. Delays in discovering new tenders—known as time‑to‑opportunity—can critically shrink this window and undermine bid quality. This brief examines the consequences of slow tender discovery and strategies to improve it.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 4 — Implications
-            </h2>
-            <p className="article-copy">
-              For suppliers, reducing time‑to‑opportunity is a strategic imperative. Investing in automated tender alerts and intelligence tools can ensure opportunities are discovered as soon as they are published. With more preparation time, teams can undertake risk assessments, develop unique value propositions and improve compliance. Ultimately, shorter time‑to‑opportunity correlates with higher win rates and better resource utilisation【155603504327949†L162-L173】.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 2 — Market Dynamics
+              </h2>
+              <p className="article-copy">
+                Time‑to‑opportunity is influenced by the visibility of notices, the number of portals a supplier must monitor and the resources available for scanning. Fragmented procurement portals mean many opportunities are missed or discovered late. When discovery is slow, suppliers may have only a few days to analyse documents, organise partners and secure executive approval. SMEs lacking dedicated bid teams face even greater challenges.
+              </p>
+            </article>
 
-          <article className="card article-card">
-            <h2 className="headline-lg article-heading">
-              Section 5 — Procurement Intelligence Perspective
-            </h2>
-            <p className="article-copy">
-              Procurement intelligence platforms aggregate notices across portals and deliver real‑time alerts, effectively eliminating discovery delays. By analysing historical data, they can also predict when certain authorities tend to publish and anticipate upcoming opportunities. These capabilities enable suppliers to extend preparation windows and move from reactive to proactive bidding.
-            </p>
-          </article>
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 3 — Structural Patterns
+              </h2>
+              <p className="article-copy">
+                The impact of time‑to‑opportunity cascades through the procurement process. A delay of even twelve hours can reduce the time available for viability checks, technical assessments and leadership sign‑off. Compressed timelines increase stress, drive up bid costs and lead to errors or incomplete proposals. By contrast, early discovery facilitates deeper analysis, allows time to form consortia and results in more competitive bids.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 4 — Implications
+              </h2>
+              <p className="article-copy">
+                For suppliers, reducing time‑to‑opportunity is a strategic imperative. Investing in automated tender alerts and intelligence tools can ensure opportunities are discovered as soon as they are published. With more preparation time, teams can undertake risk assessments, develop unique value propositions and improve compliance. Ultimately, shorter time‑to‑opportunity correlates with higher win rates and better resource utilisation.
+              </p>
+            </article>
+
+            <article className="card article-card">
+              <h2 className="headline-lg article-heading">
+                Section 5 — Procurement Intelligence Perspective
+              </h2>
+              <p className="article-copy">
+                Procurement intelligence platforms aggregate notices across portals and deliver real‑time alerts, effectively eliminating discovery delays. By analysing historical data, they can also predict when certain authorities tend to publish and anticipate upcoming opportunities. These capabilities enable suppliers to extend preparation windows and move from reactive to proactive bidding.
+              </p>
+            </article>
 
           <div className="button-row">
             <Link href="/resources" className="btn btn-secondary">
