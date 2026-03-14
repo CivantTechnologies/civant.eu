@@ -30,64 +30,42 @@ export default function ArticlePage() {
       <Section className="hero-block hero-section">
         <p className="eyebrow">Resources</p>
         <h1 className="headline-xl">Strategic Sourcing vs Routine Procurement: How Market Structure Influences Approach</h1>
-        <p className="text-lead">
-          Not all public procurement is created equal. Strategic categories involve complex solutions, long‑term relationships and higher contract values, whereas...
-        </p>
         <p className="article-byline">
           By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
       </Section>
 
       <Section muted>
-        <div className="article-shell">
+        <div className="article-prose">
+          <p className="article-body-text">
+            Not all public procurement is created equal. Strategic categories involve complex solutions, long‑term relationships and higher contract values, whereas routine categories involve commoditised goods with lower complexity. Suppliers often misallocate resources by pursuing routine tenders with bespoke solutions or neglecting strategic categories that require early engagement. This brief explores how market structure informs the distinction between strategic sourcing and routine procurement.
+          </p>
 
+          <h2 className="article-subheading">Strategic vs Transactional</h2>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 1 — Context
-              </h2>
-              <p className="article-copy">
-                Not all public procurement is created equal. Strategic categories involve complex solutions, long‑term relationships and higher contract values, whereas routine categories involve commoditised goods with lower complexity. Suppliers often misallocate resources by pursuing routine tenders with bespoke solutions or neglecting strategic categories that require early engagement. This brief explores how market structure informs the distinction between strategic sourcing and routine procurement.
-              </p>
-            </article>
+          <p className="article-body-text">
+            Strategic sourcing typically involves frameworks or large one‑off contracts with comprehensive specifications, such as ICT systems, professional services or infrastructure projects. Buyers invest time in pre‑market engagement and supplier relationship management for these categories. Routine procurement, by contrast, may employ DPS or simple one‑off tenders for commoditised items such as office supplies or janitorial services. These categories prioritise price and compliance over innovation and are often re‑tendered frequently.
+          </p>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 2 — Market Dynamics
-              </h2>
-              <p className="article-copy">
-                Strategic sourcing typically involves frameworks or large one‑off contracts with comprehensive specifications, such as ICT systems, professional services or infrastructure projects. Buyers invest time in pre‑market engagement and supplier relationship management for these categories. Routine procurement, by contrast, may employ DPS or simple one‑off tenders for commoditised items such as office supplies or janitorial services. These categories prioritise price and compliance over innovation and are often re‑tendered frequently.
-              </p>
-            </article>
+          <h2 className="article-subheading">Market Structure Impact</h2>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 3 — Structural Patterns
-              </h2>
-              <p className="article-copy">
-                The structural patterns of strategic and routine procurement differ. Strategic categories exhibit longer contract durations, pre‑procurement consultations and complex evaluation criteria. Routine categories feature shorter contracts, lower thresholds and standardised specifications. Suppliers should recognise these patterns to determine whether early engagement, consortium building or simple transactional bidding is appropriate.
-              </p>
-            </article>
+          <p className="article-body-text">
+            The structural patterns of strategic and routine procurement differ. Strategic categories exhibit longer contract durations, pre‑procurement consultations and complex evaluation criteria. Routine categories feature shorter contracts, lower thresholds and standardised specifications. Suppliers should recognise these patterns to determine whether early engagement, consortium building or simple transactional bidding is appropriate.
+          </p>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 4 — Implications
-              </h2>
-              <p className="article-copy">
-                Choosing the right approach hinges on understanding the category. Strategic categories warrant investment in market intelligence, pre‑tender relationships, proof of capability and more tailored proposals. Routine categories require efficient bid processes, competitive pricing and the ability to manage high tender volumes. By aligning resources with category structure, organisations can optimise win rates and avoid over‑engineering bids for small opportunities.
-              </p>
-            </article>
+          <h2 className="article-subheading">Approach Selection</h2>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 5 — Procurement Intelligence Perspective
-              </h2>
-              <p className="article-copy">
-                Procurement intelligence helps classify categories by value, complexity and contract structure. Historical analysis of contract durations and supplier turnover can identify which segments are strategic versus routine. This insight enables sales teams to segment the market and tailor their pursuit strategies accordingly.
-              </p>
-            </article>
+          <p className="article-body-text">
+            Choosing the right approach hinges on understanding the category. Strategic categories warrant investment in market intelligence, pre‑tender relationships, proof of capability and more tailored proposals. Routine categories require efficient bid processes, competitive pricing and the ability to manage high tender volumes. By aligning resources with category structure, organisations can optimise win rates and avoid over‑engineering bids for small opportunities.
+          </p>
 
-          <div className="button-row">
+          <h2 className="article-subheading">Strategic Decision-Making</h2>
+
+          <p className="article-body-text">
+            Procurement intelligence helps classify categories by value, complexity and contract structure. Historical analysis of contract durations and supplier turnover can identify which segments are strategic versus routine. This insight enables sales teams to segment the market and tailor their pursuit strategies accordingly.
+          </p>
+
+          <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources
             </Link>

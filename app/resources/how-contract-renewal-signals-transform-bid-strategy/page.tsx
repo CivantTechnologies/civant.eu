@@ -30,64 +30,42 @@ export default function ArticlePage() {
       <Section className="hero-block hero-section">
         <p className="eyebrow">Resources</p>
         <h1 className="headline-xl">How Contract Renewal Signals Transform Bid Strategy</h1>
-        <p className="text-lead">
-          Renewal signals are a goldmine for suppliers seeking to build a proactive pipeline. By monitoring when existing contracts are due to expire, suppliers c...
-        </p>
         <p className="article-byline">
           By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
       </Section>
 
       <Section muted>
-        <div className="article-shell">
+        <div className="article-prose">
+          <p className="article-body-text">
+            Renewal signals are a goldmine for suppliers seeking to build a proactive pipeline. By monitoring when existing contracts are due to expire, suppliers can anticipate upcoming competitions and allocate resources accordingly. This brief explores how contract renewal signals transform bid strategy from reactive tender chasing to systematic planning.
+          </p>
 
+          <h2 className="article-subheading">Contracts Approaching End</h2>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 1 — Context
-              </h2>
-              <p className="article-copy">
-                Renewal signals are a goldmine for suppliers seeking to build a proactive pipeline. By monitoring when existing contracts are due to expire, suppliers can anticipate upcoming competitions and allocate resources accordingly. This brief explores how contract renewal signals transform bid strategy from reactive tender chasing to systematic planning.
-              </p>
-            </article>
+          <p className="article-body-text">
+            In facilities management, contracts worth billions are renewed annually. Council minutes and procurement strategies may note decisions to extend a contract until a specified date, providing clear signals about when re‑procurement will occur. Other sectors, such as IT systems and professional services, show similar patterns. Suppliers who track renewals can map out the tender pipeline months or years in advance.
+          </p>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 2 — Market Dynamics
-              </h2>
-              <p className="article-copy">
-                In facilities management, contracts worth billions are renewed annually. Council minutes and procurement strategies may note decisions to extend a contract until a specified date, providing clear signals about when re‑procurement will occur. Other sectors, such as IT systems and professional services, show similar patterns. Suppliers who track renewals can map out the tender pipeline months or years in advance.
-              </p>
-            </article>
+          <h2 className="article-subheading">Signal Interpretation</h2>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 3 — Structural Patterns
-              </h2>
-              <p className="article-copy">
-                Renewal signals often follow formal cycles: annual budget approvals, medium‑term financial plans and capital investment programmes. Contracts may include extension options that are exercised through cabinet decisions, which are recorded in minutes. By correlating these signals with contract durations, suppliers can predict when a replacement procurement will be initiated. Failing to monitor renewals results in rushed, reactive bidding.
-              </p>
-            </article>
+          <p className="article-body-text">
+            Renewal signals often follow formal cycles: annual budget approvals, medium‑term financial plans and capital investment programmes. Contracts may include extension options that are exercised through cabinet decisions, which are recorded in minutes. By correlating these signals with contract durations, suppliers can predict when a replacement procurement will be initiated. Failing to monitor renewals results in rushed, reactive bidding.
+          </p>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 4 — Implications
-              </h2>
-              <p className="article-copy">
-                Renewal signals offer a roadmap for business development. Suppliers can time their outreach to buyers, propose innovations and gather references long before the tender. They can also avoid wasting effort on contracts that are far from expiry. Incorporating renewal data into bid strategy allows for more accurate pipeline forecasting and better resource allocation.
-              </p>
-            </article>
+          <h2 className="article-subheading">Timing the Renewal Bid</h2>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 5 — Procurement Intelligence Perspective
-              </h2>
-              <p className="article-copy">
-                Procurement intelligence tools aggregate renewal signals from minutes, strategies and contract databases. They predict expiry dates, flag extension decisions and provide context about incumbent performance and past spend. This intelligence allows suppliers to identify opportunities early, plan engagement and adjust strategy based on the likelihood of re‑procurement.
-              </p>
-            </article>
+          <p className="article-body-text">
+            Renewal signals offer a roadmap for business development. Suppliers can time their outreach to buyers, propose innovations and gather references long before the tender. They can also avoid wasting effort on contracts that are far from expiry. Incorporating renewal data into bid strategy allows for more accurate pipeline forecasting and better resource allocation.
+          </p>
 
-          <div className="button-row">
+          <h2 className="article-subheading">Renewal-Based Strategy</h2>
+
+          <p className="article-body-text">
+            Procurement intelligence tools aggregate renewal signals from minutes, strategies and contract databases. They predict expiry dates, flag extension decisions and provide context about incumbent performance and past spend. This intelligence allows suppliers to identify opportunities early, plan engagement and adjust strategy based on the likelihood of re‑procurement.
+          </p>
+
+          <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources
             </Link>

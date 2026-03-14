@@ -30,64 +30,42 @@ export default function ArticlePage() {
       <Section className="hero-block hero-section">
         <p className="eyebrow">Resources</p>
         <h1 className="headline-xl">Partnering for Success: Collaboration Strategies in Public Contracts</h1>
-        <p className="text-lead">
-          Public contracts can be large and complex, requiring a breadth of capabilities that few suppliers possess alone. Partnerships—whether through consortia,...
-        </p>
         <p className="article-byline">
           By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
       </Section>
 
       <Section muted>
-        <div className="article-shell">
+        <div className="article-prose">
+          <p className="article-body-text">
+            Public contracts can be large and complex, requiring a breadth of capabilities that few suppliers possess alone. Partnerships—whether through consortia, joint ventures or subcontracting—provide a way to assemble the necessary skills and experience. This brief examines collaboration strategies and how they help suppliers succeed in public procurement.
+          </p>
 
+          <h2 className="article-subheading">When to Partner</h2>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 1 — Context
-              </h2>
-              <p className="article-copy">
-                Public contracts can be large and complex, requiring a breadth of capabilities that few suppliers possess alone. Partnerships—whether through consortia, joint ventures or subcontracting—provide a way to assemble the necessary skills and experience. This brief examines collaboration strategies and how they help suppliers succeed in public procurement.
-              </p>
-            </article>
+          <p className="article-body-text">
+            Partnerships are common in sectors like construction, IT and large‑scale services, where a single supplier cannot meet all requirements. Consortia enable multiple firms to submit a joint bid, pooling resources and expertise. Joint ventures create a new entity for a specific contract, sharing risks and rewards. Subcontracting allows smaller suppliers to participate by providing specific services under a prime contractor. These models help meet eligibility criteria and broaden participation.
+          </p>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 2 — Market Dynamics
-              </h2>
-              <p className="article-copy">
-                Partnerships are common in sectors like construction, IT and large‑scale services, where a single supplier cannot meet all requirements. Consortia enable multiple firms to submit a joint bid, pooling resources and expertise. Joint ventures create a new entity for a specific contract, sharing risks and rewards. Subcontracting allows smaller suppliers to participate by providing specific services under a prime contractor. These models help meet eligibility criteria and broaden participation.
-              </p>
-            </article>
+          <h2 className="article-subheading">Teaming Strategy</h2>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 3 — Structural Patterns
-              </h2>
-              <p className="article-copy">
-                Framework agreements often allow consortia or joint ventures to apply, enabling diverse suppliers to access the panel. Public bodies may set rules on the composition of consortia and require clarity on liability and decision‑making. Subcontracting arrangements must comply with rules on transparency and social value, and prime contractors are typically responsible for performance. Suppliers should structure partnerships carefully to manage risk and ensure compliance.
-              </p>
-            </article>
+          <p className="article-body-text">
+            Framework agreements often allow consortia or joint ventures to apply, enabling diverse suppliers to access the panel. Public bodies may set rules on the composition of consortia and require clarity on liability and decision‑making. Subcontracting arrangements must comply with rules on transparency and social value, and prime contractors are typically responsible for performance. Suppliers should structure partnerships carefully to manage risk and ensure compliance.
+          </p>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 4 — Implications
-              </h2>
-              <p className="article-copy">
-                Partnerships can expand market access for SMEs and specialised suppliers, helping them gain experience and build references. However, forming and managing partnerships requires diligence: partners must align objectives, share information and resolve disputes. Suppliers should conduct due diligence on potential partners and negotiate clear terms before bidding together.
-              </p>
-            </article>
+          <h2 className="article-subheading">Partnership Benefits</h2>
 
-            <article className="card article-card">
-              <h2 className="headline-lg article-heading">
-                Section 5 — Procurement Intelligence Perspective
-              </h2>
-              <p className="article-copy">
-                Procurement intelligence platforms can identify potential partners by analysing who has won relevant contracts and their capabilities. They also provide insights into which consortia have been successful and the structure of joint ventures. By leveraging intelligence, suppliers can approach collaboration strategically and focus on partners with complementary strengths.
-              </p>
-            </article>
+          <p className="article-body-text">
+            Partnerships can expand market access for SMEs and specialised suppliers, helping them gain experience and build references. However, forming and managing partnerships requires diligence: partners must align objectives, share information and resolve disputes. Suppliers should conduct due diligence on potential partners and negotiate clear terms before bidding together.
+          </p>
 
-          <div className="button-row">
+          <h2 className="article-subheading">Collaborative Winning</h2>
+
+          <p className="article-body-text">
+            Procurement intelligence platforms can identify potential partners by analysing who has won relevant contracts and their capabilities. They also provide insights into which consortia have been successful and the structure of joint ventures. By leveraging intelligence, suppliers can approach collaboration strategically and focus on partners with complementary strengths.
+          </p>
+
+          <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources
             </Link>
