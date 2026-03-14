@@ -76,6 +76,9 @@ const modules: PlatformModule[] = [
     benefit:
       "Eliminates broad searching and focuses teams on the highest-fit institutions.",
     role: "Workflow role: target account and category selection.",
+    screenshot: "/screenshots/finder-filters.png",
+    screenshotAlt: "Finder search interface with country, source, buyer, and CPV category filters",
+    screenshotCaption: "Finder: precision filters to narrow your target market",
     label: "Target Discovery",
   },
   {
@@ -87,9 +90,9 @@ const modules: PlatformModule[] = [
       "Helps teams engage early, plan resources, and reduce reactive bid cycles.",
     role: "Workflow role: timing intelligence and planning trigger.",
     label: "Forecast Engine",
-    screenshot: "/screenshots/forecast.png",
-    screenshotAlt: "Forecast module showing confidence-scored procurement projections across tracked markets",
-    screenshotCaption: "Forecast: confidence-scored procurement projections",
+    screenshot: "/screenshots/executive-summary.png",
+    screenshotAlt: "Executive summary showing target sectors, 6,906 forecasts, and 91% accuracy rate",
+    screenshotCaption: "Forecast: executive intelligence with confidence scoring",
   },
   {
     slug: "competitors",
@@ -100,6 +103,9 @@ const modules: PlatformModule[] = [
       "Improves positioning decisions before committing to high-effort opportunities.",
     role: "Workflow role: competitive strategy context.",
     label: "Competitive Insight",
+    screenshot: "/screenshots/competitors.png",
+    screenshotAlt: "Competitors overview showing 18 contracts, total value, strategic insights and strengths",
+    screenshotCaption: "Competitors: incumbent footprint and competitive pressure",
   },
   {
     slug: "alerts",
