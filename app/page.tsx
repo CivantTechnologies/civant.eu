@@ -48,31 +48,37 @@ const howItWorks = [
 
 const modules = [
   {
+    slug: "panorama",
     title: "Panorama",
     purpose: "Maps buyer, category, and market momentum in one view.",
     label: "Market View",
   },
   {
+    slug: "finder",
     title: "Finder",
     purpose: "Identifies institutions and segments aligned to your focus.",
     label: "Target Discovery",
   },
   {
+    slug: "forecast",
     title: "Forecast",
     purpose: "Estimates likely tender windows by buyer, segment, and category.",
     label: "Forecast Layer",
   },
   {
+    slug: "competitors",
     title: "Competitors",
     purpose: "Shows incumbent footprint and competitive pressure by account.",
     label: "Competitive Signal",
   },
   {
+    slug: "alerts",
     title: "Alerts",
     purpose: "Flags material signal changes across your tracked targets.",
     label: "Monitoring",
   },
   {
+    slug: "bids",
     title: "Bids",
     purpose: "Connects intelligence to bid planning, ownership, and follow-through.",
     label: "Execution",
@@ -191,11 +197,18 @@ export default function HomePage() {
         </div>
         <div className="grid grid-3 module-grid">
           {modules.map((module) => (
-            <article key={module.title} className="card module-card">
+            <Link
+              key={module.slug}
+              href={`/platform#${module.slug}`}
+              className="card module-card module-card-link"
+            >
               <p className="module-label">{module.label}</p>
               <h3 className="card-title">{module.title}</h3>
               <p className="card-body">{module.purpose}</p>
-            </article>
+              <span className="module-link-hint" aria-hidden="true">
+                View module &rarr;
+              </span>
+            </Link>
           ))}
         </div>
         <div className="button-row">

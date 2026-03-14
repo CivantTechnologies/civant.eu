@@ -1926,3 +1926,125 @@ a {
     padding: 1.2rem;
   }
 }
+
+/* ───────────────────────────────────────────
+   Browser Frame Component
+   ─────────────────────────────────────────── */
+.browser-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #0d1b2a;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-card);
+  margin: 0;
+}
+.browser-frame-bar {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+}
+.browser-dot:first-child { background: #ff5f57; }
+.browser-dot:nth-child(2) { background: #ffbd2e; }
+.browser-dot:nth-child(3) { background: #28c840; }
+.browser-frame-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.browser-frame-caption {
+  padding: 0.6rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ───────────────────────────────────────────
+   Platform Page – Module Sections (with screenshots)
+   ─────────────────────────────────────────── */
+.platform-modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.platform-module-section {
+  scroll-margin-top: 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.platform-module-section:last-child {
+  border-bottom: none;
+}
+/* Alternate layout: even items flip text/image sides */
+.platform-module-section:nth-child(even) {
+  direction: rtl;
+}
+.platform-module-section:nth-child(even) > * {
+  direction: ltr;
+}
+.platform-module-text {
+  padding-top: 0.5rem;
+}
+.platform-module-visual {
+  width: 100%;
+}
+/* If no screenshot, let text span full width */
+.platform-module-section:not(:has(.platform-module-visual)) {
+  grid-template-columns: 1fr;
+}
+.platform-module-section:not(:has(.platform-module-visual)):nth-child(even) {
+  direction: ltr;
+}
+
+@media (max-width: 768px) {
+  .platform-module-section {
+    grid-template-columns: 1fr;
+  }
+  .platform-module-section:nth-child(even) {
+    direction: ltr;
+  }
+}
+
+/* ───────────────────────────────────────────
+   Homepage – Module Card Links
+   ─────────────────────────────────────────── */
+.module-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out);
+}
+.module-card-link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
+.module-link-hint {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+}
+.module-card-link:hover .module-link-hint {
+  opacity: 1;
+  transform: translateX(0);
+}

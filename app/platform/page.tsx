@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
+import { BrowserFrame } from "../../components/site/BrowserFrame";
 import { buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
@@ -41,8 +42,21 @@ const systemLayers = [
   },
 ];
 
-const modules = [
+interface PlatformModule {
+  slug: string;
+  title: string;
+  purpose: string;
+  benefit: string;
+  role: string;
+  label: string;
+  screenshot?: string;
+  screenshotAlt?: string;
+  screenshotCaption?: string;
+}
+
+const modules: PlatformModule[] = [
   {
+    slug: "panorama",
     title: "Panorama",
     purpose:
       "Provides a macro-level view of procurement activity by institution, category, and market segment.",
@@ -50,8 +64,12 @@ const modules = [
       "Gives leadership teams a strategic map of where momentum is building or cooling.",
     role: "Workflow role: market baseline and opportunity prioritization.",
     label: "Market Intelligence",
+    screenshot: "/screenshots/panorama.png",
+    screenshotAlt: "Panorama dashboard showing strategic runway, operational status, and renewal opportunities",
+    screenshotCaption: "Panorama: your strategic runway at a glance",
   },
   {
+    slug: "finder",
     title: "Finder",
     purpose:
       "Discovers buyer organizations, procurement segments, and target categories that match your strategy.",
@@ -61,6 +79,7 @@ const modules = [
     label: "Target Discovery",
   },
   {
+    slug: "forecast",
     title: "Forecast",
     purpose:
       "Generates confidence-scored projections for likely procurement windows by buyer and category.",
@@ -68,8 +87,12 @@ const modules = [
       "Helps teams engage early, plan resources, and reduce reactive bid cycles.",
     role: "Workflow role: timing intelligence and planning trigger.",
     label: "Forecast Engine",
+    screenshot: "/screenshots/forecast.png",
+    screenshotAlt: "Forecast module showing confidence-scored procurement projections across tracked markets",
+    screenshotCaption: "Forecast: confidence-scored procurement projections",
   },
   {
+    slug: "competitors",
     title: "Competitors",
     purpose:
       "Tracks incumbent position, participation intensity, and historical win dynamics in target markets.",
@@ -79,6 +102,7 @@ const modules = [
     label: "Competitive Insight",
   },
   {
+    slug: "alerts",
     title: "Alerts",
     purpose:
       "Monitors procurement and participation signals across your tracked buyers and categories.",
@@ -88,6 +112,7 @@ const modules = [
     label: "Signal Monitoring",
   },
   {
+    slug: "bids",
     title: "Bids",
     purpose:
       "Connects intelligence outputs to execution workflows for ownership, timing, and follow-through.",
@@ -143,14 +168,29 @@ export default function PlatformPage() {
           <p className="eyebrow">Platform Modules</p>
           <h2 className="headline-lg">Purpose-built capabilities for each stage</h2>
         </div>
-        <div className="grid grid-2 platform-module-grid">
+        <div className="platform-modules-list">
           {modules.map((module) => (
-            <article key={module.title} className="card platform-module-card">
-              <p className="module-label">{module.label}</p>
-              <h3 className="card-title">{module.title}</h3>
-              <p className="card-body">{module.purpose}</p>
-              <p className="module-benefit">{module.benefit}</p>
-              <p className="module-role">{module.role}</p>
+            <article
+              key={module.slug}
+              id={module.slug}
+              className="platform-module-section"
+            >
+              <div className="platform-module-text">
+                <p className="module-label">{module.label}</p>
+                <h3 className="card-title">{module.title}</h3>
+                <p className="card-body">{module.purpose}</p>
+                <p className="module-benefit">{module.benefit}</p>
+                <p className="module-role">{module.role}</p>
+              </div>
+              {module.screenshot && (
+                <div className="platform-module-visual">
+                  <BrowserFrame
+                    src={module.screenshot}
+                    alt={module.screenshotAlt || `${module.title} module`}
+                    caption={module.screenshotCaption}
+                  />
+                </div>
+              )}
             </article>
           ))}
         </div>
