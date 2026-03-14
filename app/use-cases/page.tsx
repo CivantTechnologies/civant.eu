@@ -1,5 +1,6 @@
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
+import { BrowserFrame } from "../../components/site/BrowserFrame";
 import { buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
@@ -22,6 +23,9 @@ const audiences = [
       "Earlier qualification and go/no-go decisions",
       "Reduced reactive workload from last-minute tender discovery",
     ],
+    screenshot: "/screenshots/finder-results.png",
+    screenshotAlt: "Finder results showing tender opportunities with source tags, dates, and buyer details",
+    screenshotCaption: "Finder: how bid teams discover and qualify opportunities",
   },
   {
     title: "Sales & Partnerships",
@@ -33,6 +37,9 @@ const audiences = [
       "Stronger partner alignment before bid windows open",
       "More strategic, less reactive public-sector pipeline development",
     ],
+    screenshot: "/screenshots/competitors.png",
+    screenshotAlt: "Competitors overview showing contract count, total value, strategic insights and strengths",
+    screenshotCaption: "Competitors: competitive intelligence for account planning",
   },
   {
     title: "Market Intelligence Teams",
@@ -44,6 +51,9 @@ const audiences = [
       "Clearer visibility into participation and competitive shifts",
       "Actionable insight outputs for commercial and bid teams",
     ],
+    screenshot: "/screenshots/executive-summary.png",
+    screenshotAlt: "Executive summary with target sectors, forecast counts, and accuracy metrics",
+    screenshotCaption: "Executive Summary: market-level intelligence for leadership reporting",
   },
 ];
 
@@ -89,6 +99,15 @@ export default function UseCasesPage() {
                   </ul>
                 </article>
               </div>
+              {audience.screenshot && (
+                <div className="audience-screenshot">
+                  <BrowserFrame
+                    src={audience.screenshot}
+                    alt={audience.screenshotAlt || audience.title}
+                    caption={audience.screenshotCaption}
+                  />
+                </div>
+              )}
             </article>
           ))}
         </div>

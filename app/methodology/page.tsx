@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
+import { BrowserFrame } from "../../components/site/BrowserFrame";
 import { buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
@@ -168,6 +169,13 @@ export default function MethodologyPage() {
             observed downstream publication alignment, not by marketing claims.
           </p>
         </article>
+        <div className="methodology-validation-visual">
+          <BrowserFrame
+            src="/screenshots/forecast-accuracy.png"
+            alt="Forecast accuracy dashboard showing 90.8% overall accuracy across 79,000 resolved forecasts"
+            caption="Live validation: 90.8% forecast accuracy across 79K resolved forecasts"
+          />
+        </div>
       </Section>
 
       <Section muted>

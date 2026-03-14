@@ -2048,3 +2048,17 @@ a {
   opacity: 1;
   transform: translateX(0);
 }
+
+/* ── Methodology validation visual ── */
+.methodology-validation-visual {
+  margin-top: 2.5rem;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+/* ── Use Cases audience screenshot ── */
+.audience-screenshot {
+  margin-top: 2rem;
+  max-width: 48rem;
+  margin-inline: auto;
+}
