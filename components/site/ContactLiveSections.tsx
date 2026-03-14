@@ -7,12 +7,13 @@ import {
   GraduationCap,
   Handshake,
   Loader2,
+  Settings2,
   type LucideIcon,
 } from "lucide-react";
 import { useRef, useState } from "react";
 import { Section } from "./Section";
 
-type ReasonValue = "grants" | "investment" | "partnership" | "research";
+type ReasonValue = "custom-plan" | "grants" | "investment" | "partnership" | "research";
 
 type Reason = {
   value: ReasonValue;
@@ -22,6 +23,12 @@ type Reason = {
 };
 
 const reasons: Reason[] = [
+  {
+    value: "custom-plan",
+    label: "Custom Plan",
+    description: "Tailored pricing, unlimited seats, dedicated account manager, SLA guarantees",
+    icon: Settings2,
+  },
   {
     value: "grants",
     label: "Grants & Funding",
@@ -88,19 +95,22 @@ export function ContactLiveSections() {
     setIsSubmitting(true);
 
     try {
-      const subject = `${reasonLabel(formData.reason)} - Civant`;
-      const body = [
-        `Name: ${formData.name}`,
-        `Email: ${formData.email}`,
-        `Conversation topic: ${reasonLabel(formData.reason)}`,
-        `Marketing opt-in: ${consentOptional ? "Yes" : "No"}`,
-        "",
-        "Message:",
-        formData.message,
-      ].join("\n");
-      window.location.href = `mailto:hello@civant.eu?subject=${encodeURIComponent(
-        subject,
-      )}&body=${encodeURIComponent(body)}`;
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          reason: reasonLabel(formData.reason),
+          message: formData.message,
+          marketingOptIn: consentOptional,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Failed to send message");
+      }
 
       setFormData({ name: "", email: "", reason: "", message: "" });
       setConsentRequired(false);

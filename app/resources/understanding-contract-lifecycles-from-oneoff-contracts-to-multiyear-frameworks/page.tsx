@@ -1,0 +1,98 @@
+import Link from "next/link";
+import { Section } from "../../../components/site/Section";
+import { SchemaScript } from "../../../components/site/SchemaScript";
+import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+
+export const dynamic = "force-static";
+
+const pagePath = "/resources/understanding-contract-lifecycles-from-oneoff-contracts-to-multiyear-frameworks";
+const publishedAt = "2026-03-14T00:00:00+00:00";
+
+export const metadata = buildArticleMetadata({
+  title: "Understanding Contract Lifecycles: From One‑Off Contracts to Multi‑Year Frameworks",
+  description:
+    "Many suppliers treat all public tenders alike, yet the structure and duration of a contract profoundly influence the timing and nature of competition. One‑of...",
+  path: pagePath,
+  datePublished: publishedAt,
+});
+
+const articleSchema = buildArticleSchema({
+  title: "Understanding Contract Lifecycles: From One‑Off Contracts to Multi‑Year Frameworks",
+  description:
+    "Many suppliers treat all public tenders alike, yet the structure and duration of a contract profoundly influence the timing and nature of competition. One‑of...",
+  path: pagePath,
+  datePublished: publishedAt,
+});
+
+export default function ArticlePage() {
+  return (
+    <>
+      <Section className="hero-block hero-section">
+        <p className="eyebrow">Resources</p>
+        <h1 className="headline-xl">Understanding Contract Lifecycles: From One‑Off Contracts to Multi‑Year Frameworks</h1>
+        <p className="text-lead">
+          Many suppliers treat all public tenders alike, yet the structure and duration of a contract profoundly influence the timing and nature of competition. One‑of...
+        </p>
+      </Section>
+
+      <Section muted>
+        <div className="article-shell">
+          <article className="card article-card">
+            <h2 className="headline-lg article-heading">
+              Section 1 — Context
+            </h2>
+            <p className="article-copy">
+              Many suppliers treat all public tenders alike, yet the structure and duration of a contract profoundly influence the timing and nature of competition. One‑off contracts have fixed lifespans—often 12 or 24 months—while framework agreements lock multiple suppliers into a longer arrangement lasting two to four years【811032459588661†L309-L323】. Without appreciating these distinctions, suppliers risk misaligning their pipeline planning and either chasing opportunities too early or discovering them only after a framework has been renewed. This brief examines the mechanics of contract lifecycles and why they matter for strategic market engagement.
+            </p>
+          </article>
+
+          <article className="card article-card">
+            <h2 className="headline-lg article-heading">
+              Section 2 — Market Dynamics
+            </h2>
+            <p className="article-copy">
+              In public procurement, contract form dictates market dynamics. One‑off tenders represent discrete procurements with clear end dates; once completed, a new competition is required, providing regular openings for new entrants【811032459588661†L309-L312】. Framework agreements, by contrast, establish a procurement vehicle through which multiple contracts can be let over several years【811032459588661†L314-L323】. These frameworks are particularly prevalent in categories like IT services, professional services and facilities management, where buyers seek flexibility and administrative efficiency. Dynamic purchasing systems (DPS) offer another structure: suppliers can join at any time, but the system is used for commoditised goods and services and involves mini‑competitions for each call‑off【811032459588661†L330-L337】. Understanding which mechanism a buyer uses allows suppliers to tailor their approach—either preparing for a competitive framework competition or registering early on a DPS.
+            </p>
+          </article>
+
+          <article className="card article-card">
+            <h2 className="headline-lg article-heading">
+              Section 3 — Structural Patterns
+            </h2>
+            <p className="article-copy">
+              Contract lifecycles follow predictable patterns. One‑off contracts expire after their set term and typically require a fresh tender, meaning opportunities reappear on a regular rhythm【811032459588661†L309-L312】. Frameworks run for two to four years and often include extension options, leading to long cycles with fewer entry points【811032459588661†L314-L323】. Dynamic purchasing systems remain open indefinitely but operate a rolling qualification process【811032459588661†L330-L337】. Beyond the formal structures, local council minutes, strategic plans and cabinet approvals often signal decisions to extend or replace contracts months in advance【333202901376570†L362-L376】. Suppliers who map these cycles can anticipate when a contract will return to market and decide where to invest their bid resources.
+            </p>
+          </article>
+
+          <article className="card article-card">
+            <h2 className="headline-lg article-heading">
+              Section 4 — Implications
+            </h2>
+            <p className="article-copy">
+              For companies selling to the public sector, overlooking contract lifecycles can result in missed opportunities or wasted effort. A team that invests heavily in a sector dominated by long‑term frameworks may face an extended wait before the next competition. Conversely, suppliers can target short‑term one‑off contracts for quicker wins and pipeline diversity. By tracking when frameworks are due for renewal and staying alert to signals of contract extensions【333202901376570†L362-L376】, organisations can time engagement with buyers, build relationships ahead of re‑tenders and avoid bidding blind against incumbents entrenched for years.
+            </p>
+          </article>
+
+          <article className="card article-card">
+            <h2 className="headline-lg article-heading">
+              Section 5 — Procurement Intelligence Perspective
+            </h2>
+            <p className="article-copy">
+              Procurement intelligence platforms enhance visibility into contract lifecycles by consolidating historical award data, renewal dates and early signals from meeting minutes or budget approvals. Predictive analytics can forecast when frameworks will expire, highlight sectors with upcoming one‑off tenders and rank opportunities by strategic fit【20486665374544†L43-L46】. Armed with such intelligence, suppliers can shift from reactive tender hunting to proactive pipeline planning, ensuring that resources are allocated to competitions they can realistically win.
+            </p>
+          </article>
+
+          <div className="button-row">
+            <Link href="/resources" className="btn btn-secondary">
+              Back to Resources
+            </Link>
+            <Link href="/contact" className="btn btn-primary">
+              Request Demo
+            </Link>
+          </div>
+        </div>
+      </Section>
+      <SchemaScript data={articleSchema} />
+    </>
+  );
+}
