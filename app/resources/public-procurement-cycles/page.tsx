@@ -11,9 +11,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "Public Procurement Cycles",
   description:
-    "In most public-sector categories, procurement does not happen as
- random events. Institutions operate through planning, contract
- execution, review, and...",
+    "In most public-sector categories, procurement does not happen as random events. Institutions operate through planning, contract execution, review, and...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -21,9 +19,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "Public Procurement Cycles",
   description:
-    "In most public-sector categories, procurement does not happen as
- random events. Institutions operate through planning, contract
- execution, review, and...",
+    "In most public-sector categories, procurement does not happen as random events. Institutions operate through planning, contract execution, review, and...",
   path: pagePath,
   datePublished: publishedAt,
 });

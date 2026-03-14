@@ -11,9 +11,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "Contract Lifecycle Signals",
   description:
-    "Contract lifecycle stages create timing boundaries. As agreements
- approach renewal windows, the probability of procurement activity
- often rises, espec...",
+    "Contract lifecycle stages create timing boundaries. As agreements approach renewal windows, the probability of procurement activity often rises, espec...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -21,9 +19,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "Contract Lifecycle Signals",
   description:
-    "Contract lifecycle stages create timing boundaries. As agreements
- approach renewal windows, the probability of procurement activity
- often rises, espec...",
+    "Contract lifecycle stages create timing boundaries. As agreements approach renewal windows, the probability of procurement activity often rises, espec...",
   path: pagePath,
   datePublished: publishedAt,
 });

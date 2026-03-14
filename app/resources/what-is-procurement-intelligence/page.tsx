@@ -11,9 +11,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "What Is Procurement Intelligence?",
   description:
-    "In public-sector markets, opportunity timing determines preparation
- quality. Procurement intelligence focuses on identifying where
- demand is likely to...",
+    "In public-sector markets, opportunity timing determines preparation quality. Procurement intelligence focuses on identifying where demand is likely to...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -21,9 +19,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "What Is Procurement Intelligence?",
   description:
-    "In public-sector markets, opportunity timing determines preparation
- quality. Procurement intelligence focuses on identifying where
- demand is likely to...",
+    "In public-sector markets, opportunity timing determines preparation quality. Procurement intelligence focuses on identifying where demand is likely to...",
   path: pagePath,
   datePublished: publishedAt,
 });
