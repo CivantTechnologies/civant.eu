@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,7 @@ export default function ArticlePage() {
             Procurement intelligence solutions can reduce discovery costs by aggregating tenders across portals and providing early signals for upcoming renewals. By highlighting smaller contracts, local opportunities and frameworks that are about to be re‑tendered, intelligence platforms help SMEs focus limited resources on winnable opportunities. Analysis of incumbent dominance can also guide SMEs toward sectors with lower concentration and higher turnover.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

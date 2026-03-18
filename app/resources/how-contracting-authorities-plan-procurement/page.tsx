@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             This integration of planning intelligence with procurement data analysis creates a richer, more nuanced view of upcoming market activity than either source provides alone.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

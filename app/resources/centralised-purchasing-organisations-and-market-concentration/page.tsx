@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Supplier competitive strategies should assess CPO participation as investment decision, recognising that successful CPO framework membership can generate significant recurring revenue but requires substantial qualification investment. Market intelligence regarding CPO procurement outcomes (savings achieved, service quality, authority satisfaction) should inform CPO strategy decisions. Geographic variation in CPO adoption and maturity should be factored into market opportunity assessment, as CPO-mature member states demonstrate fundamentally different procurement market structures compared to fragmented authority environments.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

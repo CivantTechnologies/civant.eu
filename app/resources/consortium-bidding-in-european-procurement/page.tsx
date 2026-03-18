@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Supplier strategic decisions regarding consortium participation should be informed by competitive intelligence regarding likely competitor consortium formations and partnership possibilities. Network mapping of potential consortium partners across target geographies and sectors enables strategic partnership development and alliance positioning. Intelligence teams should monitor regulatory developments regarding consortium formation, as changes in competition law or procurement rules may affect consortium viability and strategic importance.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

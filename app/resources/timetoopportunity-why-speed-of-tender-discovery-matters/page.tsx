@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,7 @@ export default function ArticlePage() {
             Procurement intelligence platforms aggregate notices across portals and deliver real‑time alerts, effectively eliminating discovery delays. By analysing historical data, they can also predict when certain authorities tend to publish and anticipate upcoming opportunities. These capabilities enable suppliers to extend preparation windows and move from reactive to proactive bidding.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

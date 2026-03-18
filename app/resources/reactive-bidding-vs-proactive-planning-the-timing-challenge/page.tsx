@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,7 @@ export default function ArticlePage() {
             Procurement intelligence enables proactive planning by aggregating early signals and providing contextual analysis. By alerting suppliers to upcoming opportunities and the estimated timeline, these tools give bid teams time to prepare. They also provide data on past awards and incumbent performance, informing strategy and positioning.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

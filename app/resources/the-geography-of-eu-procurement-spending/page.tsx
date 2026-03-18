@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Competitive positioning strategies should recognise geographic variation in procurement sophistication and authority practices, with differentiated approaches for well-developed procurement markets versus developing or transitional regions. Supplier expansion into new geographies should be informed by market intelligence regarding incumbent competition, authority relationships, and language and cultural factors affecting market entry. Regional procurement trends and authority consolidation activities should be monitored, as these affect future geographic concentration and market opportunity distribution.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

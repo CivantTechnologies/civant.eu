@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,7 @@ export default function ArticlePage() {
             Procurement intelligence platforms track participation metrics across tenders, enabling suppliers to see how many bids are submitted in each category. These tools may also indicate who the typical bidders are and whether the incumbent usually retains the contract. Armed with this information, suppliers can choose opportunities where competition aligns with their strengths.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

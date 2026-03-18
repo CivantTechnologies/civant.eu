@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,7 @@ export default function ArticlePage() {
             Procurement intelligence systems integrate multiple signals—such as PINs, council minutes and budget allocations—to estimate when opportunities will be formally tendered. By assigning confidence scores and expected timelines, these tools enable suppliers to prioritise opportunities and decide when to commit resources. This reduces wasted effort and ensures that preparation windows are optimally used.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

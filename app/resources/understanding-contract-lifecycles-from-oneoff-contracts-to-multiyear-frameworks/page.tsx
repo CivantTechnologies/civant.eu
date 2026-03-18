@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,7 @@ export default function ArticlePage() {
             Procurement intelligence platforms enhance visibility into contract lifecycles by consolidating historical award data, renewal dates and early signals from meeting minutes or budget approvals. Predictive analytics can forecast when frameworks will expire, highlight sectors with upcoming one‑off tenders and rank opportunities by strategic fit. Armed with such intelligence, suppliers can shift from reactive tender hunting to proactive pipeline planning, ensuring that resources are allocated to competitions they can realistically win.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

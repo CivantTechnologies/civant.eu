@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -93,6 +94,7 @@ export default function ArticlePage() {
             This temporal precision is particularly valuable for resource planning. Organisations can prepare for predictable activity peaks, maintain readiness during quieter periods, and align their internal processes with the rhythms of their target markets rather than reacting to each individual opportunity in isolation.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

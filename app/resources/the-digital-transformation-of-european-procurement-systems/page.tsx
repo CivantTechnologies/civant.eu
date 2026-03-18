@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Market participants should invest in understanding national e-procurement platform architectures and data publication timelines, as these determine when procurement information becomes available for intelligence analysis. The standardisation of eForms enables development of benchmarking analyses across member states, comparing procurement processes, evaluation criteria, and award patterns to identify best practice and competitive positioning opportunities. As digital maturity increases, intelligence operations should expand focus to predictive analytics identifying procurement trends and demand generation, moving beyond reactive monitoring of published notices towards strategic foresight.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

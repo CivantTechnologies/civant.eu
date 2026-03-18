@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Market intelligence services should factor data quality assessment into pricing and confidence intervals, explicitly documenting data limitations and completeness issues in analysis outputs. Supplier competitive positioning should recognise that high-transparency authorities provide more reliable intelligence regarding competitive landscapes, potentially affecting bidding strategy and resource allocation. Intelligence teams should monitor data quality improvements and eForms compliance evolution across member states, adapting analysis methodologies as standardisation improves and enabling more robust cross-border comparative analysis.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

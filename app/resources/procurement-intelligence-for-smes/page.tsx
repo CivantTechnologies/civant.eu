@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             SMEs should invest in understanding procurement rules and digital compliance requirements, as technical bid rejections represent significant waste of limited bid preparation resources. Consortium and partnership strategies should be evaluated through intelligence analysis of complementary capabilities and geographic coverage, as successful SME participation often requires aggregating capabilities to meet large contract requirements. Strategic intelligence should identify procurement trends in SME-favourable categories and geographies, enabling prioritisation of market segments where competitive positioning is strongest and bid conversion rates highest.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

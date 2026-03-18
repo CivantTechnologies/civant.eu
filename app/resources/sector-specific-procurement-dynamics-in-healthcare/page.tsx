@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Market participants should develop sector-specific monitoring of healthcare procurement notices across member states, as geographic variation in adoption of new products creates opportunities for suppliers to learn from early markets and refine offerings. Understanding member state health budgeting cycles and any austerity measures affecting procurement spending is essential, as healthcare procurement volumes correlate closely with government fiscal policy. Supplier relationship mapping and identification of tender consortium patterns reveal market power dynamics and potential partnership opportunities within healthcare procurement networks.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

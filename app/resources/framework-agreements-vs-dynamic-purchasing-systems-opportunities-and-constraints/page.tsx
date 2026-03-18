@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,7 @@ export default function ArticlePage() {
             Procurement intelligence platforms track upcoming framework renewals and active DPS. By aggregating data on panel membership, call‑off volumes and renewal dates, intelligence tools help suppliers identify frameworks nearing expiry and gauge the competitiveness of DPS categories. This enables suppliers to prepare for framework competitions, decide whether to invest in DPS participation and estimate the potential pipeline under each mechanism.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

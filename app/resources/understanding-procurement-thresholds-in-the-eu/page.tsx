@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Strategic intelligence should monitor threshold-setting policy discussions and inflation adjustments, which create cyclical changes in above-threshold/below-threshold splits and affect which procurement categories fall within formal competitive procedures. Supplier positioning should recognise that below-threshold procurement, whilst less transparent, represents substantial market opportunity for suppliers with local presence and relationship-building capabilities. Analysis of authority below-threshold procurement practices over time can reveal patterns in supplier selection and incumbent protection, informing competitive strategies for relationship development and market entry in specific authority jurisdictions.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -109,6 +110,7 @@ export default function ArticlePage() {
             The data suggests that improving market visibility and preparation timelines could address a significant portion of the single-bidder phenomenon. Not all low-competition situations will be resolved by better intelligence, but many represent opportunities where qualified suppliers simply did not have sufficient time or visibility to participate.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

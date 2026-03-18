@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Competitive positioning strategies should recognise that contract modifications create opportunities to displace underperforming suppliers or expand relationships with satisfied existing suppliers. Supplier performance tracking should include analysis of contract modification rates and patterns, as modifications can indicate either positive flexibility or negative delivery challenges. Market intelligence regarding modification trends by authority and sector should inform bidding strategies, with consideration of whether authority track record suggests stable requirements or significant scope evolution likelihood.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

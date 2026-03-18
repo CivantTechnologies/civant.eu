@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Market opportunities for new suppliers have increased in reformed procurement environment, particularly in mechanisms emphasising capability and innovation over incumbent relationships. Supplier strategies should assess whether target authorities have adopted quality-based evaluation criteria and value-based procurement approaches that enable competition beyond pure cost. Understanding authority adaptation to new procurement procedures enables suppliers to position strategically within reform-created opportunities and identify markets where alternative mechanisms create competitive advantages.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

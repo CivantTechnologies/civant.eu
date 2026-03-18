@@ -34,6 +34,13 @@ export function buildPageMetadata({
     alternates: {
       canonical: path,
     },
+    robots: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
     openGraph: {
       title,
       description,
@@ -45,7 +52,7 @@ export function buildPageMetadata({
           url: DEFAULT_OG_IMAGE,
           width: 1200,
           height: 630,
-          alt: `${SITE_NAME} preview image`,
+          alt: `${title} - ${SITE_NAME}`,
         },
       ],
     },
@@ -71,6 +78,13 @@ export function buildArticleMetadata({
     alternates: {
       canonical: path,
     },
+    robots: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
     openGraph: {
       title,
       description,
@@ -84,7 +98,7 @@ export function buildArticleMetadata({
           url: DEFAULT_OG_IMAGE,
           width: 1200,
           height: 630,
-          alt: `${SITE_NAME} preview image`,
+          alt: `${title} - ${SITE_NAME}`,
         },
       ],
     },
@@ -107,28 +121,65 @@ export function buildArticleSchema({
   const articleUrl = `${SITE_URL}${path}`;
   const updatedAt = dateModified || datePublished;
 
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: title,
-    description,
-    url: articleUrl,
-    mainEntityOfPage: articleUrl,
-    datePublished,
-    dateModified: updatedAt,
-    inLanguage: "en",
-    author: {
-      "@type": "Organization",
-      name: "Civant Technologies Limited",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Civant Technologies Limited",
-      url: SITE_URL,
-      logo: {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description,
+      url: articleUrl,
+      mainEntityOfPage: articleUrl,
+      datePublished,
+      dateModified: updatedAt,
+      inLanguage: "en",
+      author: {
+        "@type": "Person",
+        name: "David Manrique",
+        url: "https://www.linkedin.com/in/davidmanriquecivant/",
+        worksFor: {
+          "@type": "Organization",
+          name: "Civant Technologies Limited",
+        },
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Civant Technologies Limited",
+        url: SITE_URL,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/og-civant.png`,
+        },
+      },
+      image: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/og-civant.png`,
+        url: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+        width: 1200,
+        height: 630,
       },
     },
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Resources",
+          item: `${SITE_URL}/resources`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title,
+          item: articleUrl,
+        },
+      ],
+    },
+  ];
 }

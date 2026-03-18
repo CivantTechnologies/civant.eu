@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Market participants should develop relationships with defence industry associations and maintain awareness of approved supplier lists and security certification requirements, which create de facto participation barriers in defence procurement. Understanding government defence budget cycles and long-range equipment replacement plans provides strategic context for competitive positioning. Supplier intelligence in defence procurement should include tracking of government research and development funding, which often signals emerging capability areas likely to be procured in subsequent years.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

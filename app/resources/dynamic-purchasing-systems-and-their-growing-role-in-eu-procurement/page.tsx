@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Call-off competition analysis within DPS frameworks enables development of pricing benchmarks and win-rate tracking over time, as individual call-offs provide repeated competitive datapoints within consistent frameworks. Supplier positioning strategies should recognise DPS framework participation as strategic priority, as framework membership creates foundation for recurring revenue and multiple call-off opportunities. Intelligence teams should monitor DPS expansion into new procurement categories, as category moves into DPS frameworks represent structural changes affecting competitive dynamics and market accessibility.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

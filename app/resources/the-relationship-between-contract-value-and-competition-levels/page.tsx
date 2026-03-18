@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Market intelligence should focus on identifying value ranges and contract categories where competition is suppressed relative to theoretical expectations, as these represent areas where incumbent suppliers enjoy above-normal margins and new entrants face reduced barriers relative to low-competition baseline. Historical analysis of contract values and bid outcomes across similar authorities and time periods enables development of win-rate predictions and bidding efficiency metrics, informing portfolio-level bidding strategies. Intelligence teams should monitor policy discussions regarding lot sizing and contract aggregation, as regulatory changes in structuring rules directly affect competition levels across value ranges and create competitive repositioning opportunities.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

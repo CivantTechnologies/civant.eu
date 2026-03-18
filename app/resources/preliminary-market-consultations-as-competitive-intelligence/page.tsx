@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Competitive analysis should include assessment of PMC participation patterns by competitor firms, as consulting history reveals which suppliers maintain close authority relationships and can influence procurement specifications. Where PMC documentation is published, analysis should focus on identified capability gaps, technical requirement discussions, and cost range feedback to understand market realities and competitive positioning. Intelligence teams should develop processes for systematically tracking which authorities conduct consultations in specific procurement categories, enabling targeted relationship building and early engagement in future procurement cycles.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

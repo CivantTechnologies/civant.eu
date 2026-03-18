@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Strategic market intelligence should inform opportunity selection strategies, identifying market segments and authority relationships where supplier competitive position is strongest and win probability highest. Supplier business strategy should integrate competitive intelligence capabilities as foundation for bid-no-bid discipline, as opportunity assessment quality directly affects procurement business profitability. Investment in intelligence infrastructure should be justified through bid-no-bid discipline, demonstrating how improved opportunity selection increases win rates and improves resource allocation efficiency.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

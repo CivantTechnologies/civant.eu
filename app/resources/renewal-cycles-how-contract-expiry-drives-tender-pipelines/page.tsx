@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,7 @@ export default function ArticlePage() {
             Procurement intelligence platforms capture award dates, contract durations and any extensions to calculate expected expiry windows. By correlating these data with budget cycles and policy signals, intelligence tools can predict which contracts are due to be re‑procured in the near future. For example, a council decision to extend a housing management system to July 2026 signals a replacement procurement thereafter. Armed with renewal insights, suppliers can stage their marketing, allocate resources and build pipelines that anticipate rather than react to procurement demand.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

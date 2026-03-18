@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,7 @@ export default function ArticlePage() {
             Procurement intelligence helps level the playing field by revealing incumbent patterns and renewal windows. By analysing historical awards, contract values and supplier turnover, intelligence tools can identify markets with high incumbent concentration and highlight contracts due for re‑procurement. Combining these insights with early engagement signals allows new entrants to engage buyers before renewal decisions are made, improving their chances of success.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources

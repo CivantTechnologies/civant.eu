@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,7 @@ export default function ArticlePage() {
             Supplier strategic positioning should evaluate environmental and social credentials as competitive factors, with investment in sustainability reporting, certifications, and supply chain transparency depending on target market adoption levels. Market intelligence should monitor policy discussions regarding environmental and social procurement, as regulatory mandates are likely to expand criterion adoption. Geographic targeting should recognise variation in environmental and social criteria adoption, with focused sustainability investment prioritised in mature markets demonstrating strong value criteria adoption.
           </p>
 
+          <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources
