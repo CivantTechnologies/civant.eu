@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -44,12 +45,12 @@ export function Navbar() {
     <header className="site-header">
       <PageContainer className="site-nav-row">
         <Link href="/" className="site-brand" aria-label="Civant home">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={BRAND_LOGO_URL}
             alt="Civant logo"
             width={384}
             height={139}
+            priority
             className="site-brand-logo"
           />
         </Link>

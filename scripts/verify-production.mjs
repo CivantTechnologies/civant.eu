@@ -65,7 +65,7 @@ function assertRedirect(response, expectedLocation, label) {
 
 function assertCacheState(headers, label) {
   const cacheState = normalizeHeaderValue(headers, "x-vercel-cache").toUpperCase();
-  const allowed = new Set(["HIT", "MISS", "STALE", "BYPASS", "REVALIDATED"]);
+  const allowed = new Set(["HIT", "MISS", "STALE", "BYPASS", "REVALIDATED", "PRERENDER"]);
   if (!allowed.has(cacheState)) {
     fail(`${label}: expected x-vercel-cache, got ${cacheState || "<missing>"}`);
   }
@@ -81,6 +81,21 @@ function assertCompression(headers, label) {
 function findStaticChunk(html) {
   const match = html.match(/src="(\/_next\/static\/chunks\/[^"]+\.js)"/);
   return match?.[1] ?? null;
+}
+
+async function assertLongLivedPublicAsset(path, label) {
+  const response = await request(`${origin}${path}`, {
+    headers: { "accept-encoding": "br, gzip, zstd" },
+  });
+
+  assertStatus(response, [200], label);
+  assertCacheState(response.headers, label);
+  assertHeaderIncludes(
+    response.headers,
+    "cache-control",
+    ["max-age=31536000", "immutable"],
+    label,
+  );
 }
 
 const httpRedirect = await request("http://civant.eu/", { method: "HEAD" });
@@ -128,6 +143,9 @@ if (!staticChunkPath) {
     "Static chunk",
   );
 }
+
+await assertLongLivedPublicAsset("/civant-logo.png", "Logo PNG");
+await assertLongLivedPublicAsset("/screenshots/panorama.avif", "Screenshot AVIF");
 
 if (failures.length > 0) {
   console.error("Production verification failed:");
