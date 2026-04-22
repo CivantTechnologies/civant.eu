@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
-
 :root {
   --bg-0: #08111f;
   --bg-1: #0a1628;
@@ -57,7 +55,7 @@ body {
 }
 
 body {
-  font-family: "Montserrat", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-montserrat), "Inter", "Helvetica Neue", Arial, sans-serif;
   color: var(--text);
   background: linear-gradient(
     to bottom,
