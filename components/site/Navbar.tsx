@@ -44,7 +44,13 @@ export function Navbar() {
     <header className="site-header">
       <PageContainer className="site-nav-row">
         <Link href="/" className="site-brand" aria-label="Civant home">
-          <img src={BRAND_LOGO_URL} alt="Civant logo" className="site-brand-logo" />
+          <img
+            src={BRAND_LOGO_URL}
+            alt="Civant logo"
+            width={384}
+            height={139}
+            className="site-brand-logo"
+          />
         </Link>
 
         <nav className="site-nav-links site-nav-desktop" aria-label="Primary">
