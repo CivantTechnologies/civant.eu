@@ -37,16 +37,23 @@ const advisoryPillars = [
   "Go-to-market leadership",
 ];
 
+const founder = {
+  name: "David Manrique",
+  role: "Founder & CEO, Civant",
+  image: "/people/david-manrique.jpg",
+  profileHref: "https://www.linkedin.com/in/davidmanriquec/",
+};
+
 const advisors = [
   {
     name: "Jean-Marie Cognet",
     role: "Co-founder & CEO, UbiCast",
     context: "VP Higher Education at EdTech France, with deep European EdTech and public-sector market experience.",
-    image: "/people/jean-marie-cognet.webp",
+    image: "/people/jean-marie-cognet.jpg",
     imageAlt: "Jean-Marie Cognet",
     imagePosition: "50% 50%",
-    profileHref: "https://bsky.app/profile/jmcognet.bsky.social",
-    profileLabel: "View Jean-Marie profile",
+    profileHref: "https://www.linkedin.com/in/jmcognet/",
+    profileLabel: "View Jean-Marie on LinkedIn",
   },
   {
     name: "Florent Thiery",
@@ -64,9 +71,9 @@ const advisors = [
     context: "Scale-up, finance, and category-expansion perspective from regulated operating environments.",
     image: "/people/anita-van-der-laan.jpg",
     imageAlt: "Anita van der Laan",
-    imagePosition: "45% 28%",
-    profileHref: "https://www.hanzevast.nl/nieuws/nieuw-leiderschap-aan-boord-hanzevast-benoemt-een-nieuwe-directeur-shipping",
-    profileLabel: "View public profile",
+    imagePosition: "50% 50%",
+    profileHref: "https://www.linkedin.com/in/anita-van-der-laan-40450218/",
+    profileLabel: "View Anita on LinkedIn",
   },
 ];
 
@@ -94,6 +101,36 @@ export default function CompanyPage() {
             more than 15 years working in SaaS and educational technology with
             public-sector buyers and suppliers across international markets.
           </p>
+          <article className="founder-profile-card">
+            <a
+              href={founder.profileHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="founder-photo-link"
+              aria-label="View David Manrique on LinkedIn"
+            >
+              <Image
+                src={founder.image}
+                alt={founder.name}
+                width={220}
+                height={220}
+                className="founder-photo"
+              />
+            </a>
+            <div>
+              <p className="module-label">Founder</p>
+              <h3 className="card-title">{founder.name}</h3>
+              <p className="card-body founder-role">{founder.role}</p>
+              <a
+                href={founder.profileHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-link"
+              >
+                View David on LinkedIn →
+              </a>
+            </div>
+          </article>
           <p className="card-body company-copy">
             Over time, David saw strong teams lose opportunities not because
             solutions were weak, but because tenders surfaced too late and
