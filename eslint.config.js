@@ -13,6 +13,7 @@ const sourceFiles = [
   "lib/**/*.{js,jsx,ts,tsx}",
   "scripts/**/*.{js,mjs,cjs}",
   "eslint.config.js",
+  "lighthouserc.cjs",
   "next.config.mjs",
 ];
 
