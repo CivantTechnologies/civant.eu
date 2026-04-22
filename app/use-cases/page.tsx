@@ -24,6 +24,8 @@ const audiences = [
       "Reduced reactive workload from last-minute tender discovery",
     ],
     screenshot: "/screenshots/finder-results.png",
+    screenshotWidth: 2880,
+    screenshotHeight: 1554,
     screenshotAlt: "Finder results showing tender opportunities with source tags, dates, and buyer details",
     screenshotCaption: "Finder: how bid teams discover and qualify opportunities",
   },
@@ -38,6 +40,8 @@ const audiences = [
       "More strategic, less reactive public-sector pipeline development",
     ],
     screenshot: "/screenshots/competitors.png",
+    screenshotWidth: 2880,
+    screenshotHeight: 1552,
     screenshotAlt: "Competitors overview showing contract count, total value, strategic insights and strengths",
     screenshotCaption: "Competitors: competitive intelligence for account planning",
   },
@@ -52,6 +56,8 @@ const audiences = [
       "Actionable insight outputs for commercial and bid teams",
     ],
     screenshot: "/screenshots/executive-summary.png",
+    screenshotWidth: 2404,
+    screenshotHeight: 1060,
     screenshotAlt: "Executive summary with target sectors, forecast counts, and accuracy metrics",
     screenshotCaption: "Executive Summary: market-level intelligence for leadership reporting",
   },
@@ -105,6 +111,8 @@ export default function UseCasesPage() {
                     src={audience.screenshot}
                     alt={audience.screenshotAlt || audience.title}
                     caption={audience.screenshotCaption}
+                    width={audience.screenshotWidth}
+                    height={audience.screenshotHeight}
                   />
                 </div>
               )}

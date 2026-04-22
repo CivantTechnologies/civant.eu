@@ -200,6 +200,8 @@ export default function MethodologyPage() {
             src="/screenshots/forecast-accuracy.png"
             alt="Forecast accuracy dashboard showing 90.8% overall accuracy across 79,000 resolved forecasts"
             caption="Live validation: 90.8% forecast accuracy across 79K resolved forecasts"
+            width={2390}
+            height={582}
           />
         </div>
       </Section>

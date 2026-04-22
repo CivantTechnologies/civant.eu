@@ -1994,6 +1994,9 @@ a {
 .browser-dot:first-child { background: #ff5f57; }
 .browser-dot:nth-child(2) { background: #ffbd2e; }
 .browser-dot:nth-child(3) { background: #28c840; }
+.browser-frame-picture {
+  display: block;
+}
 .browser-frame-img {
   display: block;
   width: 100%;

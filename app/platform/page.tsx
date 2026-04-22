@@ -53,6 +53,8 @@ interface PlatformModule {
   role: string;
   label: string;
   screenshot?: string;
+  screenshotWidth?: number;
+  screenshotHeight?: number;
   screenshotAlt?: string;
   screenshotCaption?: string;
 }
@@ -68,6 +70,8 @@ const modules: PlatformModule[] = [
     role: "Workflow role: market baseline and opportunity prioritization.",
     label: "Market Intelligence",
     screenshot: "/screenshots/panorama.png",
+    screenshotWidth: 2880,
+    screenshotHeight: 1558,
     screenshotAlt: "Panorama dashboard showing strategic runway, operational status, and renewal opportunities",
     screenshotCaption: "Panorama: your strategic runway at a glance",
   },
@@ -80,6 +84,8 @@ const modules: PlatformModule[] = [
       "Eliminates broad searching and focuses teams on the highest-fit institutions.",
     role: "Workflow role: target account and category selection.",
     screenshot: "/screenshots/finder-filters.png",
+    screenshotWidth: 2876,
+    screenshotHeight: 1436,
     screenshotAlt: "Finder search interface with country, source, buyer, and CPV category filters",
     screenshotCaption: "Finder: precision filters to narrow your target market",
     label: "Target Discovery",
@@ -94,6 +100,8 @@ const modules: PlatformModule[] = [
     role: "Workflow role: timing intelligence and planning trigger.",
     label: "Forecast Engine",
     screenshot: "/screenshots/executive-summary.png",
+    screenshotWidth: 2404,
+    screenshotHeight: 1060,
     screenshotAlt: "Executive summary showing target sectors, 6,906 forecasts, and 91% accuracy rate",
     screenshotCaption: "Forecast: executive intelligence with confidence scoring",
   },
@@ -107,6 +115,8 @@ const modules: PlatformModule[] = [
     role: "Workflow role: competitive strategy context.",
     label: "Competitive Insight",
     screenshot: "/screenshots/competitors.png",
+    screenshotWidth: 2880,
+    screenshotHeight: 1552,
     screenshotAlt: "Competitors overview showing 18 contracts, total value, strategic insights and strengths",
     screenshotCaption: "Competitors: incumbent footprint and competitive pressure",
   },
@@ -191,12 +201,14 @@ export default function PlatformPage() {
                 <p className="module-benefit">{module.benefit}</p>
                 <p className="module-role">{module.role}</p>
               </div>
-              {module.screenshot && (
+              {module.screenshot && module.screenshotWidth && module.screenshotHeight && (
                 <div className="platform-module-visual">
                   <BrowserFrame
                     src={module.screenshot}
                     alt={module.screenshotAlt || `${module.title} module`}
                     caption={module.screenshotCaption}
+                    width={module.screenshotWidth}
+                    height={module.screenshotHeight}
                   />
                 </div>
               )}
