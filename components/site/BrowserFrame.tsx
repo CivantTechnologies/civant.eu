@@ -28,7 +28,6 @@ export function BrowserFrame({
       <picture className="browser-frame-picture">
         <source srcSet={avifSrc} type="image/avif" />
         <source srcSet={webpSrc} type="image/webp" />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src}
           alt={alt}

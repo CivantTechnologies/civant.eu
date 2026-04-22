@@ -1,60 +1,92 @@
+import nextPlugin from "@next/eslint-plugin-next";
+import js from "@eslint/js";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
 import globals from "globals";
-import pluginJs from "@eslint/js";
-import pluginReact from "eslint-plugin-react";
-import pluginReactHooks from "eslint-plugin-react-hooks";
-import pluginUnusedImports from "eslint-plugin-unused-imports";
+import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
+import unusedImportsPlugin from "eslint-plugin-unused-imports";
+
+const sourceFiles = [
+  "app/**/*.{js,jsx,ts,tsx}",
+  "components/**/*.{js,jsx,ts,tsx}",
+  "lib/**/*.{js,jsx,ts,tsx}",
+  "scripts/**/*.{js,mjs,cjs}",
+  "eslint.config.js",
+  "next.config.mjs",
+];
 
 export default [
   {
-    files: [
-      "src/components/**/*.{js,mjs,cjs,jsx}",
-      "src/pages/**/*.{js,mjs,cjs,jsx}",
-      "src/Layout.jsx",
+    ignores: [
+      ".next/**",
+      ".next_*/**",
+      ".playwright-cli/**",
+      "node_modules/**",
+      "public/**",
+      "src/**",
     ],
-    ignores: ["src/lib/**/*", "src/components/ui/**/*"],
-    ...pluginJs.configs.recommended,
-    ...pluginReact.configs.flat.recommended,
+  },
+  {
+    files: sourceFiles,
     languageOptions: {
-      globals: globals.browser,
+      ecmaVersion: "latest",
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parser: tsParser,
       parserOptions: {
-        ecmaVersion: 2022,
-        sourceType: "module",
         ecmaFeatures: {
           jsx: true,
         },
-      },
-    },
-    settings: {
-      react: {
-        version: "detect",
+        sourceType: "module",
       },
     },
     plugins: {
-      react: pluginReact,
-      "react-hooks": pluginReactHooks,
-      "unused-imports": pluginUnusedImports,
+      "@next/next": nextPlugin,
+      "@typescript-eslint": tsPlugin,
+      react: reactPlugin,
+      "react-hooks": reactHooksPlugin,
+      "unused-imports": unusedImportsPlugin,
     },
     rules: {
+      ...js.configs.recommended.rules,
+      ...tsPlugin.configs.recommended.rules,
+      ...reactPlugin.configs.flat.recommended.rules,
+      ...reactPlugin.configs.flat["jsx-runtime"].rules,
+      ...reactHooksPlugin.configs.recommended.rules,
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+      "@typescript-eslint/no-unused-vars": "off",
       "no-unused-vars": "off",
-      "react/jsx-uses-vars": "error",
-      "react/jsx-uses-react": "error",
+      "no-undef": "off",
+      "react/no-unescaped-entities": "off",
+      "react/prop-types": "off",
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "warn",
         {
-          vars: "all",
-          varsIgnorePattern: "^_",
           args: "after-used",
           argsIgnorePattern: "^_",
+          vars: "all",
+          varsIgnorePattern: "^_",
         },
       ],
-      "react/prop-types": "off",
-      "react/react-in-jsx-scope": "off",
-      "react/no-unknown-property": [
-        "error",
-        { ignore: ["cmdk-input-wrapper", "toast-close"] },
-      ],
-      "react-hooks/rules-of-hooks": "error",
+    },
+    settings: {
+      next: {
+        rootDir: ".",
+      },
+      react: {
+        version: "detect",
+      },
+    },
+  },
+  {
+    files: ["scripts/**/*.cjs"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
 ];

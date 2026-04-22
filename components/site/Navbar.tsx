@@ -44,6 +44,7 @@ export function Navbar() {
     <header className="site-header">
       <PageContainer className="site-nav-row">
         <Link href="/" className="site-brand" aria-label="Civant home">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={BRAND_LOGO_URL}
             alt="Civant logo"
