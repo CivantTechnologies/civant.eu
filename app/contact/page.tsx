@@ -1,6 +1,7 @@
 import { ContactLiveSections } from "../../components/site/ContactLiveSections";
 import { Section } from "../../components/site/Section";
-import { buildPageMetadata } from "../../lib/seo";
+import { SchemaScript } from "../../components/site/SchemaScript";
+import { buildContactPointSchema, buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
 
@@ -10,6 +11,8 @@ export const metadata = buildPageMetadata({
     "Request a Civant demo or contact our team to discuss procurement intelligence use cases.",
   path: "/contact",
 });
+
+const contactSchema = buildContactPointSchema();
 
 export default function ContactPage() {
   return (
@@ -24,6 +27,7 @@ export default function ContactPage() {
       </Section>
 
       <ContactLiveSections />
+      <SchemaScript data={contactSchema} />
     </>
   );
 }

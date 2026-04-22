@@ -8,16 +8,19 @@ import {
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { BrowserFrame } from "../../components/site/BrowserFrame";
-import { buildPageMetadata } from "../../lib/seo";
+import { SchemaScript } from "../../components/site/SchemaScript";
+import { buildPageMetadata, buildSoftwareApplicationSchema } from "../../lib/seo";
 
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Platform | Civant Intelligence Platform",
+  title: "EU Procurement Intelligence Platform | Modules & Workflow",
   description:
     "Explore the Civant Intelligence Platform modules that turn procurement cycle signals into prioritized, executable opportunities.",
   path: "/platform",
 });
+
+const platformSchema = buildSoftwareApplicationSchema();
 
 const systemLayers = [
   {
@@ -219,6 +222,7 @@ export default function PlatformPage() {
           />
         </div>
       </Section>
+      <SchemaScript data={platformSchema} />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
-import { buildPageMetadata } from "../../lib/seo";
+import { SchemaScript } from "../../components/site/SchemaScript";
+import { buildFounderPersonSchema, buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
 
@@ -10,6 +11,8 @@ export const metadata = buildPageMetadata({
     "About Civant Technologies and our mission to improve enterprise decision-making in European public procurement markets.",
   path: "/company",
 });
+
+const founderSchema = buildFounderPersonSchema();
 
 const whatCivantIs = [
   "Civant brings visibility to public procurement opportunities.",
@@ -186,6 +189,7 @@ export default function CompanyPage() {
           />
         </div>
       </Section>
+      <SchemaScript data={founderSchema} />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { buildPageMetadata } from "../../../lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Terms of Service | Civant",
+  title: "Terms of Service",
   description:
     "Terms governing access to and use of the Civant procurement intelligence platform.",
   path: "/legal/terms",

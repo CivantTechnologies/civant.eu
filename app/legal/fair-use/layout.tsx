@@ -1,7 +1,7 @@
 import { buildPageMetadata } from "../../../lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Fair Usage Policy | Civant",
+  title: "Fair Usage Policy",
   description:
     "What is and is not permitted on the Civant procurement intelligence platform.",
   path: "/legal/fair-use",

@@ -90,15 +90,15 @@ export default function ArticlePage() {
           </p>
 
           <p className="article-body-text">
-            Explore how Civant modules work on the&#123;" "&#125;
- &lt;Link href="/platform" className="text-link"&gt;
- Platform page
- &lt;/Link&gt;&#123;" "&#125;
- and review the analytical foundation on the&#123;" "&#125;
- &lt;Link href="/methodology" className="text-link"&gt;
- Methodology page
- &lt;/Link&gt;
- .
+            Explore how Civant modules work on the{" "}
+            <Link href="/platform" className="text-link">
+              Platform page
+            </Link>{" "}
+            and review the analytical foundation on the{" "}
+            <Link href="/methodology" className="text-link">
+              Methodology page
+            </Link>
+            .
           </p>
 
           <RelatedArticles currentPath={pagePath} />

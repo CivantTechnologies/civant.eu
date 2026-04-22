@@ -1,7 +1,7 @@
 import { buildPageMetadata } from "../../../lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Privacy Policy | Civant",
+  title: "Privacy Policy",
   description:
     "How Civant Technologies Limited collects, uses, and protects your personal data.",
   path: "/legal/privacy",

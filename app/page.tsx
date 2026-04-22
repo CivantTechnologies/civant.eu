@@ -13,7 +13,7 @@ import { buildPageMetadata } from "../lib/seo";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Win Before the Tender",
+  title: "EU Public Procurement Intelligence & Tender Forecasting",
   description:
     "Civant analyzes procurement history, contract lifecycle signals, and market activity to surface likely upcoming tender opportunities across European public sector markets.",
   path: "/",

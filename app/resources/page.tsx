@@ -20,6 +20,24 @@ type Article = {
 
 const articles: Article[] = [
   {
+    href: "/resources/what-is-procurement-intelligence",
+    title: "What Is Procurement Intelligence?",
+    summary: "Procurement intelligence helps teams identify where public-sector demand is likely to emerge before tender publication, using buying patterns, lifecycle signals, and market participation data.",
+    pillar: "Market Intelligence",
+  },
+  {
+    href: "/resources/public-procurement-cycles",
+    title: "Public Procurement Cycles",
+    summary: "Public procurement follows planning, execution, review, and renewal rhythms. Understanding those cycles helps suppliers prepare before formal notices compress the available response window.",
+    pillar: "Contract Lifecycle",
+  },
+  {
+    href: "/resources/contract-lifecycle-signals",
+    title: "Contract Lifecycle Signals",
+    summary: "Contract lifecycle stages create timing boundaries that can indicate when future procurement activity is more likely, especially in categories with repeat buying patterns.",
+    pillar: "Contract Lifecycle",
+  },
+  {
     href: "/resources/beyond-raw-data-extracting-insights-from-historical-contract-records",
     title: "Beyond Raw Data: Extracting Insights from Historical Contract Records",
     summary: "Public procurement generates vast amounts of data: contract notices, award announcements, framework agreements and spending reports. However, raw data alone does not reveal why a supplier won, how ...",
