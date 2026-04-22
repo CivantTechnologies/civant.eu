@@ -55,11 +55,6 @@ const audiences = [
       "Clearer visibility into participation and competitive shifts",
       "Actionable insight outputs for commercial and bid teams",
     ],
-    screenshot: "/screenshots/executive-summary.png",
-    screenshotWidth: 2404,
-    screenshotHeight: 1060,
-    screenshotAlt: "Executive summary with target sectors, forecast counts, and accuracy metrics",
-    screenshotCaption: "Executive Summary: market-level intelligence for leadership reporting",
   },
 ];
 

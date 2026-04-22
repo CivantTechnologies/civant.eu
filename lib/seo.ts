@@ -198,7 +198,7 @@ export function buildSoftwareApplicationSchema() {
     operatingSystem: "Web",
     url: `${SITE_URL}/platform`,
     description:
-      "Civant is a public procurement intelligence platform for forecasting tender opportunities, tracking contract lifecycle signals, and prioritizing public-sector market activity.",
+      "Civant is a predictive procurement intelligence platform for forecasting tender opportunities, tracking contract lifecycle signals, reading competitor movement, and prioritizing public-sector market activity.",
     offers: {
       "@type": "Offer",
       url: `${SITE_URL}/pricing`,
@@ -224,7 +224,7 @@ export function buildPricingProductSchema() {
       name: SITE_NAME,
     },
     description:
-      "Procurement intelligence software for European public-sector market monitoring, tender forecasting, and competitor intelligence.",
+      "Predictive procurement intelligence software for European public-sector market monitoring, tender forecasting, competitor intelligence, and external signal analysis.",
     url: `${SITE_URL}/pricing`,
     offers: [
       {

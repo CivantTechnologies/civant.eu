@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
@@ -15,13 +16,14 @@ export const metadata = buildPageMetadata({
 const founderSchema = buildFounderPersonSchema();
 
 const whatCivantIs = [
-  "Civant brings visibility to public procurement opportunities.",
-  "Civant reconciles and normalizes data from EU and national procurement sources.",
-  "Civant analyzes publicly available procurement data.",
-  "Civant supports earlier preparation and more intentional planning.",
+  "Civant is a predictive procurement intelligence platform for Europe.",
+  "Civant reconciles and normalizes data from EU, national, and public-domain procurement sources.",
+  "Civant analyzes hard procurement evidence, contract lifecycles, competitor activity, and external signals.",
+  "Civant uses AI to interpret match, scope, buyer intent, and strategy on top of structured evidence.",
 ];
 
 const whatCivantIsNot = [
+  "Civant is not an AI chatbot company.",
   "Civant is not an insider tool or source of non-public information.",
   "Civant is not a tender issuer, influencer, or intermediary.",
   "Civant does not guarantee tender outcomes.",
@@ -33,6 +35,39 @@ const advisoryPillars = [
   "Enterprise technology",
   "Data and analytics",
   "Go-to-market leadership",
+];
+
+const advisors = [
+  {
+    name: "Jean-Marie Cognet",
+    role: "Co-founder & CEO, UbiCast",
+    context: "VP Higher Education at EdTech France, with deep European EdTech and public-sector market experience.",
+    image: "/people/jean-marie-cognet.webp",
+    imageAlt: "Jean-Marie Cognet",
+    imagePosition: "50% 50%",
+    profileHref: "https://bsky.app/profile/jmcognet.bsky.social",
+    profileLabel: "View Jean-Marie profile",
+  },
+  {
+    name: "Florent Thierry",
+    role: "Product, OVHcloud; former CTO, UbiCast",
+    context: "Technical and infrastructure guidance for European SaaS scale-up decisions.",
+    image: "/people/florent-thierry-source.jpg",
+    imageAlt: "Florent Thierry at Pass the SALT",
+    imagePosition: "65% 34%",
+    profileHref: "https://2025.pass-the-salt.org/annual-report/#recording-streaming-and-slides",
+    profileLabel: "View public source",
+  },
+  {
+    name: "Anita van der Laan",
+    role: "Director Shipping, Hanzevast",
+    context: "Scale-up, finance, and category-expansion perspective from regulated operating environments.",
+    image: "/people/anita-van-der-laan.jpg",
+    imageAlt: "Anita van der Laan",
+    imagePosition: "45% 28%",
+    profileHref: "https://www.hanzevast.nl/nieuws/nieuw-leiderschap-aan-boord-hanzevast-benoemt-een-nieuwe-directeur-shipping",
+    profileLabel: "View public profile",
+  },
 ];
 
 export default function CompanyPage() {
@@ -108,6 +143,13 @@ export default function CompanyPage() {
             structured, confident, and well-timed decisions for suppliers,
             buyers, and the public sector.
           </p>
+          <p className="card-body company-copy">
+            The platform is built as a prediction engine first: official
+            procurement records, contract lifecycles, competitor movement, and
+            external public signals form the evidence base. AI is used as an
+            interpretation layer that helps teams understand match, scope,
+            buyer intent, and next-best action.
+          </p>
         </div>
       </Section>
 
@@ -173,6 +215,41 @@ export default function CompanyPage() {
               <span key={item} className="pill">
                 {item}
               </span>
+            ))}
+          </div>
+          <div className="grid grid-3 advisor-grid">
+            {advisors.map((advisor) => (
+              <article key={advisor.name} className="card advisor-card">
+                <a
+                  href={advisor.profileHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="advisor-photo-link"
+                  aria-label={advisor.profileLabel}
+                >
+                  <Image
+                    src={advisor.image}
+                    alt={advisor.imageAlt}
+                    width={180}
+                    height={180}
+                    className="advisor-photo"
+                    style={{
+                      objectPosition: advisor.imagePosition,
+                    }}
+                  />
+                </a>
+                <h3 className="card-title">{advisor.name}</h3>
+                <p className="module-label">{advisor.role}</p>
+                <p className="card-body">{advisor.context}</p>
+                <a
+                  href={advisor.profileHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-link advisor-link"
+                >
+                  {advisor.profileLabel} →
+                </a>
+              </article>
             ))}
           </div>
         </div>

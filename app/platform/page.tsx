@@ -99,11 +99,6 @@ const modules: PlatformModule[] = [
       "Helps teams engage early, plan resources, and reduce reactive bid cycles.",
     role: "Workflow role: timing intelligence and planning trigger.",
     label: "Forecast Engine",
-    screenshot: "/screenshots/executive-summary.png",
-    screenshotWidth: 2404,
-    screenshotHeight: 1060,
-    screenshotAlt: "Executive summary showing target sectors, 6,906 forecasts, and 91% accuracy rate",
-    screenshotCaption: "Forecast: executive intelligence with confidence scoring",
   },
   {
     slug: "competitors",

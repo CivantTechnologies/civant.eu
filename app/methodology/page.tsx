@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
-import { BrowserFrame } from "../../components/site/BrowserFrame";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { buildFaqSchema, buildPageMetadata } from "../../lib/seo";
 
@@ -16,7 +15,7 @@ export const dynamic = "force-static";
 export const metadata = buildPageMetadata({
   title: "Methodology | Procurement Intelligence Approach",
   description:
-    "Learn how Civant uses procurement-cycle analysis across historical procurement data, contract lifecycles, and market participation signals to identify likely upcoming opportunities.",
+    "Learn how Civant uses procurement-cycle analysis, contract lifecycles, competitor activity, and external public signals to identify likely upcoming opportunities.",
   path: "/methodology",
 });
 
@@ -29,12 +28,17 @@ const methodologyFaqs = [
   {
     question: "What data sources does Civant use?",
     answer:
-      "Civant uses public procurement notices, contract award records, supplier participation data, contract lifecycle information, public expenditure budgets, and buyer activity patterns.",
+      "Civant uses public procurement notices, contract award records, supplier participation data, contract lifecycle information, PINs and early-market notices, public expenditure budgets, grants, policy signals, and buyer activity patterns.",
   },
   {
     question: "How accurate are Civant forecasts?",
     answer:
-      "Civant continuously validates forecast signals against subsequently published tenders. The current methodology page shows a 90.8% forecast accuracy dashboard across 79K resolved forecasts.",
+      "Civant continuously validates forecast signals against subsequently published tenders. Validation results evolve as new tenders are published, so customers review current figures inside the live platform.",
+  },
+  {
+    question: "Is Civant an AI chatbot?",
+    answer:
+      "No. Civant is a predictive procurement intelligence platform. AI helps interpret matches, documents, buyer intent, and scope, while the forecasting methodology is grounded in structured procurement evidence and external public signals.",
   },
   {
     question: "Does Civant guarantee tender publication dates?",
@@ -48,10 +52,10 @@ const methodologySchema = buildFaqSchema(methodologyFaqs);
 const dataSources = [
   "European procurement notices",
   "Contract award records",
+  "PINs and pre-market notices",
   "Supplier participation data",
   "Contract lifecycle information",
-  "Public expenditure budgets",
-  "Buyer activity patterns",
+  "Budgets, grants, policy, and hiring signals",
 ];
 
 const coreSignals = [
@@ -79,6 +83,10 @@ const coreSignals = [
     title: "Competitor incumbency exposure",
     body: "Incumbent supplier footprint and concentration patterns reveal where competitive defensibility may be strongest.",
   },
+  {
+    title: "External public signals",
+    body: "Budgets, grants, PINs, hiring, compliance, and policy movement provide corroborating context before formal tender publication.",
+  },
 ];
 
 const analysisFlow = [
@@ -105,6 +113,21 @@ const analysisFlow = [
     icon: SearchCheck as LucideIcon,
     title: "Prioritize opportunities",
     body: "Signals are translated into ranked intelligence outputs for planning and execution workflows.",
+  },
+];
+
+const validationPrinciples = [
+  {
+    title: "Evidence first",
+    body: "Forecasts start from structured procurement records, lifecycle timing, and observable buyer or market activity.",
+  },
+  {
+    title: "Corroborated signals",
+    body: "External signals strengthen context, but Civant does not rely on isolated, unsupported public hints as prediction proof.",
+  },
+  {
+    title: "Live calibration",
+    body: "Validation updates as new tenders are published, keeping public pages stable while the product shows current performance.",
   },
 ];
 
@@ -195,14 +218,13 @@ export default function MethodologyPage() {
             observed downstream publication alignment, not by marketing claims.
           </p>
         </article>
-        <div className="methodology-validation-visual">
-          <BrowserFrame
-            src="/screenshots/forecast-accuracy.png"
-            alt="Forecast accuracy dashboard showing 90.8% overall accuracy across 79,000 resolved forecasts"
-            caption="Live validation: 90.8% forecast accuracy across 79K resolved forecasts"
-            width={2390}
-            height={582}
-          />
+        <div className="grid grid-3 methodology-grid">
+          {validationPrinciples.map((item) => (
+            <article key={item.title} className="card">
+              <h3 className="card-title">{item.title}</h3>
+              <p className="card-body">{item.body}</p>
+            </article>
+          ))}
         </div>
       </Section>
 

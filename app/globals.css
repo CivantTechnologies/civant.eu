@@ -1021,6 +1021,91 @@ a {
   background: rgba(255, 255, 255, 0.03);
 }
 
+.customer-proof-grid,
+.advisor-grid {
+  margin-top: 1rem;
+}
+
+.customer-proof-card {
+  display: grid;
+  gap: 1.1rem;
+  align-content: start;
+}
+
+.customer-logo-link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 3.5rem;
+  align-items: center;
+}
+
+.customer-logo {
+  width: auto;
+  max-width: 210px;
+  height: auto;
+  object-fit: contain;
+}
+
+.customer-quote {
+  margin: 0;
+}
+
+.customer-quote p {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: var(--fs-quote);
+  line-height: var(--lh-loose);
+}
+
+.customer-quote footer {
+  margin-top: 0.9rem;
+  color: #8ceeed;
+  font-size: var(--fs-support);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.customer-quote footer span {
+  display: block;
+  margin-top: 0.1rem;
+  color: #b8c2d4;
+  font-weight: 500;
+}
+
+.advisor-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.advisor-photo-link {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(0, 196, 196, 0.34);
+  overflow: hidden;
+}
+
+.advisor-photo {
+  width: 5.2rem;
+  height: 5.2rem;
+  object-fit: cover;
+}
+
+.advisor-link {
+  margin-top: auto;
+  padding-top: 0.9rem;
+}
+
+.advisor-card .module-label {
+  margin-top: 0.2rem;
+}
+
+.advisor-card .card-body {
+  margin-top: 0.7rem;
+}
+
 .contact-live-form-wrap {
   max-width: 720px;
   margin: 0 auto;
