@@ -14,6 +14,7 @@ const sourceFiles = [
   "scripts/**/*.{js,mjs,cjs}",
   "eslint.config.js",
   "lighthouserc.cjs",
+  "lighthouserc.production.cjs",
   "next.config.mjs",
 ];
 

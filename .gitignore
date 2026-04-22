@@ -18,6 +18,7 @@ dist-ssr
 .next_*
 .next-main
 .lighthouseci
+.lighthouseci-production
 out
 *.tsbuildinfo
 *.local

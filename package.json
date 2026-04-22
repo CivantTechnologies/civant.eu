@@ -12,6 +12,9 @@
     "lint:fix": "npm run marketing:lint -- --fix",
     "lighthouse:ci": "rm -rf .lighthouseci && lhci autorun",
     "lighthouse:ci:build": "npm run build && npm run lighthouse:ci",
+    "lighthouse:production": "rm -rf .lighthouseci-production && lhci autorun --config=lighthouserc.production.cjs",
+    "production:headers": "node scripts/verify-production.mjs",
+    "verify:production": "npm run production:headers && npm run lighthouse:production",
     "typecheck": "npm run marketing:typecheck",
     "legacy:dev": "vite",
     "legacy:build": "vite build && node scripts/postbuild-copy.cjs",
@@ -24,7 +27,7 @@
     "marketing:build": "npm run marketing:lint && next build",
     "marketing:start": "next start",
     "marketing:typecheck": "tsc -p tsconfig.json --noEmit --incremental false",
-    "marketing:lint": "eslint app components lib scripts eslint.config.js lighthouserc.cjs next.config.mjs --max-warnings=0",
+    "marketing:lint": "eslint app components lib scripts eslint.config.js lighthouserc.cjs lighthouserc.production.cjs next.config.mjs --max-warnings=0",
     "setup:hooks": "git config core.hooksPath .githooks && chmod +x .githooks/pre-commit .githooks/pre-push"
   },
   "dependencies": {
