@@ -8,7 +8,8 @@ import {
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { BrowserFrame } from "../../components/site/BrowserFrame";
-import { buildPageMetadata } from "../../lib/seo";
+import { SchemaScript } from "../../components/site/SchemaScript";
+import { buildFaqSchema, buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
 
@@ -18,6 +19,31 @@ export const metadata = buildPageMetadata({
     "Learn how Civant uses procurement-cycle analysis across historical procurement data, contract lifecycles, and market participation signals to identify likely upcoming opportunities.",
   path: "/methodology",
 });
+
+const methodologyFaqs = [
+  {
+    question: "How does Civant predict upcoming tenders?",
+    answer:
+      "Civant analyzes historical procurement records, contract lifecycle windows, buyer behavior, renewal patterns, and market participation signals to identify where future procurement activity is more likely to emerge.",
+  },
+  {
+    question: "What data sources does Civant use?",
+    answer:
+      "Civant uses public procurement notices, contract award records, supplier participation data, contract lifecycle information, public expenditure budgets, and buyer activity patterns.",
+  },
+  {
+    question: "How accurate are Civant forecasts?",
+    answer:
+      "Civant continuously validates forecast signals against subsequently published tenders. The current methodology page shows a 90.8% forecast accuracy dashboard across 79K resolved forecasts.",
+  },
+  {
+    question: "Does Civant guarantee tender publication dates?",
+    answer:
+      "No. Civant provides planning and prioritization intelligence, not guarantees about tender publication dates, procurement decisions, or contract award outcomes.",
+  },
+];
+
+const methodologySchema = buildFaqSchema(methodologyFaqs);
 
 const dataSources = [
   "European procurement notices",
@@ -174,6 +200,8 @@ export default function MethodologyPage() {
             src="/screenshots/forecast-accuracy.png"
             alt="Forecast accuracy dashboard showing 90.8% overall accuracy across 79,000 resolved forecasts"
             caption="Live validation: 90.8% forecast accuracy across 79K resolved forecasts"
+            width={2390}
+            height={582}
           />
         </div>
       </Section>
@@ -195,6 +223,21 @@ export default function MethodologyPage() {
       </Section>
 
       <Section>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Methodology FAQ</p>
+          <h2 className="headline-lg">Common questions about Civant forecasting</h2>
+        </div>
+        <div className="grid grid-2 methodology-grid">
+          {methodologyFaqs.map((item) => (
+            <article key={item.question} className="card">
+              <h3 className="card-title">{item.question}</h3>
+              <p className="card-body">{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
         <div className="final-cta">
           <h2 className="headline-lg final-cta-title">
             See Civant methodology in practice
@@ -211,6 +254,7 @@ export default function MethodologyPage() {
           />
         </div>
       </Section>
+      <SchemaScript data={methodologySchema} />
     </div>
   );
 }

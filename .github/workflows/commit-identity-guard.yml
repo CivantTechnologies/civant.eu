@@ -27,7 +27,10 @@ jobs:
             BEFORE_SHA="${{ github.event.before }}"
             AFTER_SHA="${{ github.sha }}"
             if [[ "${BEFORE_SHA}" == "0000000000000000000000000000000000000000" ]]; then
-              RANGE="${AFTER_SHA}"
+              DEFAULT_BRANCH="${{ github.event.repository.default_branch }}"
+              git fetch --no-tags origin "${DEFAULT_BRANCH}:refs/remotes/origin/${DEFAULT_BRANCH}"
+              BASE_SHA="$(git merge-base "origin/${DEFAULT_BRANCH}" "${AFTER_SHA}")"
+              RANGE="${BASE_SHA}..${AFTER_SHA}"
             else
               RANGE="${BEFORE_SHA}..${AFTER_SHA}"
             fi

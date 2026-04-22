@@ -87,15 +87,15 @@ export default function ArticlePage() {
           </p>
 
           <p className="article-body-text">
-            See how cycle intelligence is operationalized across Civant on the&#123;" "&#125;
- &lt;Link href="/platform" className="text-link"&gt;
- Platform page
- &lt;/Link&gt;&#123;" "&#125;
- and how it is analyzed on the&#123;" "&#125;
- &lt;Link href="/methodology" className="text-link"&gt;
- Methodology page
- &lt;/Link&gt;
- .
+            See how cycle intelligence is operationalized across Civant on the{" "}
+            <Link href="/platform" className="text-link">
+              Platform page
+            </Link>{" "}
+            and how it is analyzed on the{" "}
+            <Link href="/methodology" className="text-link">
+              Methodology page
+            </Link>
+            .
           </p>
 
           <RelatedArticles currentPath={pagePath} />

@@ -23,6 +23,11 @@ type ArticleSchemaArgs = {
   dateModified?: string;
 };
 
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
 export function buildPageMetadata({
   title,
   description,
@@ -182,4 +187,115 @@ export function buildArticleSchema({
       ],
     },
   ];
+}
+
+export function buildSoftwareApplicationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Civant",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: `${SITE_URL}/platform`,
+    description:
+      "Civant is a public procurement intelligence platform for forecasting tender opportunities, tracking contract lifecycle signals, and prioritizing public-sector market activity.",
+    offers: {
+      "@type": "Offer",
+      url: `${SITE_URL}/pricing`,
+      priceCurrency: "EUR",
+      price: "299",
+      availability: "https://schema.org/InStock",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Civant Technologies Limited",
+      url: SITE_URL,
+    },
+  };
+}
+
+export function buildPricingProductSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Civant Procurement Intelligence Platform",
+    brand: {
+      "@type": "Brand",
+      name: SITE_NAME,
+    },
+    description:
+      "Procurement intelligence software for European public-sector market monitoring, tender forecasting, and competitor intelligence.",
+    url: `${SITE_URL}/pricing`,
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Vanguard",
+        url: `${SITE_URL}/pricing`,
+        price: "299",
+        priceCurrency: "EUR",
+        availability: "https://schema.org/InStock",
+      },
+      {
+        "@type": "Offer",
+        name: "Summit",
+        url: `${SITE_URL}/pricing`,
+        price: "699",
+        priceCurrency: "EUR",
+        availability: "https://schema.org/InStock",
+      },
+    ],
+  };
+}
+
+export function buildFaqSchema(items: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+export function buildContactPointSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Civant Technologies Limited",
+    url: SITE_URL,
+    email: "hello@civant.eu",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Dublin",
+      addressCountry: "IE",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: "hello@civant.eu",
+      availableLanguage: ["en"],
+      areaServed: "Europe",
+    },
+  };
+}
+
+export function buildFounderPersonSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "David Manrique",
+    jobTitle: "Founder",
+    url: `${SITE_URL}/company`,
+    sameAs: ["https://www.linkedin.com/in/davidmanriquec/"],
+    worksFor: {
+      "@type": "Organization",
+      name: "Civant Technologies Limited",
+      url: SITE_URL,
+    },
+  };
 }

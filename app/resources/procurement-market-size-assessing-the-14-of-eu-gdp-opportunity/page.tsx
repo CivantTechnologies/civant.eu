@@ -30,7 +30,7 @@ export default function ArticlePage() {
     <>
       <Section className="hero-block hero-section">
         <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Procurement Market Size: Assessing the 14 % of EU GDP Opportunity</h1>
+        <h1 className="headline-xl">Procurement Market Size: Assessing the 14% of EU GDP Opportunity</h1>
         <p className="article-byline">
           By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>

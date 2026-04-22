@@ -11,7 +11,9 @@ export default function FairUsePage() {
         <p className="text-lead">
           What is permitted and what is not permitted on the Civant platform.
         </p>
-        <p className="legal-effective">Effective: 9 March 2026 · Version 1.0</p>
+        <p className="legal-effective">
+          Effective: <time dateTime="2026-03-09">9 March 2026</time> · Version 1.0
+        </p>
       </Section>
 
       <Section muted>

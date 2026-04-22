@@ -15,7 +15,10 @@ node_modules
 dist
 dist-ssr
 .next
+.next_*
 .next-main
+.lighthouseci
+.lighthouseci-production
 out
 *.tsbuildinfo
 *.local

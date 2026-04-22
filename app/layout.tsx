@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
 import type { ReactNode } from "react";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "../lib/seo";
 import "./globals.css";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -48,8 +55,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-32.png", type: "image/png" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     shortcut: ["/favicon-32.png"],
@@ -88,7 +95,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={montserrat.variable}>
         <div className="site-shell">
           <Navbar />
           <main className="page-main">{children}</main>

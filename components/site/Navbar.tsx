@@ -44,7 +44,14 @@ export function Navbar() {
     <header className="site-header">
       <PageContainer className="site-nav-row">
         <Link href="/" className="site-brand" aria-label="Civant home">
-          <img src={BRAND_LOGO_URL} alt="Civant - EU Public Procurement Intelligence Platform" className="site-brand-logo" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={BRAND_LOGO_URL}
+            alt="Civant logo"
+            width={384}
+            height={139}
+            className="site-brand-logo"
+          />
         </Link>
 
         <nav className="site-nav-links site-nav-desktop" aria-label="Primary">

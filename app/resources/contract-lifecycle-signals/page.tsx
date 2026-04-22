@@ -85,15 +85,15 @@ export default function ArticlePage() {
           </p>
 
           <p className="article-body-text">
-            Explore the workflow on the&#123;" "&#125;
- &lt;Link href="/platform" className="text-link"&gt;
- Platform page
- &lt;/Link&gt;&#123;" "&#125;
- and the analytical approach on the&#123;" "&#125;
- &lt;Link href="/methodology" className="text-link"&gt;
- Methodology page
- &lt;/Link&gt;
- .
+            Explore the workflow on the{" "}
+            <Link href="/platform" className="text-link">
+              Platform page
+            </Link>{" "}
+            and the analytical approach on the{" "}
+            <Link href="/methodology" className="text-link">
+              Methodology page
+            </Link>
+            .
           </p>
 
           <RelatedArticles currentPath={pagePath} />

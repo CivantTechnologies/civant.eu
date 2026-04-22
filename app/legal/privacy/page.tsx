@@ -11,11 +11,21 @@ export default function PrivacyPage() {
         <p className="text-lead">
           How Civant collects, uses, and protects your personal data.
         </p>
-        <p className="legal-effective">Effective: 9 March 2026 · Version 1.0</p>
+        <p className="legal-effective">
+          Effective: <time dateTime="2026-03-09">9 March 2026</time> · Version 1.0
+        </p>
       </Section>
 
       <Section muted>
         <div className="legal-body">
+          <h2>Plain-English Summary</h2>
+          <ul>
+            <li>Civant uses personal data to operate accounts, billing, support, and product security.</li>
+            <li>We do not sell personal data.</li>
+            <li>AI prompts are designed to avoid sending personal identifiers to AI providers.</li>
+            <li>You can contact us at hello@civant.eu about privacy rights or data questions.</li>
+          </ul>
+
           <h2>1. Who We Are</h2>
           <p>
             Civant Technologies Limited is the data controller for personal data collected through
