@@ -383,23 +383,28 @@ a {
   z-index: 0;
 }
 
-.home-hero-watermark {
-  position: absolute;
-  inset: -34% -22% -26%;
-  background-image: url("/civant-micrologo.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: min(98vw, 1160px) auto;
-  opacity: 0.028;
-  filter: saturate(0.78) blur(0.2px);
-  pointer-events: none;
-  z-index: 0;
-}
-
 .home-hero-container {
   position: relative;
   z-index: 1;
   width: min(1280px, calc(100% - 2rem));
+}
+
+.home-hero-container::before {
+  content: "";
+  position: absolute;
+  inset: -34% -22% -26%;
+  background: rgba(116, 244, 242, 0.75);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: url("/civant-micrologo.jpg");
+  mask-image: url("/civant-micrologo.jpg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: min(98vw, 1160px) auto;
+  mask-size: min(98vw, 1160px) auto;
 }
 
 .home-hero-main {
@@ -1559,7 +1564,7 @@ a {
   margin: 1.6rem 0 0;
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.09);
-  color: #6b7280;
+  color: var(--text-muted);
   font-size: 0.86rem;
 }
 

@@ -122,7 +122,6 @@ export default function HomePage() {
         className="hero-block hero-section home-hero"
         containerClassName="home-hero-container"
       >
-        <div className="home-hero-watermark" aria-hidden="true" />
         <div className="home-hero-main">
           <p className="eyebrow">Procurement Intelligence Platform</p>
           <h1 className="headline-xl hero-headline">Win Before the Tender</h1>
