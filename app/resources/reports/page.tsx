@@ -61,9 +61,12 @@ export default function ReportsPage() {
           </p>
         </div>
 
-        <div className="card-grid resources-grid">
+        <div className="card-grid report-hub-grid">
           {reports.map((report) => (
-            <article key={report.slug} className="card resource-card module-card">
+            <article
+              key={report.slug}
+              className="card resource-card module-card report-hub-card"
+            >
               <p className="module-label">{report.eyebrow}</p>
               <h2 className="card-title">{report.title}</h2>
               <p className="card-body">{report.subtitle}</p>

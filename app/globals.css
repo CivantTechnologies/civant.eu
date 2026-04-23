@@ -1083,6 +1083,22 @@ a {
   margin-top: 0.72rem;
 }
 
+.report-hub-grid {
+  margin-top: 1.35rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+  align-items: stretch;
+}
+
+.report-hub-card {
+  gap: 1rem;
+}
+
+.report-hub-card .card-title {
+  min-height: 0;
+}
+
 .solution-card-grid,
 .solution-detail-grid,
 .solution-link-grid,
