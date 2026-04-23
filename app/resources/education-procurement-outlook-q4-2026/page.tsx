@@ -85,23 +85,32 @@ const pageSchema = [
 export default function EducationProcurementOutlookPage() {
   return (
     <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">{report.eyebrow}</p>
-        <h1 className="headline-xl">{report.title}</h1>
-        <p className="text-lead">{report.subtitle}</p>
-      </Section>
+      <Section className="report-hero-section" muted>
+        <div className="grid grid-2 report-hero-grid">
+          <article className="report-hero-copy">
+            <p className="eyebrow">{report.eyebrow}</p>
+            <h1 className="headline-xl">{report.title}</h1>
+            <p className="text-lead report-hero-subtitle">{report.subtitle}</p>
+            <p className="card-body report-hero-summary">{report.summary}</p>
+            <div className="report-highlight-grid">
+              {landingHighlights.map((item) => (
+                <div key={item} className="report-highlight-item">
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+            <p className="contact-live-note report-hero-note">
+              Public-safe by design. Useful enough to orient a team, not enough
+              to replace the buyer-level workflow inside Civant.
+            </p>
+          </article>
 
-      <Section>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Visible Snapshot</p>
-          <h2 className="headline-lg">
-            A live runway view before the form
-          </h2>
-          <p className="text-lead report-snapshot-intro">
-            This page shows a public-safe cut of the approved Civant education
-            snapshot from {runwaySnapshotDate}. It is enough to show the shape
-            of the runway, without exposing the buyer-level workflow behind it.
-          </p>
+          <div className="report-hero-gate">
+            <ReportLeadCapture
+              reportSlug={report.slug}
+              reportTitle={report.title}
+            />
+          </div>
         </div>
 
         <div className="grid grid-3 report-snapshot-grid">
@@ -129,13 +138,20 @@ export default function EducationProcurementOutlookPage() {
             </p>
           </article>
         </div>
+      </Section>
 
+      <Section>
         <div className="grid grid-2 report-snapshot-detail-grid">
           <article className="card report-country-card">
-            <p className="module-label">Country runway split</p>
-            <h3 className="headline-sm report-snapshot-heading">
+            <p className="module-label">Visible runway now</p>
+            <h2 className="headline-lg report-snapshot-heading">
               Where the current education runway is concentrated
-            </h3>
+            </h2>
+            <p className="card-body report-section-intro">
+              Share of visible runway in the dated snapshot from{" "}
+              {runwaySnapshotDate}. This is not a statement of total market
+              size.
+            </p>
             <div className="report-country-list">
               {runwaySnapshot.map((item) => (
                 <div key={item.code} className="report-country-row">
@@ -157,17 +173,17 @@ export default function EducationProcurementOutlookPage() {
                 </div>
               ))}
             </div>
-            <p className="contact-live-note" style={{ marginTop: "1.25rem" }}>
-              Share of visible runway in the dated snapshot, not total market
-              size.
-            </p>
           </article>
 
           <article className="card report-country-card">
-            <p className="module-label">Historic value context</p>
-            <h3 className="headline-sm report-snapshot-heading">
+            <p className="module-label">Historic benchmark layer</p>
+            <h2 className="headline-lg report-snapshot-heading">
               What education contract sizes look like in public award history
-            </h3>
+            </h2>
+            <p className="card-body report-section-intro">
+              Public award history gives a steadier benchmark for contract size
+              and supplier pressure than the live runway alone.
+            </p>
             <div className="report-benchmark-stack">
               {educationBenchmarks.map((item) => (
                 <div key={item.market} className="report-benchmark-row">
@@ -186,87 +202,43 @@ export default function EducationProcurementOutlookPage() {
       </Section>
 
       <Section muted>
-        <div className="grid grid-2 report-landing-grid">
-          <article className="card">
-            <p className="module-label">What you will learn</p>
-            <h2 className="headline-lg report-landing-title">
-              A public-safe look at Q4 education demand
+        <div className="grid grid-2 report-context-grid">
+          <article className="card report-context-card">
+            <p className="module-label">Who should read this</p>
+            <h2 className="headline-lg report-context-title">
+              Built for commercial teams that need earlier education-market
+              clarity
             </h2>
-            <p className="card-body">{report.summary}</p>
-            <div className="report-highlight-grid">
-              {landingHighlights.map((item) => (
-                <div key={item} className="report-highlight-item">
-                  <span>{item}</span>
+            <div className="report-simple-list">
+              {report.audience.map((item) => (
+                <div key={item} className="report-simple-item">
+                  {item}
                 </div>
               ))}
             </div>
-            <p className="contact-live-note" style={{ marginTop: "1.5rem" }}>
-              This is designed to make the right teams curious, not to replace
-              the buyer-level workflow inside Civant.
-            </p>
           </article>
 
-          <ReportLeadCapture
-            reportSlug={report.slug}
-            reportTitle={report.title}
-          />
-        </div>
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Supplier Pressure</p>
-          <h2 className="headline-lg">
-            Repeat winners are visible before you ever see the full buyer list
-          </h2>
-        </div>
-        <div className="grid grid-3 methodology-grid">
-          {supplierSignals.map((item) => (
-            <article key={item} className="card">
-              <p className="card-body">{item}</p>
-            </article>
-          ))}
+          <article className="card report-context-card">
+            <p className="module-label">Supplier pressure</p>
+            <h2 className="headline-lg report-context-title">
+              Repeat winners are visible before you ever see the full buyer list
+            </h2>
+            <div className="report-simple-list">
+              {supplierSignals.map((item) => (
+                <div key={item} className="report-simple-item">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </article>
         </div>
       </Section>
 
       <Section>
         <div className="section-heading-wrap">
-          <p className="eyebrow">Who This Is For</p>
+          <p className="eyebrow">What teams should do</p>
           <h2 className="headline-lg">
-            Built for teams selling into public education markets
-          </h2>
-        </div>
-        <div className="grid grid-3 methodology-grid">
-          {report.audience.map((item) => (
-            <article key={item} className="card">
-              <p className="card-body">{item}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Visible Signal Themes</p>
-          <h2 className="headline-lg">
-            Enough signal to be useful, not enough to give the engine away
-          </h2>
-        </div>
-        <div className="grid grid-2 solution-related-grid">
-          {report.visibleSignals.map((item) => (
-            <article key={item} className="card">
-              <h3 className="card-title">Signal theme</h3>
-              <p className="card-body">{item}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">What Teams Should Do</p>
-          <h2 className="headline-lg">
-            The report is built to support practical preparation
+            Use the report to qualify faster and plan earlier
           </h2>
         </div>
         <div className="flow-track solution-use-case-flow">

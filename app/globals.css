@@ -1887,6 +1887,35 @@ a {
   margin-bottom: 1rem;
 }
 
+.report-hero-section {
+  padding-top: 3.25rem;
+}
+
+.report-hero-grid {
+  align-items: start;
+}
+
+.report-hero-copy {
+  max-width: 42rem;
+}
+
+.report-hero-subtitle {
+  max-width: 34rem;
+}
+
+.report-hero-summary {
+  max-width: 40rem;
+  margin-top: 1rem;
+}
+
+.report-hero-gate {
+  align-self: start;
+}
+
+.report-hero-note {
+  margin-top: 1rem;
+}
+
 .report-snapshot-intro {
   max-width: 54rem;
 }
@@ -1897,7 +1926,8 @@ a {
 }
 
 .report-snapshot-card,
-.report-country-card {
+.report-country-card,
+.report-context-card {
   height: 100%;
 }
 
@@ -2015,6 +2045,34 @@ a {
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
+}
+
+.report-section-intro {
+  max-width: 32rem;
+  margin-bottom: 1.25rem;
+}
+
+.report-context-grid {
+  align-items: stretch;
+}
+
+.report-context-title {
+  max-width: 24rem;
+  margin-bottom: 1rem;
+}
+
+.report-simple-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.report-simple-item {
+  padding: 0.95rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d9e1ec;
+  line-height: 1.5;
 }
 
 @keyframes spin {
@@ -2597,7 +2655,8 @@ a {
   }
 
   .report-country-metrics,
-  .report-highlight-grid {
+  .report-highlight-grid,
+  .report-hero-copy {
     width: 100%;
   }
 
