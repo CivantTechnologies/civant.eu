@@ -16,8 +16,13 @@ jobs:
       - name: Validate commit author and committer emails
         env:
           ALLOWED_EMAIL: 258097577+CivantTechnologies@users.noreply.github.com
+          GITHUB_SQUASH_AUTHOR_EMAIL: david.dauphin@gmail.com
+          GITHUB_SQUASH_COMMITTER_EMAIL: noreply@github.com
         run: |
           set -euo pipefail
+
+          DEFAULT_BRANCH="${{ github.event.repository.default_branch }}"
+          IS_DEFAULT_BRANCH_PUSH=0
 
           if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
             BASE_SHA="${{ github.event.pull_request.base.sha }}"
@@ -26,8 +31,10 @@ jobs:
           else
             BEFORE_SHA="${{ github.event.before }}"
             AFTER_SHA="${{ github.sha }}"
+            if [[ "${GITHUB_REF_NAME}" == "${DEFAULT_BRANCH}" ]]; then
+              IS_DEFAULT_BRANCH_PUSH=1
+            fi
             if [[ "${BEFORE_SHA}" == "0000000000000000000000000000000000000000" ]]; then
-              DEFAULT_BRANCH="${{ github.event.repository.default_branch }}"
               git fetch --no-tags origin "${DEFAULT_BRANCH}:refs/remotes/origin/${DEFAULT_BRANCH}"
               BASE_SHA="$(git merge-base "origin/${DEFAULT_BRANCH}" "${AFTER_SHA}")"
               RANGE="${BASE_SHA}..${AFTER_SHA}"
@@ -46,8 +53,25 @@ jobs:
           for COMMIT in "${COMMITS[@]}"; do
             AUTHOR_EMAIL="$(git show -s --format='%ae' "${COMMIT}")"
             COMMITTER_EMAIL="$(git show -s --format='%ce' "${COMMIT}")"
+            SUBJECT="$(git show -s --format='%s' "${COMMIT}")"
+            BODY="$(git show -s --format='%B' "${COMMIT}")"
+
+            if [[ "${AUTHOR_EMAIL}" == "${ALLOWED_EMAIL}" && "${COMMITTER_EMAIL}" == "${ALLOWED_EMAIL}" ]]; then
+              continue
+            fi
+
+            # GitHub squash merges on main are authored from the GitHub account email
+            # and committed by GitHub, but keep David's verified identity as a trailer.
+            if [[ "${IS_DEFAULT_BRANCH_PUSH}" == "1" \
+              && "${AUTHOR_EMAIL}" == "${GITHUB_SQUASH_AUTHOR_EMAIL}" \
+              && "${COMMITTER_EMAIL}" == "${GITHUB_SQUASH_COMMITTER_EMAIL}" \
+              && "${SUBJECT}" =~ [(]#[0-9]+[)]$ \
+              && "${BODY}" == *"Co-authored-by: David Manrique <${ALLOWED_EMAIL}>"* ]]; then
+              continue
+            fi
+
             if [[ "${AUTHOR_EMAIL}" != "${ALLOWED_EMAIL}" || "${COMMITTER_EMAIL}" != "${ALLOWED_EMAIL}" ]]; then
-              echo "::error title=Invalid commit identity::Commit ${COMMIT} has author=${AUTHOR_EMAIL}, committer=${COMMITTER_EMAIL}. Expected ${ALLOWED_EMAIL}."
+              echo "::error title=Invalid commit identity::Commit ${COMMIT} has author=${AUTHOR_EMAIL}, committer=${COMMITTER_EMAIL}. Expected ${ALLOWED_EMAIL}; GitHub squash merges on ${DEFAULT_BRANCH} may use author=${GITHUB_SQUASH_AUTHOR_EMAIL}, committer=${GITHUB_SQUASH_COMMITTER_EMAIL}, and the verified co-author trailer."
               FAIL=1
             fi
           done
