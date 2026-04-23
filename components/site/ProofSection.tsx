@@ -36,7 +36,7 @@ const customerProof = [
   },
 ];
 
-const advisedBy: AdvisorProof[] = [
+export const advisedBy: AdvisorProof[] = [
   {
     name: "Local Enterprise Office Louth",
     href: "https://www.localenterprise.ie/louth/",
