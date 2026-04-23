@@ -90,7 +90,6 @@ export default function EducationProcurementOutlookPage() {
           </div>
         </div>
 
-        <p className="contact-live-note report-gate-note">Work email only.</p>
       </Section>
 
       <Section>
