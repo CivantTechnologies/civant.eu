@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { Section } from "../../components/site/Section";
 import { buildPageMetadata } from "../../lib/seo";
+import { SOLUTIONS } from "../../lib/solutions";
 
 export const dynamic = "force-static";
 
@@ -475,6 +476,33 @@ export default function ResourcesPage() {
           body="Use the resource library to understand procurement patterns, then move into live market pages for country-level coverage and rollout context."
           compact
         />
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Solutions</p>
+          <h2 className="headline-lg">
+            Move from research into Civant workflows
+          </h2>
+          <p className="text-lead section-intro">
+            These solution pages translate the resource library into buyer
+            problems, search intent, and practical procurement intelligence
+            workflows.
+          </p>
+        </div>
+        <div className="grid grid-4 solution-link-grid">
+          {SOLUTIONS.map((solution) => (
+            <Link
+              key={solution.slug}
+              href={`/solutions/${solution.slug}`}
+              className="card card-link interactive-surface solution-link-card"
+            >
+              <h3 className="card-title">{solution.title}</h3>
+              <p className="card-body">{solution.description}</p>
+              <span className="card-link-cta">View Solution</span>
+            </Link>
+          ))}
+        </div>
       </Section>
 
       <Section>

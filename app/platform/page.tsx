@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   CircleGauge,
   Crosshair,
@@ -11,6 +12,7 @@ import { BrowserFrame } from "../../components/site/BrowserFrame";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { buildPageMetadata, buildSoftwareApplicationSchema } from "../../lib/seo";
+import { SOLUTIONS } from "../../lib/solutions";
 
 export const dynamic = "force-static";
 
@@ -220,6 +222,28 @@ export default function PlatformPage() {
           body="The same procurement-cycle workflow is available across live markets today and is being extended into the next country rollout."
           compact
         />
+      </Section>
+
+      <Section>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Solution Paths</p>
+          <h2 className="headline-lg">
+            Connect the platform workflow to the problem your team is solving
+          </h2>
+        </div>
+        <div className="grid grid-4 solution-link-grid">
+          {SOLUTIONS.map((solution) => (
+            <Link
+              key={solution.slug}
+              href={`/solutions/${solution.slug}`}
+              className="card card-link interactive-surface solution-link-card"
+            >
+              <h3 className="card-title">{solution.title}</h3>
+              <p className="card-body">{solution.description}</p>
+              <span className="card-link-cta">View Solution</span>
+            </Link>
+          ))}
+        </div>
       </Section>
 
       <Section muted>
