@@ -16,6 +16,11 @@ The legacy Vite app remains in the repo for transition safety:
 - `npm run legacy:dev`
 - `npm run legacy:build`
 
+## SEO planning docs
+
+- `docs/seo/search-intent-map.md`
+- `docs/seo/page-architecture.md`
+
 ## Git identity guard (required)
 
 This repo enforces a single commit identity:
