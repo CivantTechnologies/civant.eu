@@ -12,6 +12,7 @@ export type ContentRoute = {
 export const TOP_LEVEL_ROUTES: SiteRoute[] = [
   { href: "/", label: "Home" },
   { href: "/platform", label: "Platform" },
+  { href: "/solutions", label: "Solutions" },
   { href: "/markets", label: "Markets" },
   { href: "/use-cases", label: "Use Cases" },
   { href: "/methodology", label: "Methodology" },
@@ -19,6 +20,29 @@ export const TOP_LEVEL_ROUTES: SiteRoute[] = [
   { href: "/resources", label: "Resources" },
   { href: "/company", label: "Company" },
   { href: "/contact", label: "Contact" },
+];
+
+export const SOLUTION_ROUTES: ContentRoute[] = [
+  {
+    href: "/solutions/procurement-intelligence-software",
+    changeFrequency: "weekly",
+    priority: 0.78,
+  },
+  {
+    href: "/solutions/tender-prediction-software",
+    changeFrequency: "weekly",
+    priority: 0.78,
+  },
+  {
+    href: "/solutions/eu-tender-monitoring",
+    changeFrequency: "weekly",
+    priority: 0.76,
+  },
+  {
+    href: "/solutions/public-procurement-intelligence",
+    changeFrequency: "weekly",
+    priority: 0.78,
+  },
 ];
 
 export const MARKET_ROUTES: ContentRoute[] = [

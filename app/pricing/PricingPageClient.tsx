@@ -7,6 +7,7 @@ import { Section } from "../../components/site/Section";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { ProofSection } from "../../components/site/ProofSection";
+import { SOLUTIONS } from "../../lib/solutions";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -888,6 +889,32 @@ export default function PricingPageClient() {
           body="Self-serve plans include every live Civant market, with the next rollout countries added automatically as coverage becomes available."
           compact
         />
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap" style={{ textAlign: "center" }}>
+          <p className="eyebrow">Buying Context</p>
+          <h2 className="headline-lg">
+            Match your plan to the procurement problem
+          </h2>
+          <p className="text-lead section-intro" style={{ marginInline: "auto" }}>
+            Civant supports tender prediction, EU monitoring, and strategic
+            public procurement intelligence from the same evidence-led platform.
+          </p>
+        </div>
+        <div className="grid grid-4 solution-link-grid">
+          {SOLUTIONS.map((solution) => (
+            <Link
+              key={solution.slug}
+              href={`/solutions/${solution.slug}`}
+              className="card card-link interactive-surface solution-link-card"
+            >
+              <h3 className="card-title">{solution.title}</h3>
+              <p className="card-body">{solution.description}</p>
+              <span className="card-link-cta">View Solution</span>
+            </Link>
+          ))}
+        </div>
       </Section>
 
       {/* Proof */}

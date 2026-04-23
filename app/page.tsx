@@ -14,6 +14,7 @@ import { MarketCoverageLinks } from "../components/site/MarketCoverageLinks";
 import { ProofSection } from "../components/site/ProofSection";
 import { Section } from "../components/site/Section";
 import { buildPageMetadata } from "../lib/seo";
+import { SOLUTIONS } from "../lib/solutions";
 
 export const dynamic = "force-static";
 
@@ -284,6 +285,37 @@ export default function HomePage() {
           title="Live in five markets, expanding every month"
           body="Start with Ireland, the United Kingdom, Spain, France, and Italy today, with Finland, Belgium, Germany, and the Netherlands coming next."
         />
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Solutions</p>
+          <h2 className="headline-lg">
+            Procurement intelligence pages for high-intent searches
+          </h2>
+          <p className="text-lead section-intro">
+            Explore the specific problems Civant solves for tender prediction,
+            EU monitoring, and strategic public procurement planning.
+          </p>
+        </div>
+        <div className="grid grid-4 solution-link-grid">
+          {SOLUTIONS.map((solution) => (
+            <Link
+              key={solution.slug}
+              href={`/solutions/${solution.slug}`}
+              className="card card-link interactive-surface solution-link-card"
+            >
+              <h3 className="card-title">{solution.title}</h3>
+              <p className="card-body">{solution.description}</p>
+              <span className="card-link-cta">View Solution</span>
+            </Link>
+          ))}
+        </div>
+        <div className="button-row">
+          <Link href="/solutions" className="btn btn-secondary">
+            Explore All Solutions
+          </Link>
+        </div>
       </Section>
 
       <Section muted>

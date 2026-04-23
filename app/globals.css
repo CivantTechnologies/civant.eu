@@ -978,6 +978,95 @@ a {
   margin-top: 0.72rem;
 }
 
+.solution-card-grid,
+.solution-detail-grid,
+.solution-link-grid,
+.solution-related-grid {
+  margin-top: 1.1rem;
+}
+
+.solution-card {
+  min-height: 100%;
+}
+
+.solution-card .card-title {
+  max-width: 720px;
+}
+
+.solution-proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-grid);
+  margin-top: 1.1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.solution-definition {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.solution-definition .text-lead {
+  max-width: var(--reading-max);
+}
+
+.solution-audience {
+  max-width: var(--reading-max);
+  margin: 1rem 0 0;
+  color: #cfe8e8;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: var(--lh-body);
+}
+
+.solution-signal-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.1rem;
+}
+
+.solution-signal-item {
+  display: flex;
+  min-height: 100%;
+  gap: 0.65rem;
+  align-items: flex-start;
+  border: 1px solid rgba(0, 196, 196, 0.24);
+  border-radius: var(--radius-md);
+  background: rgba(0, 196, 196, 0.06);
+  padding: 0.9rem;
+  color: #d8e1ee;
+  font-size: 0.92rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.solution-signal-item svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+  margin-top: 0.12rem;
+  color: var(--accent);
+  stroke-width: 1.8;
+}
+
+.solution-use-case-flow {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.solution-link-card {
+  min-height: 100%;
+}
+
+.solution-link-card .card-title {
+  font-size: clamp(1rem, 1.25vw, 1.1rem);
+}
+
+.solution-link-card .card-body {
+  font-size: 0.9rem;
+}
+
 .methodology-grid {
   margin-top: 1rem;
 }
@@ -2080,6 +2169,12 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .solution-proof-strip,
+  .solution-use-case-flow,
+  .solution-signal-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .flow-card::after {
     display: none;
   }
@@ -2180,6 +2275,12 @@ a {
   .grid-4,
   .grid-3,
   .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-proof-strip,
+  .solution-signal-list,
+  .solution-use-case-flow {
     grid-template-columns: 1fr;
   }
 
