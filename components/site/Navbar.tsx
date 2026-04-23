@@ -3,20 +3,55 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { TOP_LEVEL_ROUTES } from "../../lib/routes";
 import { PageContainer } from "./PageContainer";
 
 const BRAND_LOGO_URL = "/civant-logo.png";
 
+type NavLink = {
+  href: string;
+  label: string;
+};
+
+type NavGroup = {
+  label: string;
+  href: string;
+  items: NavLink[];
+};
+
+const PRIMARY_NAV_GROUPS: NavGroup[] = [
+  {
+    label: "Platform",
+    href: "/platform",
+    items: [
+      { href: "/platform", label: "Platform overview" },
+      { href: "/solutions", label: "Solutions" },
+    ],
+  },
+  {
+    label: "Use Cases",
+    href: "/use-cases",
+    items: [
+      { href: "/use-cases", label: "Use cases" },
+      { href: "/markets", label: "Markets" },
+      { href: "/methodology", label: "Methodology" },
+    ],
+  },
+];
+
+const DIRECT_NAV_ITEMS: NavLink[] = [
+  { href: "/resources", label: "Resources" },
+  { href: "/company", label: "Company" },
+];
+
+function isActivePath(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function Navbar() {
   const pathname = usePathname() ?? "";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navItems = TOP_LEVEL_ROUTES.filter(
-    (item) => item.href !== "/" && item.href !== "/contact",
-  );
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -56,9 +91,44 @@ export function Navbar() {
         </Link>
 
         <nav className="site-nav-links site-nav-desktop" aria-label="Primary">
-          {navItems.map((item) => {
-            const isActive =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
+          {PRIMARY_NAV_GROUPS.map((group) => {
+            const isActive = group.items.some((item) => isActivePath(pathname, item.href));
+
+            return (
+              <div key={group.href} className="site-nav-group">
+                <Link
+                  href={group.href}
+                  className={`site-nav-link site-nav-trigger ${isActive ? "is-active" : ""}`.trim()}
+                  aria-current={isActivePath(pathname, group.href) ? "page" : undefined}
+                  aria-haspopup="true"
+                >
+                  <span>{group.label}</span>
+                  <ChevronDown className="site-nav-chevron" size={15} aria-hidden="true" />
+                </Link>
+
+                <div className="site-nav-menu" role="menu">
+                  {group.items.map((item) => {
+                    const childIsActive = isActivePath(pathname, item.href);
+
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`site-nav-menu-link ${childIsActive ? "is-active" : ""}`.trim()}
+                        aria-current={childIsActive ? "page" : undefined}
+                        role="menuitem"
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+
+          {DIRECT_NAV_ITEMS.map((item) => {
+            const isActive = isActivePath(pathname, item.href);
 
             return (
               <Link
@@ -116,9 +186,28 @@ export function Navbar() {
             </div>
 
             <nav className="site-mobile-nav" aria-label="Mobile primary">
-              {navItems.map((item) => {
-                const isActive =
-                  pathname === item.href || pathname.startsWith(`${item.href}/`);
+              {PRIMARY_NAV_GROUPS.map((group) => (
+                <div key={group.href} className="site-mobile-group">
+                  <span className="site-mobile-group-label">{group.label}</span>
+                  {group.items.map((item) => {
+                    const isActive = isActivePath(pathname, item.href);
+
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`site-mobile-link ${isActive ? "is-active" : ""}`.trim()}
+                        aria-current={isActive ? "page" : undefined}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              ))}
+
+              {DIRECT_NAV_ITEMS.map((item) => {
+                const isActive = isActivePath(pathname, item.href);
 
                 return (
                   <Link
