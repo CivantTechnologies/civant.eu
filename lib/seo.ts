@@ -28,6 +28,33 @@ type FaqItem = {
   answer: string;
 };
 
+type BreadcrumbItem = {
+  name: string;
+  item: string;
+};
+
+type CollectionSchemaItem = {
+  name: string;
+  path: string;
+  description?: string;
+};
+
+type CollectionPageSchemaArgs = {
+  name: string;
+  description: string;
+  path: string;
+  items: CollectionSchemaItem[];
+};
+
+type ServiceSchemaArgs = {
+  name: string;
+  description: string;
+  path: string;
+  serviceType: string;
+  areaServed?: string | string[];
+  audience?: string;
+};
+
 export function buildPageMetadata({
   title,
   description,
@@ -259,6 +286,80 @@ export function buildFaqSchema(items: FaqItem[]) {
         text: item.answer,
       },
     })),
+  };
+}
+
+export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.item,
+    })),
+  };
+}
+
+export function buildCollectionPageSchema({
+  name,
+  description,
+  path,
+  items,
+}: CollectionPageSchemaArgs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    url: `${SITE_URL}${path}`,
+    description,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        url: `${SITE_URL}${item.path}`,
+        ...(item.description ? { description: item.description } : {}),
+      })),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Civant Technologies Limited",
+      url: SITE_URL,
+    },
+  };
+}
+
+export function buildServiceSchema({
+  name,
+  description,
+  path,
+  serviceType,
+  areaServed = "Europe",
+  audience,
+}: ServiceSchemaArgs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    serviceType,
+    description,
+    url: `${SITE_URL}${path}`,
+    areaServed,
+    ...(audience ? { audience } : {}),
+    provider: {
+      "@type": "Organization",
+      name: "Civant Technologies Limited",
+      url: SITE_URL,
+    },
+    offers: {
+      "@type": "Offer",
+      url: `${SITE_URL}/pricing`,
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+    },
   };
 }
 

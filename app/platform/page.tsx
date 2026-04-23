@@ -11,7 +11,13 @@ import { Section } from "../../components/site/Section";
 import { BrowserFrame } from "../../components/site/BrowserFrame";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { SchemaScript } from "../../components/site/SchemaScript";
-import { buildPageMetadata, buildSoftwareApplicationSchema } from "../../lib/seo";
+import {
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+  buildFaqSchema,
+  buildPageMetadata,
+  buildSoftwareApplicationSchema,
+} from "../../lib/seo";
 import { SOLUTIONS } from "../../lib/solutions";
 
 export const dynamic = "force-static";
@@ -24,6 +30,24 @@ export const metadata = buildPageMetadata({
 });
 
 const platformSchema = buildSoftwareApplicationSchema();
+
+const platformFaqs = [
+  {
+    question: "What does the Civant platform actually do?",
+    answer:
+      "Civant turns procurement records, awards, lifecycle timing, competitor movement, and public external signals into one decision workflow so teams can identify, prioritize, and execute opportunities earlier.",
+  },
+  {
+    question: "Where does AI fit in the platform?",
+    answer:
+      "AI helps interpret match, scope, buyer intent, and tender context. It sits on top of deterministic procurement evidence rather than replacing the prediction engine.",
+  },
+  {
+    question: "Who is the platform built for?",
+    answer:
+      "Civant is built for bid teams, sales teams, partnerships teams, and commercial leaders working across European public-sector markets.",
+  },
+];
 
 const systemLayers = [
   {
@@ -140,7 +164,54 @@ const modules: PlatformModule[] = [
   },
 ];
 
+const platformPathLinks = [
+  {
+    title: "See the methodology",
+    body: "Understand how deterministic signals, lifecycle logic, and AI interpretation fit together.",
+    href: "/methodology",
+    cta: "View Methodology",
+  },
+  {
+    title: "Match the right solution",
+    body: "Choose the search path that best reflects the procurement problem your team is solving.",
+    href: "/solutions",
+    cta: "Explore Solutions",
+  },
+  {
+    title: "Explore market coverage",
+    body: "See where Civant is live now and which countries are coming next in the rollout.",
+    href: "/markets",
+    cta: "View Markets",
+  },
+  {
+    title: "Start with pricing",
+    body: "Move from product understanding into a self-serve or custom buying path.",
+    href: "/pricing",
+    cta: "View Pricing",
+  },
+];
+
 export default function PlatformPage() {
+  const pageSchema = [
+    platformSchema,
+    buildFaqSchema(platformFaqs),
+    buildCollectionPageSchema({
+      name: "Civant Platform Modules",
+      description:
+        "Platform modules for procurement intelligence, target discovery, tender forecasting, competitor analysis, alerts, and bid execution.",
+      path: "/platform",
+      items: modules.map((module) => ({
+        name: module.title,
+        path: `/platform#${module.slug}`,
+        description: module.purpose,
+      })),
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", item: "https://civant.eu" },
+      { name: "Platform", item: "https://civant.eu/platform" },
+    ]),
+  ];
+
   return (
     <>
       <Section className="hero-block hero-section">
@@ -216,6 +287,42 @@ export default function PlatformPage() {
       </Section>
 
       <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Proof</p>
+          <h2 className="headline-lg">
+            Why teams trust the Civant workflow
+          </h2>
+          <p className="text-lead section-intro">
+            The product is strongest when timing, market context, and execution
+            live in the same operating layer.
+          </p>
+        </div>
+        <div className="solution-proof-strip">
+          <article>
+            <h3 className="card-title">Evidence-led from the start</h3>
+            <p className="card-body">
+              The workflow begins with official procurement records, awards,
+              lifecycle timing, buyer recurrence, and public external signals.
+            </p>
+          </article>
+          <article>
+            <h3 className="card-title">Live across active markets</h3>
+            <p className="card-body">
+              One platform model already supports Ireland, the UK, Spain,
+              France, and Italy, with more countries joining next.
+            </p>
+          </article>
+          <article>
+            <h3 className="card-title">Built for action, not observation</h3>
+            <p className="card-body">
+              Civant helps teams prioritize accounts, prepare earlier, and move
+              from signal discovery into concrete bid execution.
+            </p>
+          </article>
+        </div>
+      </Section>
+
+      <Section muted>
         <MarketCoverageLinks
           eyebrow="Country Layer"
           title="One platform model across each Civant market"
@@ -246,6 +353,47 @@ export default function PlatformPage() {
         </div>
       </Section>
 
+      <Section>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Common Questions</p>
+          <h2 className="headline-lg">What teams ask before they buy</h2>
+          <p className="text-lead section-intro">
+            Short answers to the questions that usually come up once the platform
+            workflow starts to make sense.
+          </p>
+        </div>
+        <div className="faq-list">
+          {platformFaqs.map((faq) => (
+            <article key={faq.question} className="faq-item">
+              <h3 className="card-title">{faq.question}</h3>
+              <p className="card-body">{faq.answer}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Next Steps</p>
+          <h2 className="headline-lg">
+            Follow the path that fits your next decision
+          </h2>
+        </div>
+        <div className="grid grid-4 solution-related-grid">
+          {platformPathLinks.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="card card-link interactive-surface solution-link-card"
+            >
+              <h3 className="card-title">{item.title}</h3>
+              <p className="card-body">{item.body}</p>
+              <span className="card-link-cta">{item.cta}</span>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
       <Section muted>
         <div className="final-cta">
           <h2 className="headline-lg final-cta-title">
@@ -263,7 +411,7 @@ export default function PlatformPage() {
           />
         </div>
       </Section>
-      <SchemaScript data={platformSchema} />
+      <SchemaScript data={pageSchema} />
     </>
   );
 }

@@ -4,7 +4,13 @@ import { CTAGroup } from "../../../components/site/CTAGroup";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { Section } from "../../../components/site/Section";
 import { getMarketBySlug, MARKETS } from "../../../lib/markets";
-import { buildFaqSchema, buildPageMetadata, SITE_URL } from "../../../lib/seo";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildPageMetadata,
+  buildServiceSchema,
+  SITE_URL,
+} from "../../../lib/seo";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -35,48 +41,18 @@ export function generateMetadata({ params }: MarketPageProps) {
 
 function buildMarketSchema(market: NonNullable<ReturnType<typeof getMarketBySlug>>) {
   return [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
+    buildServiceSchema({
       name: `${market.country} Public Procurement Intelligence`,
-      url: `${SITE_URL}/markets/${market.slug}`,
       description: market.description,
-      about: [
-        "public procurement intelligence",
-        "tender forecasting",
-        `${market.adjective} public-sector buyers`,
-        "contract lifecycle signals",
-      ],
-      publisher: {
-        "@type": "Organization",
-        name: "Civant Technologies Limited",
-        url: SITE_URL,
-      },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: SITE_URL,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Markets",
-          item: `${SITE_URL}/markets`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: market.country,
-          item: `${SITE_URL}/markets/${market.slug}`,
-        },
-      ],
-    },
+      path: `/markets/${market.slug}`,
+      serviceType: `${market.country} procurement intelligence`,
+      areaServed: market.country,
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", item: SITE_URL },
+      { name: "Markets", item: `${SITE_URL}/markets` },
+      { name: market.country, item: `${SITE_URL}/markets/${market.slug}` },
+    ]),
     buildFaqSchema(market.faqs),
   ];
 }
@@ -102,6 +78,35 @@ export default function MarketPage({ params }: MarketPageProps) {
 
   const schema = buildMarketSchema(market);
   const ctaMarketLabel = getCtaMarketLabel(market);
+  const marketPathLinks = [
+    {
+      title: "See the platform workflow",
+      body: "Understand how country coverage connects to targeting, forecasting, and execution inside Civant.",
+      href: "/platform",
+      cta: "View Platform",
+    },
+    {
+      title: "Explore EU tender monitoring",
+      body: "Compare this country with the wider European workflow used across live and upcoming markets.",
+      href: "/solutions/eu-tender-monitoring",
+      cta: "View Solution",
+    },
+    {
+      title: "See tender prediction in context",
+      body: "Understand how contract lifecycles and public signals support earlier market timing.",
+      href: "/solutions/tender-prediction-software",
+      cta: "View Solution",
+    },
+    {
+      title: market.status === "live" ? "Start with pricing" : "Talk about rollout",
+      body:
+        market.status === "live"
+          ? "Move from market understanding into a self-serve or custom buying path."
+          : "Discuss early access, rollout priorities, and the setup your team will need.",
+      href: market.status === "live" ? "/pricing" : "/contact",
+      cta: market.status === "live" ? "View Pricing" : "Contact Civant",
+    },
+  ];
   const ctaCopy =
     market.status === "live"
       ? `Start with ${market.country} coverage now, or book a custom walkthrough if your team needs a multi-market setup.`
@@ -130,7 +135,11 @@ export default function MarketPage({ params }: MarketPageProps) {
             <span className={`market-status market-status-${market.status}`}>
               {market.statusLabel}
             </span>
-            <h3 className="card-title">Market coverage</h3>
+            <h3 className="card-title">
+              {market.status === "live"
+                ? `Is ${market.country} live in Civant?`
+                : `When does ${market.country} join the rollout?`}
+            </h3>
             <p className="card-body">
               {market.status === "live"
                 ? `Civant currently supports public procurement intelligence for ${market.buyersLabel}.`
@@ -139,7 +148,7 @@ export default function MarketPage({ params }: MarketPageProps) {
           </article>
           <article className="card market-detail-card">
             <span className="market-status market-status-live">Evidence-led</span>
-            <h3 className="card-title">Prediction engine</h3>
+            <h3 className="card-title">What does the prediction engine read?</h3>
             <p className="card-body">
               Forecasting is based on procurement evidence, contract lifecycles,
               buyer behavior, competitor context, and public external signals.
@@ -147,7 +156,7 @@ export default function MarketPage({ params }: MarketPageProps) {
           </article>
           <article className="card market-detail-card">
             <span className="market-status market-status-live">AI-assisted</span>
-            <h3 className="card-title">Strategic interpretation</h3>
+            <h3 className="card-title">Where does AI fit?</h3>
             <p className="card-body">
               AI helps analyze match, scope, documents, and buyer intent on top
               of structured procurement intelligence.
@@ -192,6 +201,10 @@ export default function MarketPage({ params }: MarketPageProps) {
           <h2 className="headline-lg">
             {market.country} procurement intelligence questions
           </h2>
+          <p className="text-lead section-intro">
+            Short answers to the questions teams usually ask before they commit
+            to a country market path.
+          </p>
         </div>
         <div className="faq-list">
           {market.faqs.map((faq) => (
@@ -199,6 +212,28 @@ export default function MarketPage({ params }: MarketPageProps) {
               <h3 className="card-title">{faq.question}</h3>
               <p className="card-body">{faq.answer}</p>
             </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Next Steps</p>
+          <h2 className="headline-lg">
+            Build the right route from {market.country}
+          </h2>
+        </div>
+        <div className="grid grid-4 solution-related-grid">
+          {marketPathLinks.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="card card-link interactive-surface solution-link-card"
+            >
+              <h3 className="card-title">{item.title}</h3>
+              <p className="card-body">{item.body}</p>
+              <span className="card-link-cta">{item.cta}</span>
+            </Link>
           ))}
         </div>
       </Section>

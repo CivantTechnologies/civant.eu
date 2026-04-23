@@ -1,6 +1,11 @@
 import PricingPageClient from "./PricingPageClient";
 import { SchemaScript } from "../../components/site/SchemaScript";
-import { buildFaqSchema, buildPageMetadata, buildPricingProductSchema } from "../../lib/seo";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildPageMetadata,
+  buildPricingProductSchema,
+} from "../../lib/seo";
 
 export const dynamic = "force-static";
 
@@ -12,6 +17,16 @@ export const metadata = buildPageMetadata({
 });
 
 const pricingFaqs = [
+  {
+    question: "What happens after I choose Vanguard or Summit?",
+    answer:
+      "You complete a short signup flow, pay through Stripe, and your Civant workspace is created after payment. From there, onboarding starts with your company profile, target markets, competitors, and alert setup.",
+  },
+  {
+    question: "When should I request a custom plan instead?",
+    answer:
+      "Use a custom plan when you need more seats, rollout support, workflow alignment, invoice-based buying, or tailored commercial terms for a larger team.",
+  },
   {
     question: "Which markets are covered?",
     answer:
@@ -37,6 +52,10 @@ const pricingFaqs = [
 const pricingSchema = [
   buildPricingProductSchema(),
   buildFaqSchema(pricingFaqs),
+  buildBreadcrumbSchema([
+    { name: "Home", item: "https://civant.eu" },
+    { name: "Pricing", item: "https://civant.eu/pricing" },
+  ]),
 ];
 
 export default function PricingPage() {
