@@ -32,6 +32,7 @@ const whatCivantIsNot = [
 
 const advisoryPillars = [
   "Public procurement",
+  "Education market expansion",
   "Enterprise technology",
   "Data and analytics",
   "Go-to-market leadership",
@@ -74,6 +75,17 @@ const advisors = [
     imagePosition: "50% 50%",
     profileHref: "https://www.linkedin.com/in/anita-van-der-laan-40450218/",
     profileLabel: "View Anita on LinkedIn",
+  },
+  {
+    name: "Jukka Sormunen",
+    role: "RDI Director, Mobie",
+    context:
+      "Education-market, Nordic expansion, and public-sector learning technology perspective.",
+    image: "/people/jukka-sormunen.jpg",
+    imageAlt: "Jukka Sormunen",
+    imagePosition: "50% 50%",
+    profileHref: "https://www.linkedin.com/in/jukkasormunen/",
+    profileLabel: "View Jukka on LinkedIn",
   },
 ];
 
@@ -254,7 +266,7 @@ export default function CompanyPage() {
               </span>
             ))}
           </div>
-          <div className="grid grid-3 advisor-grid">
+          <div className="grid grid-4 advisor-grid">
             {advisors.map((advisor) => (
               <article key={advisor.name} className="card advisor-card">
                 <a
