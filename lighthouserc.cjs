@@ -14,7 +14,7 @@ module.exports = {
       startServerReadyPattern: "Ready",
       startServerReadyTimeout: 30000,
       url: urls,
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       settings: {
         preset: "desktop",
         chromeFlags: "--headless=new --no-sandbox",

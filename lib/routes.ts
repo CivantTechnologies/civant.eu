@@ -12,12 +12,25 @@ export type ContentRoute = {
 export const TOP_LEVEL_ROUTES: SiteRoute[] = [
   { href: "/", label: "Home" },
   { href: "/platform", label: "Platform" },
+  { href: "/markets", label: "Markets" },
   { href: "/use-cases", label: "Use Cases" },
   { href: "/methodology", label: "Methodology" },
   { href: "/pricing", label: "Pricing" },
   { href: "/resources", label: "Resources" },
   { href: "/company", label: "Company" },
   { href: "/contact", label: "Contact" },
+];
+
+export const MARKET_ROUTES: ContentRoute[] = [
+  { href: "/markets/ireland", changeFrequency: "weekly", priority: 0.75 },
+  { href: "/markets/united-kingdom", changeFrequency: "weekly", priority: 0.75 },
+  { href: "/markets/spain", changeFrequency: "weekly", priority: 0.75 },
+  { href: "/markets/france", changeFrequency: "weekly", priority: 0.75 },
+  { href: "/markets/italy", changeFrequency: "weekly", priority: 0.75 },
+  { href: "/markets/finland", changeFrequency: "monthly", priority: 0.65 },
+  { href: "/markets/belgium", changeFrequency: "monthly", priority: 0.65 },
+  { href: "/markets/germany", changeFrequency: "monthly", priority: 0.65 },
+  { href: "/markets/netherlands", changeFrequency: "monthly", priority: 0.65 },
 ];
 
 export const RESOURCE_ARTICLE_ROUTES: ContentRoute[] = [

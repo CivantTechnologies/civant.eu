@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { RESOURCE_ARTICLE_ROUTES, TOP_LEVEL_ROUTES } from "../lib/routes";
+import { MARKET_ROUTES, RESOURCE_ARTICLE_ROUTES, TOP_LEVEL_ROUTES } from "../lib/routes";
 import { SITE_URL } from "../lib/seo";
 
 export const dynamic = "force-static";
@@ -24,6 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
+  const marketEntries: MetadataRoute.Sitemap = MARKET_ROUTES.map((route) => ({
+    url: `${SITE_URL}${route.href}`,
+    lastModified,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
 
   const legalEntries: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/legal/terms`, lastModified, changeFrequency: "yearly", priority: 0.3 },
@@ -31,5 +37,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/legal/fair-use`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  return [...topLevelEntries, ...resourceEntries, ...legalEntries];
+  return [...topLevelEntries, ...marketEntries, ...resourceEntries, ...legalEntries];
 }
