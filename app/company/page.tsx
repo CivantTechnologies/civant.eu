@@ -185,73 +185,6 @@ export default function CompanyPage() {
 
       <Section>
         <div className="section-heading-wrap company-reading">
-          <p className="eyebrow">Mission</p>
-          <h2 className="headline-lg">What Civant is built to do</h2>
-          <p className="card-body section-intro company-copy">
-            Civant exists to transform complex public procurement processes into
-            structured, confident, and well-timed decisions for suppliers,
-            buyers, and the public sector.
-          </p>
-          <p className="card-body company-copy">
-            The platform is built as a prediction engine first: official
-            procurement records, contract lifecycles, competitor movement, and
-            external public signals form the evidence base. AI is used as an
-            interpretation layer that helps teams understand match, scope,
-            buyer intent, and next-best action.
-          </p>
-        </div>
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap company-reading">
-          <p className="eyebrow">Why This Matters</p>
-          <h2 className="headline-lg">
-            Procurement intelligence has system-level impact
-          </h2>
-          <p className="card-body section-intro company-copy">
-            Public procurement is designed to support fair competition, stronger
-            outcomes, and responsible use of public funds.
-          </p>
-          <p className="card-body company-copy">
-            When preparation time is uneven and timing visibility is poor, those
-            goals weaken: capable suppliers are excluded, buyers receive fewer
-            high-quality responses, and public value is reduced.
-          </p>
-          <p className="card-body company-copy">
-            Making timing visible helps teams compete on merit rather than
-            reaction speed, improves planning quality, and supports healthier
-            market participation.
-          </p>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Commitment to Transparency</p>
-          <h2 className="headline-lg">How Civant defines its role</h2>
-        </div>
-        <div className="grid grid-2 company-trust-grid">
-          <article className="card company-trust-card">
-            <h3 className="card-title">What Civant is</h3>
-            <ul className="stack-list coverage-list">
-              {whatCivantIs.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-          <article className="card company-trust-card company-trust-card-muted">
-            <h3 className="card-title">What Civant is not</h3>
-            <ul className="stack-list coverage-list">
-              {whatCivantIsNot.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-        </div>
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap company-reading">
           <p className="eyebrow">Advisory Network</p>
           <h2 className="headline-lg">
             Guidance from experienced domain and operating leaders
@@ -301,6 +234,73 @@ export default function CompanyPage() {
               </article>
             ))}
           </div>
+        </div>
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap company-reading">
+          <p className="eyebrow">Mission</p>
+          <h2 className="headline-lg">What Civant is built to do</h2>
+          <p className="card-body section-intro company-copy">
+            Civant exists to transform complex public procurement processes into
+            structured, confident, and well-timed decisions for suppliers,
+            buyers, and the public sector.
+          </p>
+          <p className="card-body company-copy">
+            The platform is built as a prediction engine first: official
+            procurement records, contract lifecycles, competitor movement, and
+            external public signals form the evidence base. AI is used as an
+            interpretation layer that helps teams understand match, scope,
+            buyer intent, and next-best action.
+          </p>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="section-heading-wrap company-reading">
+          <p className="eyebrow">Why This Matters</p>
+          <h2 className="headline-lg">
+            Procurement intelligence has system-level impact
+          </h2>
+          <p className="card-body section-intro company-copy">
+            Public procurement is designed to support fair competition, stronger
+            outcomes, and responsible use of public funds.
+          </p>
+          <p className="card-body company-copy">
+            When preparation time is uneven and timing visibility is poor, those
+            goals weaken: capable suppliers are excluded, buyers receive fewer
+            high-quality responses, and public value is reduced.
+          </p>
+          <p className="card-body company-copy">
+            Making timing visible helps teams compete on merit rather than
+            reaction speed, improves planning quality, and supports healthier
+            market participation.
+          </p>
+        </div>
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Commitment to Transparency</p>
+          <h2 className="headline-lg">How Civant defines its role</h2>
+        </div>
+        <div className="grid grid-2 company-trust-grid">
+          <article className="card company-trust-card">
+            <h3 className="card-title">What Civant is</h3>
+            <ul className="stack-list coverage-list">
+              {whatCivantIs.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+          <article className="card company-trust-card company-trust-card-muted">
+            <h3 className="card-title">What Civant is not</h3>
+            <ul className="stack-list coverage-list">
+              {whatCivantIsNot.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
         </div>
       </Section>
 
