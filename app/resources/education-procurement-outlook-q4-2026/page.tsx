@@ -23,11 +23,12 @@ function getEducationReport() {
 
 const report = getEducationReport();
 const runwaySnapshotDate = "23 April 2026";
+const runwaySnapshotTotal = 41;
 const runwaySnapshot = [
-  { country: "Italy", code: "IT", count: 25 },
-  { country: "France", code: "FR", count: 8 },
-  { country: "United Kingdom", code: "UK", count: 7 },
-  { country: "Ireland", code: "IE", count: 1 },
+  { country: "Italy", code: "IT", count: 25, share: 61 },
+  { country: "France", code: "FR", count: 8, share: 20 },
+  { country: "United Kingdom", code: "UK", count: 7, share: 17 },
+  { country: "Ireland", code: "IE", count: 1, share: 2 },
 ];
 const educationBenchmarks = [
   {
@@ -53,6 +54,12 @@ const supplierSignals = [
   "The Lunch Bag Unlimited appears repeatedly in Irish education award history.",
   "EBSCO Information Services SAS is visible across French education-related award history.",
   "Fulton S.A. shows repeat presence in Spanish education-facing public contracts.",
+];
+const landingHighlights = [
+  "Dated runway snapshot",
+  "Historic contract-value benchmarks",
+  "Named repeat-supplier signals",
+  "Short methodology note",
 ];
 
 export const metadata = buildPageMetadata({
@@ -100,20 +107,17 @@ export default function EducationProcurementOutlookPage() {
         <div className="grid grid-3 report-snapshot-grid">
           <article className="card report-snapshot-card">
             <p className="module-label">High-confidence runway</p>
-            <div className="report-snapshot-value">41</div>
+            <div className="report-snapshot-value">{runwaySnapshotTotal}</div>
             <p className="card-body">
-              Education opportunities currently visible in the approved Civant
-              snapshot.
+              Visible in the current approved snapshot.
             </p>
           </article>
 
           <article className="card report-snapshot-card">
             <p className="module-label">Leading market now</p>
-            <div className="report-snapshot-value">Italy</div>
+            <div className="report-snapshot-value">61%</div>
             <p className="card-body">
-              25 education opportunities in the current high-confidence slice,
-              spanning digital, facilities, construction, and professional
-              services.
+              Of the visible runway currently sits in Italy.
             </p>
           </article>
 
@@ -121,8 +125,7 @@ export default function EducationProcurementOutlookPage() {
             <p className="module-label">Historic benchmark layer</p>
             <div className="report-snapshot-value">IE · FR · ES</div>
             <p className="card-body">
-              Contract-value and repeat-supplier benchmarks are strongest where
-              the award history is deepest.
+              Deepest public award context for value and supplier pressure.
             </p>
           </article>
         </div>
@@ -138,19 +141,24 @@ export default function EducationProcurementOutlookPage() {
                 <div key={item.code} className="report-country-row">
                   <div className="report-country-meta">
                     <span className="report-country-name">{item.country}</span>
-                    <span className="report-country-count">{item.count}</span>
+                    <div className="report-country-metrics">
+                      <span className="report-country-share">{item.share}%</span>
+                      <span className="report-country-count">
+                        {item.count} visible
+                      </span>
+                    </div>
                   </div>
                   <div className="report-country-bar">
                     <span
                       className="report-country-fill"
-                      style={{ width: `${(item.count / 25) * 100}%` }}
+                      style={{ width: `${item.share}%` }}
                     />
                   </div>
                 </div>
               ))}
             </div>
             <p className="contact-live-note" style={{ marginTop: "1.25rem" }}>
-              This is a dated runway snapshot, not a statement of total market
+              Share of visible runway in the dated snapshot, not total market
               size.
             </p>
           </article>
@@ -185,9 +193,9 @@ export default function EducationProcurementOutlookPage() {
               A public-safe look at Q4 education demand
             </h2>
             <p className="card-body">{report.summary}</p>
-            <div className="solution-signal-list">
-              {report.reportIncludes.map((item) => (
-                <div key={item} className="solution-signal-item">
+            <div className="report-highlight-grid">
+              {landingHighlights.map((item) => (
+                <div key={item} className="report-highlight-item">
                   <span>{item}</span>
                 </div>
               ))}
