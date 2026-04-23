@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { Section } from "../../components/site/Section";
 import { buildPageMetadata } from "../../lib/seo";
 
@@ -466,6 +467,15 @@ export default function ResourcesPage() {
           </Section>
         );
       })}
+
+      <Section>
+        <MarketCoverageLinks
+          eyebrow="Country Intelligence"
+          title="Turn European market research into country-specific planning"
+          body="Use the resource library to understand procurement patterns, then move into live market pages for country-level coverage and rollout context."
+          compact
+        />
+      </Section>
 
       <Section>
         <div className="button-row resources-cta-row">

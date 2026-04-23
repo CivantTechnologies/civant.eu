@@ -8,6 +8,7 @@ import {
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { BrowserFrame } from "../../components/site/BrowserFrame";
+import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { buildPageMetadata, buildSoftwareApplicationSchema } from "../../lib/seo";
 
@@ -210,6 +211,15 @@ export default function PlatformPage() {
             </article>
           ))}
         </div>
+      </Section>
+
+      <Section muted>
+        <MarketCoverageLinks
+          eyebrow="Country Layer"
+          title="One platform model across each Civant market"
+          body="The same procurement-cycle workflow is available across live markets today and is being extended into the next country rollout."
+          compact
+        />
       </Section>
 
       <Section muted>

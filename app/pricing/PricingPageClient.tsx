@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Check, Shield, ChevronDown, ChevronUp, Minus, Plus } from "lucide-react";
 import { Section } from "../../components/site/Section";
 import { CTAGroup } from "../../components/site/CTAGroup";
+import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -117,17 +118,10 @@ const plans: Plan[] = [
   },
 ];
 
-const markets = [
-  { code: "IE", label: "Ireland" },
-  { code: "GB", label: "United Kingdom" },
-  { code: "ES", label: "Spain" },
-  { code: "FR", label: "France" },
-];
-
 const faqs: FaqItem[] = [
   {
     q: "Which markets are covered?",
-    a: "Every plan covers all four markets Civant currently operates in: Ireland, the United Kingdom (England, Scotland, Wales, and Northern Ireland), Spain, and France. New markets coming soon — all plans will include them automatically at no extra cost.",
+    a: "Every plan covers the markets Civant currently operates in: Ireland, the United Kingdom (England, Scotland, Wales, and Northern Ireland), Spain, France, and Italy. Finland, Belgium, Germany, and the Netherlands are coming next and will be included automatically at no extra cost.",
   },
   {
     q: "Can I cancel at any time?",
@@ -761,21 +755,6 @@ function GuaranteeStrip() {
   );
 }
 
-function MarketCoverage() {
-  return (
-    <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <p className="eyebrow" style={{ marginBottom: "0.8rem" }}>All current markets included · more coming soon</p>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap" }}>
-        {markets.map((m) => (
-          <span key={m.label} style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontSize: "0.82rem", color: "#9ca3af", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 999, padding: "0.32rem 0.75rem" }}>
-            <span style={{ fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.05em", color: "#6b7280" }}>{m.code}</span>{m.label}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function FaqAccordion() {
   const [open, setOpen] = useState<number | null>(null);
   return (
@@ -816,8 +795,9 @@ export default function PricingPageClient() {
         <p className="eyebrow">Pricing</p>
         <h1 className="headline-xl">Intelligence that pays for itself</h1>
         <p className="text-lead">
-          Every plan includes all current markets — Ireland, the United Kingdom, Spain, and
-          France. New markets coming soon. You choose how deep you want to go.
+          Every plan includes all live markets — Ireland, the United Kingdom, Spain,
+          France, and Italy. Finland, Belgium, Germany, and the Netherlands are
+          coming next. You choose how deep you want to go.
         </p>
       </Section>
 
@@ -863,7 +843,12 @@ export default function PricingPageClient() {
         </div>
 
         <GuaranteeStrip />
-        <MarketCoverage />
+        <MarketCoverageLinks
+          eyebrow="All markets included"
+          title="Live coverage now, next countries included automatically"
+          body="Self-serve plans include every live Civant market, with the next rollout countries added automatically as coverage becomes available."
+          compact
+        />
       </Section>
 
       {/* FAQ */}

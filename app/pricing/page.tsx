@@ -15,7 +15,7 @@ const pricingFaqs = [
   {
     question: "Which markets are covered?",
     answer:
-      "Every plan covers all four markets Civant currently operates in: Ireland, the United Kingdom (England, Scotland, Wales, and Northern Ireland), Spain, and France. New markets coming soon — all plans will include them automatically at no extra cost.",
+      "Every plan covers the markets Civant currently operates in: Ireland, the United Kingdom (England, Scotland, Wales, and Northern Ireland), Spain, France, and Italy. Finland, Belgium, Germany, and the Netherlands are coming next and will be included automatically at no extra cost.",
   },
   {
     question: "Can I cancel at any time?",

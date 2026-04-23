@@ -6,6 +6,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { CTAGroup } from "../../components/site/CTAGroup";
+import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { buildFaqSchema, buildPageMetadata } from "../../lib/seo";
@@ -158,6 +159,15 @@ export default function MethodologyPage() {
             </article>
           ))}
         </div>
+      </Section>
+
+      <Section muted>
+        <MarketCoverageLinks
+          eyebrow="Country Rollout"
+          title="A consistent evidence model across European markets"
+          body="Civant applies the same procurement-cycle methodology to live country coverage and the next wave of European markets."
+          compact
+        />
       </Section>
 
       <Section>

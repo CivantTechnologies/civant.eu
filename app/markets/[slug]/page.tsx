@@ -81,6 +81,18 @@ function buildMarketSchema(market: NonNullable<ReturnType<typeof getMarketBySlug
   ];
 }
 
+function getCtaMarketLabel(market: NonNullable<ReturnType<typeof getMarketBySlug>>) {
+  if (market.slug === "united-kingdom") {
+    return "UK";
+  }
+
+  if (market.slug === "netherlands") {
+    return "NL";
+  }
+
+  return market.country;
+}
+
 export default function MarketPage({ params }: MarketPageProps) {
   const market = getMarketBySlug(params.slug);
 
@@ -89,6 +101,11 @@ export default function MarketPage({ params }: MarketPageProps) {
   }
 
   const schema = buildMarketSchema(market);
+  const ctaMarketLabel = getCtaMarketLabel(market);
+  const ctaCopy =
+    market.status === "live"
+      ? `Start with ${market.country} coverage now, or book a custom walkthrough if your team needs a multi-market setup.`
+      : `${market.country} is part of the next rollout. Talk to us about early access, target categories, and country-specific planning.`;
 
   return (
     <>
@@ -191,17 +208,26 @@ export default function MarketPage({ params }: MarketPageProps) {
           <h2 className="headline-lg final-cta-title">
             Build earlier visibility into {market.adjective} procurement
           </h2>
+          <p className="text-lead platform-cta-copy">{ctaCopy}</p>
           <CTAGroup
-            primaryHref="/pricing"
-            primaryLabel="View Pricing"
-            secondaryHref="/contact"
-            secondaryLabel="Book a Demo"
+            primaryHref={market.status === "live" ? "/pricing" : "/contact"}
+            primaryLabel={
+              market.status === "live"
+                ? `Start with ${ctaMarketLabel} Coverage`
+                : `Join ${ctaMarketLabel} Early Access`
+            }
+            secondaryHref={market.status === "live" ? "/contact" : "/markets"}
+            secondaryLabel={
+              market.status === "live" ? "Plan Custom Setup" : "View Live Markets"
+            }
           />
-          <div className="button-row market-back-row">
-            <Link href="/markets" className="text-link">
-              View all markets
-            </Link>
-          </div>
+          {market.status === "live" ? (
+            <div className="button-row market-back-row">
+              <Link href="/markets" className="text-link">
+                View all markets
+              </Link>
+            </div>
+          ) : null}
         </div>
       </Section>
 

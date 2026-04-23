@@ -1,6 +1,7 @@
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { BrowserFrame } from "../../components/site/BrowserFrame";
+import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
@@ -114,6 +115,15 @@ export default function UseCasesPage() {
             </article>
           ))}
         </div>
+      </Section>
+
+      <Section>
+        <MarketCoverageLinks
+          eyebrow="Country Coverage"
+          title="Apply each use case in the markets you sell into"
+          body="Bid, sales, partnership, and intelligence teams can move from country discovery to market-specific procurement planning."
+          compact
+        />
       </Section>
 
       <Section>

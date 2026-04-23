@@ -8,6 +8,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { CTAGroup } from "../components/site/CTAGroup";
+import { MarketCoverageLinks } from "../components/site/MarketCoverageLinks";
 import { Section } from "../components/site/Section";
 import { buildPageMetadata } from "../lib/seo";
 
@@ -241,6 +242,14 @@ export default function HomePage() {
             Explore Platform Details
           </Link>
         </div>
+      </Section>
+
+      <Section>
+        <MarketCoverageLinks
+          eyebrow="European Coverage"
+          title="Live in five markets, expanding every month"
+          body="Start with Ireland, the United Kingdom, Spain, France, and Italy today, with Finland, Belgium, Germany, and the Netherlands coming next."
+        />
       </Section>
 
       <Section muted>
