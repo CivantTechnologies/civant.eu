@@ -80,11 +80,6 @@ export default function EducationProcurementOutlookPage() {
                 ))}
               </div>
             </div>
-
-            <p className="contact-live-note report-gate-note">
-              Work email only. The page is intentionally brief so the value
-              stays in the report itself.
-            </p>
           </article>
 
           <div className="report-gate-panel">
@@ -94,6 +89,8 @@ export default function EducationProcurementOutlookPage() {
             />
           </div>
         </div>
+
+        <p className="contact-live-note report-gate-note">Work email only.</p>
       </Section>
 
       <Section>
