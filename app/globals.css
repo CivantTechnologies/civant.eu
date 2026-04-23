@@ -1887,191 +1887,72 @@ a {
   margin-bottom: 1rem;
 }
 
-.report-hero-section {
+.report-gate-page {
   padding-top: 3.25rem;
 }
 
-.report-hero-grid {
+.report-gate-shell {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
   align-items: start;
 }
 
-.report-hero-copy {
+.report-gate-copy {
   max-width: 42rem;
 }
 
-.report-hero-subtitle {
+.report-gate-subtitle {
   max-width: 34rem;
 }
 
-.report-hero-summary {
-  max-width: 40rem;
+.report-gate-summary {
+  max-width: 38rem;
   margin-top: 1rem;
 }
 
-.report-hero-gate {
+.report-gate-panel {
   align-self: start;
 }
 
-.report-hero-note {
-  margin-top: 1rem;
+.report-gate-list-wrap {
+  margin-top: 1.6rem;
 }
 
-.report-snapshot-intro {
-  max-width: 54rem;
-}
-
-.report-snapshot-grid,
-.report-snapshot-detail-grid {
-  align-items: stretch;
-}
-
-.report-snapshot-card,
-.report-country-card,
-.report-context-card {
-  height: 100%;
-}
-
-.report-snapshot-value {
-  margin: 0.55rem 0 0.8rem;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1;
-  font-weight: 700;
-  color: #f8fbff;
-}
-
-.report-snapshot-heading {
-  margin: 0.55rem 0 1rem;
-}
-
-.report-country-list {
+.report-gate-list {
   display: grid;
-  gap: 0.9rem;
+  gap: 0.85rem;
+  margin-top: 0.9rem;
 }
 
-.report-country-row {
-  display: grid;
-  gap: 0.38rem;
-}
-
-.report-country-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.report-country-name,
-.report-benchmark-market,
-.report-benchmark-values {
-  color: #f3f4f6;
-}
-
-.report-country-name,
-.report-benchmark-market {
-  font-size: 0.98rem;
-  font-weight: 600;
-}
-
-.report-country-metrics {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-}
-
-.report-country-share {
-  color: #f8fbff;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.report-country-count,
-.report-benchmark-values {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #9fb0c6;
-}
-
-.report-country-bar {
-  position: relative;
-  height: 0.65rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-}
-
-.report-country-fill {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, rgba(96, 211, 218, 0.55), rgba(96, 211, 218, 0.95));
-}
-
-.report-benchmark-stack {
-  display: grid;
-  gap: 1rem;
-}
-
-.report-benchmark-row {
-  padding-top: 0.2rem;
-}
-
-.report-benchmark-row + .report-benchmark-row {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1rem;
-}
-
-.report-benchmark-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.45rem;
-}
-
-.report-highlight-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-  margin-top: 1.3rem;
-}
-
-.report-highlight-item {
-  min-height: 0;
-  padding: 1rem 1.05rem;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(96, 211, 218, 0.18);
-  color: #f3f4f6;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.35;
-}
-
-.report-section-intro {
-  max-width: 32rem;
-  margin-bottom: 1.25rem;
-}
-
-.report-context-grid {
-  align-items: stretch;
-}
-
-.report-context-title {
-  max-width: 24rem;
-  margin-bottom: 1rem;
-}
-
-.report-simple-list {
-  display: grid;
-  gap: 0.9rem;
-}
-
-.report-simple-item {
+.report-gate-list-item {
   padding: 0.95rem 1rem;
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #d9e1ec;
+  color: #e0e6ef;
+  line-height: 1.5;
+}
+
+.report-gate-note {
+  margin-top: 1rem;
+}
+
+.report-support-strip {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 0.25rem;
+}
+
+.report-support-item {
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #a9b7ca;
   line-height: 1.5;
 }
 
@@ -2648,19 +2529,14 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .report-benchmark-header,
-  .report-country-meta {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .report-country-metrics,
-  .report-highlight-grid,
-  .report-hero-copy {
+  .report-gate-copy,
+  .report-gate-list,
+  .report-support-strip {
     width: 100%;
   }
 
-  .report-highlight-grid {
+  .report-gate-shell,
+  .report-support-strip {
     grid-template-columns: 1fr;
   }
 
