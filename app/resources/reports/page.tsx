@@ -43,7 +43,7 @@ export default function ReportsPage() {
     <>
       <Section muted>
         <p className="eyebrow">Forecast Reports</p>
-        <h1 className="headline-xl">Sector reports built to spark smarter follow-up</h1>
+        <h1 className="headline-xl">Sector reports built to spark smarter prospection</h1>
         <p className="text-lead">
           Civant forecast reports are public-safe sector outlooks designed to
           help teams understand where demand is forming, what shapes that demand
@@ -53,11 +53,10 @@ export default function ReportsPage() {
 
       <Section className="resources-page">
         <div className="market-link-panel market-link-panel-compact report-hub-intro">
-          <p className="headline-lg">A cleaner home for downloadable outlooks</p>
+          <p className="headline-lg">Downloadable assets</p>
           <p className="card-body">
-            The main resources library is for explainers, methodology, and
-            market intelligence articles. This page is where gated sector
-            outlooks live.
+            Public-safe sector outlooks designed to help teams understand where
+            demand is forming, how markets differ, and where to focus next.
           </p>
         </div>
 
