@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
+import { RelatedSolution } from "../../../components/site/RelatedSolution";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,14 @@ export default function ArticlePage() {
           <p className="article-body-text">
             Procurement intelligence platforms address fragmentation by aggregating tenders from national, regional and sector‑specific portals into a unified hub. Automated alerts ensure suppliers are notified when relevant opportunities appear, reducing time‑to‑opportunity and levelling the playing field. By normalising data from different sources, intelligence tools also enable better analysis of market trends and supplier participation.
           </p>
+
+          <RelatedSolution
+            solutionSlug="eu-tender-monitoring"
+            linkLabel="Explore EU tender monitoring"
+          >
+            See how Civant brings national sources, TED-linked context, awards,
+            and lifecycle signals into one European monitoring workflow.
+          </RelatedSolution>
 
           <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>

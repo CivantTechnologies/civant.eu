@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
+import { RelatedSolution } from "../../../components/site/RelatedSolution";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,14 @@ export default function ArticlePage() {
           <p className="article-body-text">
             Procurement intelligence platforms aggregate notices across portals and deliver real‑time alerts, effectively eliminating discovery delays. By analysing historical data, they can also predict when certain authorities tend to publish and anticipate upcoming opportunities. These capabilities enable suppliers to extend preparation windows and move from reactive to proactive bidding.
           </p>
+
+          <RelatedSolution
+            solutionSlug="eu-tender-monitoring"
+            linkLabel="Explore EU tender monitoring"
+          >
+            See how Civant reduces fragmented portal work by combining live
+            market coverage with lifecycle and signal context across Europe.
+          </RelatedSolution>
 
           <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>

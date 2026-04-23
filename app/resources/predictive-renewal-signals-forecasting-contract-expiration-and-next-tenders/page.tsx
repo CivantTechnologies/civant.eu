@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
+import { RelatedSolution } from "../../../components/site/RelatedSolution";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -65,6 +66,14 @@ export default function ArticlePage() {
           <p className="article-body-text">
             Procurement intelligence platforms compute predictive renewal signals by integrating contract data, budget information and policy insights. They provide dashboards and alerts indicating when key contracts are likely to come back to market. Such tools also factor in incumbent performance and spending trends to refine predictions.
           </p>
+
+          <RelatedSolution
+            solutionSlug="tender-prediction-software"
+            linkLabel="Explore tender prediction software"
+          >
+            See how Civant uses lifecycle evidence, renewal windows, and public
+            signals to estimate likely future tender timing.
+          </RelatedSolution>
 
           <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>

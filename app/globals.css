@@ -1834,6 +1834,29 @@ a {
   border-radius: var(--radius-sm);
   white-space: nowrap;
 }
+
+.related-solution {
+  margin: 3rem 0 0;
+  padding: 1.35rem;
+  border: 1px solid rgba(0, 196, 196, 0.24);
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    145deg,
+    rgba(0, 196, 196, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 68%
+  );
+}
+
+.related-solution .card-title {
+  margin-top: 0.25rem;
+}
+
+.related-solution .text-link {
+  display: inline-flex;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
 .article-byline a {
   color: #8ceeed;
   text-decoration: none;

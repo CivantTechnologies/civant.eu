@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
+import { RelatedSolution } from "../../../components/site/RelatedSolution";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -95,6 +96,14 @@ export default function ArticlePage() {
             </Link>
             .
           </p>
+
+          <RelatedSolution
+            solutionSlug="tender-prediction-software"
+            linkLabel="Explore tender prediction software"
+          >
+            See how Civant connects contract lifecycle signals with buyer
+            recurrence and public evidence to forecast likely tender windows.
+          </RelatedSolution>
 
           <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
