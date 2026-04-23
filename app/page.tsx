@@ -121,9 +121,9 @@ const customerProof = [
   {
     company: "UbiCast",
     href: "https://www.ubicast.eu/",
-    logo: "/logos/ubicast-logo.svg",
+    logo: "/logos/ubicast-logo-white.png",
     logoWidth: 210,
-    logoHeight: 60,
+    logoHeight: 59,
     quote:
       "We see every market in one place, score each tender against our strengths, often before they're even published, and know immediately where to bid.",
     person: "Jean-Marie Cognet",
@@ -132,7 +132,7 @@ const customerProof = [
   {
     company: "Mobie",
     href: "https://www.mobie.fi/en/",
-    logo: "/logos/mobie-logo.png",
+    logo: "/logos/mobie-logo-white.png",
     logoWidth: 184,
     logoHeight: 48,
     quote:
