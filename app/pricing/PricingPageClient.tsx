@@ -53,8 +53,8 @@ const plans: Plan[] = [
   {
     name: "Vanguard",
     tagline:
-      "For individuals and small teams building a systematic approach to public procurement.",
-    headline: "Get ahead of the market",
+      "For one operator or a lean team building a steady procurement rhythm.",
+    headline: "Build your market routine",
     monthlyPrice: 299,
     annualPrice: 249,
     annualBilled: "Billed €2,988/year",
@@ -66,17 +66,17 @@ const plans: Plan[] = [
       "1 seat",
       "10 saved alert rules",
       "5 competitors tracked",
-      "50 AI intelligence briefs/day",
-      "All markets included",
-      "Buyer history & award intelligence",
+      "50 intelligence briefs per day",
+      "All live countries included",
+      "Buyer and award history",
       "Renewal forecasting",
     ],
   },
   {
     name: "Summit",
     tagline:
-      "For growing teams that need deeper intelligence, broader coverage, and real competitive awareness.",
-    headline: "Full market visibility",
+      "For bid teams that need broader coverage, clearer prioritisation, and competitor context.",
+    headline: "Run a sharper pipeline",
     monthlyPrice: 699,
     annualPrice: 599,
     annualBilled: "Billed €7,188/year",
@@ -85,22 +85,22 @@ const plans: Plan[] = [
     ctaHref: "/contact",
     featured: true,
     features: [
-      "3 seats included (+€99/seat)",
+      "3 seats included, €99 per extra seat",
       "50 saved alert rules",
       "25 competitors tracked",
-      "100 AI intelligence briefs/day",
-      "All markets included",
-      "Buyer history & award intelligence",
+      "100 intelligence briefs per day",
+      "All live countries included",
+      "Buyer and award history",
       "Renewal forecasting",
-      "Competitor intelligence layer",
+      "Competitor intelligence",
       "Priority email support",
     ],
   },
   {
     name: "Custom",
     tagline:
-      "For large procurement teams that need unlimited scale, dedicated support, and tailored onboarding.",
-    headline: "Built around your team",
+      "For larger teams that need rollout support, governance, and commercial terms shaped around how they work.",
+    headline: "Scale Civant your way",
     monthlyPrice: null,
     annualPrice: null,
     annualBilled: "Annual contract · bespoke pricing",
@@ -109,21 +109,37 @@ const plans: Plan[] = [
     ctaHref: "/contact",
     featured: false,
     features: [
-      "Unlimited seats",
+      "Flexible seat volume",
       "Unlimited alerts & competitors",
-      "Configurable AI credit pool",
-      "All markets included",
-      "Dedicated account manager",
-      "Custom onboarding & training",
-      "SLA & uptime guarantee",
+      "Configurable intelligence credit pool",
+      "All live countries included",
+      "Dedicated onboarding lead",
+      "Team training",
+      "Workflow, SLA, and billing alignment",
     ],
   },
 ];
 
 const faqs: FaqItem[] = [
   {
+    q: "What happens after I choose Vanguard or Summit?",
+    a: "You enter a short signup flow, complete payment through Stripe, and your Civant workspace is created after payment. From there, onboarding starts with your company profile, target markets, competitors, and alert setup.",
+  },
+  {
+    q: "When should I request a custom plan instead?",
+    a: "Use a custom plan when you need more seats, procurement workflow support, tailored onboarding, enterprise billing, SLA requirements, or help rolling Civant out across multiple teams.",
+  },
+  {
     q: "Which markets are covered?",
     a: "Every plan covers the markets Civant currently operates in: Ireland, the United Kingdom (England, Scotland, Wales, and Northern Ireland), Spain, France, and Italy. Finland, Belgium, Germany, and the Netherlands are coming next and will be included automatically at no extra cost.",
+  },
+  {
+    q: "Can we add more seats or markets later?",
+    a: "Yes. Live markets are included automatically as Civant expands coverage. Summit includes three seats and additional seats can be added; larger rollout needs are best handled through a custom plan.",
+  },
+  {
+    q: "Do you support invoices?",
+    a: "Stripe provides payment receipts for self-serve plans. If your organisation needs invoice-based billing, purchase orders, procurement approval, or custom commercial terms, request a custom plan.",
   },
   {
     q: "Can I cancel at any time?",
@@ -139,10 +155,21 @@ const faqs: FaqItem[] = [
   },
 ];
 
-const checkoutReassurance = [
-  "Secure Stripe checkout",
-  "Workspace created after payment",
-  "Cancel monthly plans anytime",
+const buyingPaths = [
+  {
+    title: "Self-serve plans",
+    label: "Vanguard or Summit",
+    body: "Start with Vanguard or Summit and get your team up and running quickly.",
+    cta: "See Plans",
+    href: "#plans",
+  },
+  {
+    title: "Custom plans",
+    label: "Larger teams",
+    body: "Choose custom if you need onboarding, rollout support, billing terms, or workflow alignment.",
+    cta: "Discuss Custom Plans",
+    href: "/contact",
+  },
 ];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -746,7 +773,7 @@ function PlanCard({
             {plan.ctaLabel}
           </button>
           <p className="pricing-plan-reassurance">
-            Secure checkout · setup starts immediately
+            Start setting up your workspace right away
           </p>
         </>
       ) : (
@@ -759,7 +786,7 @@ function PlanCard({
             {plan.ctaLabel}
           </Link>
           <p className="pricing-plan-reassurance">
-            For bespoke seats, onboarding, and support needs
+            Best for rollout, onboarding, and tailored support
           </p>
         </>
       )}
@@ -805,6 +832,25 @@ function FaqAccordion() {
   );
 }
 
+function BuyingPathCards() {
+  return (
+    <div className="pricing-buying-paths" aria-label="Ways to buy Civant">
+      {buyingPaths.map((path) => (
+        <article key={path.title} className="pricing-buying-path">
+          <div>
+            <p className="pricing-buying-path-label">{path.label}</p>
+            <h2 className="card-title">{path.title}</h2>
+            <p className="card-body">{path.body}</p>
+          </div>
+          <Link href={path.href} className="card-link-cta">
+            {path.cta}
+          </Link>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function PricingPageClient() {
@@ -816,48 +862,35 @@ export default function PricingPageClient() {
       {/* Hero */}
       <Section className="hero-block hero-section">
         <p className="eyebrow">Pricing</p>
-        <h1 className="headline-xl">Intelligence that pays for itself</h1>
+        <h1 className="headline-xl">Start with the right Civant plan</h1>
         <p className="text-lead">
-          Every plan includes all live markets — Ireland, the United Kingdom, Spain,
-          France, and Italy. Finland, Belgium, Germany, and the Netherlands are
-          coming next. You choose how deep you want to go.
+          Every Civant plan includes all currently available countries. Choose
+          Vanguard or Summit to get started today, or talk to us about a custom
+          rollout for a larger team.
         </p>
         <div className="pricing-hero-actions">
           <Link href="#plans" className="btn btn-primary">
-            Start with a Plan
+            See Plans
           </Link>
           <Link href="/contact" className="btn btn-secondary">
-            Request Custom Plan
+            Discuss Custom Plans
           </Link>
-        </div>
-        <div className="pricing-hero-reassurance" aria-label="Checkout reassurance">
-          {checkoutReassurance.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
         </div>
       </Section>
 
-      {/* ROI Calculator first */}
       <Section muted>
-        <div className="section-heading-wrap" style={{ textAlign: "center", margin: "0 auto 0" }}>
-          <p className="eyebrow">ROI Calculator</p>
-          <h2 className="headline-lg">What is early intelligence worth to your team?</h2>
-          <p className="text-lead section-intro" style={{ margin: "0.9rem auto 0" }}>
-            Civant does not write your bids. It gives you the intelligence to pick the right
-            fights earlier, build the right relationships, and protect what you already hold.
-          </p>
-        </div>
-        <RoiCalculator />
+        <BuyingPathCards />
       </Section>
 
       {/* Plans */}
       <Section id="plans">
         <div style={{ textAlign: "center", marginBottom: "0.5rem" }}>
           <p className="eyebrow">Plans</p>
-          <h2 className="headline-lg">Start directly, or request a custom plan</h2>
+          <h2 className="headline-lg">Pick the plan that matches your team</h2>
           <p className="text-lead section-intro pricing-plans-intro">
-            Vanguard and Summit are self-serve. Custom is for larger teams that
-            need bespoke onboarding, procurement workflows, or commercial terms.
+            Start with Vanguard or Summit for immediate access. Choose custom
+            when your team needs rollout support, workflow alignment, or
+            tailored commercial terms.
           </p>
         </div>
 
@@ -889,6 +922,19 @@ export default function PricingPageClient() {
           body="Self-serve plans include every live Civant market, with the next rollout countries added automatically as coverage becomes available."
           compact
         />
+      </Section>
+
+      {/* ROI Calculator */}
+      <Section muted>
+        <div className="section-heading-wrap" style={{ textAlign: "center", margin: "0 auto 0" }}>
+          <p className="eyebrow">ROI Calculator</p>
+          <h2 className="headline-lg">What is early intelligence worth to your team?</h2>
+          <p className="text-lead section-intro" style={{ margin: "0.9rem auto 0" }}>
+            Civant does not write your bids. It gives you the intelligence to pick the right
+            fights earlier, build the right relationships, and protect what you already hold.
+          </p>
+        </div>
+        <RoiCalculator />
       </Section>
 
       <Section muted>

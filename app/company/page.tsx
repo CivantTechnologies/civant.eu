@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CTAGroup } from "../../components/site/CTAGroup";
+import { advisedBy } from "../../components/site/ProofSection";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { buildFounderPersonSchema, buildPageMetadata } from "../../lib/seo";
@@ -232,6 +233,47 @@ export default function CompanyPage() {
                   {advisor.profileLabel} →
                 </a>
               </article>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap company-reading">
+          <p className="eyebrow">Supported by</p>
+          <h2 className="headline-lg">
+            Founder and enterprise support networks behind Civant
+          </h2>
+          <p className="card-body section-intro company-copy">
+            These programmes and institutions supported Civant as the company
+            took shape in Ireland and built its early operating foundation.
+          </p>
+          <div className="advisor-proof-grid company-support-grid">
+            {advisedBy.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card card-link advisor-proof-card interactive-surface"
+              >
+                {item.logo && item.logoWidth && item.logoHeight ? (
+                  <span
+                    className={`advisor-logo-wrap advisor-logo-wrap-${item.logoTone ?? "light"}`}
+                  >
+                    <Image
+                      src={item.logo}
+                      alt={`${item.name} logo`}
+                      width={item.logoWidth}
+                      height={item.logoHeight}
+                      className={`advisor-logo advisor-logo-${item.logoSize ?? "standard"}`}
+                    />
+                  </span>
+                ) : null}
+                <h3 className="card-title">{item.name}</h3>
+                <p className="card-body">{item.context}</p>
+                <span className="card-link-cta">Visit website</span>
+              </a>
             ))}
           </div>
         </div>
