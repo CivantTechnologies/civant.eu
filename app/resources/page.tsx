@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
+import { SchemaScript } from "../../components/site/SchemaScript";
 import { Section } from "../../components/site/Section";
-import { buildPageMetadata } from "../../lib/seo";
+import {
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+  buildPageMetadata,
+} from "../../lib/seo";
 import { SOLUTIONS } from "../../lib/solutions";
 
 export const dynamic = "force-static";
@@ -18,6 +23,13 @@ type Article = {
   title: string;
   summary: string;
   pillar: string;
+};
+
+type IntentLink = {
+  question: string;
+  answer: string;
+  href: string;
+  cta: string;
 };
 
 const articles: Article[] = [
@@ -401,6 +413,64 @@ const articles: Article[] = [
   }
 ];
 
+const resourceIntentLinks: IntentLink[] = [
+  {
+    question: "What is procurement intelligence?",
+    answer:
+      "Start with the article that defines the category in practical, evidence-led terms.",
+    href: "/resources/what-is-procurement-intelligence",
+    cta: "Read the primer",
+  },
+  {
+    question: "How do procurement cycles actually work?",
+    answer:
+      "Understand the planning, renewal, and timing patterns that shape future opportunities.",
+    href: "/resources/public-procurement-cycles",
+    cta: "Explore the cycle",
+  },
+  {
+    question: "How can we prepare earlier?",
+    answer:
+      "See how lifecycle signals and renewal patterns create preparation windows before notices go live.",
+    href: "/resources/contract-lifecycle-signals",
+    cta: "View timing signals",
+  },
+  {
+    question: "How do we decide where to bid?",
+    answer:
+      "Use structured market and competition context to improve bid or no-bid discipline.",
+    href: "/resources/the-economics-of-bid-no-bid-decisions",
+    cta: "Read the strategy",
+  },
+];
+
+const resourcePathLinks = [
+  {
+    title: "See the platform workflow",
+    body: "Connect the ideas in the resources library to the actual Civant product workflow.",
+    href: "/platform",
+    cta: "View Platform",
+  },
+  {
+    title: "Match the right solution path",
+    body: "Jump from education into the solution page that best fits your search intent.",
+    href: "/solutions",
+    cta: "Explore Solutions",
+  },
+  {
+    title: "Understand the methodology",
+    body: "Read how deterministic procurement evidence and AI interpretation work together.",
+    href: "/methodology",
+    cta: "View Methodology",
+  },
+  {
+    title: "Turn research into action",
+    body: "Move from reading to rollout with self-serve pricing and custom paths.",
+    href: "/pricing",
+    cta: "View Pricing",
+  },
+];
+
 const pillarOrder = [
   "Market Intelligence",
   "Timing & Signals",
@@ -422,6 +492,23 @@ function groupByPillar(items: Article[]) {
 
 export default function ResourcesPage() {
   const grouped = groupByPillar(articles);
+  const resourceSchema = [
+    buildCollectionPageSchema({
+      name: "Civant Procurement Intelligence Resources",
+      description:
+        "Procurement intelligence resources from Civant covering procurement cycles, lifecycle signals, market intelligence, bidding strategy, and SME access.",
+      path: "/resources",
+      items: articles.map((article) => ({
+        name: article.title,
+        path: article.href,
+        description: article.summary,
+      })),
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", item: "https://civant.eu" },
+      { name: "Resources", item: "https://civant.eu/resources" },
+    ]),
+  ];
 
   return (
     <div className="resources-page">
@@ -433,6 +520,32 @@ export default function ResourcesPage() {
           signals, contract lifecycles, bidding strategy, and SME access across
           European public-sector markets.
         </p>
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Start Here</p>
+          <h2 className="headline-lg">
+            Begin with the question your team is trying to answer
+          </h2>
+          <p className="text-lead section-intro">
+            These are the most common educational entry points for teams building
+            a procurement intelligence function.
+          </p>
+        </div>
+        <div className="grid grid-2 solution-card-grid">
+          {resourceIntentLinks.map((item) => (
+            <Link
+              key={item.question}
+              href={item.href}
+              className="card card-link interactive-surface solution-card"
+            >
+              <h2 className="card-title">{item.question}</h2>
+              <p className="card-body">{item.answer}</p>
+              <span className="card-link-cta">{item.cta}</span>
+            </Link>
+          ))}
+        </div>
       </Section>
 
       {pillarOrder.map((pillar) => {
@@ -506,12 +619,40 @@ export default function ResourcesPage() {
       </Section>
 
       <Section>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">From Reading To Action</p>
+          <h2 className="headline-lg">
+            Connect the resources library to the rest of Civant
+          </h2>
+          <p className="text-lead section-intro">
+            Educational content works best when it leads into the platform, a
+            solution path, the methodology, or a buying decision.
+          </p>
+        </div>
+        <div className="grid grid-4 solution-related-grid">
+          {resourcePathLinks.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="card card-link interactive-surface solution-link-card"
+            >
+              <h3 className="card-title">{item.title}</h3>
+              <p className="card-body">{item.body}</p>
+              <span className="card-link-cta">{item.cta}</span>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
         <div className="button-row resources-cta-row">
           <Link href="/pricing" className="btn btn-primary">
             View Pricing
           </Link>
         </div>
       </Section>
+
+      <SchemaScript data={resourceSchema} />
     </div>
   );
 }

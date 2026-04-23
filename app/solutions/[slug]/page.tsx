@@ -7,8 +7,10 @@ import { SchemaScript } from "../../../components/site/SchemaScript";
 import { Section } from "../../../components/site/Section";
 import { getSolutionBySlug, SOLUTIONS } from "../../../lib/solutions";
 import {
+  buildBreadcrumbSchema,
   buildFaqSchema,
   buildPageMetadata,
+  buildServiceSchema,
   buildSoftwareApplicationSchema,
   SITE_URL,
 } from "../../../lib/seo";
@@ -43,66 +45,19 @@ export function generateMetadata({ params }: SolutionPageProps) {
 function buildSolutionSchema(
   solution: NonNullable<ReturnType<typeof getSolutionBySlug>>,
 ) {
-  const pageUrl = `${SITE_URL}/solutions/${solution.slug}`;
-
   return [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
+    buildServiceSchema({
       name: solution.title,
-      url: pageUrl,
       description: solution.description,
-      about: [
-        solution.title,
-        "predictive procurement intelligence",
-        "tender forecasting",
-        "European public procurement",
-      ],
-      publisher: {
-        "@type": "Organization",
-        name: "Civant Technologies Limited",
-        url: SITE_URL,
-      },
-      mainEntity: {
-        "@type": "SoftwareApplication",
-        name: "Civant",
-        applicationCategory: "BusinessApplication",
-        operatingSystem: "Web",
-        url: `${SITE_URL}/platform`,
-        description: solution.description,
-        offers: {
-          "@type": "Offer",
-          url: `${SITE_URL}/pricing`,
-          priceCurrency: "EUR",
-          price: "299",
-          availability: "https://schema.org/InStock",
-        },
-      },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: SITE_URL,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Solutions",
-          item: `${SITE_URL}/solutions`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: solution.title,
-          item: pageUrl,
-        },
-      ],
-    },
+      path: `/solutions/${solution.slug}`,
+      serviceType: solution.title,
+      audience: solution.primaryAudience,
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", item: SITE_URL },
+      { name: "Solutions", item: `${SITE_URL}/solutions` },
+      { name: solution.title, item: `${SITE_URL}/solutions/${solution.slug}` },
+    ]),
     buildSoftwareApplicationSchema(),
     buildFaqSchema(solution.faqs),
   ];
@@ -117,6 +72,32 @@ export default function SolutionDetailPage({ params }: SolutionPageProps) {
 
   const relatedSolutions = SOLUTIONS.filter((item) => item.slug !== solution.slug);
   const schema = buildSolutionSchema(solution);
+  const solutionPathLinks = [
+    {
+      title: "See the full platform workflow",
+      body: "Understand how this solution fits into Panorama, Finder, Forecast, Competitors, Alerts, and Bids.",
+      href: "/platform",
+      cta: "View Platform",
+    },
+    {
+      title: "Explore market coverage",
+      body: "See where the workflow is live now and which countries are joining next.",
+      href: "/markets",
+      cta: "View Markets",
+    },
+    {
+      title: "Understand the methodology",
+      body: "Read how evidence-led forecasting and AI interpretation work together inside Civant.",
+      href: "/methodology",
+      cta: "View Methodology",
+    },
+    {
+      title: "Move into pricing",
+      body: "Choose a self-serve plan or talk through a custom rollout for a larger team.",
+      href: "/pricing",
+      cta: "View Pricing",
+    },
+  ];
 
   return (
     <>
@@ -157,6 +138,41 @@ export default function SolutionDetailPage({ params }: SolutionPageProps) {
             <p className="module-label">Why It Matters</p>
             <h2 className="card-title">Not a chatbot or alert feed</h2>
             <p className="card-body">{solution.differentiator}</p>
+          </article>
+        </div>
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Why This Works</p>
+          <h2 className="headline-lg">
+            The answer is not more alerts. It is better timing.
+          </h2>
+          <p className="text-lead section-intro">
+            {solution.proofPoint}
+          </p>
+        </div>
+        <div className="solution-proof-strip">
+          <article>
+            <h3 className="card-title">Grounded in public evidence</h3>
+            <p className="card-body">
+              Civant connects official records, award history, lifecycle
+              patterns, and public external signals before AI interpretation begins.
+            </p>
+          </article>
+          <article>
+            <h3 className="card-title">Designed for earlier action</h3>
+            <p className="card-body">
+              Teams use this workflow to shape buyer engagement, partnerships,
+              and bid planning before the notice window compresses options.
+            </p>
+          </article>
+          <article>
+            <h3 className="card-title">Applied across live markets</h3>
+            <p className="card-body">
+              The same solution path runs across all currently live Civant
+              countries, with the next rollout added into the same model.
+            </p>
           </article>
         </div>
       </Section>
@@ -207,6 +223,10 @@ export default function SolutionDetailPage({ params }: SolutionPageProps) {
         <div className="section-heading-wrap">
           <p className="eyebrow">FAQ</p>
           <h2 className="headline-lg">{solution.title} questions</h2>
+          <p className="text-lead section-intro">
+            Short answers to the search questions that usually bring teams to
+            this solution page.
+          </p>
         </div>
         <div className="faq-list">
           {solution.faqs.map((faq) => (
@@ -214,6 +234,28 @@ export default function SolutionDetailPage({ params }: SolutionPageProps) {
               <h3 className="card-title">{faq.question}</h3>
               <p className="card-body">{faq.answer}</p>
             </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Next Steps</p>
+          <h2 className="headline-lg">
+            Keep following this solution path through Civant
+          </h2>
+        </div>
+        <div className="grid grid-4 solution-related-grid">
+          {solutionPathLinks.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="card card-link interactive-surface solution-link-card"
+            >
+              <h3 className="card-title">{item.title}</h3>
+              <p className="card-body">{item.body}</p>
+              <span className="card-link-cta">{item.cta}</span>
+            </Link>
           ))}
         </div>
       </Section>

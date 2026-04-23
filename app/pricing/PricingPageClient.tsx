@@ -2,7 +2,7 @@
 
 import { type CSSProperties, type FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { Check, Shield, ChevronDown, ChevronUp, Minus, Plus } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, Minus, Plus } from "lucide-react";
 import { Section } from "../../components/site/Section";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
@@ -169,6 +169,21 @@ const buyingPaths = [
     body: "Choose custom if you need onboarding, rollout support, billing terms, or workflow alignment.",
     cta: "Discuss Custom Plans",
     href: "/contact",
+  },
+];
+
+const pricingCommitments = [
+  {
+    title: "All live countries are included",
+    body: "Pricing is based on team fit, not on adding countries one by one. Every plan includes all currently live Civant coverage.",
+  },
+  {
+    title: "You can get operational quickly",
+    body: "Most teams can set up buyers, categories, alerts, and competitor tracking the same day they start.",
+  },
+  {
+    title: "You can scale without switching tools",
+    body: "Start self-serve now and move into a custom rollout later if your team, workflow, or buying process gets more complex.",
   },
 ];
 
@@ -794,13 +809,15 @@ function PlanCard({
   );
 }
 
-function GuaranteeStrip() {
+function PricingCommitmentsGrid() {
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.75rem", padding: "0.9rem 1.4rem", background: "rgba(0,196,196,0.06)", border: "1px solid rgba(0,196,196,0.2)", borderRadius: "var(--radius-md)", marginTop: "1.6rem", flexWrap: "wrap" }}>
-      <Shield size={20} color="#00c4c4" style={{ flexShrink: 0 }} />
-      <p style={{ margin: 0, fontSize: "0.88rem", color: "#d1d5db", lineHeight: 1.5 }}>
-        <strong style={{ color: "#fff" }}>14-day money-back guarantee.</strong>{" "}No questions asked. Cancel within the first 14 days for a full refund.
-      </p>
+    <div className="grid grid-3 solution-detail-grid">
+      {pricingCommitments.map((item) => (
+        <article key={item.title} className="card">
+          <h3 className="card-title">{item.title}</h3>
+          <p className="card-body">{item.body}</p>
+        </article>
+      ))}
     </div>
   );
 }
@@ -915,7 +932,11 @@ export default function PricingPageClient() {
           ))}
         </div>
 
-        <GuaranteeStrip />
+        <div className="section-heading-wrap" style={{ textAlign: "center", marginTop: "2.4rem" }}>
+          <p className="eyebrow">What This Pricing Includes</p>
+          <h2 className="headline-lg">A buying path that stays simple as your team grows</h2>
+        </div>
+        <PricingCommitmentsGrid />
         <MarketCoverageLinks
           eyebrow="All markets included"
           title="Live coverage now, next countries included automatically"
@@ -928,10 +949,10 @@ export default function PricingPageClient() {
       <Section muted>
         <div className="section-heading-wrap" style={{ textAlign: "center", margin: "0 auto 0" }}>
           <p className="eyebrow">ROI Calculator</p>
-          <h2 className="headline-lg">What is early intelligence worth to your team?</h2>
+          <h2 className="headline-lg">Model the upside of earlier timing</h2>
           <p className="text-lead section-intro" style={{ margin: "0.9rem auto 0" }}>
-            Civant does not write your bids. It gives you the intelligence to pick the right
-            fights earlier, build the right relationships, and protect what you already hold.
+            Civant helps teams choose the right pursuits earlier, protect incumbent
+            positions, and put more effort into tenders worth winning.
           </p>
         </div>
         <RoiCalculator />
