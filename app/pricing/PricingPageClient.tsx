@@ -813,16 +813,12 @@ export default function PricingPageClient() {
     <>
       {/* Hero */}
       <Section className="hero-block hero-section">
-        <div style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto" }}>
-          <p className="eyebrow">Pricing</p>
-          <h1 className="headline-xl" style={{ margin: "0 auto" }}>
-            Intelligence that pays for itself
-          </h1>
-          <p className="text-lead" style={{ margin: "1rem auto 0" }}>
-            Every plan includes all current markets — Ireland, the United Kingdom, Spain, and France. New markets coming soon.
-            You choose how deep you want to go.
-          </p>
-        </div>
+        <p className="eyebrow">Pricing</p>
+        <h1 className="headline-xl">Intelligence that pays for itself</h1>
+        <p className="text-lead">
+          Every plan includes all current markets — Ireland, the United Kingdom, Spain, and
+          France. New markets coming soon. You choose how deep you want to go.
+        </p>
       </Section>
 
       {/* ROI Calculator first */}
