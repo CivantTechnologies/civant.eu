@@ -18,8 +18,27 @@ export const TOP_LEVEL_ROUTES: SiteRoute[] = [
   { href: "/methodology", label: "Methodology" },
   { href: "/pricing", label: "Pricing" },
   { href: "/resources", label: "Resources" },
+  { href: "/resources/reports", label: "Forecast Reports" },
   { href: "/company", label: "Company" },
   { href: "/contact", label: "Contact" },
+];
+
+export const REPORT_ROUTES: ContentRoute[] = [
+  {
+    href: "/resources/education-procurement-outlook-q4-2026",
+    changeFrequency: "weekly",
+    priority: 0.72,
+  },
+  {
+    href: "/resources/healthcare-procurement-outlook-q4-2026",
+    changeFrequency: "weekly",
+    priority: 0.72,
+  },
+  {
+    href: "/resources/public-construction-procurement-outlook-q4-2026",
+    changeFrequency: "weekly",
+    priority: 0.72,
+  },
 ];
 
 export const SOLUTION_ROUTES: ContentRoute[] = [

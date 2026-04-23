@@ -7,6 +7,7 @@ import {
   buildCollectionPageSchema,
   buildPageMetadata,
 } from "../../lib/seo";
+import { getAllReports } from "../../lib/reportDownloads";
 import { SOLUTIONS } from "../../lib/solutions";
 
 export const dynamic = "force-static";
@@ -33,12 +34,6 @@ type IntentLink = {
 };
 
 const articles: Article[] = [
-  {
-    href: "/resources/education-procurement-outlook-q4-2026",
-    title: "Education Procurement Outlook Q4 2026",
-    summary: "A gated sector outlook showing education demand drivers, signal patterns, and preparation priorities for Q4 2026.",
-    pillar: "Forecast Reports",
-  },
   {
     href: "/resources/external-signals-in-public-procurement",
     title: "External Signals in Public Procurement",
@@ -516,6 +511,7 @@ function groupByPillar(items: Article[]) {
 
 export default function ResourcesPage() {
   const grouped = groupByPillar(articles);
+  const reports = getAllReports();
   const resourceSchema = [
     buildCollectionPageSchema({
       name: "Civant Procurement Intelligence Resources",
@@ -544,6 +540,25 @@ export default function ResourcesPage() {
           signals, contract lifecycles, bidding strategy, and SME access across
           European public-sector markets.
         </p>
+      </Section>
+
+      <Section muted>
+        <div className="market-link-panel market-link-panel-compact report-hub-intro">
+          <p className="eyebrow">Forecast Reports</p>
+          <h2 className="headline-lg">
+            Keep downloadable sector outlooks separate from the article library
+          </h2>
+          <p className="card-body">
+            Civant now has a dedicated report hub for gated sector outlooks.
+            Use the resources library for explainers and methodology, then move
+            into forecast reports when you want a sector-specific download.
+          </p>
+          <div className="button-row">
+            <Link href="/resources/reports" className="btn btn-primary">
+              Browse {reports.length} Forecast Reports
+            </Link>
+          </div>
+        </div>
       </Section>
 
       <Section muted>

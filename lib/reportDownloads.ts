@@ -9,16 +9,20 @@ export type ReportDefinition = {
   slug: string;
   title: string;
   eyebrow: string;
+  datePublished: string;
+  snapshotDate: string;
   metaTitle: string;
   metaDescription: string;
   landingPath: string;
   fileName: string;
   subtitle: string;
   summary: string;
+  landingIntro: string;
   audience: string[];
   visibleSignals: string[];
   visibleActions: string[];
   reportIncludes: string[];
+  supportItems: string[];
   sections: ReportSection[];
 };
 
@@ -76,6 +80,8 @@ export const REPORTS: ReportDefinition[] = [
     slug: "education-procurement-outlook-q4-2026",
     title: "Education Procurement Outlook Q4 2026",
     eyebrow: "Forecast Report",
+    datePublished: "2026-04-23T00:00:00+00:00",
+    snapshotDate: "23 April 2026",
     metaTitle: "Education Procurement Outlook Q4 2026 | Civant",
     metaDescription:
       "Download Civant's Education Procurement Outlook for Q4 2026 to see a dated runway snapshot, country benchmarks, and supplier pressure across public education buyers.",
@@ -85,6 +91,8 @@ export const REPORTS: ReportDefinition[] = [
       "A dated Q4 runway snapshot for teams selling into public education markets across Civant's current European coverage layers.",
     summary:
       "This report uses a dated Civant snapshot from 23 April 2026 to show where high-confidence education runway is already visible, how contract values differ by market, and where repeat supplier pressure is already visible in public award history.",
+    landingIntro:
+      "Download a concise public-safe brief designed to help your team decide where education demand is moving now, what that demand can look like by market, and where deeper follow-up is worth the effort.",
     audience: [
       "Bid teams preparing for education-sector opportunities",
       "B2G sales teams building earlier account plans in public education",
@@ -106,6 +114,11 @@ export const REPORTS: ReportDefinition[] = [
       "Historic contract-value benchmarks from education award history",
       "Named repeat suppliers where public award history is already visible",
       "A short methodology note explaining how Civant turns signals into runway",
+    ],
+    supportItems: [
+      "Built for bid teams, B2G sales teams, and commercial leaders",
+      "Snapshot dated 23 April 2026",
+      "Public-safe by design. Full buyer-level depth stays inside Civant",
     ],
     sections: [
       {
@@ -150,10 +163,182 @@ export const REPORTS: ReportDefinition[] = [
       },
     ],
   },
+  {
+    slug: "healthcare-procurement-outlook-q4-2026",
+    title: "Healthcare Procurement Outlook Q4 2026",
+    eyebrow: "Forecast Report",
+    datePublished: "2026-04-23T00:00:00+00:00",
+    snapshotDate: "23 April 2026",
+    metaTitle: "Healthcare Procurement Outlook Q4 2026 | Civant",
+    metaDescription:
+      "Download Civant's Healthcare Procurement Outlook for Q4 2026 to see a dated runway snapshot, contract-value context, and supplier pressure across public healthcare buyers.",
+    landingPath: "/resources/healthcare-procurement-outlook-q4-2026",
+    fileName: "civant-healthcare-procurement-outlook-q4-2026.html",
+    subtitle:
+      "A dated Q4 runway snapshot for teams selling into public healthcare markets across Civant's current European coverage layers.",
+    summary:
+      "This report uses a dated Civant snapshot from 23 April 2026 to show where healthcare demand is already clustering, how contract shapes differ by market, and where repeat supplier pressure may change qualification decisions.",
+    landingIntro:
+      "Download a concise public-safe brief designed to help your team understand where healthcare demand is forming, which buying patterns matter most, and where deeper account work is worth the effort.",
+    audience: [
+      "Bid teams preparing for healthcare-sector opportunities",
+      "Commercial leaders deciding where to focus near-term healthcare effort",
+      "B2G sales teams planning earlier engagement with hospitals, health systems, and procurement bodies",
+    ],
+    visibleSignals: [
+      "A dated snapshot of visible healthcare runway across Civant's current market view",
+      "Historic contract-value context showing how healthcare buying behaves across equipment, services, and digital categories",
+      "Repeat supplier pressure signals where healthcare categories already show entrenched winners",
+      "Category-level clues pointing to where healthcare demand may move first in Q4",
+    ],
+    visibleActions: [
+      "Separate medtech, digital health, facilities, and support-service demand before deciding which accounts deserve attention",
+      "Use historic benchmark context to frame realistic deal sizes and resourcing assumptions early",
+      "Treat incumbent-heavy healthcare categories as sharper qualification decisions, not automatic pursuits",
+    ],
+    reportIncludes: [
+      "A dated healthcare runway snapshot across Civant's current market view",
+      "Historic contract-value context to help frame likely deal sizes",
+      "Repeat-supplier signals already visible in public award history",
+      "Practical actions for Q4 planning and qualification",
+    ],
+    supportItems: [
+      "Built for healthcare bid teams, sales teams, and commercial leaders",
+      "Snapshot dated 23 April 2026",
+      "Public-safe by design. Full buyer-level depth stays inside Civant",
+    ],
+    sections: [
+      {
+        title: "Executive Summary",
+        body: [
+          "Healthcare procurement is structurally uneven. Large buyers can concentrate demand into framework-heavy programmes, while local entities create more fragmented buying windows across equipment, services, and digital categories.",
+          "This report gives a dated, public-safe view of where healthcare runway is visible now, where award history helps frame deal size, and where repeat supplier pressure is already apparent enough to affect qualification.",
+          "The aim is not to replicate the Civant workflow. It is to help a serious team decide where deeper account work is likely to pay off first.",
+        ],
+      },
+      {
+        title: "Where Healthcare Runway Tends To Form",
+        body: [
+          "Healthcare demand rarely sits in one clean category. It often spans digital systems, facilities, specialist equipment, logistics, and outsourced support in parallel, which is why category discipline matters before account targeting.",
+          "A dated runway view helps teams distinguish current visible movement from the broader healthcare market. That difference matters because a market can be strategically important without showing the densest immediate Q4 runway in every category.",
+        ],
+      },
+      {
+        title: "Historic Value And Supplier Pressure",
+        body: [
+          "Award history is useful in healthcare because average values can hide big variation between routine supply categories and larger service or infrastructure contracts. Median values usually give the more practical benchmark for planning.",
+          "Repeat supplier pressure also matters more than headline volume. Categories with visible recurring winners often require stronger positioning, partner strategy, or qualification discipline before a pursuit deserves real effort.",
+        ],
+      },
+      {
+        title: "What Suppliers Should Do Now",
+        body: [
+          "First, split the sector into practical motions: digital health, medtech and equipment, estates and facilities, and outsourced support. Teams that do that early avoid chasing a generic healthcare market that is too broad to act on.",
+          "Second, use benchmark context to calibrate where a pursuit fits your commercial model. The point is not only to find demand. It is to find demand that matches how your team can win.",
+          "Third, treat repeat supplier pressure as a planning signal. It should influence account strategy, not only bid-stage behaviour.",
+        ],
+      },
+      {
+        title: "How Civant Builds Your Runway",
+        body: [
+          "Civant combines current runway signals with contract lifecycle context, buyer behaviour, award history, and external public evidence to help teams understand where demand is forming before formal notice-stage urgency takes over.",
+          "For this public report, the visible layer is intentionally partial. You can see the shape of the opportunity, but not the buyer-level scoring, evidence chain, or qualification workflow that sits behind the platform.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "public-construction-procurement-outlook-q4-2026",
+    title: "Public Construction Procurement Outlook Q4 2026",
+    eyebrow: "Forecast Report",
+    datePublished: "2026-04-23T00:00:00+00:00",
+    snapshotDate: "23 April 2026",
+    metaTitle: "Public Construction Procurement Outlook Q4 2026 | Civant",
+    metaDescription:
+      "Download Civant's Public Construction Procurement Outlook for Q4 2026 to see a dated runway snapshot, contract-value context, and supplier pressure across public construction buyers.",
+    landingPath: "/resources/public-construction-procurement-outlook-q4-2026",
+    fileName: "civant-public-construction-procurement-outlook-q4-2026.html",
+    subtitle:
+      "A dated Q4 runway snapshot for teams selling into public construction and capital-project markets across Civant's current European coverage layers.",
+    summary:
+      "This report uses a dated Civant snapshot from 23 April 2026 to show where public construction demand is clustering, how contract shapes differ by market, and where repeat supplier pressure may alter qualification and partner strategy.",
+    landingIntro:
+      "Download a concise public-safe brief designed to help your team understand where public construction demand is forming, how project sizes can differ by market, and where account effort should go first.",
+    audience: [
+      "Construction bid teams and commercial leaders planning Q4 public-sector effort",
+      "B2G sales teams working around capital programmes and infrastructure demand",
+      "Partners assessing where qualification and consortium strategy matter most",
+    ],
+    visibleSignals: [
+      "A dated snapshot of visible public construction runway across Civant's current market view",
+      "Historic contract-value context showing how project sizes differ across construction categories and markets",
+      "Repeat supplier pressure signals where framework or incumbent advantage is already visible",
+      "Category-level clues pointing to where project planning may convert into procurement activity first",
+    ],
+    visibleActions: [
+      "Split civils, estates, specialist works, and project services before deciding where to commit bid effort",
+      "Use value context to separate flagship pursuits from repeatable mid-market opportunities",
+      "Treat incumbent pressure and partner requirements as early qualification questions, not late-stage surprises",
+    ],
+    reportIncludes: [
+      "A dated public construction runway snapshot across Civant's current market view",
+      "Historic contract-value context to help frame likely project sizes",
+      "Repeat-supplier signals already visible in public award history",
+      "Practical actions for Q4 planning and qualification",
+    ],
+    supportItems: [
+      "Built for construction bid teams, sales teams, and commercial leaders",
+      "Snapshot dated 23 April 2026",
+      "Public-safe by design. Full buyer-level depth stays inside Civant",
+    ],
+    sections: [
+      {
+        title: "Executive Summary",
+        body: [
+          "Public construction behaves differently from many other public-sector categories because planning horizons are longer, deal sizes can swing dramatically, and partner strategy often matters before a notice is even published.",
+          "This report gives a dated, public-safe view of where public construction runway is visible now, where historic value context matters most, and where repeat supplier pressure or framework structures can change qualification decisions.",
+          "The goal is to help teams decide where to go deeper, not to replace the working depth inside Civant.",
+        ],
+      },
+      {
+        title: "Where Construction Runway Tends To Form",
+        body: [
+          "Construction demand usually appears first through planning context, buyer behaviour, and project structure rather than neat category labels alone. Civils, estates, project services, and specialist works often move on different timelines even inside the same buyer programme.",
+          "A runway view helps teams separate visible movement from broad market ambition. That distinction matters because strategic markets can still require patience, partner work, or sharper qualification before they become active pursuits.",
+        ],
+      },
+      {
+        title: "Historic Value And Supplier Pressure",
+        body: [
+          "Value context matters in construction because averages can be distorted by a small number of very large projects. Median values and category-specific benchmarks usually tell a more practical story about where repeatable opportunities sit.",
+          "Supplier pressure also matters early. Repeat winners, framework structures, and partner-heavy categories can all change how a team should resource a pursuit long before tender-stage work begins.",
+        ],
+      },
+      {
+        title: "What Suppliers Should Do Now",
+        body: [
+          "First, narrow the market by project motion. Teams that separate infrastructure, estates, specialist works, and project services early will qualify more cleanly and avoid treating construction as one generic market.",
+          "Second, use value context to decide whether a category supports direct pursuit, partner-led entry, or lighter account monitoring.",
+          "Third, treat repeat supplier pressure as a commercial planning signal. It should shape partner choices, resource allocation, and where to pursue early engagement.",
+        ],
+      },
+      {
+        title: "How Civant Builds Your Runway",
+        body: [
+          "Civant combines current runway signals with contract lifecycle context, award history, buyer behaviour, and external public evidence to help teams understand where construction demand is likely to become actionable.",
+          "For this public report, the visible layer is intentionally partial. It shows the shape of the opportunity without exposing the buyer-level scoring, evidence chain, or working qualification depth that lives inside the platform.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getReportBySlug(slug: string) {
   return REPORTS.find((report) => report.slug === slug);
+}
+
+export function getAllReports() {
+  return REPORTS;
 }
 
 export function validateWorkEmail(email: string) {
