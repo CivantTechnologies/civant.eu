@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
+import { RelatedSolution } from "../../../components/site/RelatedSolution";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -100,6 +101,14 @@ export default function ArticlePage() {
             </Link>
             .
           </p>
+
+          <RelatedSolution
+            solutionSlug="procurement-intelligence-software"
+            linkLabel="Explore procurement intelligence software"
+          >
+            See how Civant turns procurement cycles, awards, lifecycle signals,
+            and market participation data into a working intelligence layer.
+          </RelatedSolution>
 
           <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>

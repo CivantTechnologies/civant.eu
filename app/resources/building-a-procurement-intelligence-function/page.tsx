@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
+import { RelatedSolution } from "../../../components/site/RelatedSolution";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,14 @@ export default function ArticlePage() {
           <p className="article-body-text">
             Technology infrastructure should be selected to support current needs with growth capacity for future expansion, avoiding premature investment in sophisticated platforms whilst ensuring foundation for capability scaling. Talent acquisition should prioritise individuals combining procurement knowledge with analytical and research capabilities, as pure analysts require significant procurement domain training whilst pure procurement specialists may lack analytical skills. Success metrics should track intelligence function ROI through win rate improvement, bid efficiency gains, and strategic market positioning success, demonstrating value and justifying continued investment.
           </p>
+
+          <RelatedSolution
+            solutionSlug="public-procurement-intelligence"
+            linkLabel="Explore public procurement intelligence"
+          >
+            See how Civant gives teams a shared evidence layer for market,
+            account, competitor, and bid/no-bid decisions.
+          </RelatedSolution>
 
           <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
+import { RelatedSolution } from "../../../components/site/RelatedSolution";
 import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +86,14 @@ export default function ArticlePage() {
           <p className="article-body-text">
             Intelligence teams should develop target authority signal monitoring profiles, identifying which signals are most reliable predictors of future procurement in specific categories and authorities. Forecasting models should integrate early signals alongside formal notice data to develop procurement demand predictions with extended lead times. Competitive positioning strategies should emphasise early engagement in preliminary market consultations and authority relationship development, as early signal awareness and participation provides sustained competitive advantage in procurement markets.
           </p>
+
+          <RelatedSolution
+            solutionSlug="procurement-intelligence-software"
+            linkLabel="Explore procurement intelligence software"
+          >
+            See how Civant combines formal notices with PINs, grants, budgets,
+            policy movement, hiring, and other public signals.
+          </RelatedSolution>
 
           <RelatedArticles currentPath={pagePath} />
           <div className="button-row" style={{ marginTop: "3rem" }}>
