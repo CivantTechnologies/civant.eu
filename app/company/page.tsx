@@ -308,10 +308,10 @@ export default function CompanyPage() {
         <div className="final-cta">
           <h2 className="headline-lg final-cta-title">Choose the path that fits</h2>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Book a Demo"
-            secondaryHref="/pricing"
-            secondaryLabel="View Pricing"
+            primaryHref="/pricing"
+            primaryLabel="View Pricing"
+            secondaryHref="/contact"
+            secondaryLabel="Request Custom Plan"
           />
         </div>
       </Section>

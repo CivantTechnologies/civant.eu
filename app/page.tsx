@@ -1,8 +1,11 @@
 import Link from "next/link";
 import {
   Activity,
+  BriefcaseBusiness,
   CalendarClock,
   CircleGauge,
+  Compass,
+  Landmark,
   Target,
   type LucideIcon,
 } from "lucide-react";
@@ -84,6 +87,27 @@ const modules = [
     title: "Bids",
     purpose: "Connects intelligence to bid planning, ownership, and follow-through.",
     label: "Execution",
+  },
+];
+
+const idealCustomers = [
+  {
+    icon: BriefcaseBusiness as LucideIcon,
+    title: "SMEs entering new public-sector markets",
+    body: "See which buyers, frameworks, and renewal windows deserve attention before a formal tender appears.",
+    signal: "Best fit: expansion into Ireland, the UK, Spain, France, or Italy.",
+  },
+  {
+    icon: Compass as LucideIcon,
+    title: "Bid teams escaping reactive tender alerts",
+    body: "Prioritize likely opportunities early enough to shape positioning, partnerships, and qualification work.",
+    signal: "Best fit: teams that need preparation time, not another inbox feed.",
+  },
+  {
+    icon: Landmark as LucideIcon,
+    title: "Commercial teams tracking strategic buyers",
+    body: "Monitor incumbent patterns, buyer cycles, and external public signals so account engagement starts months earlier.",
+    signal: "Best fit: suppliers selling into complex public-sector accounts.",
   },
 ];
 
@@ -182,6 +206,41 @@ export default function HomePage() {
               <p className="card-body">{item.body}</p>
             </article>
           ))}
+        </div>
+      </Section>
+
+      <Section>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Who Civant Is For</p>
+          <h2 className="headline-lg">
+            Built for teams that need early market timing
+          </h2>
+          <p className="text-lead section-intro">
+            Civant is strongest when the cost of finding out late is missed
+            positioning, rushed qualification, or a poor bid/no-bid decision.
+          </p>
+        </div>
+        <div className="grid grid-3 audience-grid">
+          {idealCustomers.map((item) => (
+            <article key={item.title} className="card audience-card">
+              <span className="audience-icon" aria-hidden="true">
+                <item.icon />
+              </span>
+              <h3 className="card-title">{item.title}</h3>
+              <p className="card-body">{item.body}</p>
+              <p className="audience-signal">{item.signal}</p>
+            </article>
+          ))}
+        </div>
+        <div className="audience-decision">
+          <p>
+            If your team only needs a list of live tender notices, Civant is
+            probably more intelligence than you need. If you need to know where
+            the market is likely to move next, this is the right layer.
+          </p>
+          <Link href="/pricing" className="btn btn-primary">
+            Start with Civant
+          </Link>
         </div>
       </Section>
 
@@ -292,7 +351,7 @@ export default function HomePage() {
             primaryHref="/pricing"
             primaryLabel="View Pricing"
             secondaryHref="/contact"
-            secondaryLabel="Book a Demo"
+            secondaryLabel="Request Custom Plan"
           />
         </div>
       </Section>

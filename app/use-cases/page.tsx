@@ -132,14 +132,14 @@ export default function UseCasesPage() {
             See your team’s use case in a live walkthrough
           </h2>
           <p className="text-lead platform-cta-copy">
-            Choose a plan when you are ready to start, or book a demo for a
-            custom workflow review with your team.
+            Choose a plan when you are ready to start, or request a custom plan
+            for a workflow review with your team.
           </p>
           <CTAGroup
             primaryHref="/pricing"
             primaryLabel="View Pricing"
             secondaryHref="/contact"
-            secondaryLabel="Book a Demo"
+            secondaryLabel="Request Custom Plan"
           />
         </div>
       </Section>

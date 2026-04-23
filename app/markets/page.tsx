@@ -167,7 +167,7 @@ export default function MarketsPage() {
             primaryHref="/pricing"
             primaryLabel="View Pricing"
             secondaryHref="/contact"
-            secondaryLabel="Book a Demo"
+            secondaryLabel="Request Custom Plan"
           />
         </div>
       </Section>

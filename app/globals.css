@@ -869,6 +869,61 @@ a {
   );
 }
 
+.audience-grid {
+  align-items: stretch;
+  margin-top: 1.05rem;
+}
+
+.audience-card {
+  min-height: 100%;
+}
+
+.audience-icon {
+  display: inline-flex;
+  width: 2.45rem;
+  height: 2.45rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+  border: 1px solid rgba(0, 196, 196, 0.28);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 196, 196, 0.08);
+  color: var(--accent);
+}
+
+.audience-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.audience-signal {
+  margin: 0.95rem 0 0;
+  color: #cfe8e8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.audience-decision {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(0, 196, 196, 0.24);
+  border-radius: var(--radius-md);
+  background: rgba(0, 196, 196, 0.06);
+  padding: 1rem;
+}
+
+.audience-decision p {
+  max-width: 780px;
+  margin: 0;
+  color: #cbd5e1;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
 .comparison-line {
   margin: 0.35rem 0 0;
   color: #b7c3d3;
@@ -2132,6 +2187,17 @@ a {
     margin-bottom: 0.7rem;
   }
 
+  .audience-decision {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pricing-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
   .flow-track {
     grid-template-columns: 1fr;
   }
@@ -2314,6 +2380,50 @@ a {
   font-size: 0.74rem;
   color: var(--text-muted);
   word-break: break-all;
+}
+
+.pricing-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.pricing-hero-reassurance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.pricing-hero-reassurance span {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  color: #d1d5db;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.35;
+  padding: 0.42rem 0.62rem;
+}
+
+.pricing-plans-intro {
+  margin: 0.85rem auto 0;
+}
+
+.pricing-plan-reassurance {
+  margin: 0.72rem 0 0;
+  color: #9ca3af;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.pricing-checkout-footnote {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 0.86rem;
+  line-height: 1.55;
 }
 
 .pricing-signup-modal-backdrop {

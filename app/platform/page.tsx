@@ -228,14 +228,14 @@ export default function PlatformPage() {
             See the platform in your market context
           </h2>
           <p className="text-lead platform-cta-copy">
-            Start directly with a self-serve plan, or book a demo if your team
-            needs a custom setup across markets, categories, or workflows.
+            Start directly with a self-serve plan, or request a custom plan if
+            your team needs tailored setup across markets, categories, or workflows.
           </p>
           <CTAGroup
             primaryHref="/pricing"
             primaryLabel="View Pricing"
             secondaryHref="/contact"
-            secondaryLabel="Book a Demo"
+            secondaryLabel="Request Custom Plan"
           />
         </div>
       </Section>

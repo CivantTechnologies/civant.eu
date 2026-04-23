@@ -58,7 +58,7 @@ const plans: Plan[] = [
     annualPrice: 249,
     annualBilled: "Billed €2,988/year",
     annualSaving: "Save €600",
-    ctaLabel: "Choose Vanguard",
+    ctaLabel: "Start Vanguard",
     ctaHref: "/contact",
     featured: false,
     features: [
@@ -80,7 +80,7 @@ const plans: Plan[] = [
     annualPrice: 599,
     annualBilled: "Billed €7,188/year",
     annualSaving: "Save €1,200",
-    ctaLabel: "Choose Summit",
+    ctaLabel: "Start Summit",
     ctaHref: "/contact",
     featured: true,
     features: [
@@ -104,7 +104,7 @@ const plans: Plan[] = [
     annualPrice: null,
     annualBilled: "Annual contract · bespoke pricing",
     annualSaving: null,
-    ctaLabel: "Talk to us",
+    ctaLabel: "Request Custom Plan",
     ctaHref: "/contact",
     featured: false,
     features: [
@@ -136,6 +136,12 @@ const faqs: FaqItem[] = [
     q: "How long does onboarding take?",
     a: "Most teams are fully set up within 15 minutes. You complete a short company profile that calibrates your CPV codes, target markets, and buyer types. From there, your dashboard and alerts are live immediately.",
   },
+];
+
+const checkoutReassurance = [
+  "Secure Stripe checkout",
+  "Workspace created after payment",
+  "Cancel monthly plans anytime",
 ];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -358,6 +364,11 @@ function SignupModal({
           </button>
 
           {error ? <p className="pricing-signup-error">{error}</p> : null}
+
+          <p className="pricing-checkout-footnote">
+            Secure Stripe checkout. Your Civant workspace is created after
+            payment and monthly plans can be cancelled anytime.
+          </p>
         </form>
       </div>
     </div>
@@ -724,22 +735,32 @@ function PlanCard({
       </ul>
 
       {signupIntent ? (
-        <button
-          type="button"
-          className={plan.featured ? "btn btn-primary" : "btn btn-secondary"}
-          style={{ textAlign: "center" }}
-          onClick={() => onPlanPurchase(signupIntent)}
-        >
-          {plan.ctaLabel}
-        </button>
+        <>
+          <button
+            type="button"
+            className={plan.featured ? "btn btn-primary" : "btn btn-secondary"}
+            style={{ textAlign: "center" }}
+            onClick={() => onPlanPurchase(signupIntent)}
+          >
+            {plan.ctaLabel}
+          </button>
+          <p className="pricing-plan-reassurance">
+            Secure checkout · setup starts immediately
+          </p>
+        </>
       ) : (
-        <Link
-          href={plan.ctaHref}
-          className={plan.featured ? "btn btn-primary" : "btn btn-secondary"}
-          style={{ textAlign: "center" }}
-        >
-          {plan.ctaLabel}
-        </Link>
+        <>
+          <Link
+            href={plan.ctaHref}
+            className={plan.featured ? "btn btn-primary" : "btn btn-secondary"}
+            style={{ textAlign: "center" }}
+          >
+            {plan.ctaLabel}
+          </Link>
+          <p className="pricing-plan-reassurance">
+            For bespoke seats, onboarding, and support needs
+          </p>
+        </>
       )}
     </article>
   );
@@ -800,6 +821,19 @@ export default function PricingPageClient() {
           France, and Italy. Finland, Belgium, Germany, and the Netherlands are
           coming next. You choose how deep you want to go.
         </p>
+        <div className="pricing-hero-actions">
+          <Link href="#plans" className="btn btn-primary">
+            Start with a Plan
+          </Link>
+          <Link href="/contact" className="btn btn-secondary">
+            Request Custom Plan
+          </Link>
+        </div>
+        <div className="pricing-hero-reassurance" aria-label="Checkout reassurance">
+          {checkoutReassurance.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
       </Section>
 
       {/* ROI Calculator first */}
@@ -816,10 +850,14 @@ export default function PricingPageClient() {
       </Section>
 
       {/* Plans */}
-      <Section>
+      <Section id="plans">
         <div style={{ textAlign: "center", marginBottom: "0.5rem" }}>
           <p className="eyebrow">Plans</p>
-          <h2 className="headline-lg">Choose your level of intelligence</h2>
+          <h2 className="headline-lg">Start directly, or request a custom plan</h2>
+          <p className="text-lead section-intro pricing-plans-intro">
+            Vanguard and Summit are self-serve. Custom is for larger teams that
+            need bespoke onboarding, procurement workflows, or commercial terms.
+          </p>
         </div>
 
         <BillingToggle annual={annual} onChange={setAnnual} />
@@ -871,14 +909,14 @@ export default function PricingPageClient() {
         <div className="final-cta">
           <h2 className="headline-lg final-cta-title">Ready to win before the tender?</h2>
           <p className="text-lead platform-cta-copy">
-            Start with Vanguard or talk to us about a custom setup. No free tier, no pressure —
-            just early intelligence that pays for itself.
+            Start with Vanguard or Summit today. Use custom plans when your team
+            needs tailored onboarding, procurement workflows, or commercial terms.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Request Custom Plan"
-            secondaryHref="/platform"
-            secondaryLabel="Explore the Platform"
+            primaryHref="#plans"
+            primaryLabel="Choose a Plan"
+            secondaryHref="/contact"
+            secondaryLabel="Request Custom Plan"
           />
         </div>
       </Section>

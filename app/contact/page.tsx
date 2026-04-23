@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 export const metadata = buildPageMetadata({
   title: "Contact",
   description:
-    "Request a Civant demo or contact our team to discuss procurement intelligence use cases.",
+    "Request a Civant custom plan or contact our team to discuss procurement intelligence use cases.",
   path: "/contact",
 });
 

@@ -275,14 +275,14 @@ export default function MethodologyPage() {
             See Civant methodology in practice
           </h2>
           <p className="text-lead platform-cta-copy">
-            Review plans when you are ready to start, or book a demo for a
-            deeper methodology walkthrough against your target markets.
+            Review plans when you are ready to start, or request a custom plan
+            for a deeper methodology walkthrough against your target markets.
           </p>
           <CTAGroup
             primaryHref="/pricing"
             primaryLabel="View Pricing"
             secondaryHref="/contact"
-            secondaryLabel="Book a Demo"
+            secondaryLabel="Request Custom Plan"
           />
         </div>
       </Section>
