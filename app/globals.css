@@ -1897,7 +1897,7 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
   gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: start;
+  align-items: stretch;
 }
 
 .report-gate-copy {
@@ -1914,7 +1914,16 @@ a {
 }
 
 .report-gate-panel {
-  align-self: start;
+  height: 100%;
+}
+
+.report-gate-panel .contact-live-form-wrap {
+  max-width: none;
+  height: 100%;
+}
+
+.report-gate-panel .contact-live-form-card {
+  height: 100%;
 }
 
 .report-gate-list-wrap {
