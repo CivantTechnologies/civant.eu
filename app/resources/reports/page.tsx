@@ -54,10 +54,6 @@ export default function ReportsPage() {
       <Section className="resources-page">
         <div className="market-link-panel market-link-panel-compact report-hub-intro">
           <p className="headline-lg">Downloadable assets</p>
-          <p className="card-body">
-            Public-safe sector outlooks designed to help teams understand where
-            demand is forming, how markets differ, and where to focus next.
-          </p>
         </div>
 
         <div className="card-grid report-hub-grid">
@@ -75,6 +71,15 @@ export default function ReportsPage() {
               </Link>
             </article>
           ))}
+        </div>
+
+        <div className="button-row resources-cta-row">
+          <Link href="/contact" className="btn btn-secondary">
+            Contact
+          </Link>
+          <Link href="/pricing" className="btn btn-primary">
+            View Pricing
+          </Link>
         </div>
       </Section>
 
