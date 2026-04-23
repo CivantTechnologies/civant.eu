@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Activity,
   CalendarClock,
@@ -15,7 +16,7 @@ export const dynamic = "force-static";
 export const metadata = buildPageMetadata({
   title: "EU Public Procurement Intelligence & Tender Forecasting",
   description:
-    "Civant analyzes procurement history, contract lifecycle signals, and market activity to surface likely upcoming tender opportunities across European public sector markets.",
+    "Civant combines procurement history, contract lifecycles, competitor intelligence, and external public signals to forecast likely upcoming tender opportunities across European markets.",
   path: "/",
 });
 
@@ -103,15 +104,40 @@ const useCases = [
 const trustBlocks = [
   {
     title: "Procurement-cycle intelligence",
-    body: "Civant is built for early planning and prioritization, not post-publication alert chasing.",
+    body: "Civant is built for early planning and prioritization, not post-publication alert chasing or chatbot-only workflows.",
   },
   {
     title: "Built on public procurement evidence",
-    body: "Coverage includes notices, award records, supplier participation, and contract lifecycle data.",
+    body: "Coverage includes notices, award records, supplier participation, contract lifecycle data, budgets, grants, PINs, policy changes, and hiring signals.",
   },
   {
     title: "Continuously validated",
     body: "Signals are continuously checked against subsequently published tenders.",
+  },
+];
+
+const customerProof = [
+  {
+    company: "UbiCast",
+    href: "https://www.ubicast.eu/",
+    logo: "/logos/ubicast-logo.svg",
+    logoWidth: 210,
+    logoHeight: 60,
+    quote:
+      "We see every market in one place, score each tender against our strengths, often before they're even published, and know immediately where to bid.",
+    person: "Jean-Marie Cognet",
+    role: "CEO, UbiCast",
+  },
+  {
+    company: "Mobie",
+    href: "https://www.mobie.fi/en/",
+    logo: "/logos/mobie-logo.png",
+    logoWidth: 184,
+    logoHeight: 48,
+    quote:
+      "We chose Civant as the backbone of our move from Finland into Western Europe. It lets us build the right buyer relationships months before the tender.",
+    person: "Jukka Sormunen",
+    role: "RDI Director, Mobie",
   },
 ];
 
@@ -126,13 +152,13 @@ export default function HomePage() {
           <p className="eyebrow">Procurement Intelligence Platform</p>
           <h1 className="headline-xl hero-headline">Win Before the Tender</h1>
           <p className="text-lead hero-subheadline">
-            Civant analyzes procurement history, contract lifecycles, and market
-            activity to surface likely upcoming tenders across European public
-            sector markets.
+            Civant analyzes procurement history, contract lifecycles,
+            competitor activity, and external public signals to surface likely
+            upcoming tenders across European public sector markets.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Request Demo"
+            primaryHref="/pricing"
+            primaryLabel="View Pricing"
             secondaryHref="/platform"
             secondaryLabel="Explore the Platform"
           />
@@ -245,11 +271,13 @@ export default function HomePage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Why Civant</p>
           <h2 className="headline-lg">
-            Procurement intelligence, not alert-only tender monitoring
+            Predictive procurement intelligence, not an AI tender chatbot
           </h2>
           <p className="text-lead section-intro">
-            Civant combines public procurement evidence, lifecycle analysis, and
-            continuous validation to support stronger enterprise decisions.
+            Civant combines official procurement data, lifecycle analysis,
+            external market signals, competitor intelligence, and continuous
+            validation. AI helps interpret match, scope, intent, and strategy;
+            the forecast engine is built on hard evidence.
           </p>
         </div>
         <div className="grid grid-3">
@@ -267,16 +295,58 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <Section muted>
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Customer Proof</p>
+          <h2 className="headline-lg">
+            Used by teams expanding across European public-sector markets
+          </h2>
+          <p className="text-lead section-intro">
+            Public-safe proof from early customers using Civant to prepare
+            earlier, prioritize better-fit opportunities, and coordinate market
+            entry across Europe.
+          </p>
+        </div>
+        <div className="grid grid-2 customer-proof-grid">
+          {customerProof.map((item) => (
+            <article key={item.company} className="card customer-proof-card">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="customer-logo-link"
+                aria-label={`Visit ${item.company}`}
+              >
+                <Image
+                  src={item.logo}
+                  alt={`${item.company} logo`}
+                  width={item.logoWidth}
+                  height={item.logoHeight}
+                  className="customer-logo"
+                />
+              </a>
+              <blockquote className="customer-quote">
+                <p>"{item.quote}"</p>
+                <footer>
+                  {item.person}
+                  <span>{item.role}</span>
+                </footer>
+              </blockquote>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       <Section>
         <div className="final-cta">
           <h2 className="headline-lg final-cta-title">
             Start mastering procurement cycles
           </h2>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Request Demo"
-            secondaryHref="/platform"
-            secondaryLabel="Explore the Platform"
+            primaryHref="/pricing"
+            primaryLabel="View Pricing"
+            secondaryHref="/contact"
+            secondaryLabel="Book a Demo"
           />
         </div>
       </Section>

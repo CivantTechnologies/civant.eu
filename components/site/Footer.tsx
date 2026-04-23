@@ -10,8 +10,8 @@ export function Footer() {
           <div>
             <h3 className="footer-title">Civant</h3>
             <p className="footer-copy">
-              Product-led intelligence for enterprise teams operating in European
-              public procurement markets.
+              Predictive procurement intelligence for enterprise teams operating
+              in European public-sector markets.
             </p>
           </div>
           <div>
@@ -45,7 +45,10 @@ export function Footer() {
                 <a href="mailto:hello@civant.eu">hello@civant.eu</a>
               </li>
               <li>
-                <Link href="/contact">Request Demo</Link>
+                <Link href="/pricing">View Pricing</Link>
+              </li>
+              <li>
+                <Link href="/contact">Custom Plans</Link>
               </li>
               <li>Registered in Ireland</li>
             </ul>

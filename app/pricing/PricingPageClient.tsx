@@ -889,7 +889,7 @@ export default function PricingPageClient() {
           </p>
           <CTAGroup
             primaryHref="/contact"
-            primaryLabel="Get in Touch"
+            primaryLabel="Request Custom Plan"
             secondaryHref="/platform"
             secondaryLabel="Explore the Platform"
           />

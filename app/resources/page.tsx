@@ -469,8 +469,8 @@ export default function ResourcesPage() {
 
       <Section>
         <div className="button-row resources-cta-row">
-          <Link href="/contact" className="btn btn-primary">
-            Request Demo
+          <Link href="/pricing" className="btn btn-primary">
+            View Pricing
           </Link>
         </div>
       </Section>

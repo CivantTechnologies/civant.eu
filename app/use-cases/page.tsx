@@ -55,11 +55,6 @@ const audiences = [
       "Clearer visibility into participation and competitive shifts",
       "Actionable insight outputs for commercial and bid teams",
     ],
-    screenshot: "/screenshots/executive-summary.png",
-    screenshotWidth: 2404,
-    screenshotHeight: 1060,
-    screenshotAlt: "Executive summary with target sectors, forecast counts, and accuracy metrics",
-    screenshotCaption: "Executive Summary: market-level intelligence for leadership reporting",
   },
 ];
 
@@ -127,14 +122,14 @@ export default function UseCasesPage() {
             See your team’s use case in a live walkthrough
           </h2>
           <p className="text-lead platform-cta-copy">
-            Request a demo to review the Civant workflow most relevant to your
-            team’s priorities.
+            Choose a plan when you are ready to start, or book a demo for a
+            custom workflow review with your team.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Request Demo"
-            secondaryHref="/platform"
-            secondaryLabel="Explore the Platform"
+            primaryHref="/pricing"
+            primaryLabel="View Pricing"
+            secondaryHref="/contact"
+            secondaryLabel="Book a Demo"
           />
         </div>
       </Section>

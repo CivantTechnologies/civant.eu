@@ -107,8 +107,8 @@ export default function ArticlePage() {
             <Link href="/resources" className="btn btn-secondary">
               Back to Resources
             </Link>
-            <Link href="/contact" className="btn btn-primary">
-              Request Demo
+            <Link href="/pricing" className="btn btn-primary">
+              View Pricing
             </Link>
           </div>
         </div>
