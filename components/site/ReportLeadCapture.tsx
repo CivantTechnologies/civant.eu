@@ -251,11 +251,6 @@ export function ReportLeadCapture({
             </label>
           </div>
 
-          <p className="contact-live-note">
-            Work email required. Personal and temporary email addresses are not
-            accepted for this download.
-          </p>
-
           {errorMessage ? (
             <p className="report-gate-error" role="alert">
               {errorMessage}
