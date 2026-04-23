@@ -38,10 +38,17 @@ const PRIMARY_NAV_GROUPS: NavGroup[] = [
       { href: "/methodology", label: "Methodology" },
     ],
   },
+  {
+    label: "Resources",
+    href: "/resources",
+    items: [
+      { href: "/resources", label: "Resources library" },
+      { href: "/resources/reports", label: "Forecast reports" },
+    ],
+  },
 ];
 
 const DIRECT_NAV_ITEMS: NavLink[] = [
-  { href: "/resources", label: "Resources" },
   { href: "/company", label: "Company" },
 ];
 

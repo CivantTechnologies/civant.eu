@@ -6,11 +6,11 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = getReportLandingMetadata(
-  "education-procurement-outlook-q4-2026",
+  "healthcare-procurement-outlook-q4-2026",
 );
 
-export default function EducationProcurementOutlookPage() {
+export default function HealthcareProcurementOutlookPage() {
   return (
-    <ReportLandingPage reportSlug="education-procurement-outlook-q4-2026" />
+    <ReportLandingPage reportSlug="healthcare-procurement-outlook-q4-2026" />
   );
 }
