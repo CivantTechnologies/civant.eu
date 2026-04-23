@@ -1,6 +1,14 @@
 import Link from "next/link";
-import { TOP_LEVEL_ROUTES } from "../../lib/routes";
 import { PageContainer } from "./PageContainer";
+
+const FOOTER_NAV_ITEMS = [
+  { href: "/platform", label: "Platform" },
+  { href: "/use-cases", label: "Use Cases" },
+  { href: "/markets", label: "Markets" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/resources", label: "Resources" },
+  { href: "/company", label: "Company" },
+];
 
 export function Footer() {
   return (
@@ -17,7 +25,7 @@ export function Footer() {
           <div>
             <h3 className="footer-title">Navigation</h3>
             <ul className="footer-list">
-              {TOP_LEVEL_ROUTES.filter((item) => item.href !== "/contact").map((item) => (
+              {FOOTER_NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>{item.label}</Link>
                 </li>
