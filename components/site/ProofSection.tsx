@@ -8,6 +8,7 @@ type AdvisorProof = {
   logoWidth?: number;
   logoHeight?: number;
   logoTone?: "dark" | "light";
+  logoSize?: "compact" | "standard" | "wide";
 };
 
 const customerProof = [
@@ -26,8 +27,8 @@ const customerProof = [
     company: "Mobie",
     href: "https://www.mobie.fi/en/",
     logo: "/logos/mobie-logo-white.png",
-    logoWidth: 184,
-    logoHeight: 48,
+    logoWidth: 210,
+    logoHeight: 55,
     quote:
       "We chose Civant as the backbone of our move from Finland into Western Europe. It lets us build the right buyer relationships months before the tender.",
     person: "Jukka Sormunen",
@@ -43,21 +44,28 @@ const advisedBy: AdvisorProof[] = [
     logoWidth: 267,
     logoHeight: 189,
     logoTone: "dark",
+    logoSize: "compact",
     context: "Enterprise support and advisory network for Louth-based businesses.",
   },
   {
     name: "Enterprise Ireland / New Frontiers",
     href: "https://www.enterprise-ireland.com/en/about-enterprise-ireland",
-    logo: "/logos/new-frontiers-logo.jpg",
-    logoWidth: 339,
-    logoHeight: 42,
-    logoTone: "light",
+    logo: "/logos/enterprise-ireland-logo.png",
+    logoWidth: 615,
+    logoHeight: 173,
+    logoTone: "dark",
+    logoSize: "standard",
     context:
       "Enterprise Ireland's national entrepreneur development programme, delivered locally through the Regional Development Centre in Dundalk.",
   },
   {
     name: "Regional Development Centre Dundalk",
     href: "https://www.louthmeathhubs.ie/hubs/regional-development-center/",
+    logo: "/logos/dkit-rdc-logo-white.png",
+    logoWidth: 300,
+    logoHeight: 100,
+    logoTone: "dark",
+    logoSize: "wide",
     context:
       "Dundalk enterprise hub supporting early-stage companies with incubation, development, and growth infrastructure.",
   },
@@ -138,7 +146,7 @@ export function ProofSection({ compact = false }: ProofSectionProps) {
                       alt={`${item.name} logo`}
                       width={item.logoWidth}
                       height={item.logoHeight}
-                      className="advisor-logo"
+                      className={`advisor-logo advisor-logo-${item.logoSize ?? "standard"}`}
                     />
                   </span>
                 ) : null}
