@@ -103,7 +103,7 @@ const plans: Plan[] = [
     headline: "Scale Civant your way",
     monthlyPrice: null,
     annualPrice: null,
-    annualBilled: "Annual contract · bespoke pricing",
+    annualBilled: "Annual contract and bespoke pricing",
     annualSaving: null,
     ctaLabel: "Request Custom Plan",
     ctaHref: "/contact",
@@ -542,7 +542,24 @@ function RoiCalculator() {
     : 299 * 12;
 
   const multiple = planCost > 0 ? Math.round((revenue / planCost) * 10) / 10 : 0;
-  const calculatorColumns = [
+  const planCostLabel =
+    seats > 3 || tenders > 80 ? "Custom pricing" : `${fmt(planCost)}/year`;
+  const recommendedPlan =
+    seats > 3 || tenders > 80
+      ? {
+          name: "Custom plan",
+          detail: "Best fit when rollout, support, or broader team coverage matters.",
+        }
+      : seats > 1 || tenders > 30
+        ? {
+            name: "Summit annual",
+            detail: "Best fit for multi-user teams that need broader market and competitor context.",
+          }
+        : {
+            name: "Vanguard annual",
+            detail: "Best fit for one operator or a lean team building a repeatable routine.",
+          };
+  const calculatorInputs = [
     {
       id: "seats",
       stepper: {
@@ -553,7 +570,6 @@ function RoiCalculator() {
         atMin: seatIdx === 0,
         atMax: seatIdx === SEAT_OPTIONS.length - 1,
       },
-      result: { value: `+${extraOpps}`, label: "Extra opportunities\nspotted / year" },
     },
     {
       id: "tenders",
@@ -565,7 +581,6 @@ function RoiCalculator() {
         atMin: tenderIdx === 0,
         atMax: tenderIdx === TENDER_OPTIONS.length - 1,
       },
-      result: { value: `+${Math.round(extraWins * 10) / 10}`, label: "Additional wins\nestimated" },
     },
     {
       id: "win-rate",
@@ -577,7 +592,6 @@ function RoiCalculator() {
         atMin: winIdx === 0,
         atMax: winIdx === WIN_OPTIONS.length - 1,
       },
-      result: { value: fmt(revenue), label: "Estimated revenue\nuplift / year" },
     },
     {
       id: "contract-value",
@@ -589,8 +603,13 @@ function RoiCalculator() {
         atMin: contractIdx === 0,
         atMax: contractIdx === CONTRACT_OPTIONS.length - 1,
       },
-      result: { value: `${multiple}x`, label: "Return on\ninvestment" },
     },
+  ];
+  const calculatorOutputs = [
+    { label: "Extra opportunities per year", value: `+${extraOpps}` },
+    { label: "Additional wins estimated", value: `+${Math.round(extraWins * 10) / 10}` },
+    { label: "Indicative annual plan cost", value: planCostLabel },
+    { label: "Estimated return on investment", value: `${multiple}x` },
   ];
 
   return (
@@ -606,40 +625,123 @@ function RoiCalculator() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gap: "1.8rem",
+          alignItems: "start",
         }}
       >
-        {calculatorColumns.map((column) => (
-          <div key={column.id} style={{ textAlign: "center" }}>
-            <Stepper
-              label={column.stepper.label}
-              display={column.stepper.display}
-              onDecrement={column.stepper.onDecrement}
-              onIncrement={column.stepper.onIncrement}
-              atMin={column.stepper.atMin}
-              atMax={column.stepper.atMax}
-            />
-            <div
-              style={{
-                marginTop: "1.8rem",
-                paddingTop: "1.6rem",
-                borderTop: "1px solid rgba(255,255,255,0.08)",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: "1.8rem", fontWeight: 700, color: "#00c4c4", letterSpacing: "-0.03em", lineHeight: 1 }}>
-                {column.result.value}
-              </p>
-              <p style={{ margin: "0.4rem 0 0", fontSize: "0.75rem", color: "#9ca3af", lineHeight: 1.4, textTransform: "uppercase", letterSpacing: "0.07em", whiteSpace: "pre-line" }}>
-                {column.result.label}
-              </p>
-            </div>
+        <div>
+          <p style={{ margin: 0, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#00c4c4" }}>
+            Model your current team
+          </p>
+          <h3 style={{ margin: "0.7rem 0 0", fontSize: "1.45rem", lineHeight: 1.2, color: "#f8fafc" }}>
+            Use your numbers, then judge the upside against the plan that fits.
+          </h3>
+          <p style={{ margin: "0.75rem 0 0", color: "#cbd5e1", fontSize: "0.98rem", lineHeight: 1.7, maxWidth: "38rem" }}>
+            Adjust team size, annual tender volume, win rate, and contract value to
+            estimate what earlier visibility and sharper prioritisation could be
+            worth over a year.
+          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: "1rem",
+              marginTop: "1.6rem",
+            }}
+          >
+            {calculatorInputs.map((column) => (
+              <div
+                key={column.id}
+                style={{
+                  padding: "1.1rem",
+                  borderRadius: "var(--radius-md)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "rgba(255,255,255,0.03)",
+                }}
+              >
+                <Stepper
+                  label={column.stepper.label}
+                  display={column.stepper.display}
+                  onDecrement={column.stepper.onDecrement}
+                  onIncrement={column.stepper.onIncrement}
+                  atMin={column.stepper.atMin}
+                  atMax={column.stepper.atMax}
+                />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        <div
+          style={{
+            borderRadius: "var(--radius-lg)",
+            border: "1px solid rgba(0,196,196,0.28)",
+            background: "linear-gradient(160deg, rgba(5,13,24,0.9), rgba(8,17,31,0.72))",
+            padding: "1.35rem",
+            boxShadow: "0 0 28px rgba(0,196,196,0.1)",
+          }}
+        >
+          <p style={{ margin: 0, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#7dd3fc" }}>
+            Estimated annual upside
+          </p>
+          <p style={{ margin: "0.65rem 0 0", fontSize: "clamp(2.35rem, 5vw, 3.35rem)", fontWeight: 700, color: "#ffffff", letterSpacing: "-0.04em", lineHeight: 1 }}>
+            {fmt(revenue)}
+          </p>
+          <p style={{ margin: "0.75rem 0 0", color: "#cbd5e1", fontSize: "0.98rem", lineHeight: 1.7 }}>
+            Based on {tenders} tenders per year, a {WIN_OPTIONS[winIdx]}% current win
+            rate, and an average contract value of {fmt(contract)}.
+          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+              gap: "0.85rem",
+              marginTop: "1.25rem",
+            }}
+          >
+            {calculatorOutputs.map((item) => (
+              <div
+                key={item.label}
+                style={{
+                  padding: "0.95rem",
+                  borderRadius: "var(--radius-md)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "rgba(255,255,255,0.03)",
+                }}
+              >
+                <p style={{ margin: 0, fontSize: "1.15rem", fontWeight: 700, color: "#00c4c4", letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+                  {item.value}
+                </p>
+                <p style={{ margin: "0.42rem 0 0", fontSize: "0.74rem", color: "#94a3b8", lineHeight: 1.45, textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div
+            style={{
+              marginTop: "1.2rem",
+              paddingTop: "1.1rem",
+              borderTop: "1px solid rgba(255,255,255,0.08)",
+            }}
+          >
+            <p style={{ margin: 0, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#94a3b8" }}>
+              Indicative plan fit
+            </p>
+            <p style={{ margin: "0.45rem 0 0", fontSize: "1.15rem", fontWeight: 700, color: "#f8fafc", lineHeight: 1.25 }}>
+              {recommendedPlan.name}
+            </p>
+            <p style={{ margin: "0.4rem 0 0", color: "#9ca3af", fontSize: "0.9rem", lineHeight: 1.6 }}>
+              {recommendedPlan.detail}
+            </p>
+          </div>
+        </div>
       </div>
 
-      <p style={{ fontSize: "0.75rem", color: "#4b5563", marginTop: "1.2rem", lineHeight: 1.6 }}>
-        *Based on industry averages. Your results will vary.
+      <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "1.2rem", lineHeight: 1.7 }}>
+        Illustrative planning model only. It estimates the commercial effect of
+        earlier tender visibility, stronger prioritisation, and better pursuit
+        focus. It is not a guarantee of revenue.
       </p>
     </div>
   );
@@ -749,22 +851,28 @@ function PlanCard({
       <h2 className="card-title" style={{ marginBottom: "0.5rem" }}>{plan.headline}</h2>
       <p className="card-body" style={{ minHeight: "3rem", marginBottom: "1.4rem" }}>{plan.tagline}</p>
 
-      <div style={{ display: "flex", alignItems: "baseline", gap: "0.4rem", marginBottom: "0.3rem" }}>
-        {price !== null ? (
-          <>
-            <span style={{ fontSize: "2.4rem", fontWeight: 700, color: "#fff", letterSpacing: "-0.03em", lineHeight: 1 }}>€{price}</span>
-            <span style={{ fontSize: "0.9rem", color: "#9ca3af" }}>/month</span>
-          </>
-        ) : (
-          <span style={{ fontSize: "1.6rem", fontWeight: 700, color: "#d1d5db" }}>Let&apos;s talk</span>
-        )}
-      </div>
+      <div style={{ display: "grid", alignContent: "start", gap: "0.4rem", minHeight: "5.2rem", marginBottom: "1.4rem" }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: "0.4rem" }}>
+          {price !== null ? (
+            <>
+              <span style={{ fontSize: "2.4rem", fontWeight: 700, color: "#fff", letterSpacing: "-0.03em", lineHeight: 1 }}>€{price}</span>
+              <span style={{ fontSize: "0.9rem", color: "#9ca3af" }}>/month</span>
+            </>
+          ) : (
+            <span style={{ fontSize: "2.15rem", fontWeight: 700, color: "#f3f4f6", letterSpacing: "-0.03em", lineHeight: 1.05 }}>
+              Let&apos;s talk
+            </span>
+          )}
+        </div>
 
-      <p style={{ fontSize: "0.78rem", fontWeight: annual && plan.annualSaving ? 600 : 400, color: annual && plan.annualSaving ? "#00c4c4" : "#6b7280", textShadow: annual && plan.annualSaving ? "0 0 10px rgba(0,196,196,0.6)" : "none", margin: "0 0 1.4rem", minHeight: "1.15rem", transition: "color 250ms, text-shadow 250ms" }}>
-        {annual && plan.annualBilled
-          ? `${plan.annualBilled}${plan.annualSaving ? ` — ${plan.annualSaving}` : ""}`
-          : plan.monthlyPrice === null ? (plan.annualBilled ?? "\u00a0") : "\u00a0"}
-      </p>
+        <p style={{ fontSize: "0.78rem", fontWeight: annual && plan.annualSaving ? 600 : 400, color: annual && plan.annualSaving ? "#00c4c4" : "#6b7280", textShadow: annual && plan.annualSaving ? "0 0 10px rgba(0,196,196,0.6)" : "none", margin: 0, minHeight: "1.15rem", transition: "color 250ms, text-shadow 250ms" }}>
+          {annual && plan.annualBilled
+            ? `${plan.annualBilled}${plan.annualSaving ? `, ${plan.annualSaving}` : ""}`
+            : plan.monthlyPrice === null
+              ? (plan.annualBilled ?? "\u00a0")
+              : "Monthly billing"}
+        </p>
+      </div>
 
       <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,0.09)", margin: "0 0 1.2rem" }} />
 
@@ -948,11 +1056,12 @@ export default function PricingPageClient() {
       {/* ROI Calculator */}
       <Section muted>
         <div className="section-heading-wrap" style={{ textAlign: "center", margin: "0 auto 0" }}>
-          <p className="eyebrow">ROI Calculator</p>
-          <h2 className="headline-lg">Model the upside of earlier timing</h2>
+          <p className="eyebrow">Value Model</p>
+          <h2 className="headline-lg">Pressure-test the upside of earlier visibility</h2>
           <p className="text-lead section-intro" style={{ margin: "0.9rem auto 0" }}>
-            Civant helps teams choose the right pursuits earlier, protect incumbent
-            positions, and put more effort into tenders worth winning.
+            Use your current team shape and tender profile to estimate what
+            better timing, sharper prioritisation, and more focused bidding
+            could be worth over a year.
           </p>
         </div>
         <RoiCalculator />
