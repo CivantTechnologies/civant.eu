@@ -73,8 +73,8 @@ export function Navbar() {
           })}
         </nav>
 
-        <Link href="/contact" className="btn btn-primary btn-sm site-cta-desktop">
-          Get in Touch
+        <Link href="/pricing" className="btn btn-primary btn-sm site-cta-desktop">
+          View Pricing
         </Link>
 
         <button
@@ -133,8 +133,8 @@ export function Navbar() {
               })}
             </nav>
 
-            <Link href="/contact" className="btn btn-primary site-mobile-cta">
-              Get in Touch
+            <Link href="/pricing" className="btn btn-primary site-mobile-cta">
+              View Pricing
             </Link>
           </div>
         </div>

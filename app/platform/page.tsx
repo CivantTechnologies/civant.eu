@@ -218,14 +218,14 @@ export default function PlatformPage() {
             See the platform in your market context
           </h2>
           <p className="text-lead platform-cta-copy">
-            Request a demo to review how Civant can support your target
-            categories, institutions, and procurement-cycle planning workflow.
+            Start directly with a self-serve plan, or book a demo if your team
+            needs a custom setup across markets, categories, or workflows.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Request Demo"
-            secondaryHref="/use-cases"
-            secondaryLabel="Explore Use Cases"
+            primaryHref="/pricing"
+            primaryLabel="View Pricing"
+            secondaryHref="/contact"
+            secondaryLabel="Book a Demo"
           />
         </div>
       </Section>

@@ -45,7 +45,10 @@ export function Footer() {
                 <a href="mailto:hello@civant.eu">hello@civant.eu</a>
               </li>
               <li>
-                <Link href="/contact">Request Demo</Link>
+                <Link href="/pricing">View Pricing</Link>
+              </li>
+              <li>
+                <Link href="/contact">Custom Plans</Link>
               </li>
               <li>Registered in Ireland</li>
             </ul>

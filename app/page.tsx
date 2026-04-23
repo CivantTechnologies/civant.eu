@@ -157,8 +157,8 @@ export default function HomePage() {
             upcoming tenders across European public sector markets.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Request Demo"
+            primaryHref="/pricing"
+            primaryLabel="View Pricing"
             secondaryHref="/platform"
             secondaryLabel="Explore the Platform"
           />
@@ -343,10 +343,10 @@ export default function HomePage() {
             Start mastering procurement cycles
           </h2>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Request Demo"
-            secondaryHref="/platform"
-            secondaryLabel="Explore the Platform"
+            primaryHref="/pricing"
+            primaryLabel="View Pricing"
+            secondaryHref="/contact"
+            secondaryLabel="Book a Demo"
           />
         </div>
       </Section>

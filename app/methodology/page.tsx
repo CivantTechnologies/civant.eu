@@ -265,14 +265,14 @@ export default function MethodologyPage() {
             See Civant methodology in practice
           </h2>
           <p className="text-lead platform-cta-copy">
-            Request a demo to review how Civant methodology applies to your
-            target institutions, categories, and procurement-cycle strategy.
+            Review plans when you are ready to start, or book a demo for a
+            deeper methodology walkthrough against your target markets.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Request Demo"
-            secondaryHref="/platform"
-            secondaryLabel="Explore the Platform"
+            primaryHref="/pricing"
+            primaryLabel="View Pricing"
+            secondaryHref="/contact"
+            secondaryLabel="Book a Demo"
           />
         </div>
       </Section>

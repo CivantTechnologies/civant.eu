@@ -294,12 +294,12 @@ export default function CompanyPage() {
 
       <Section>
         <div className="final-cta">
-          <h2 className="headline-lg final-cta-title">Continue the conversation</h2>
+          <h2 className="headline-lg final-cta-title">Choose the path that fits</h2>
           <CTAGroup
             primaryHref="/contact"
-            primaryLabel="Request Demo"
-            secondaryHref="/platform"
-            secondaryLabel="Explore the Platform"
+            primaryLabel="Book a Demo"
+            secondaryHref="/pricing"
+            secondaryLabel="View Pricing"
           />
         </div>
       </Section>
