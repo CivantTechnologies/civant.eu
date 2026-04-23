@@ -6,6 +6,7 @@ import { Check, Shield, ChevronDown, ChevronUp, Minus, Plus } from "lucide-react
 import { Section } from "../../components/site/Section";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
+import { ProofSection } from "../../components/site/ProofSection";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -851,8 +852,13 @@ export default function PricingPageClient() {
         />
       </Section>
 
-      {/* FAQ */}
+      {/* Proof */}
       <Section muted>
+        <ProofSection compact />
+      </Section>
+
+      {/* FAQ */}
+      <Section>
         <div className="section-heading-wrap" style={{ textAlign: "center", margin: "0 auto 0" }}>
           <p className="eyebrow">Questions</p>
           <h2 className="headline-lg">Everything you need to know</h2>
@@ -861,7 +867,7 @@ export default function PricingPageClient() {
       </Section>
 
       {/* Final CTA */}
-      <Section>
+      <Section muted>
         <div className="final-cta">
           <h2 className="headline-lg final-cta-title">Ready to win before the tender?</h2>
           <p className="text-lead platform-cta-copy">

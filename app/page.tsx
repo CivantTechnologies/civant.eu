@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   Activity,
   CalendarClock,
@@ -9,6 +8,7 @@ import {
 } from "lucide-react";
 import { CTAGroup } from "../components/site/CTAGroup";
 import { MarketCoverageLinks } from "../components/site/MarketCoverageLinks";
+import { ProofSection } from "../components/site/ProofSection";
 import { Section } from "../components/site/Section";
 import { buildPageMetadata } from "../lib/seo";
 
@@ -114,31 +114,6 @@ const trustBlocks = [
   {
     title: "Continuously validated",
     body: "Signals are continuously checked against subsequently published tenders.",
-  },
-];
-
-const customerProof = [
-  {
-    company: "UbiCast",
-    href: "https://www.ubicast.eu/",
-    logo: "/logos/ubicast-logo-white.png",
-    logoWidth: 210,
-    logoHeight: 59,
-    quote:
-      "We see every market in one place, score each tender against our strengths, often before they're even published, and know immediately where to bid.",
-    person: "Jean-Marie Cognet",
-    role: "CEO, UbiCast",
-  },
-  {
-    company: "Mobie",
-    href: "https://www.mobie.fi/en/",
-    logo: "/logos/mobie-logo-white.png",
-    logoWidth: 184,
-    logoHeight: 48,
-    quote:
-      "We chose Civant as the backbone of our move from Finland into Western Europe. It lets us build the right buyer relationships months before the tender.",
-    person: "Jukka Sormunen",
-    role: "RDI Director, Mobie",
   },
 ];
 
@@ -305,45 +280,7 @@ export default function HomePage() {
       </Section>
 
       <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Customer Proof</p>
-          <h2 className="headline-lg">
-            Used by teams expanding across European public-sector markets
-          </h2>
-          <p className="text-lead section-intro">
-            Public-safe proof from early customers using Civant to prepare
-            earlier, prioritize better-fit opportunities, and coordinate market
-            entry across Europe.
-          </p>
-        </div>
-        <div className="grid grid-2 customer-proof-grid">
-          {customerProof.map((item) => (
-            <article key={item.company} className="card customer-proof-card">
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="customer-logo-link"
-                aria-label={`Visit ${item.company}`}
-              >
-                <Image
-                  src={item.logo}
-                  alt={`${item.company} logo`}
-                  width={item.logoWidth}
-                  height={item.logoHeight}
-                  className="customer-logo"
-                />
-              </a>
-              <blockquote className="customer-quote">
-                <p>"{item.quote}"</p>
-                <footer>
-                  {item.person}
-                  <span>{item.role}</span>
-                </footer>
-              </blockquote>
-            </article>
-          ))}
-        </div>
+        <ProofSection />
       </Section>
 
       <Section>
