@@ -36,8 +36,8 @@ export function generateMetadata({ params }: SolutionPageProps) {
   }
 
   return buildPageMetadata({
-    title: solution.title,
-    description: solution.description,
+    title: solution.metaTitle || solution.title,
+    description: solution.metaDescription || solution.description,
     path: `/solutions/${solution.slug}`,
   });
 }
@@ -72,6 +72,35 @@ export default function SolutionDetailPage({ params }: SolutionPageProps) {
 
   const relatedSolutions = SOLUTIONS.filter((item) => item.slug !== solution.slug);
   const schema = buildSolutionSchema(solution);
+  const authorityLinks =
+    solution.slug === "public-procurement-intelligence"
+      ? [
+          {
+            title: "Read about competitor intelligence",
+            body: "See how incumbent footprint, participation patterns, and market pressure shape stronger public-sector bid decisions.",
+            href: "/resources/competitor-intelligence-in-public-procurement",
+            cta: "Read the resource",
+          },
+        ]
+      : solution.slug === "eu-tender-monitoring"
+        ? [
+            {
+              title: "Read what European coverage really means",
+              body: "Understand why real market coverage is more than a country list and how a cross-border workflow should actually work.",
+              href: "/resources/european-procurement-coverage-what-market-coverage-really-means",
+              cta: "Read the resource",
+            },
+          ]
+        : solution.slug === "tender-prediction-software"
+          ? [
+              {
+                title: "Read about external signals",
+                body: "See how budgets, grants, PINs, hiring, and policy changes strengthen a forecasting model when they are tied back to procurement evidence.",
+                href: "/resources/external-signals-in-public-procurement",
+                cta: "Read the resource",
+              },
+            ]
+          : [];
   const solutionPathLinks = [
     {
       title: "See the full platform workflow",
@@ -218,6 +247,28 @@ export default function SolutionDetailPage({ params }: SolutionPageProps) {
           compact
         />
       </Section>
+
+      {authorityLinks.length > 0 && (
+        <Section>
+          <div className="section-heading-wrap">
+            <p className="eyebrow">Go Deeper</p>
+            <h2 className="headline-lg">Authority reading for this topic</h2>
+          </div>
+          <div className="grid grid-2 solution-related-grid">
+            {authorityLinks.map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="card card-link interactive-surface"
+              >
+                <h3 className="card-title">{item.title}</h3>
+                <p className="card-body">{item.body}</p>
+                <span className="card-link-cta">{item.cta}</span>
+              </Link>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section>
         <div className="section-heading-wrap">

@@ -45,8 +45,10 @@ export const ARTICLES: ArticleMeta[] = [
   { href: "/resources/procurement-intelligence-maturity", title: "Procurement Intelligence Maturity", pillar: "Market Intelligence" },
   { href: "/resources/building-a-procurement-intelligence-function", title: "Building a Procurement Intelligence Function", pillar: "Market Intelligence" },
   { href: "/resources/what-is-procurement-intelligence", title: "What Is Procurement Intelligence?", pillar: "Market Intelligence" },
+  { href: "/resources/competitor-intelligence-in-public-procurement", title: "Competitor Intelligence in Public Procurement", pillar: "Market Intelligence" },
 
   // --- Timing & Signals ---
+  { href: "/resources/external-signals-in-public-procurement", title: "External Signals in Public Procurement", pillar: "Timing & Signals" },
   { href: "/resources/early-market-engagement-techniques-to-shape-procurement-requirements", title: "Early Market Engagement: Techniques to Shape Procurement Requirements", pillar: "Timing & Signals" },
   { href: "/resources/predictive-renewal-signals-forecasting-contract-expiration-and-next-tenders", title: "Predictive Renewal Signals: Forecasting Contract Expiration and Next Tenders", pillar: "Timing & Signals" },
   { href: "/resources/maximising-preparation-windows-how-long-before-tender-publication-should-suppliers-act", title: "Maximising Preparation Windows: How Long Before Tender Publication Should Suppliers Act?", pillar: "Timing & Signals" },
@@ -97,6 +99,7 @@ export const ARTICLES: ArticleMeta[] = [
   { href: "/resources/the-digital-transformation-of-european-procurement-systems", title: "The Digital Transformation of European Procurement Systems", pillar: "Market Structure" },
   { href: "/resources/understanding-procurement-thresholds-in-the-eu", title: "Understanding Procurement Thresholds in the EU", pillar: "Market Structure" },
   { href: "/resources/environmental-and-social-value-in-procurement-evaluation", title: "Environmental and Social Value in Procurement Evaluation", pillar: "Market Structure" },
+  { href: "/resources/european-procurement-coverage-what-market-coverage-really-means", title: "European Procurement Coverage: What Market Coverage Really Means", pillar: "Market Structure" },
 ];
 
 /**

@@ -19,9 +19,9 @@ import { SOLUTIONS } from "../lib/solutions";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "EU Public Procurement Intelligence & Tender Forecasting",
+  title: "Procurement Intelligence for Europe | Civant",
   description:
-    "Civant combines procurement history, contract lifecycles, competitor intelligence, and external public signals to forecast likely upcoming tender opportunities across European markets.",
+    "Civant is a procurement intelligence platform for Europe, helping teams forecast tender timing using buyer cycles, contract lifecycles, and public signals.",
   path: "/",
 });
 
@@ -150,12 +150,13 @@ export default function HomePage() {
         containerClassName="home-hero-container"
       >
         <div className="home-hero-main">
-          <p className="eyebrow">Procurement Intelligence Platform</p>
-          <h1 className="headline-xl hero-headline">Win Before the Tender</h1>
+          <p className="eyebrow">Predictive Procurement Intelligence</p>
+          <h1 className="headline-xl hero-headline">Predictive procurement intelligence for Europe</h1>
           <p className="text-lead hero-subheadline">
-            Civant analyzes procurement history, contract lifecycles,
-            competitor activity, and external public signals to surface likely
-            upcoming tenders across European public sector markets.
+            Civant is a procurement intelligence platform that combines
+            procurement history, contract lifecycles, competitor activity, and
+            external public signals to help teams identify likely upcoming
+            tenders across European public-sector markets.
           </p>
           <CTAGroup
             primaryHref="/pricing"
@@ -164,8 +165,8 @@ export default function HomePage() {
             secondaryLabel="Explore the Platform"
           />
           <p className="cred-line">
-            Built on European procurement data and continuously validated against
-            published tenders.
+            Built on European public procurement evidence and continuously
+            validated against published tenders.
           </p>
           <div className="hero-mini-grid">
             <article className="micro-card">
@@ -188,11 +189,11 @@ export default function HomePage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">How Civant Works</p>
           <h2 className="headline-lg">
-            Four connected layers from data signal to action
+            Four connected layers from procurement evidence to action
           </h2>
           <p className="text-lead section-intro">
-            A focused sequence that turns fragmented procurement data into
-            prioritized opportunities.
+            A focused sequence that turns fragmented public procurement data
+            into prioritized opportunities.
           </p>
         </div>
         <div className="flow-track">
@@ -214,7 +215,7 @@ export default function HomePage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Who Civant Is For</p>
           <h2 className="headline-lg">
-            Built for teams that need early market timing
+            Built for teams that need earlier public-sector market timing
           </h2>
           <p className="text-lead section-intro">
             Civant is strongest when the cost of finding out late is missed
@@ -249,7 +250,7 @@ export default function HomePage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Platform Overview</p>
           <h2 className="headline-lg">
-            A modular procurement intelligence platform
+            Procurement intelligence software built for earlier decisions
           </h2>
           <p className="text-lead section-intro">
             A concise preview of the core modules that power planning,
@@ -321,10 +322,12 @@ export default function HomePage() {
       <Section muted>
         <div className="section-heading-wrap">
           <p className="eyebrow">Use Cases Preview</p>
-          <h2 className="headline-lg">Built for high-accountability teams</h2>
+          <h2 className="headline-lg">
+            Built for teams making high-stakes bid and market decisions
+          </h2>
           <p className="text-lead section-intro">
-            Three common teams use Civant to plan earlier and execute with
-            tighter focus.
+            Three common teams use Civant to plan earlier, prioritize better,
+            and execute with tighter focus.
           </p>
         </div>
         <div className="grid grid-3 use-case-grid">

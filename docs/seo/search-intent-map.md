@@ -2,6 +2,12 @@
 
 Last updated: 2026-04-23
 
+## Purpose
+
+This document defines which search intent families Civant should own, which page should own each family, and which terms should support rather than compete with each other.
+
+The goal is not to stuff every relevant phrase everywhere. The goal is to give each commercial page a clear job.
+
 ## Positioning Doctrine
 
 Civant is not:
@@ -14,8 +20,8 @@ Civant is not:
 Civant is:
 
 - predictive procurement intelligence for Europe
-- a platform that combines official procurement data, award history, contract lifecycles, competitor activity, and external public signals
-- a decision system for identifying, prioritizing, and acting before tenders publish
+- a procurement intelligence platform grounded in public evidence
+- a system for identifying, prioritizing, and acting before tenders publish
 
 AI should be framed as an interpretation layer:
 
@@ -24,6 +30,14 @@ AI should be framed as an interpretation layer:
 - buyer intent analysis
 - scope and fit interpretation
 - stronger strategic decisions
+
+The predictive engine should be framed as the core:
+
+- historical tender cycles
+- award outcomes
+- contract lifecycle timing
+- competitor movement
+- public external signals such as PINs, grants, budgets, policy, and hiring
 
 Never use public website copy that exposes:
 
@@ -54,165 +68,345 @@ Expansion story:
 
 - roughly one new EU country per month
 
-## Priority Order
+## Intent Families
 
-### Tier 1: Category-Defining Commercial Intent
+### 1. Category Intent
 
-These are the highest-value searches because they map closest to the product category we want to own.
+These are the biggest commercial terms because they describe what Civant is.
 
-| Theme | Search intent | Primary page target | Notes |
-| --- | --- | --- | --- |
-| Predictive procurement intelligence | Users looking for a strategic platform category | `/` and future `/predictive-procurement-intelligence` | This is the core category Civant should try to own |
-| Tender forecasting software | Buyers looking for timing prediction tools | `/platform` and `/methodology` | Strong commercial overlap with product value |
-| Procurement intelligence platform | Users comparing strategic tools | `/platform` | Broad but valuable phrase |
-| EU procurement intelligence | Europe-wide category intent | `/` and future `/european-coverage` | Important for pan-European narrative |
-| Public procurement market intelligence | Leadership / strategy / commercial teams | `/use-cases` and `/platform` | Good fit for Civant positioning |
+Primary phrases:
 
-Suggested core keyword set:
-
-- predictive procurement intelligence
+- procurement intelligence software
 - procurement intelligence platform
-- tender forecasting software
+- public procurement intelligence
 - public procurement intelligence platform
-- EU procurement intelligence
+- predictive procurement intelligence
+
+Notes:
+
+- `predictive procurement intelligence` is strategically strong and differentiating, even if search volume is smaller.
+- `procurement intelligence software` is the most obvious category term and should be owned directly.
+
+### 2. Predictive / Forecasting Intent
+
+These terms express Civant's strongest wedge.
+
+Primary phrases:
+
+- tender prediction software
+- tender forecasting software
+- procurement forecasting
+- public procurement forecasting
+- contract renewal forecasting
+- forecast public tenders
+
+Notes:
+
+- This is where Civant can say something competitors often cannot say honestly.
+- Forecasting terms should stay close to evidence, confidence, lifecycle signals, and public inputs.
+
+### 3. Monitoring / Visibility Intent
+
+These are useful and high-intent, but they should not define the whole company.
+
+Primary phrases:
+
+- EU tender monitoring
+- public tender monitoring
+- procurement monitoring
+- tender alerts
+- find tenders before publication
+- early tender visibility
+
+Notes:
+
+- Civant should win these terms by showing that monitoring alone is not enough.
+- Monitoring language is important, but it should point upward into intelligence and forecasting.
+
+### 4. Audience / Problem Intent
+
+These terms come from buyers who may not know the product category yet.
+
+Primary phrases:
+
+- B2G sales intelligence
 - public sector sales intelligence
+- bid and tender intelligence
+- public tendering strategy
+- bid no-bid intelligence
+- reactive bidding vs proactive bidding
 
-### Tier 2: Capability Intent
+Notes:
 
-These map to product capabilities and should drive specific commercial pages.
+- `B2G` should be present, but as a supporting frame rather than the primary category.
+- `tendering` is too broad on its own. Use it with sharper modifiers such as strategy, intelligence, planning, or pipeline.
 
-| Theme | Search intent | Primary page target | Future page |
+### 5. Geographic Intent
+
+These terms help Civant own country-level relevance and support the pan-European story.
+
+Primary phrases:
+
+- public procurement intelligence Ireland
+- public procurement intelligence UK
+- public procurement intelligence Spain
+- public procurement intelligence France
+- public procurement intelligence Italy
+- EU public procurement intelligence
+- European procurement intelligence
+
+Notes:
+
+- Country pages should target country-plus-intelligence queries, not generic country procurement queries with weak fit.
+- The Europe-wide story matters because fragmentation is part of the product problem.
+
+## Priority Keyword Set
+
+### Tier 1: Core commercial ownership
+
+- procurement intelligence software
+- procurement intelligence platform
+- predictive procurement intelligence
+- tender prediction software
+- procurement forecasting
+- EU tender monitoring
+
+### Tier 2: Strong supporting commercial terms
+
+- public procurement intelligence
+- public procurement forecasting
+- tender forecasting software
+- contract renewal forecasting
+- public sector sales intelligence
+- public tender monitoring
+
+### Tier 3: Audience and problem terms
+
+- B2G sales intelligence
+- bid no-bid intelligence
+- early tender visibility
+- find tenders before publication
+- public tendering strategy
+- reactive bidding vs proactive bidding
+
+## Page Ownership Map
+
+This is the core operating section for SEO and AEO work. Each page gets one primary family, then tightly related supporting families.
+
+| Page | Primary ownership | Secondary ownership | Do not let it drift into |
 | --- | --- | --- | --- |
-| Competitor intelligence | Understand incumbent landscape and renewal pressure | `/platform#competitors` | `/competitor-intelligence` |
-| Contract lifecycle intelligence | Understand timing and renewal patterns | `/methodology` | `/contract-lifecycle-intelligence` |
-| External procurement signals | PINs, grants, budgets, hiring, policy | `/methodology` | `/external-signals` |
-| Buyer targeting / account selection | Choose institutions and segments | `/platform#finder` | `/buyer-targeting` |
-| Procurement monitoring / alerts | Track changes across targets | `/platform#alerts` | keep on platform unless demand rises |
+| `/` | predictive procurement intelligence, procurement intelligence platform, EU public procurement intelligence | public procurement intelligence, procurement forecasting | narrow country intent, blog-style educational sprawl |
+| `/platform` | procurement intelligence software, procurement intelligence platform | tender forecasting platform, procurement monitoring software, public procurement intelligence software | generic monitoring copy with no engine explanation |
+| `/methodology` | procurement forecasting methodology, tender prediction methodology, external procurement signals | contract lifecycle intelligence, how Civant forecasts tenders, explainable procurement intelligence | broad category ownership that belongs to home or platform |
+| `/use-cases` | bid intelligence, public sector sales intelligence, B2G sales intelligence | bid no-bid intelligence, public tendering strategy, proactive bidding | generic category terms already owned elsewhere |
+| `/solutions/procurement-intelligence-software` | procurement intelligence software | public procurement intelligence software, procurement market intelligence | monitoring-led language becoming the headline |
+| `/solutions/tender-prediction-software` | tender prediction software, tender forecasting software | procurement forecasting, contract renewal forecasting, forecast public tenders | broad product-category language that should stay on platform/home |
+| `/solutions/eu-tender-monitoring` | EU tender monitoring | public tender monitoring, procurement monitoring, early tender visibility | presenting Civant as only an alerts tool |
+| `/solutions/public-procurement-intelligence` | public procurement intelligence | bid intelligence, public procurement market intelligence, public sector bid strategy | duplicate of the procurement-intelligence-software page |
+| `/markets` | European procurement intelligence, EU procurement coverage | multi-country procurement intelligence, EU tender monitoring across markets | country-specific deep intent that belongs on market detail pages |
+| `/markets/ireland` and other live country pages | public procurement intelligence + country | tender forecasting + country, procurement monitoring + country | Europe-wide positioning that belongs on `/markets` or `/` |
+| `/pricing` | Civant pricing, procurement intelligence pricing, tender intelligence pricing | self-serve procurement intelligence, custom plan procurement intelligence | broad educational intent |
+| `/company` | Civant company, Civant advisors, Civant procurement intelligence company | founder credibility, supported by, procurement intelligence Europe company | product-category ownership |
+| `/resources` | procurement intelligence resources, tender forecasting resources | learning hub for procurement intelligence, public-sector bid intelligence resources | core category conversion terms |
 
-Suggested capability keywords:
+## Current Solution Ownership
 
-- procurement competitor intelligence
-- contract lifecycle intelligence
-- procurement renewal signals
-- external procurement signals
-- procurement market monitoring
-- buyer targeting public procurement
+### `/solutions/procurement-intelligence-software`
 
-### Tier 3: Use-Case Intent
+Own:
 
-These searches come from teams who may not know the category name yet.
+- procurement intelligence software
+- public procurement intelligence software
+- procurement market intelligence
 
-| Audience | Search intent | Primary page target |
-| --- | --- | --- |
-| Bid teams | find tenders earlier / reduce reactive bidding | `/use-cases` |
-| Sales teams | public sector account timing / engagement planning | `/use-cases` |
-| Market intelligence teams | monitor procurement markets / interpret change | `/use-cases` |
-| SME suppliers | public procurement intelligence for SMEs | `/resources/procurement-intelligence-for-smes` |
+Support with:
 
-Suggested use-case keywords:
+- earlier public-sector growth
+- fragmented procurement records
+- buyer cycles
+- public signals
 
-- how to find tenders earlier
-- how to forecast public tenders
-- public procurement intelligence for bid teams
-- public sector pipeline planning
-- procurement intelligence for SMEs
+### `/solutions/tender-prediction-software`
 
-### Tier 4: Geographic / Coverage Intent
+Own:
 
-These support the Europe-wide moat story and country rollout.
+- tender prediction software
+- tender forecasting software
+- procurement forecasting
+- contract renewal forecasting
 
-| Geography type | Target |
-| --- | --- |
-| Europe-wide | European procurement intelligence platform |
-| Live markets | Ireland, UK, Spain, France, Italy |
-| Coming markets | Finland, Belgium, Germany, Netherlands |
+Support with:
 
-Future country-page pattern:
+- forecast public tenders
+- earlier tender preparation
+- confidence-scored procurement timing
 
-- `/countries/ireland`
-- `/countries/united-kingdom`
-- `/countries/spain`
-- `/countries/france`
-- `/countries/italy`
-- `/countries/finland`
-- `/countries/belgium`
-- `/countries/germany`
-- `/countries/netherlands`
+### `/solutions/eu-tender-monitoring`
 
-Each country page should explain:
+Own:
 
-- what procurement visibility looks like in that market
-- how Civant models timing and signals there
-- how local market structure differs
-- how suppliers can prepare earlier
+- EU tender monitoring
+- public tender monitoring
+- procurement monitoring across Europe
 
-### Tier 5: Educational / Authority Content
+Support with:
 
-This tier is already large in the current site. It should support, not distract from, the commercial pages.
+- TED-linked context
+- national procurement monitoring
+- early visibility across fragmented markets
 
-Current strong content themes:
+### `/solutions/public-procurement-intelligence`
 
-- procurement intelligence basics
-- procurement timing and signals
-- contract lifecycle analysis
-- market structure and competition
-- SME access and bid strategy
+Own:
 
-The main content problem is not lack of volume. It is lack of hierarchy.
+- public procurement intelligence
+- public procurement market intelligence
+- strategic bid intelligence
 
-## AEO / Answer Engine Questions
+Support with:
 
-These should be answered directly on high-value pages and in FAQ/schema blocks.
+- bid no-bid discipline
+- buyer timing and competitor context
+- leadership visibility into future demand
 
-Category questions:
+## Current Geographic Ownership
 
+### `/markets`
+
+Own:
+
+- European procurement intelligence
+- EU procurement intelligence platform
+- public procurement intelligence across Europe
+
+Support with:
+
+- live markets now
+- markets coming next
+- one-country-per-month expansion story
+
+### `/markets/[slug]`
+
+Each country page should own:
+
+- public procurement intelligence `{country}`
+- tender forecasting `{country}`
+- procurement monitoring `{country}`
+
+Each country page should support:
+
+- buyer timing
+- renewal windows
+- competitor movement
+- early public signals in that market
+
+Current live pages:
+
+- `/markets/ireland`
+- `/markets/united-kingdom`
+- `/markets/spain`
+- `/markets/france`
+- `/markets/italy`
+
+Current coming-next pages:
+
+- `/markets/finland`
+- `/markets/belgium`
+- `/markets/germany`
+- `/markets/netherlands`
+
+## Audience / B2G Ownership
+
+These terms should be used intentionally, not sprayed across the site.
+
+### Best current page target
+
+`/use-cases`
+
+Own or support:
+
+- B2G sales intelligence
+- public sector sales intelligence
+- public-sector pipeline planning
+- account timing for public buyers
+
+### Best supporting pages
+
+- `/solutions/public-procurement-intelligence`
+- `/resources/procurement-intelligence-for-smes`
+- `/resources/the-economics-of-bid-no-bid-decisions`
+
+Guidance:
+
+- Use `B2G` as a bridge term for people who think in sales language.
+- Do not let `B2G` replace procurement language in core category pages.
+
+## Tendering Language Guidance
+
+Use `tendering` carefully.
+
+Good:
+
+- public tendering strategy
+- public tendering intelligence
+- tendering pipeline visibility
+- proactive tendering preparation
+
+Avoid using these as primary targets:
+
+- tendering software
+- tendering platform
+
+Reason:
+
+- They are broad, ambiguous, and weaker than procurement intelligence or tender prediction for Civant's positioning.
+
+## AEO Question Set
+
+These are the highest-value answer-engine questions to support across commercial pages, FAQs, and schema.
+
+### Category questions
+
+- What is procurement intelligence software?
 - What is predictive procurement intelligence?
 - How is procurement intelligence different from tender alerts?
 - Is Civant an AI chatbot?
-- How does Civant forecast tenders before publication?
-- What data does Civant use?
-- How does Civant validate forecasts?
+- What makes Civant different from a monitoring tool?
 
-Capability questions:
+### Forecasting questions
 
-- How can suppliers identify tenders before they are published?
-- How do contract lifecycles help forecast procurement?
-- What procurement signals matter before a tender appears?
-- How can competitor intelligence improve bid strategy?
-- How do budgets, grants, and hiring signals affect tender timing?
+- Can software forecast public tenders?
+- How does tender prediction software work?
+- What signals help forecast tenders before publication?
+- How do contract lifecycles help predict procurement timing?
+- What is procurement forecasting in public-sector markets?
 
-Geography questions:
+### Monitoring questions
 
-- How do procurement signals differ across European countries?
-- Which European markets does Civant currently cover?
-- How quickly is Civant expanding across Europe?
+- How can suppliers find tenders before publication?
+- What is EU tender monitoring?
+- Why are tender alerts not enough for earlier planning?
+- How do you monitor fragmented European procurement markets?
 
-## Recommended Page Targets
+### Audience questions
 
-### Must-upgrade existing pages
+- How can B2G teams improve public-sector pipeline timing?
+- How can bid teams reduce reactive tendering?
+- How can sales teams engage buyers before a tender is published?
+- How does procurement intelligence improve bid no-bid decisions?
 
-- `/`
-- `/platform`
-- `/methodology`
-- `/use-cases`
-- `/company`
-- `/resources`
+### Geographic questions
 
-### Highest-priority new pages
+- Which countries does Civant cover?
+- Which countries are live now?
+- Which markets are coming next?
+- How does procurement intelligence differ by European market?
 
-- `/external-signals`
-- `/competitor-intelligence`
-- `/european-coverage`
+## Resource Hub Role
 
-### Next-wave new pages
+The resource library should support commercial pages, not compete with them.
 
-- `/contract-lifecycle-intelligence`
-- `/countries/[market]`
-- `/industries/edtech` or similar wedge pages if commercially useful
-
-## Resource Hub Triage
-
-### Keep as pillar candidates
+### Current pillar candidates
 
 - `/resources/what-is-procurement-intelligence`
 - `/resources/public-procurement-cycles`
@@ -220,34 +414,46 @@ Geography questions:
 - `/resources/procurement-signals-beyond-formal-notices`
 - `/resources/procurement-intelligence-for-smes`
 - `/resources/predictive-renewal-signals-forecasting-contract-expiration-and-next-tenders`
+- `/resources/the-economics-of-bid-no-bid-decisions`
 
-### Consolidate or rework later
+### Resource clusters to keep building
 
-Many current resources overlap heavily. Future work should reduce duplication across:
+- procurement intelligence basics
+- forecasting and renewal timing
+- early visibility and pre-tender signals
+- competitor and market structure intelligence
+- bid strategy and qualification
+- B2G and public-sector commercial planning
 
-- timing vs signals
-- contract lifecycle vs renewals
-- SME bidding strategy vs reactive bidding
-- market intelligence vs procurement intelligence basics
+## Anti-Cannibalization Rules
 
-## Implementation Order
+- The homepage owns Civant's broad category story.
+- `/platform` owns product-software language.
+- `/methodology` owns explainability, signal logic, and evidence questions.
+- Each solution page owns a distinct commercial query family.
+- `/markets` owns the Europe-wide coverage narrative.
+- `/markets/[slug]` owns country-specific intelligence intent.
+- `/use-cases` owns B2G, bid-team, sales-team, and audience-language framing.
+- Resources answer questions and feed authority, but should not try to outrank the main commercial pages on their primary money terms.
 
-1. Homepage messaging pass
-2. Methodology pass
-3. Platform pass
-4. External signals landing page
-5. Competitor intelligence landing page
-6. European coverage page
-7. Resource hub restructuring
-8. Country pages
+## Recommended Immediate Use
 
-## Morning Notes
+When editing or adding pages, use this sequence:
 
-If we need to cut scope, the best near-term commercial set is:
+1. Define the page's primary keyword family from this map.
+2. Confirm which nearby pages already own adjacent terms.
+3. Write the page so the headline, intro, FAQ, schema, and internal links all reinforce the same family.
+4. Add supporting language only if it strengthens the page's main job.
+
+## Next Step After This Map
+
+Step 2 is page ownership and keyword separation in live copy:
 
 1. homepage
-2. methodology
-3. platform
-4. external signals page
-5. competitor intelligence page
+2. platform
+3. methodology
+4. use cases
+5. the four solution pages
+6. markets hub and country pages
 
+That is where this map turns from strategy into rankings.

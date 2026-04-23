@@ -23,9 +23,9 @@ import { SOLUTIONS } from "../../lib/solutions";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "EU Procurement Intelligence Platform | Modules & Workflow",
+  title: "Procurement Intelligence Software | Civant Platform",
   description:
-    "Explore the Civant Intelligence Platform modules that turn procurement cycle signals into prioritized, executable opportunities.",
+    "Civant turns buyer cycles, contract lifecycles, competitor context, and public signals into earlier targeting, forecasting, and bid planning.",
   path: "/platform",
 });
 
@@ -33,7 +33,7 @@ const platformSchema = buildSoftwareApplicationSchema();
 
 const platformFaqs = [
   {
-    question: "What does the Civant platform actually do?",
+    question: "What does Civant procurement intelligence software do?",
     answer:
       "Civant turns procurement records, awards, lifecycle timing, competitor movement, and public external signals into one decision workflow so teams can identify, prioritize, and execute opportunities earlier.",
   },
@@ -216,12 +216,12 @@ export default function PlatformPage() {
     <>
       <Section className="hero-block hero-section">
         <p className="eyebrow">Platform</p>
-        <h1 className="headline-xl">Inside the Civant Intelligence Platform</h1>
+        <h1 className="headline-xl">Procurement intelligence software for earlier public-sector decisions</h1>
         <p className="text-lead">
-          Civant is a procurement intelligence platform built around procurement
-          cycles. It combines market context, contract lifecycle signals, and
-          participation dynamics to help enterprise teams identify, prioritize,
-          and execute opportunities earlier.
+          Civant is procurement intelligence software built around procurement
+          cycles. It combines market context, contract lifecycle signals,
+          forecasting logic, monitoring, and execution workflows so teams can
+          identify, prioritize, and act earlier.
         </p>
       </Section>
 
@@ -229,11 +229,12 @@ export default function PlatformPage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">How Modules Work Together</p>
           <h2 className="headline-lg">
-            One connected workflow from market signal to bid execution
+            One software workflow from market signal to bid execution
           </h2>
           <p className="text-lead section-intro">
             Each module has a defined role, but the advantage comes from how
-            they connect into a single decision workflow.
+            the software connects targeting, forecasting, monitoring, and bid
+            execution into one decision workflow.
           </p>
         </div>
         <div className="flow-track">
@@ -254,7 +255,7 @@ export default function PlatformPage() {
       <Section>
         <div className="section-heading-wrap">
           <p className="eyebrow">Platform Modules</p>
-          <h2 className="headline-lg">Purpose-built capabilities for each stage</h2>
+          <h2 className="headline-lg">Software modules for each stage of the workflow</h2>
         </div>
         <div className="platform-modules-list">
           {modules.map((module) => (
@@ -290,11 +291,11 @@ export default function PlatformPage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Proof</p>
           <h2 className="headline-lg">
-            Why teams trust the Civant workflow
+            Why teams trust the Civant software workflow
           </h2>
           <p className="text-lead section-intro">
-            The product is strongest when timing, market context, and execution
-            live in the same operating layer.
+            The software is strongest when timing, market context, and
+            execution live in the same operating layer.
           </p>
         </div>
         <div className="solution-proof-strip">
@@ -319,6 +320,31 @@ export default function PlatformPage() {
               from signal discovery into concrete bid execution.
             </p>
           </article>
+        </div>
+        <div className="grid grid-2 solution-related-grid" style={{ marginTop: "2rem" }}>
+          <Link
+            href="/resources/external-signals-in-public-procurement"
+            className="card card-link interactive-surface"
+          >
+            <h3 className="card-title">How external signals fit the platform</h3>
+            <p className="card-body">
+              Learn how budgets, grants, PINs, hiring, and policy movement add
+              context to the software workflow without replacing procurement
+              evidence.
+            </p>
+            <span className="card-link-cta">Read the resource</span>
+          </Link>
+          <Link
+            href="/resources/competitor-intelligence-in-public-procurement"
+            className="card card-link interactive-surface"
+          >
+            <h3 className="card-title">How competitor intelligence fits the platform</h3>
+            <p className="card-body">
+              See how incumbent footprint, participation intensity, and market
+              pressure shape stronger account and bid decisions.
+            </p>
+            <span className="card-link-cta">Read the resource</span>
+          </Link>
         </div>
       </Section>
 
@@ -356,7 +382,7 @@ export default function PlatformPage() {
       <Section>
         <div className="section-heading-wrap">
           <p className="eyebrow">Common Questions</p>
-          <h2 className="headline-lg">What teams ask before they buy</h2>
+          <h2 className="headline-lg">What teams ask before they buy procurement intelligence software</h2>
           <p className="text-lead section-intro">
             Short answers to the questions that usually come up once the platform
             workflow starts to make sense.
