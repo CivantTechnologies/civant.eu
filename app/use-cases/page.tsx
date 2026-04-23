@@ -7,9 +7,9 @@ import { buildPageMetadata } from "../../lib/seo";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Use Cases | Procurement Intelligence for Teams",
+  title: "Use Cases for Bid and B2G Teams | Civant",
   description:
-    "See how bid teams, sales organizations, and market intelligence teams use Civant procurement intelligence to improve planning, prioritization, and execution.",
+    "See how bid, B2G sales, partnerships, and intelligence teams use Civant to plan earlier, prioritize buyers, and improve bid decisions.",
   path: "/use-cases",
 });
 
@@ -64,11 +64,11 @@ export default function UseCasesPage() {
     <>
       <Section className="hero-block hero-section">
         <p className="eyebrow">Use Cases</p>
-        <h1 className="headline-xl">How teams apply Civant in public-sector markets</h1>
+        <h1 className="headline-xl">How bid, B2G sales, and intelligence teams apply Civant</h1>
         <p className="text-lead">
-          Civant supports organizations operating in public-sector markets by
-          translating procurement-cycle signals into practical planning and
-          execution workflows.
+          Civant supports teams operating in public-sector markets by turning
+          procurement intelligence into practical planning, account timing, and
+          bid execution workflows.
         </p>
       </Section>
 
@@ -76,8 +76,13 @@ export default function UseCasesPage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Primary Audiences</p>
           <h2 className="headline-lg">
-            Three high-impact use cases for procurement intelligence
+            Three high-impact use cases for public-sector growth teams
           </h2>
+          <p className="text-lead section-intro">
+            This is the audience layer of Civant: bid teams, B2G sales and
+            partnerships teams, and market intelligence teams that need earlier
+            visibility before tenders go live.
+          </p>
         </div>
         <div className="use-case-stack">
           {audiences.map((audience) => (
@@ -120,8 +125,8 @@ export default function UseCasesPage() {
       <Section>
         <MarketCoverageLinks
           eyebrow="Country Coverage"
-          title="Apply each use case in the markets you sell into"
-          body="Bid, sales, partnership, and intelligence teams can move from country discovery to market-specific procurement planning."
+          title="Apply each use case in the markets your team sells into"
+          body="Bid, sales, partnership, and intelligence teams can move from country discovery into market-specific procurement planning and buyer timing."
           compact
         />
       </Section>
@@ -129,11 +134,12 @@ export default function UseCasesPage() {
       <Section>
         <div className="final-cta">
           <h2 className="headline-lg final-cta-title">
-            See your team’s use case in a live walkthrough
+            See your team’s workflow in a live walkthrough
           </h2>
           <p className="text-lead platform-cta-copy">
             Choose a plan when you are ready to start, or request a custom plan
-            for a workflow review with your team.
+            for a review of how Civant fits your bid, sales, or market
+            intelligence workflow.
           </p>
           <CTAGroup
             primaryHref="/pricing"

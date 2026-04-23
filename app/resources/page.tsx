@@ -34,6 +34,30 @@ type IntentLink = {
 
 const articles: Article[] = [
   {
+    href: "/resources/education-procurement-outlook-q4-2026",
+    title: "Education Procurement Outlook Q4 2026",
+    summary: "A gated sector outlook showing education demand drivers, signal patterns, and preparation priorities for Q4 2026.",
+    pillar: "Forecast Reports",
+  },
+  {
+    href: "/resources/external-signals-in-public-procurement",
+    title: "External Signals in Public Procurement",
+    summary: "Public procurement intent often shows up before a formal notice. Budgets, grants, PINs, hiring, policy changes, and strategic plans can all help teams prepare earlier.",
+    pillar: "Timing & Signals",
+  },
+  {
+    href: "/resources/competitor-intelligence-in-public-procurement",
+    title: "Competitor Intelligence in Public Procurement",
+    summary: "Competitor intelligence helps teams understand incumbent strength, participation patterns, and market pressure before committing bid effort.",
+    pillar: "Market Intelligence",
+  },
+  {
+    href: "/resources/european-procurement-coverage-what-market-coverage-really-means",
+    title: "European Procurement Coverage: What Market Coverage Really Means",
+    summary: "Coverage is more than listing countries. Real European procurement coverage means country-by-country evidence, comparable signals, and a consistent workflow across markets.",
+    pillar: "Market Structure",
+  },
+  {
     href: "/resources/what-is-procurement-intelligence",
     title: "What Is Procurement Intelligence?",
     summary: "Procurement intelligence helps teams identify where public-sector demand is likely to emerge before tender publication, using buying patterns, lifecycle signals, and market participation data.",

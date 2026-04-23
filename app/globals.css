@@ -1858,6 +1858,134 @@ a {
   color: #00c4c4;
 }
 
+.report-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.report-gate-error {
+  margin: 0;
+  color: #ff9a9a;
+  font-size: 0.95rem;
+}
+
+.report-gate-success {
+  min-height: 0;
+  padding-inline: 0;
+}
+
+.report-landing-grid {
+  align-items: start;
+}
+
+.report-landing-title {
+  margin-bottom: 1rem;
+}
+
+.report-snapshot-intro {
+  max-width: 54rem;
+}
+
+.report-snapshot-grid,
+.report-snapshot-detail-grid {
+  align-items: stretch;
+}
+
+.report-snapshot-card,
+.report-country-card {
+  height: 100%;
+}
+
+.report-snapshot-value {
+  margin: 0.55rem 0 0.8rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  font-weight: 700;
+  color: #f8fbff;
+}
+
+.report-snapshot-heading {
+  margin: 0.55rem 0 1rem;
+}
+
+.report-country-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.report-country-row {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.report-country-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.report-country-name,
+.report-country-count,
+.report-benchmark-market,
+.report-benchmark-values {
+  color: #f3f4f6;
+}
+
+.report-country-name,
+.report-benchmark-market {
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.report-country-count,
+.report-benchmark-values {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.report-country-bar {
+  position: relative;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.report-country-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(96, 211, 218, 0.55), rgba(96, 211, 218, 0.95));
+}
+
+.report-benchmark-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.report-benchmark-row {
+  padding-top: 0.2rem;
+}
+
+.report-benchmark-row + .report-benchmark-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+}
+
+.report-benchmark-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.45rem;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -2429,6 +2557,12 @@ a {
 
   .flow-track {
     grid-template-columns: 1fr;
+  }
+
+  .report-benchmark-header,
+  .report-country-meta {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .hero-mini-grid {

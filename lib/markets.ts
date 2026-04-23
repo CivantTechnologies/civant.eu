@@ -13,6 +13,7 @@ export type Market = {
   statusLabel: string;
   headline: string;
   description: string;
+  metaDescription?: string;
   summary: string;
   buyersLabel: string;
   signalFocus: string[];
@@ -35,7 +36,9 @@ export const MARKETS: Market[] = [
     statusLabel: "Live coverage",
     headline: "Public procurement intelligence for Ireland",
     description:
-      "Civant helps suppliers monitor Irish public procurement cycles, buyer activity, renewal windows, and early signals across national and European sources.",
+      "Civant helps suppliers use Irish public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European sources.",
+    metaDescription:
+      "Use Irish public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European sources.",
     summary:
       "Live Irish coverage supports teams tracking public-sector buyers, recurring contract cycles, supplier participation, and renewal signals.",
     buyersLabel: "Irish public-sector buyers",
@@ -75,7 +78,9 @@ export const MARKETS: Market[] = [
     statusLabel: "Live coverage",
     headline: "Public procurement intelligence for the United Kingdom",
     description:
-      "Civant helps suppliers monitor UK public procurement cycles, buyer activity, renewal windows, and early signals across national and European public-domain sources.",
+      "Civant helps suppliers use UK public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European public-domain sources.",
+    metaDescription:
+      "Use UK public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European sources.",
     summary:
       "Live UK coverage supports teams operating in a high-volume market where timing, buyer segmentation, and incumbent context matter.",
     buyersLabel: "UK public-sector buyers",
@@ -115,7 +120,9 @@ export const MARKETS: Market[] = [
     statusLabel: "Live coverage",
     headline: "Public procurement intelligence for Spain",
     description:
-      "Civant helps suppliers monitor Spanish public procurement cycles, buyer activity, renewal windows, and early signals across national and European sources.",
+      "Civant helps suppliers use Spanish public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European sources.",
+    metaDescription:
+      "Use Spanish public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European sources.",
     summary:
       "Live Spanish coverage supports teams tracking buyers, categories, supplier participation, and timing signals across a decentralized public-sector market.",
     buyersLabel: "Spanish public-sector buyers",
@@ -155,7 +162,9 @@ export const MARKETS: Market[] = [
     statusLabel: "Live coverage",
     headline: "Public procurement intelligence for France",
     description:
-      "Civant helps suppliers monitor French public procurement cycles, buyer activity, renewal windows, and early signals across national and European sources.",
+      "Civant helps suppliers use French public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European sources.",
+    metaDescription:
+      "Use French public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European sources.",
     summary:
       "Live French coverage supports teams tracking public buyers, category recurrence, incumbent movement, and early indicators of future procurement.",
     buyersLabel: "French public-sector buyers",
@@ -195,7 +204,9 @@ export const MARKETS: Market[] = [
     statusLabel: "Live coverage",
     headline: "Public procurement intelligence for Italy",
     description:
-      "Civant helps suppliers monitor Italian public procurement cycles, buyer activity, renewal windows, and early signals across national and European sources.",
+      "Civant helps suppliers use Italian public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European sources.",
+    metaDescription:
+      "Use Italian public procurement intelligence to monitor buyer activity, renewal windows, and early signals across national and European sources.",
     summary:
       "Live Italian coverage supports teams tracking buyers, categories, supplier participation, and renewal patterns across public-sector opportunities.",
     buyersLabel: "Italian public-sector buyers",
@@ -235,7 +246,9 @@ export const MARKETS: Market[] = [
     statusLabel: "Coming next",
     headline: "Public procurement intelligence for Finland",
     description:
-      "Finland is part of Civant's next market rollout for public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+      "Finland is part of Civant's next market rollout for Finnish public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+    metaDescription:
+      "Finland is part of Civant's next rollout for public procurement intelligence, forecasting, and contract lifecycle monitoring.",
     summary:
       "Finnish coverage is coming next, supporting teams preparing Nordic public-sector expansion and education-market opportunities.",
     buyersLabel: "Finnish public-sector buyers",
@@ -275,7 +288,9 @@ export const MARKETS: Market[] = [
     statusLabel: "Coming next",
     headline: "Public procurement intelligence for Belgium",
     description:
-      "Belgium is part of Civant's next market rollout for public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+      "Belgium is part of Civant's next market rollout for Belgian public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+    metaDescription:
+      "Belgium is part of Civant's next rollout for public procurement intelligence, forecasting, and contract lifecycle monitoring.",
     summary:
       "Belgian coverage is coming next, supporting teams that need early visibility across national, regional, and European public-sector demand.",
     buyersLabel: "Belgian public-sector buyers",
@@ -315,7 +330,9 @@ export const MARKETS: Market[] = [
     statusLabel: "Coming next",
     headline: "Public procurement intelligence for Germany",
     description:
-      "Germany is part of Civant's next market rollout for public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+      "Germany is part of Civant's next market rollout for German public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+    metaDescription:
+      "Germany is part of Civant's next rollout for public procurement intelligence, forecasting, and contract lifecycle monitoring.",
     summary:
       "German coverage is coming next, supporting teams preparing for a large, distributed public-sector market with complex buyer and category structures.",
     buyersLabel: "German public-sector buyers",
@@ -355,7 +372,9 @@ export const MARKETS: Market[] = [
     statusLabel: "Coming next",
     headline: "Public procurement intelligence for the Netherlands",
     description:
-      "The Netherlands is part of Civant's next market rollout for public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+      "The Netherlands is part of Civant's next market rollout for Dutch public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+    metaDescription:
+      "The Netherlands is part of Civant's next rollout for public procurement intelligence, forecasting, and contract lifecycle monitoring.",
     summary:
       "Dutch coverage is coming next, supporting teams preparing Benelux public-sector expansion and earlier opportunity planning.",
     buyersLabel: "Dutch public-sector buyers",

@@ -6,9 +6,11 @@ export type SolutionFaq = {
 export type SolutionPage = {
   slug: string;
   title: string;
+  metaTitle?: string;
   eyebrow: string;
   headline: string;
   description: string;
+  metaDescription?: string;
   definition: string;
   primaryAudience: string;
   problem: string;
@@ -24,10 +26,13 @@ export const SOLUTIONS: SolutionPage[] = [
   {
     slug: "procurement-intelligence-software",
     title: "Procurement Intelligence Software",
+    metaTitle: "Procurement Intelligence Software | Civant",
     eyebrow: "Solution / Procurement Intelligence Software",
     headline: "Procurement intelligence software for earlier public-sector growth",
     description:
-      "Civant turns fragmented procurement records, buyer cycles, awards, competitor movement, and external public signals into a focused market planning layer.",
+      "Civant is procurement intelligence software that turns fragmented procurement records, buyer cycles, awards, competitor movement, and external public signals into a focused market planning layer.",
+    metaDescription:
+      "Civant helps teams turn procurement records, buyer cycles, competitor context, and public signals into earlier public-sector market planning.",
     definition:
       "Procurement intelligence software helps suppliers understand where public-sector demand is likely to emerge by analyzing historical tenders, awards, contract lifecycles, buyer behavior, and market signals.",
     primaryAudience:
@@ -73,10 +78,13 @@ export const SOLUTIONS: SolutionPage[] = [
   {
     slug: "tender-prediction-software",
     title: "Tender Prediction Software",
+    metaTitle: "Tender Forecasting Software | Civant",
     eyebrow: "Solution / Tender Prediction Software",
     headline: "Tender prediction software built on procurement evidence",
     description:
-      "Civant helps teams estimate likely future tender windows by reading contract lifecycles, award history, buyer recurrence, and public-domain market signals.",
+      "Civant helps teams estimate likely future tender windows with tender prediction software built on contract lifecycles, award history, buyer recurrence, and public-domain market signals.",
+    metaDescription:
+      "Civant helps teams estimate likely tender windows using contract lifecycles, award history, buyer recurrence, and public market signals.",
     definition:
       "Tender prediction software estimates where and when public-sector opportunities may emerge by analyzing previous awards, contract durations, buyer patterns, and pre-procurement signals.",
     primaryAudience:
@@ -84,7 +92,7 @@ export const SOLUTIONS: SolutionPage[] = [
     problem:
       "Most suppliers find out about opportunities when everyone else does. That creates rushed bid decisions, weak positioning, and missed early engagement.",
     civantApproach:
-      "Civant scores procurement timing signals from historical tenders, awards, lifecycle evidence, and public external indicators so teams can see where buyer activity is likely to move next.",
+      "Civant scores procurement forecasting signals from historical tenders, awards, lifecycle evidence, and public external indicators so teams can see where buyer activity is likely to move next.",
     differentiator:
       "The forecast layer is deterministic and evidence-led. AI is used to explain and interpret opportunities, not to invent probabilities or replace structured scoring.",
     proofPoint:
@@ -122,10 +130,13 @@ export const SOLUTIONS: SolutionPage[] = [
   {
     slug: "eu-tender-monitoring",
     title: "EU Tender Monitoring",
+    metaTitle: "EU Tender Monitoring | Civant",
     eyebrow: "Solution / EU Tender Monitoring",
     headline: "EU tender monitoring that goes beyond live alerts",
     description:
-      "Monitor European public procurement markets through official notices, TED-linked context, national sources, award history, lifecycle signals, and country rollout intelligence.",
+      "Monitor European public procurement markets through official notices, TED-linked context, national sources, award history, lifecycle signals, and country rollout intelligence in one workflow.",
+    metaDescription:
+      "Monitor European public procurement through official notices, TED context, award history, lifecycle signals, and country coverage in one workflow.",
     definition:
       "EU tender monitoring tracks procurement activity across European markets, including live notices, award outcomes, buyer behavior, lifecycle patterns, and early public indicators of future demand.",
     primaryAudience:
@@ -133,7 +144,7 @@ export const SOLUTIONS: SolutionPage[] = [
     problem:
       "European procurement is fragmented across national systems, TED, buyer portals, regions, languages, and local publication habits. Simple monitoring creates visibility, but not always timing advantage.",
     civantApproach:
-      "Civant combines live market coverage with a consistent intelligence model across countries, helping teams compare buyers, categories, contract cycles, and competitor activity in one workflow.",
+      "Civant combines live market monitoring with a consistent intelligence model across countries, helping teams compare buyers, categories, contract cycles, and competitor activity in one workflow.",
     differentiator:
       "Civant separates live market intelligence from rollout messaging: Ireland, the UK, Spain, France, and Italy are live; Finland, Belgium, Germany, and the Netherlands are coming next.",
     proofPoint:
@@ -171,14 +182,17 @@ export const SOLUTIONS: SolutionPage[] = [
   {
     slug: "public-procurement-intelligence",
     title: "Public Procurement Intelligence",
+    metaTitle: "Public Procurement Intelligence | Civant",
     eyebrow: "Solution / Public Procurement Intelligence",
     headline: "Public procurement intelligence for strategic bid decisions",
     description:
-      "Civant helps suppliers understand buyers, timing, competitors, and signals before committing scarce bid resources to public-sector opportunities.",
+      "Civant helps suppliers use public procurement intelligence to understand buyers, timing, competitors, and signals before committing scarce bid resources to public-sector opportunities.",
+    metaDescription:
+      "Civant helps suppliers understand buyers, timing, competitors, and signals before committing bid resources to public-sector opportunities.",
     definition:
       "Public procurement intelligence is the practice of turning tenders, awards, buyer behavior, lifecycle evidence, and external signals into strategic decisions about where to engage, bid, partner, or pass.",
     primaryAudience:
-      "For leadership, bid, sales, and market intelligence teams that need clearer bid/no-bid decisions and earlier account strategy.",
+      "For leadership, bid, sales, partnerships, and market intelligence teams that need clearer bid/no-bid decisions and earlier account strategy.",
     problem:
       "Public-sector growth is expensive when teams chase every notice. Without context, suppliers spend time on low-fit opportunities and miss earlier positioning windows for stronger ones.",
     civantApproach:

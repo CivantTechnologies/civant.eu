@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Binary,
   Database,
@@ -14,15 +15,15 @@ import { buildFaqSchema, buildPageMetadata } from "../../lib/seo";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Methodology | Procurement Intelligence Approach",
+  title: "Tender Forecasting Methodology | Civant",
   description:
-    "Learn how Civant uses procurement-cycle analysis, contract lifecycles, competitor activity, and external public signals to identify likely upcoming opportunities.",
+    "See how Civant's forecasting model uses procurement records, contract lifecycles, buyer behavior, and public signals to estimate likely tender timing.",
   path: "/methodology",
 });
 
 const methodologyFaqs = [
   {
-    question: "How does Civant predict upcoming tenders?",
+    question: "How does Civant forecast upcoming tenders?",
     answer:
       "Civant analyzes historical procurement records, contract lifecycle windows, buyer behavior, renewal patterns, and market participation signals to identify where future procurement activity is more likely to emerge.",
   },
@@ -137,11 +138,12 @@ export default function MethodologyPage() {
     <div className="methodology-page">
       <Section className="hero-block hero-section">
         <p className="eyebrow">Methodology</p>
-        <h1 className="headline-xl">How Civant procurement intelligence works</h1>
+        <h1 className="headline-xl">How Civant forecasts tenders from public evidence</h1>
         <p className="text-lead">
-          Civant analyzes historical public procurement data, contract
-          lifecycles, and market activity to identify likely upcoming tender
-          opportunities across European public sector markets.
+          Civant uses a procurement forecasting methodology built on public
+          procurement data, contract lifecycles, buyer behavior, competitor
+          movement, and external public signals to identify where tender demand
+          is more likely to emerge.
         </p>
       </Section>
 
@@ -149,7 +151,7 @@ export default function MethodologyPage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Data Sources</p>
           <h2 className="headline-lg">
-            Built on public procurement and contract evidence
+            The evidence behind Civant forecasting
           </h2>
         </div>
         <div className="grid grid-3 methodology-grid">
@@ -165,7 +167,7 @@ export default function MethodologyPage() {
         <MarketCoverageLinks
           eyebrow="Country Rollout"
           title="A consistent evidence model across European markets"
-          body="Civant applies the same procurement-cycle methodology to live country coverage and the next wave of European markets."
+          body="Civant applies the same procurement forecasting methodology to live country coverage and the next wave of European markets."
           compact
         />
       </Section>
@@ -174,7 +176,7 @@ export default function MethodologyPage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Core Signals</p>
           <h2 className="headline-lg">
-            The procurement-cycle signals Civant tracks continuously
+            The forecasting signals Civant tracks continuously
           </h2>
         </div>
         <div className="grid grid-3 methodology-grid">
@@ -191,7 +193,7 @@ export default function MethodologyPage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">How Analysis Works</p>
           <h2 className="headline-lg">
-            From structured procurement data to actionable intelligence
+            From procurement evidence to forecasting and prioritization
           </h2>
         </div>
         <div className="flow-track methodology-flow">
@@ -216,8 +218,8 @@ export default function MethodologyPage() {
             Continuously tested against subsequently published tenders
           </h2>
           <p className="text-lead section-intro">
-            Civant continuously compares identified procurement-cycle signals
-            with tenders that are later published. This allows signal tuning,
+            Civant continuously compares identified forecasting signals with
+            tenders that are later published. This allows signal tuning,
             confidence calibration, and transparent methodology refinement over
             time.
           </p>
@@ -235,6 +237,31 @@ export default function MethodologyPage() {
               <p className="card-body">{item.body}</p>
             </article>
           ))}
+        </div>
+        <div className="grid grid-2 solution-related-grid" style={{ marginTop: "2rem" }}>
+          <Link
+            href="/resources/external-signals-in-public-procurement"
+            className="card card-link interactive-surface"
+          >
+            <h3 className="card-title">Go deeper on external signals</h3>
+            <p className="card-body">
+              See how budgets, grants, PINs, hiring, and policy changes support
+              earlier procurement timing when they are tied back to hard public
+              evidence.
+            </p>
+            <span className="card-link-cta">Read the resource</span>
+          </Link>
+          <Link
+            href="/resources/competitor-intelligence-in-public-procurement"
+            className="card card-link interactive-surface"
+          >
+            <h3 className="card-title">Go deeper on competitor context</h3>
+            <p className="card-body">
+              Understand how incumbent position, participation patterns, and
+              market pressure strengthen forecasting and prioritization.
+            </p>
+            <span className="card-link-cta">Read the resource</span>
+          </Link>
         </div>
       </Section>
 
@@ -257,7 +284,7 @@ export default function MethodologyPage() {
       <Section>
         <div className="section-heading-wrap">
           <p className="eyebrow">Methodology FAQ</p>
-          <h2 className="headline-lg">Common questions about Civant forecasting</h2>
+          <h2 className="headline-lg">Common questions about Civant forecasting methodology</h2>
         </div>
         <div className="grid grid-2 methodology-grid">
           {methodologyFaqs.map((item) => (

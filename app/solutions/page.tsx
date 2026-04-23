@@ -13,9 +13,9 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Procurement Intelligence Solutions",
+  title: "Procurement Intelligence Solutions | Civant",
   description:
-    "Explore Civant solutions for procurement intelligence software, tender prediction, EU tender monitoring, and public procurement strategy.",
+    "Explore Civant solutions for procurement intelligence software, tender forecasting, EU tender monitoring, and public procurement strategy.",
   path: "/solutions",
 });
 
@@ -26,7 +26,7 @@ const solutionsSchema = [
     name: "Civant Procurement Intelligence Solutions",
     url: `${SITE_URL}/solutions`,
     description:
-      "Solution pages explaining Civant's predictive procurement intelligence platform for European public-sector markets.",
+      "Solution pages explaining Civant's procurement intelligence platform for European public-sector markets.",
     hasPart: SOLUTIONS.map((solution) => ({
       "@type": "WebPage",
       name: solution.title,

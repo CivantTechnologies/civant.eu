@@ -8,9 +8,9 @@ import { buildPageMetadata, SITE_URL } from "../../lib/seo";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "European Procurement Intelligence Markets | Civant",
+  title: "European Procurement Intelligence Coverage | Civant",
   description:
-    "Explore Civant market coverage for public procurement intelligence, tender forecasting, contract lifecycle signals, and European expansion planning.",
+    "See where Civant is live now and which markets are coming next for procurement intelligence, tender monitoring, and expansion planning.",
   path: "/markets",
 });
 
@@ -81,11 +81,12 @@ export default function MarketsPage() {
     <>
       <Section className="hero-block hero-section">
         <p className="eyebrow">Markets</p>
-        <h1 className="headline-xl">European procurement intelligence by country</h1>
+        <h1 className="headline-xl">European procurement intelligence coverage by country</h1>
         <p className="text-lead">
-          Civant gives teams a country-by-country view of procurement cycles,
-          buyer behavior, contract lifecycles, competitor movement, and external
-          public signals across Europe.
+          Civant gives teams a Europe-wide, country-by-country view of
+          procurement cycles, buyer behavior, contract lifecycles, competitor
+          movement, and external public signals across live and upcoming
+          markets.
         </p>
       </Section>
 
@@ -95,7 +96,8 @@ export default function MarketsPage() {
           <h2 className="headline-lg">Markets available in Civant today</h2>
           <p className="text-lead section-intro">
             Current coverage helps teams move from reactive tender alerts to
-            structured opportunity planning across active European markets.
+            structured opportunity planning across active European
+            public-sector markets.
           </p>
         </div>
         <div className="grid grid-3 market-grid">
@@ -110,8 +112,8 @@ export default function MarketsPage() {
           <p className="eyebrow">Coming Next</p>
           <h2 className="headline-lg">Next markets in the rollout</h2>
           <p className="text-lead section-intro">
-            Civant is expanding market coverage steadily so suppliers can plan
-            European public-sector growth with a consistent intelligence layer.
+            Civant is expanding European market coverage steadily so suppliers
+            can plan public-sector growth with a consistent intelligence layer.
           </p>
         </div>
         <div className="grid grid-4 market-grid">
@@ -124,7 +126,18 @@ export default function MarketsPage() {
       <Section muted>
         <div className="section-heading-wrap">
           <p className="eyebrow">What Coverage Means</p>
-          <h2 className="headline-lg">The same intelligence model across each market</h2>
+          <h2 className="headline-lg">The same European intelligence model across each market</h2>
+          <p className="text-lead section-intro">
+            For a closer explanation of what coverage really means beyond a
+            country list, read{" "}
+            <Link
+              href="/resources/european-procurement-coverage-what-market-coverage-really-means"
+              className="text-link"
+            >
+              European Procurement Coverage: What Market Coverage Really Means
+            </Link>
+            .
+          </p>
         </div>
         <div className="flow-track">
           <article className="flow-card">
