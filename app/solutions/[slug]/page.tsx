@@ -34,7 +34,7 @@ export function generateMetadata({ params }: SolutionPageProps) {
   }
 
   return buildPageMetadata({
-    title: `${solution.title} | Civant`,
+    title: solution.title,
     description: solution.description,
     path: `/solutions/${solution.slug}`,
   });
