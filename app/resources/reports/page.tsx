@@ -74,8 +74,8 @@ export default function ReportsPage() {
         </div>
 
         <div className="button-row resources-cta-row">
-          <Link href="/contact" className="btn btn-secondary">
-            Contact
+          <Link href="/resources/request-report" className="btn btn-secondary">
+            Request a Sector Report
           </Link>
           <Link href="/pricing" className="btn btn-primary">
             View Pricing
