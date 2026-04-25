@@ -1,103 +1,188 @@
 import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/procurement-intelligence-maturity";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/procurement-intelligence-maturity",
+  title: "Procurement Intelligence Maturity",
+  description:
+    "Understand the stages of procurement intelligence maturity, from reactive tender monitoring to strategic, evidence-led public-sector market planning.",
+  publishedAt: "2026-04-06T00:00:00+00:00",
+  publishedLabel: "April 2026",
+  modifiedAt: "2026-04-21T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Procurement intelligence maturity describes how well an organization turns procurement data, buyer cycles, competitor context, and external signals into repeatable decisions. Mature teams move beyond tender alerts into earlier account planning, disciplined qualification, and outcome-based learning.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Most organizations begin with reactive monitoring: finding published
+        tenders and deciding quickly whether to respond. That is useful, but it
+        is not the same as procurement intelligence maturity.
+      </p>
+      <p className="article-body-text">
+        Maturity increases as teams connect evidence across sources, integrate
+        it into decisions, and learn from results.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Stage",
+      text: "Maturity usually moves from alerts, to structured monitoring, to integrated intelligence, to forecast-led planning.",
+    },
+    {
+      label: "Integration",
+      text: "The key test is whether intelligence changes account, bid/no-bid, and partner decisions.",
+    },
+    {
+      label: "Progress",
+      text: "Teams mature through better data, clearer workflows, shared criteria, and outcome review.",
+    },
+  ],
+  civantView: {
+    title: "Maturity is measured by decision quality, not dashboard volume.",
+    content: (
+      <p>
+        A mature procurement intelligence capability gives teams earlier,
+        clearer, and more consistent decisions. The question is not how much
+        data the team can see. It is whether the evidence changes what the team
+        does next.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "maturity-levels",
+      title: "Maturity Levels",
+      content: (
+        <>
+          <p className="article-body-text">
+            Low maturity usually means reactive tender monitoring and ad hoc
+            research. Teams see opportunities when they are published, then rush
+            through qualification and response planning.
+          </p>
+          <p className="article-body-text">
+            Higher maturity means the team can read buyer cycles, lifecycle
+            evidence, competitor movement, and external public signals before
+            notices appear.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "capability-dimensions",
+      title: "Capability Dimensions",
+      content: (
+        <>
+          <p className="article-body-text">
+            A practical maturity model should assess data coverage, signal
+            quality, analytical process, decision integration, governance, and
+            outcomes measurement.
+          </p>
+          <p className="article-body-text">
+            Technology matters, but maturity also depends on habits: whether
+            commercial, bid, strategy, and leadership teams use the same
+            evidence when deciding where to focus.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "development-path",
+      title: "Development Path",
+      content: (
+        <>
+          <p className="article-body-text">
+            Teams do not need to jump directly from alert monitoring to full
+            forecasting. The development path can be staged: improve source
+            coverage, add lifecycle context, introduce competitor evidence,
+            then integrate signal confidence into planning.
+          </p>
+          <p className="article-body-text">
+            Each stage should improve a real decision. If a capability does not
+            help teams prioritize, prepare, bid, partner, or pass, it may be
+            analytical decoration rather than operational maturity.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "outcome-review",
+      title: "Outcome Review",
+      content: (
+        <>
+          <p className="article-body-text">
+            Mature teams review outcomes. They ask which signals were useful,
+            which opportunities were overvalued, where competitors behaved
+            differently than expected, and whether qualification criteria need
+            adjustment.
+          </p>
+          <p className="article-body-text">
+            Civant supports this direction by connecting procurement evidence
+            into a repeatable planning layer. Read more on the{" "}
+            <Link href="/methodology" className="text-link">
+              Methodology page
+            </Link>
+            .
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Move from reactive monitoring to evidence-led market planning.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is procurement intelligence maturity?",
+      answer:
+        "It is the level of sophistication with which an organization collects, connects, interprets, and uses procurement evidence to make commercial and bid decisions.",
+    },
+    {
+      question: "What is a low-maturity procurement intelligence process?",
+      answer:
+        "A low-maturity process usually depends on reactive tender alerts, manual portal monitoring, and ad hoc qualification after notices are published.",
+    },
+    {
+      question: "How can teams improve procurement intelligence maturity?",
+      answer:
+        "Teams can improve maturity by adding lifecycle evidence, buyer recurrence, competitor context, external signals, shared qualification criteria, and outcome review.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCommissionPublicProcurement",
+    "europeanCourtAuditorsCompetition",
+    "tedEforms",
+    "oecdPublicProcurement",
+  ]),
+  relatedSolution: {
+    solutionSlug: "procurement-intelligence-software",
+    linkLabel: "Explore procurement intelligence software",
+    children:
+      "See how Civant helps teams mature from reactive tender discovery into structured procurement intelligence.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Procurement Intelligence Maturity",
-  description:
-    "Procurement intelligence maturity reflects the sophistication, integration, and effectiveness of an organisation's procurement market information and an...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Procurement Intelligence Maturity",
-  description:
-    "Procurement intelligence maturity reflects the sophistication, integration, and effectiveness of an organisation's procurement market information and an...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Procurement Intelligence Maturity</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Procurement intelligence maturity reflects the sophistication, integration, and effectiveness of an organisation's procurement market information and analysis capabilities, ranging from reactive notice monitoring to strategic foresight and forecasting analytics. Organisations at low maturity levels typically monitor published procurement notices reactively, whilst organisations at higher maturity integrate procurement market intelligence with strategic planning, supplier relationship management, and business development. Assessment of intelligence maturity is increasingly relevant as digitalisation and data standardisation enable development of more sophisticated intelligence capabilities.
-          </p>
-
-          <p className="article-body-text">
-            Maturity frameworks for procurement intelligence typically assess capabilities across five dimensions: data sources and collection practices, analytical methodologies and tools, decision integration and process application, organisational alignment and governance, and outcomes measurement and continuous improvement. Organisations demonstrate wide variation in intelligence maturity, with multinational suppliers investing substantially in intelligence infrastructure whilst smaller organisations often rely on ad-hoc notice monitoring. The relationship between intelligence maturity and procurement business performance is positive but not deterministic, as intelligence value depends on effective organisational decision integration and execution.
-          </p>
-
-          <h2 className="article-subheading">Intelligence Evolution</h2>
-
-          <p className="article-body-text">
-            Increasing availability of standardised procurement data through eForms and improved digital platforms is reducing barriers to intelligence maturity advancement, enabling organisations without extensive prior analytics investment to develop sophisticated capabilities. Software vendors providing procurement intelligence and analytics tools have proliferated, with services ranging from basic notice monitoring to comprehensive opportunity scoring and competitive positioning analysis. The emergence of competitive intelligence services and procurement analytics specialists reflects demand for sophisticated intelligence capabilities and recognition that internal development of expertise and tools represents substantial investment.
-          </p>
-
-          <p className="article-body-text">
-            Supplier organisations with advanced intelligence maturity demonstrate measurable competitive advantages through improved opportunity selection, win rate improvement, and strategic market positioning. Large multinational suppliers have invested substantially in intelligence infrastructure, creating competitive advantage vis-a-vis smaller competitors with limited intelligence capabilities. However, intelligence capability advantage is partially offset by data availability levelling, as eForms standardisation and platform transparency reduce information asymmetries and enable broader supplier participation in intelligence-based decision-making.
-          </p>
-
-          <h2 className="article-subheading">Capability Levels</h2>
-
-          <p className="article-body-text">
-            Organisational intelligence maturity assessment reveals clustering at low and high maturity extremes, with limited organisations operating at intermediate maturity levels. Low-maturity organisations typically allocate 1-2 FTE to procurement intelligence functions, focusing on notice tracking and basic opportunity identification. High-maturity organisations allocate 5-20+ FTE to dedicated intelligence functions, with investment in specialised tools, forecasting analytics, and strategic planning integration. Mid-market suppliers increasingly invest in intermediate-level intelligence capabilities, recognising competitive necessity whilst managing cost constraints.
-          </p>
-
-          <p className="article-body-text">
-            Geographic variation in average intelligence maturity is pronounced, with Western European and Nordic suppliers demonstrating generally higher maturity compared to Central and Eastern European organisations. Sector variation shows technology and professional services suppliers demonstrating higher intelligence maturity compared to manufacturing and commodity suppliers. Large suppliers operating across multiple geographic and sectoral markets typically maintain more sophisticated intelligence operations compared to single-market or single-sector specialists.
-          </p>
-
-          <h2 className="article-subheading">Development Path</h2>
-
-          <p className="article-body-text">
-            The relationship between intelligence maturity and competitive success is increasingly pronounced as data standardisation and digital platform transparency reduce information asymmetries. Organisations maintaining low intelligence maturity face competitive disadvantage as informed competitors develop superior opportunity identification and win-rate improvement through analytical capabilities. Investment in intelligence maturity represents strategic necessity for organisations seeking sustained competitive advantage in procurement markets.
-          </p>
-
-          <p className="article-body-text">
-            The cost of intelligence maturity advancement is substantial, with sophisticated capabilities requiring investment in data infrastructure, analytical tools, and skilled personnel. However, intelligence ROI is demonstrable through improved win rates, opportunity selection discipline, and strategic positioning. The emergence of intelligence service providers and software vendors is reducing internal investment requirements by enabling outsourced or technology-enabled intelligence capabilities. However, sustained competitive advantage likely requires internal intelligence capability development combined with external tools and support.
-          </p>
-
-          <h2 className="article-subheading">Progression Framework</h2>
-
-          <p className="article-body-text">
-            Organisations should assess current intelligence maturity and develop roadmaps for capability advancement, recognising that intelligence investment provides measurable competitive returns. Intelligence maturity advancement should proceed through staged capability development, starting with data collection and basic analysis before advancing to forecasting analytics and strategic integration. Prioritisation of maturity advancement should focus on areas with highest competitive impact - opportunity identification, win-rate estimation, competitive positioning - before investing in lower-value peripheral capabilities.
-          </p>
-
-          <p className="article-body-text">
-            Investment in intelligence maturity should align with overall organisational strategy and market positioning, ensuring that intelligence capabilities support strategic objectives rather than generating analysis divorced from decision-making. Organisational governance structures should ensure that intelligence insights are systematically integrated into procurement strategy, bid decisions, and supplier relationship management processes. Assessment of intelligence ROI should track win rate improvements, bid response efficiency, and strategic market positioning gains attributable to intelligence capabilities, demonstrating value and justifying continued investment.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

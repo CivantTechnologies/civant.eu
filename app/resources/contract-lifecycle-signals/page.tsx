@@ -1,122 +1,184 @@
 import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { RelatedSolution } from "../../../components/site/RelatedSolution";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/contract-lifecycle-signals";
-const publishedAt = "2026-03-14T00:00:00+00:00";
-
-export const metadata = buildArticleMetadata({
+const article: ResourceArticle = {
+  path: "/resources/contract-lifecycle-signals",
   title: "Contract Lifecycle Signals",
   description:
-    "Contract lifecycle stages create timing boundaries. As agreements approach renewal windows, the probability of procurement activity often rises, espec...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Contract Lifecycle Signals",
-  description:
-    "Contract lifecycle stages create timing boundaries. As agreements approach renewal windows, the probability of procurement activity often rises, espec...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-export default function ArticlePage() {
-  return (
+    "Learn how contract start dates, durations, extensions, renewals, modifications, and award history create early evidence of future public procurement demand.",
+  publishedAt: "2026-03-28T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-16T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Contract lifecycle signals are evidence points that show where an existing public contract sits in its journey from award to delivery, extension, renewal, or replacement. They help suppliers anticipate when a buyer may return to market before a new tender notice appears.",
+  intro: (
     <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Contract Lifecycle Signals</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
+      <p className="article-body-text">
+        Public contracts do not disappear after award. They move through a
+        lifecycle: start, delivery, review, extension, modification, expiry,
+        renewal, or retender.
+      </p>
+      <p className="article-body-text">
+        Each stage can create useful evidence for suppliers trying to understand
+        where future demand may emerge.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Timing",
+      text: "Start dates, contract durations, extensions, and expiry windows create practical preparation markers.",
+    },
+    {
+      label: "Context",
+      text: "Modifications, renewals, and award patterns help explain whether a buyer may maintain, change, or reopen a requirement.",
+    },
+    {
+      label: "Use",
+      text: "Lifecycle signals should shape watchlists, account planning, and early qualification.",
+    },
+  ],
+  civantView: {
+    title: "Lifecycle evidence is one of the clearest early-warning layers.",
+    content: (
+      <p>
+        Contract lifecycle signals are not predictions by themselves. They are
+        structured evidence that helps teams decide which buyers and categories
+        deserve attention before the formal tender appears.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "what-lifecycle-signals-are",
+      title: "What Lifecycle Signals Are",
+      content: (
+        <>
           <p className="article-body-text">
-            Contract lifecycle stages create timing boundaries. As agreements
- approach renewal windows, the probability of procurement activity
- often rises, especially in categories with repeat buying patterns.
+            Lifecycle signals include contract award dates, start dates,
+            expected end dates, extensions, renewals, modifications, framework
+            call-offs, and replacement notices.
           </p>
-
           <p className="article-body-text">
-            Lifecycle signals are not guarantees, but they provide useful
- directional intelligence for planning and prioritization.
+            They are useful because many public-sector needs recur. A contract
+            nearing expiry does not guarantee a tender, but it does create a
+            reason to investigate buyer intent and category context.
           </p>
-
-          <h2 className="article-subheading">Lifecycle Indicators</h2>
-
+        </>
+      ),
+    },
+    {
+      id: "renewal-windows",
+      title: "Renewal Windows",
+      content: (
+        <>
           <p className="article-body-text">
-            Historical notices, awards, and participation records provide
- context for interpreting lifecycle windows. They reveal how similar
- institutions and categories behaved in previous cycles.
+            Renewal windows are especially important for suppliers. They create
+            a natural moment to assess whether a buyer may extend, retender,
+            consolidate, split, or reshape a requirement.
           </p>
-
           <p className="article-body-text">
-            Without historical context, lifecycle windows can be too broad.
- With context, they become actionable signals for sequencing work.
+            Teams that identify these windows early can begin account research,
+            partner discussions, and qualification before the market becomes
+            crowded.
           </p>
-
-          <h2 className="article-subheading">Temporal Boundaries</h2>
-
+        </>
+      ),
+    },
+    {
+      id: "modification-and-extension",
+      title: "Modification and Extension Signals",
+      content: (
+        <>
           <p className="article-body-text">
-            Lifecycle monitoring helps teams avoid late-stage opportunity
- discovery. It supports earlier alignment between account planning,
- partner strategy, and bid resource decisions.
+            Contract modifications and extensions can show changing needs,
+            delayed replacement, scope growth, or buyer reliance on an existing
+            supplier. These details matter when assessing whether a future
+            competition is likely and how open it may be.
           </p>
-
           <p className="article-body-text">
-            In practical terms, it shifts teams from reactive alert consumption
- toward proactive market timing.
+            A modification is not automatically an opportunity, but it can be a
+            useful prompt for monitoring and account planning.
           </p>
-
-          <h2 className="article-subheading">Future Tender Probability</h2>
-
+        </>
+      ),
+    },
+    {
+      id: "forecasting-context",
+      title: "Forecasting Context",
+      content: (
+        <>
           <p className="article-body-text">
-            Civant integrates lifecycle indicators with procurement history and
- participation dynamics to generate prioritized opportunity signals.
- These insights are surfaced across platform workflows for
- monitoring, analysis, and execution.
+            Civant combines lifecycle signals with award history, buyer
+            recurrence, competitor context, and external public indicators. That
+            broader evidence layer helps teams separate routine lifecycle noise
+            from commercially meaningful movement.
           </p>
-
           <p className="article-body-text">
-            Explore the workflow on the{" "}
-            <Link href="/platform" className="text-link">
-              Platform page
-            </Link>{" "}
-            and the analytical approach on the{" "}
+            See the underlying approach on the{" "}
             <Link href="/methodology" className="text-link">
               Methodology page
             </Link>
             .
           </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Use lifecycle signals to prepare before renewal pressure builds.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What are contract lifecycle signals?",
+      answer:
+        "Contract lifecycle signals are public evidence points such as award dates, contract durations, extensions, modifications, expiry windows, renewals, and replacement notices.",
+    },
+    {
+      question: "Do lifecycle signals guarantee a new tender?",
+      answer:
+        "No. They indicate where demand may be moving and should be combined with buyer history, category recurrence, external signals, and market context.",
+    },
+    {
+      question: "How should suppliers use lifecycle signals?",
+      answer:
+        "Suppliers should use lifecycle signals to build watchlists, time account engagement, plan partnerships, and qualify potential renewal or retender opportunities earlier.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCommissionPublicProcurement",
+    "tedEforms",
+    "europeanCommissionEforms",
+  ]),
+  relatedSolution: {
+    solutionSlug: "tender-prediction-software",
+    linkLabel: "Explore tender forecasting software",
+    children:
+      "See how Civant turns lifecycle evidence into earlier opportunity timing intelligence.",
+  },
+};
 
-          <RelatedSolution
-            solutionSlug="tender-prediction-software"
-            linkLabel="Explore tender forecasting software"
-          >
-            See how Civant connects contract lifecycle signals with buyer
-            recurrence and public evidence to forecast likely tender windows.
-          </RelatedSolution>
+export const metadata = buildArticleMetadata({
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
+});
 
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+export default function ArticlePage() {
+  return <ResourceArticleTemplate article={article} />;
 }

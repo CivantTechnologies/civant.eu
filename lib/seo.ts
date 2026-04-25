@@ -21,6 +21,10 @@ type ArticleSchemaArgs = {
   path: string;
   datePublished: string;
   dateModified?: string;
+  citations?: Array<{
+    label: string;
+    href: string;
+  }>;
 };
 
 type FaqItem = {
@@ -149,6 +153,7 @@ export function buildArticleSchema({
   path,
   datePublished,
   dateModified,
+  citations = [],
 }: ArticleSchemaArgs) {
   const articleUrl = `${SITE_URL}${path}`;
   const updatedAt = dateModified || datePublished;
@@ -188,6 +193,15 @@ export function buildArticleSchema({
         width: 1200,
         height: 630,
       },
+      ...(citations.length > 0
+        ? {
+            citation: citations.map((citation) => ({
+              "@type": "CreativeWork",
+              name: citation.label,
+              url: citation.href,
+            })),
+          }
+        : {}),
     },
     {
       "@context": "https://schema.org",

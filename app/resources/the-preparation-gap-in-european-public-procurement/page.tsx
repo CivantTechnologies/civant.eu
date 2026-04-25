@@ -1,119 +1,199 @@
 import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/the-preparation-gap-in-european-public-procurement";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/the-preparation-gap-in-european-public-procurement",
+  title: "The Preparation Gap in European Public Procurement",
+  description:
+    "Understand why reactive tender discovery creates a structural preparation gap in European public procurement and how procurement intelligence helps teams prepare earlier.",
+  publishedAt: "2026-03-18T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-21T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "The preparation gap is the distance between when a buyer's need starts forming and when most suppliers first see the tender. Teams that wait for published notices often have weeks to respond, while incumbents and prepared competitors may have spent months understanding the buyer, shaping partnerships, and planning a stronger response.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        European public procurement represents one of the largest addressable
+        markets for suppliers, but most teams still engage too late. Formal
+        tender notices create transparency, yet they do not create equal
+        preparation time.
+      </p>
+      <p className="article-body-text">
+        The result is a persistent preparation gap: the difference between the
+        moment demand becomes knowable and the moment a supplier begins serious
+        pursuit work.
+      </p>
+    </>
+  ),
+  visual: {
+    src: "/images/resources/action-team-preparation.jpg",
+    alt: "Bid and sales team preparing around public procurement timing signals",
+    caption:
+      "The strongest public-sector bids are usually prepared before the tender window opens.",
+    tone: "preparation",
+  },
+  takeaways: [
+    {
+      label: "Mismatch",
+      text: "Tender response windows are short, but buyer understanding and partner alignment take much longer.",
+    },
+    {
+      label: "Asymmetry",
+      text: "Incumbents and prepared competitors benefit from months of context before the market sees a notice.",
+    },
+    {
+      label: "Fix",
+      text: "The practical response is earlier account planning built on procurement cycles, awards, and public signals.",
+    },
+  ],
+  civantView: {
+    title: "The preparation gap is a timing problem before it is a bid problem.",
+    content: (
+      <p>
+        Better writing rarely fixes a bid that started too late. Procurement
+        intelligence helps teams move the important decisions earlier: which
+        buyers to study, which partners to involve, and which opportunities
+        deserve real pursuit effort.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "time-mismatch",
+      title: "Time Mismatch",
+      content: (
+        <>
+          <p className="article-body-text">
+            When a tender is published, the response window may be measured in
+            weeks. For complex services, IT, infrastructure, or regulated
+            categories, that window must cover requirement analysis, solution
+            design, pricing, approvals, partner coordination, and quality
+            assurance.
+          </p>
+          <p className="article-body-text">
+            A prepared competitor enters that window with context already built.
+            A reactive supplier uses the same window to learn the buyer, decide
+            whether to bid, and assemble the response at once.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "readiness-problem",
+      title: "The Readiness Problem",
+      content: (
+        <>
+          <p className="article-body-text">
+            Many public contracts follow repeatable patterns. Frameworks,
+            service renewals, budget cycles, policy programmes, and recurring
+            buyer needs all create early evidence that demand may return.
+          </p>
+          <p className="article-body-text">
+            The problem is not that the evidence is always hidden. It is that
+            the evidence is fragmented across notices, awards, plans, budgets,
+            consultations, and buyer history. Without a structured routine,
+            most suppliers do not turn those fragments into action.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "competition-impact",
+      title: "Competition Impact",
+      content: (
+        <>
+          <p className="article-body-text">
+            The preparation gap reinforces incumbent advantage. Existing
+            suppliers learn the buyer's operations during delivery, while
+            reactive challengers often start from the tender pack alone.
+          </p>
+          <p className="article-body-text">
+            That does not mean new entrants cannot win. It means they need a
+            longer preparation runway: account research, evidence gathering,
+            partner selection, and a clear bid/no-bid decision before the
+            deadline begins to dominate the workflow.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "closing-the-gap",
+      title: "Closing the Gap",
+      content: (
+        <>
+          <p className="article-body-text">
+            Closing the gap requires a shift from reactive tender monitoring to
+            proactive procurement intelligence. Teams need to track contract
+            lifecycles, award outcomes, buyer recurrence, and external signals
+            that indicate demand may be forming.
+          </p>
+          <p className="article-body-text">
+            For a deeper look at how Civant connects these signals, explore the{" "}
+            <Link href="/methodology" className="text-link">
+              Methodology page
+            </Link>
+            .
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Build the preparation window before the notice appears.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is the preparation gap in public procurement?",
+      answer:
+        "The preparation gap is the difference between when buyer demand becomes knowable and when a supplier begins preparing for a formal tender response.",
+    },
+    {
+      question: "Why does the preparation gap help incumbents?",
+      answer:
+        "Incumbents often understand the buyer's operations, constraints, and renewal context before the next tender appears, while reactive challengers start learning after publication.",
+    },
+    {
+      question: "How can suppliers close the preparation gap?",
+      answer:
+        "Suppliers can close the gap by tracking contract lifecycles, buyer recurrence, awards, early public signals, and competitor movement before the tender is formally published.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCommissionPublicProcurement",
+    "europeanCourtAuditorsCompetition",
+    "tedEforms",
+    "europeanCommissionEforms",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant gives teams earlier context for buyer timing, opportunity fit, and bid/no-bid preparation.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "The Preparation Gap in European Public Procurement",
-  description:
-    "European public procurement represents approximately two trillion euros in annual spending, accounting for roughly 13.6% of EU GDP. This market is gover...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "The Preparation Gap in European Public Procurement",
-  description:
-    "European public procurement represents approximately two trillion euros in annual spending, accounting for roughly 13.6% of EU GDP. This market is gover...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">The Preparation Gap in European Public Procurement</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            European public procurement represents approximately two trillion euros in annual spending, accounting for roughly 13.6% of EU GDP. This market is governed by directives designed to ensure transparency, competition, and value for money. Yet beneath the formal structures of open tendering lies a persistent challenge: the vast majority of suppliers engage with procurement opportunities only after formal notices are published.
-          </p>
-
-          <p className="article-body-text">
-            This reactive pattern creates what can be described as a preparation gap. The time between discovering an opportunity and submitting a response is often measured in weeks, while the time an incumbent supplier has spent understanding the buyer's needs is measured in months or years. The result is a structural imbalance that formal procurement rules were not designed to address.
-          </p>
-
-          <h2 className="article-subheading">Time Mismatch</h2>
-
-          <p className="article-body-text">
-            The European Court of Auditors reported in 2023 that competition in EU procurement has been declining steadily. Single-bidder contracts accounted for 42% of awarded contracts in 2021, nearly double the rate from a decade earlier. While multiple factors contribute to this trend, the preparation gap plays a significant and underexamined role.
-          </p>
-
-          <p className="article-body-text">
-            When a tender is published, the response window typically ranges from 30 to 52 days depending on the procedure type. For complex services or IT contracts, this window must accommodate requirement analysis, solution design, commercial modelling, partner coordination, reference gathering, and quality assurance of the written submission. For a supplier encountering the requirement for the first time, this timeline is inadequate for producing a genuinely competitive response.
-          </p>
-
-          <p className="article-body-text">
-            Meanwhile, the incumbent supplier or a well-prepared competitor has already invested in understanding the buyer's operational environment, challenges, and decision-making preferences. This asymmetry is not the result of unfair practice. It is the natural consequence of different preparation timelines.
-          </p>
-
-          <h2 className="article-subheading">Readiness Problem</h2>
-
-          <p className="article-body-text">
-            Several structural patterns reinforce the preparation gap. First, most public contracts operate on predictable cycles. Framework agreements in the EU are typically capped at four years. Service contracts often follow annual or multi-year renewal patterns. Infrastructure projects align with budgetary cycles and political planning horizons.
-          </p>
-
-          <p className="article-body-text">
-            Second, procurement planning information is increasingly available before formal publication. Many contracting authorities publish forward procurement plans, pre-information notices, or engage in preliminary market consultations. However, the fragmentation of this information across hundreds of national and regional portals means that most suppliers do not systematically monitor these signals.
-          </p>
-
-          <p className="article-body-text">
-            Third, the concentration of contract awards to incumbent suppliers creates a self-reinforcing cycle. Organizations that win contracts gain operational knowledge that improves their position in subsequent procurements, while organizations that fail to prepare adequately submit weaker bids, reinforcing the incumbent's advantage.
-          </p>
-
-          <h2 className="article-subheading">Competition Impact</h2>
-
-          <p className="article-body-text">
-            For organizations selling into the European public sector, the preparation gap has several practical implications. The most important is that bid success rates are substantially influenced by decisions made before the tender is published, not during the response period.
-          </p>
-
-          <p className="article-body-text">
-            Organizations that systematically track contract lifecycles, monitor buyer behaviour, and identify upcoming opportunities months before publication can allocate resources more effectively. They can conduct deeper research into the buyer's operational context, develop more tailored solutions, build relevant partnerships, and produce higher-quality submissions.
-          </p>
-
-          <p className="article-body-text">
-            Conversely, organizations that rely solely on tender alert services or portal monitoring are structurally disadvantaged. They are competing against suppliers who have been preparing for months using publicly available but poorly aggregated information.
-          </p>
-
-          <h2 className="article-subheading">Closing the Gap</h2>
-
-          <p className="article-body-text">
-            Closing the preparation gap requires a shift from reactive tender monitoring to proactive procurement intelligence. This means systematically analysing historical procurement data to identify contract renewal cycles, tracking buyer behaviour patterns across time, and detecting early signals that indicate upcoming procurement activity.
-          </p>
-
-          <p className="article-body-text">
-            The data to support this analysis already exists. Contract award notices, framework agreement publications, pre-information notices, and budget announcements collectively provide a rich dataset for forecasting procurement activity. The challenge lies in aggregating, normalising, and interpreting this data across the fragmented European procurement landscape.
-          </p>
-
-          <p className="article-body-text">
-            Structured procurement intelligence transforms the preparation timeline. Instead of discovering an opportunity at publication, an organisation can identify it months earlier, allowing time for strategic preparation, stakeholder engagement, and solution development that genuinely competes with incumbent knowledge.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

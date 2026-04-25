@@ -1,112 +1,189 @@
 import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { RelatedSolution } from "../../../components/site/RelatedSolution";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/the-economics-of-bid-no-bid-decisions";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/the-economics-of-bid-no-bid-decisions",
+  title: "The Economics of Bid-No-Bid Decisions",
+  description:
+    "Learn how bid/no-bid discipline protects scarce bid resources by weighing fit, timing, buyer context, competition, preparation window, and likely return.",
+  publishedAt: "2026-03-25T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-19T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Bid/no-bid decisions are economic decisions. A tender is only attractive if the expected value of pursuing it outweighs the cost of preparing, pricing, approving, and submitting a credible bid. Procurement intelligence improves that calculation by adding evidence about buyer fit, competition, incumbent position, timing, and preparation quality.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Public-sector bid teams rarely lose because they ignored one obvious
+        opportunity. They lose capacity when they chase too many opportunities
+        without enough evidence to justify the effort.
+      </p>
+      <p className="article-body-text">
+        A disciplined bid/no-bid process treats every pursuit as an investment:
+        time, expertise, leadership attention, partner coordination, pricing
+        effort, and opportunity cost.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Cost",
+      text: "Every bid consumes scarce capacity that could be used on a better-fit opportunity.",
+    },
+    {
+      label: "Fit",
+      text: "Buyer context, incumbent position, timing, and solution match should shape the decision before writing starts.",
+    },
+    {
+      label: "Return",
+      text: "Strong bid discipline improves win rate, reduces wasted effort, and protects team focus.",
+    },
+  ],
+  civantView: {
+    title: "A bid/no-bid decision should be evidence-led, not deadline-led.",
+    content: (
+      <p>
+        The worst time to decide whether an opportunity is worth pursuing is
+        after the team has already started writing. Civant helps move that
+        decision earlier by giving teams buyer, lifecycle, competitor, and
+        timing evidence before commitment becomes emotional.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "hidden-bid-cost",
+      title: "The Hidden Cost of Bidding",
+      content: (
+        <>
+          <p className="article-body-text">
+            Bid cost is more than the time spent drafting a response. It
+            includes discovery, qualification, technical review, pricing,
+            leadership approval, partner coordination, compliance checks, and
+            opportunity cost.
+          </p>
+          <p className="article-body-text">
+            When teams pursue weak-fit tenders, they do not only risk losing.
+            They reduce the time available for opportunities where they have a
+            stronger buyer fit, better differentiation, or a more realistic
+            preparation window.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "expected-value",
+      title: "Expected Value Thinking",
+      content: (
+        <>
+          <p className="article-body-text">
+            A practical bid/no-bid model asks whether the likely value of the
+            opportunity justifies the cost of pursuit. That requires more than
+            contract value. Teams need to consider win probability, strategic
+            fit, delivery risk, incumbent strength, buyer history, and timing.
+          </p>
+          <p className="article-body-text">
+            Procurement intelligence does not remove judgement. It improves the
+            inputs so the decision is less dependent on optimism, urgency, or
+            the visibility of a new notice.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "evidence-inputs",
+      title: "Evidence Inputs",
+      content: (
+        <>
+          <p className="article-body-text">
+            Useful bid/no-bid evidence includes buyer recurrence, award history,
+            incumbent footprint, competitor participation, contract lifecycle
+            stage, pricing signals, and the remaining preparation window.
+          </p>
+          <p className="article-body-text">
+            Teams should also ask whether they can build a credible response in
+            time. A technically winnable opportunity can still be a poor bid if
+            the preparation window is too compressed.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "decision-discipline",
+      title: "Decision Discipline",
+      content: (
+        <>
+          <p className="article-body-text">
+            Strong bid teams use repeatable criteria. They make explicit trade
+            offs, record why an opportunity was pursued or declined, and review
+            outcomes so the process improves over time.
+          </p>
+          <p className="article-body-text">
+            Civant supports this discipline by connecting live tenders with the
+            wider market evidence behind them. See how this works on the{" "}
+            <Link href="/platform" className="text-link">
+              Platform page
+            </Link>
+            .
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Give bid/no-bid decisions a stronger evidence base.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is a bid/no-bid decision?",
+      answer:
+        "A bid/no-bid decision is the structured choice to pursue or decline a tender based on fit, value, competition, timing, capacity, and expected return.",
+    },
+    {
+      question: "Why do bid/no-bid decisions matter?",
+      answer:
+        "They protect scarce bid resources. Pursuing too many weak-fit tenders reduces the time and attention available for opportunities with stronger win potential.",
+    },
+    {
+      question: "How does procurement intelligence improve bid/no-bid decisions?",
+      answer:
+        "It adds evidence about buyer history, contract lifecycles, incumbent position, competitor behavior, timing, and signals so teams can qualify opportunities before committing effort.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCommissionPublicProcurement",
+    "europeanCourtAuditorsCompetition",
+    "oecdPublicProcurement",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant helps teams qualify opportunities with buyer, timing, competitor, and lifecycle evidence.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "The Economics of Bid-No-Bid Decisions",
-  description:
-    "Bid-no-bid decisions represent fundamental economic choices for suppliers, determining whether to allocate resources to tender preparation and proposal ...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "The Economics of Bid-No-Bid Decisions",
-  description:
-    "Bid-no-bid decisions represent fundamental economic choices for suppliers, determining whether to allocate resources to tender preparation and proposal ...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">The Economics of Bid-No-Bid Decisions</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Bid-no-bid decisions represent fundamental economic choices for suppliers, determining whether to allocate resources to tender preparation and proposal submission, with direct impact on procurement business performance. Economic theory suggests bidding decisions should compare expected bid preparation cost against expected bid win value, yet evidence indicates most suppliers employ simplified decision heuristics rather than formal economic analysis. The average cost of tender preparation for above-threshold EU procurements ranges 8,000-25,000 EUR depending on sector and contract complexity, representing substantial investment requiring careful opportunity selection.
-          </p>
-
-          <p className="article-body-text">
-            Supplier win rates in EU procurement typically range 5-15% across competitive market segments, meaning that substantial majority of bid investments yield no revenue return. The economics of bidding create strategic challenges for suppliers, as low win rates require either high bid success value or efficient bid preparation processes to justify participation. Systematic bid-no-bid decision processes enable suppliers to focus resources on high-probability opportunities, improving overall procurement business profitability despite lower bid volumes.
-          </p>
-
-          <h2 className="article-subheading">Economic Calculus</h2>
-
-          <p className="article-body-text">
-            Supplier bidding patterns show concentration on familiar contract types, authorities, and geographic markets where competitive position and win probability are highest. Competition intensity varies substantially across procurement categories, with some segments attracting 2-3 bidders whilst others attract 10-15, affecting win rate calculations and optimal bid pursuit strategies. Market selection patterns show suppliers pursuing procurements in home geographies and similar authorities due to relationship advantages and reduced bid preparation costs from previous similar bids.
-          </p>
-
-          <p className="article-body-text">
-            Supplier investment in bid preparation capabilities shows strong correlation with bid-no-bid discipline, as efficient bid processes enable economically viable participation in lower-value opportunities. Large suppliers with established procurement response systems can pursue more opportunities cost-effectively compared to smaller suppliers, creating efficiency-based competitive advantage. Specialised procurements attracting limited competition show higher expected value per bid despite lower win rates, incentivising specialist suppliers to pursue concentrated market niches.
-          </p>
-
-          <h2 className="article-subheading">Cost-Benefit Analysis</h2>
-
-          <p className="article-body-text">
-            Supplier bidding patterns show strong geographic concentration in home markets, with 60-70% of bids submitted for procurements within home member states or neighbouring regions. Cross-border bid participation increases with contract value, as higher-value opportunities justify geographic distance and language/cultural barriers. Sector concentration patterns show suppliers bidding primarily within core business categories where they maintain established competitive position, with limited pursuit of adjacent categories despite potential market adjacency.
-          </p>
-
-          <p className="article-body-text">
-            Win rate analysis by supplier type shows large suppliers achieving 8-12% win rates across diverse market segments, whilst SMEs show 12-18% win rates in focused market segments but substantial reduction in win rates when pursuing diversified opportunities. First-time bidder performance shows significantly lower win rates (2-5%) compared to established bidders, reflecting learning curve effects and relationship disadvantage. Analysis of bid pursuit patterns shows suppliers responding to 10-20% of published procurement opportunities within their nominal target market, suggesting substantial selection discipline.
-          </p>
-
-          <h2 className="article-subheading">Decision Criteria</h2>
-
-          <p className="article-body-text">
-            The economics of bidding create strategic imperative for suppliers to develop rigorous opportunity selection processes, as indiscriminate bidding wastes resources and reduces profitability. Suppliers with disciplined bid-no-bid processes achieve higher procurement business performance compared to those pursuing all opportunities, though discipline requires developing win-probability assessment methodologies. The relationship between bid cost, win probability, and contract value creates natural specialisation by suppliers towards market segments where competitive advantages enable superior win rates.
-          </p>
-
-          <p className="article-body-text">
-            Market fragmentation and geographic dispersion of procurement opportunities mean that most suppliers cannot compete effectively in all opportunities, creating natural niches and specialised competitive positions. Supplier consolidation and mergers often occur when merged entities can achieve scale economies in bid preparation or can access complementary geographic or sector opportunities. The economics of bidding suggest that suppliers should pursue portfolio strategies, combining low-probability high-value opportunities with high-probability lower-value bids, to optimise resource allocation and revenue generation.
-          </p>
-
-          <h2 className="article-subheading">Bid Economics</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence operations should prioritise opportunity scoring and win-probability assessment, enabling disciplined bid-no-bid decisions that allocate bid preparation resources to highest-probability opportunities. Intelligence teams should develop quantitative win-probability models incorporating competitive landscape analysis, buyer relationships, specification fit, and price viability assessments. Opportunity portfolios should be managed dynamically, adjusting bid pursuit strategies as market conditions and competitive positioning evolve.
-          </p>
-
-          <p className="article-body-text">
-            Strategic market intelligence should inform opportunity selection strategies, identifying market segments and authority relationships where supplier competitive position is strongest and win probability highest. Supplier business strategy should integrate competitive intelligence capabilities as foundation for bid-no-bid discipline, as opportunity assessment quality directly affects procurement business profitability. Investment in intelligence infrastructure should be justified through bid-no-bid discipline, demonstrating how improved opportunity selection increases win rates and improves resource allocation efficiency.
-          </p>
-
-          <RelatedSolution
-            solutionSlug="public-procurement-intelligence"
-            linkLabel="Explore public procurement intelligence"
-          >
-            See how Civant gives bid teams buyer, timing, competitor, and signal
-            context before committing scarce bid resources.
-          </RelatedSolution>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
+import type { ArticleSource } from "../../lib/articleSources";
 
 type BriefItem = {
   label: string;
@@ -18,6 +20,48 @@ type FaqItem = {
 
 export function ArticleBriefGrid({ children }: { children: ReactNode }) {
   return <div className="article-brief-grid">{children}</div>;
+}
+
+export function ArticleAnswerBlock({
+  answer,
+  label = "TL;DR",
+}: {
+  answer: string;
+  label?: string;
+}) {
+  return (
+    <aside className="article-answer-block" aria-label={label}>
+      <p className="eyebrow">{label}</p>
+      <p>{answer}</p>
+    </aside>
+  );
+}
+
+export function ArticleHeroVisual({
+  src,
+  alt,
+  caption,
+  tone = "intelligence",
+  reliefMark = true,
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  tone?: "intelligence" | "preparation";
+  reliefMark?: boolean;
+}) {
+  return (
+    <figure
+      className={`article-hero-visual article-hero-visual-${tone} ${
+        reliefMark ? "article-hero-visual-relief" : ""
+      }`.trim()}
+    >
+      <div className="article-hero-image">
+        <Image src={src} alt={alt} fill sizes="(max-width: 760px) 100vw, 48rem" priority={false} />
+      </div>
+      {caption ? <figcaption>{caption}</figcaption> : null}
+    </figure>
+  );
 }
 
 export function ArticleTakeaways({ items }: { items: BriefItem[] }) {
@@ -81,7 +125,7 @@ export function ArticleActionPanel({
 }: {
   eyebrow: string;
   title: string;
-  body: string;
+  body?: string;
   primaryHref: string;
   primaryLabel: string;
   secondaryHref?: string;
@@ -92,7 +136,7 @@ export function ArticleActionPanel({
       <div>
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="card-title">{title}</h2>
-        <p className="card-body">{body}</p>
+        {body ? <p className="card-body">{body}</p> : null}
       </div>
       <div className="article-action-buttons">
         <Link href={primaryHref} className="btn btn-primary">
@@ -105,6 +149,29 @@ export function ArticleActionPanel({
         ) : null}
       </div>
     </aside>
+  );
+}
+
+export function ArticleSources({ items }: { items: ArticleSource[] }) {
+  if (items.length === 0) return null;
+
+  return (
+    <section className="article-sources" aria-labelledby="article-sources-heading">
+      <p className="eyebrow">Sources</p>
+      <h2 id="article-sources-heading" className="article-subheading">
+        Sources and Further Reading
+      </h2>
+      <ul className="article-sources-list">
+        {items.map((item) => (
+          <li key={item.href}>
+            <a href={item.href} target="_blank" rel="noopener noreferrer">
+              {item.label}
+            </a>
+            {item.note ? <p>{item.note}</p> : null}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
