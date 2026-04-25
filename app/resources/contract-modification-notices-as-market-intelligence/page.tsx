@@ -1,103 +1,187 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/contract-modification-notices-as-market-intelligence";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/contract-modification-notices-as-market-intelligence",
+  title: "Contract Modification Notices as Market Intelligence",
+  description:
+    "See how contract modification notices reveal scope changes, extensions, budget movement, delivery pressure, and future procurement opportunities.",
+  publishedAt: "2026-03-17T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Contract modification notices can be useful market intelligence because they show how awarded contracts change during delivery. Scope changes, extensions, value movement, supplier changes, and timing adjustments can reveal buyer pressure, budget availability, delivery risk, and possible future re-procurement needs.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Contract awards are not the end of procurement intelligence. Public
+        contracts often evolve during delivery, and published modification
+        notices can reveal how a buyer's needs, budgets, timelines, or supplier
+        relationships are changing.
+      </p>
+      <p className="article-body-text">
+        For suppliers, these notices help expose where a market is moving after
+        award and where a future opportunity may be forming.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Change",
+      text: "Modification notices can reveal scope, value, timeline, or supplier changes after award.",
+    },
+    {
+      label: "Risk",
+      text: "Repeated modifications may indicate delivery pressure, requirement drift, or planning uncertainty.",
+    },
+    {
+      label: "Opportunity",
+      text: "Contract changes can signal future replacement, expansion, or adjacent procurement demand.",
+    },
+  ],
+  civantView: {
+    title: "Contract modifications are post-award signals, not administrative noise.",
+    content: (
+      <p>
+        Civant monitors modifications because they add context to lifecycle and
+        renewal forecasts. A contract that changes materially during delivery
+        may tell the market something important about the buyer's needs before
+        the next tender appears.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "amendment-patterns",
+      title: "Amendment Patterns",
+      content: (
+        <>
+          <p className="article-body-text">
+            Modification notices can show whether a buyer is extending a
+            contract, increasing value, changing scope, replacing a supplier, or
+            adjusting timelines. Each type of change tells a different story
+            about demand and delivery.
+          </p>
+          <p className="article-body-text">
+            A value increase may indicate additional budget or expanding need.
+            A timeline extension may suggest a bridge period before a future
+            procurement. A supplier change may point to delivery stress or a
+            changing competitive landscape.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "contract-evolution",
+      title: "Contract Evolution",
+      content: (
+        <>
+          <p className="article-body-text">
+            Contracts evolve for legitimate reasons: new requirements, external
+            shocks, delivery complexity, or changes in the buyer's operating
+            environment. The intelligence value comes from understanding
+            whether the change is isolated or part of a wider pattern.
+          </p>
+          <p className="article-body-text">
+            Modification data is especially useful when combined with original
+            award data, contract duration, buyer history, and related notices.
+            Without that context, a modification can be easy to misread.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "change-intelligence",
+      title: "Change Intelligence",
+      content: (
+        <>
+          <p className="article-body-text">
+            Suppliers can use modification notices to identify contracts that
+            are expanding, unstable, delayed, or approaching replacement. This
+            supports account planning before a formal re-procurement process is
+            visible.
+          </p>
+          <p className="article-body-text">
+            It also informs risk assessment. Buyers with frequent scope changes
+            may need flexible delivery models, clearer discovery, or stronger
+            commercial controls.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "adaptation-signals",
+      title: "Adaptation Signals",
+      content: (
+        <>
+          <p className="article-body-text">
+            Modification notices should feed into a wider evidence model. They
+            can support renewal forecasts, competitor tracking, incumbent
+            monitoring, and budget analysis.
+          </p>
+          <p className="article-body-text">
+            The practical output is a better decision about where to watch,
+            where to engage, and where a contract's current shape may not match
+            the buyer's future need.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Track post-award changes before they become future tenders.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is a contract modification notice?",
+      answer:
+        "A contract modification notice is a published notice describing changes to an awarded public contract, such as scope, value, duration, timeline, or supplier-related changes.",
+    },
+    {
+      question: "Why do modification notices matter to suppliers?",
+      answer:
+        "They can reveal delivery pressure, expanding requirements, budget movement, bridge extensions, or future replacement needs before a new tender is published.",
+    },
+    {
+      question: "Are all contract modifications procurement opportunities?",
+      answer:
+        "No. A modification is an evidence input, not proof of a future tender. It becomes useful when combined with lifecycle timing, buyer history, incumbent context, and related public signals.",
+    },
+  ],
+  sources: getArticleSources([
+    "eurLexDirective201424",
+    "tedEforms",
+    "europeanCommissionEforms",
+    "europeanCommissionPublicProcurement",
+  ]),
+  relatedSolution: {
+    solutionSlug: "procurement-intelligence-software",
+    linkLabel: "Explore procurement intelligence software",
+    children:
+      "See how Civant connects award history, contract modifications, and lifecycle signals into practical market intelligence.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Contract Modification Notices as Market Intelligence",
-  description:
-    "Contract modification notices represent published communications when contracting authorities make changes to awarded contracts during execution, includ...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Contract Modification Notices as Market Intelligence",
-  description:
-    "Contract modification notices represent published communications when contracting authorities make changes to awarded contracts during execution, includ...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Contract Modification Notices as Market Intelligence</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Contract modification notices represent published communications when contracting authorities make changes to awarded contracts during execution, including changes to contract scope, value, timeline, or supplier identity. Directive 2014/24/EU requires publication of material contract modifications as amendment notices in the Official Journal, creating public visibility into contract changes that would otherwise remain internal. Contract modifications reveal ongoing procurement activity, budget availability, and delivery challenges that provide intelligence regarding contracting authority operations and potential future procurement opportunities.
-          </p>
-
-          <p className="article-body-text">
-            The frequency and nature of contract modifications vary substantially across member states and authority types, with estimates suggesting 20-40% of contracts are modified at least once during execution. Common modification drivers include scope changes (15-25% of modifications), timeline extensions (20-30%), value increases (30-40%), and supplier changes (5-10%). Published modification data is increasingly available through eForms, enabling systematic analysis of modification patterns, frequency, and characteristics across authorities and sectors.
-          </p>
-
-          <h2 className="article-subheading">Amendment Patterns</h2>
-
-          <p className="article-body-text">
-            Contract modifications reveal contracting authority procurement patterns and budget flexibility that are not visible in original tender notices, with analysis of modification data enabling development of more complete understanding of authority purchasing behaviour. Significant contract value increases signal budget availability and shifting priority areas, creating opportunities for related suppliers and services. Repeated modifications and supplier changes in specific procurement categories signal dissatisfaction with original supplier or emerging requirement gaps, indicating competitive opportunities for alternative suppliers.
-          </p>
-
-          <p className="article-body-text">
-            Modification patterns also reveal procurement planning quality, with authorities demonstrating high modification rates showing weaker planning and specification processes. This information affects supplier risk assessment, as high-modification contracting authorities may create delivery challenges and scope expansion pressures. Analysis of modification patterns by supplier shows differentiation in supplier ability to accommodate change and manage expanded requirements, with some suppliers demonstrating flexibility whilst others demonstrate resistance or performance degradation.
-          </p>
-
-          <h2 className="article-subheading">Contract Evolution</h2>
-
-          <p className="article-body-text">
-            Contract modification notices show geographic clustering, with authorities in some member states publishing modifications regularly whilst others publish infrequently despite comparable procurement volumes, reflecting variation in publication discipline and transparency practices. Modification frequency by contract category shows construction and infrastructure demonstrating highest modification rates (40-60%), whilst services and supplies show lower rates (15-25%), reflecting specification clarity challenges in physical goods procurement. Value increase modifications show average increases of 10-20% of original contract value, though some modifications represent substantially larger changes (30-50%) reflecting significant scope evolution.
-          </p>
-
-          <p className="article-body-text">
-            Temporal patterns in modifications show clustering in contract mid-periods (6-18 months into contract execution), suggesting latent requirement changes emerge after contract commencement. Supplier changes through modifications are concentrated in underperformance situations where original suppliers are replaced, typically occurring 50-70% through contract execution periods. Multi-year contracts show higher modification frequency compared to short-term contracts, reflecting extended time for requirement changes to emerge.
-          </p>
-
-          <h2 className="article-subheading">Change Intelligence</h2>
-
-          <p className="article-body-text">
-            The publication of contract modification notices creates visibility into contracting authority procurement patterns and planning quality, enabling suppliers to assess authority reliability and planning discipline as risk factors. Suppliers can identify underperforming contract situations where original suppliers are changed, representing potential opportunities to take over existing delivery obligations. Analysis of modification patterns enables assessment of authority procurement maturity and specification quality, informing supplier confidence in contract execution risk.
-          </p>
-
-          <p className="article-body-text">
-            Regulatory concerns regarding contract modifications focus on whether material modifications should have triggered re-competition rather than supplier changes or value adjustments, with some authorities using modifications to avoid procurement procedures. The trend towards increased modification transparency through eForms and systematic publication may reduce improper use of modifications as circumvention mechanisms. However, modification analysis also reveals legitimate planning challenges and requirement evolution requiring flexible contract management approaches.
-          </p>
-
-          <h2 className="article-subheading">Adaptation Signals</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence should systematically monitor contract modification notices as indicators of ongoing procurement activity, budget availability, and supplier performance issues in awarded contracts. Intelligence operations should analyse modification patterns by authority, sector, and supplier to identify patterns indicating underperformance situations and potential replacement opportunities. Modification data should inform risk assessment regarding contracting authority planning quality and likelihood of contract stability versus dynamic requirement evolution.
-          </p>
-
-          <p className="article-body-text">
-            Competitive positioning strategies should recognise that contract modifications create opportunities to displace underperforming suppliers or expand relationships with satisfied existing suppliers. Supplier performance tracking should include analysis of contract modification rates and patterns, as modifications can indicate either positive flexibility or negative delivery challenges. Market intelligence regarding modification trends by authority and sector should inform bidding strategies, with consideration of whether authority track record suggests stable requirements or significant scope evolution likelihood.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

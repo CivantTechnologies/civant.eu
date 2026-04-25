@@ -1,103 +1,180 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/dynamic-purchasing-systems-and-their-growing-role-in-eu-procurement";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/dynamic-purchasing-systems-and-their-growing-role-in-eu-procurement",
+  title: "Dynamic Purchasing Systems and Their Growing Role in EU Procurement",
+  description:
+    "Learn how dynamic purchasing systems work, why they create always-open supplier access, and how DPS call-offs change public procurement competition.",
+  publishedAt: "2026-03-26T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "A dynamic purchasing system is an electronic procurement mechanism that remains open to suppliers meeting the qualification criteria. It can lower entry barriers compared with closed frameworks, but suppliers still need to compete for individual call-offs.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Dynamic purchasing systems are increasingly important because they
+        create more flexible purchasing structures for recurring public-sector
+        demand. Unlike closed panels, a DPS can admit qualifying suppliers
+        during its lifetime.
+      </p>
+      <p className="article-body-text">
+        For suppliers, that openness is useful. But it does not remove the need
+        for discipline, because call-offs can create frequent, competitive bid
+        workload.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Access",
+      text: "A DPS can remain open to new qualifying suppliers during its operation.",
+    },
+    {
+      label: "Competition",
+      text: "Entry is only the first step; suppliers still compete for call-offs.",
+    },
+    {
+      label: "Monitoring",
+      text: "DPS intelligence should track setup notices, membership, call-offs, and buyer usage.",
+    },
+  ],
+  civantView: {
+    title: "DPS opportunities need continuous intelligence, not one-time alerting.",
+    content: (
+      <p>
+        Civant separates DPS establishment from call-off activity so suppliers
+        can understand both market access and actual recurring demand.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "speed-and-openness",
+      title: "Speed and Openness",
+      content: (
+        <>
+          <p className="article-body-text">
+            DPS models are designed for electronic purchasing where buyers need
+            access to a pool of qualified suppliers. Because qualifying
+            suppliers can join during the system's life, the mechanism can be
+            more open than a closed framework.
+          </p>
+          <p className="article-body-text">
+            That openness can help challengers and SMEs, but only if they can
+            find the DPS, qualify efficiently, and respond to relevant call-offs.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "continuous-competition",
+      title: "Continuous Competition",
+      content: (
+        <>
+          <p className="article-body-text">
+            DPS participation can create recurring opportunity, but it can also
+            create repeated bidding pressure. Suppliers need to understand the
+            call-off rhythm, likely buyers, value profile, and competitive field.
+          </p>
+          <p className="article-body-text">
+            A DPS with many low-fit call-offs may consume more effort than it
+            returns. A DPS aligned to target buyers and categories can become a
+            valuable route to market.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "dps-mechanics",
+      title: "DPS Mechanics",
+      content: (
+        <>
+          <p className="article-body-text">
+            Suppliers should distinguish between the establishment of a DPS and
+            the later call-offs under it. The first determines access. The
+            second determines commercial value.
+          </p>
+          <p className="article-body-text">
+            Useful intelligence includes admission criteria, lots, buyer scope,
+            supplier membership, call-off frequency, and award patterns.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "always-open-markets",
+      title: "Always-Open Markets",
+      content: (
+        <>
+          <p className="article-body-text">
+            DPS structures can make markets feel more accessible, but suppliers
+            still need a clear qualification model. Joining every relevant DPS
+            without analysing call-off behavior can overload commercial teams.
+          </p>
+          <p className="article-body-text">
+            The better approach is to target systems where the buyer base,
+            category fit, and call-off evidence justify sustained participation.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Track DPS access and call-off demand in one workflow.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is a dynamic purchasing system?",
+      answer:
+        "A dynamic purchasing system is an electronic public procurement mechanism that stays open to suppliers meeting the qualification criteria during its lifetime.",
+    },
+    {
+      question: "How is a DPS different from a framework?",
+      answer:
+        "A framework usually has fixed supplier membership after award, while a DPS remains open to new qualifying suppliers and uses competitions for individual purchases.",
+    },
+    {
+      question: "What should suppliers track in a DPS?",
+      answer:
+        "Suppliers should track admission criteria, lots, participating buyers, supplier membership, call-off frequency, award patterns, and whether the call-offs match their strategy.",
+    },
+  ],
+  sources: getArticleSources([
+    "eurLexDirective201424",
+    "tedEforms",
+    "europeanCommissionEforms",
+    "europeanCommissionPublicProcurement",
+  ]),
+  relatedSolution: {
+    solutionSlug: "eu-tender-monitoring",
+    linkLabel: "Explore EU tender monitoring",
+    children:
+      "See how Civant helps teams distinguish DPS setup notices, call-offs, frameworks, and live tender opportunities.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Dynamic Purchasing Systems and Their Growing Role in EU Procurement",
-  description:
-    "Dynamic Purchasing Systems (DPS) represent procurement mechanisms where contracting authorities establish ongoing competitive frameworks with multiple s...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Dynamic Purchasing Systems and Their Growing Role in EU Procurement",
-  description:
-    "Dynamic Purchasing Systems (DPS) represent procurement mechanisms where contracting authorities establish ongoing competitive frameworks with multiple s...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Dynamic Purchasing Systems and Their Growing Role in EU Procurement</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Dynamic Purchasing Systems (DPS) represent procurement mechanisms where contracting authorities establish ongoing competitive frameworks with multiple suppliers, enabling authorities to issue call-offs within the framework without re-running competition for each individual purchase. Directive 2014/24/EU introduced formal DPS frameworks as alternatives to traditional procurement methods, recognising their utility for recurring procurement where demand patterns or specifications cannot be fully defined in advance. DPS are particularly suited to IT, maintenance services, and other categories where innovation and specification evolution occur during contract execution periods.
-          </p>
-
-          <p className="article-body-text">
-            Adoption of DPS has accelerated since 2018, with member states increasingly using DPS for categories including healthcare supplies, IT services, maintenance and facilities management, and office supplies. The European Commission estimates that DPS and framework agreements now account for approximately 25-30% of above-threshold procurement, representing fundamental structural change in how authorities manage competitive processes. DPS provide authorities with flexibility to add new suppliers and remove non-performing suppliers during system operation, creating dynamic competition cycles contrasting with static framework agreements or individual tender processes.
-          </p>
-
-          <h2 className="article-subheading">Speed and Openness</h2>
-
-          <p className="article-body-text">
-            DPS participation provides suppliers with extended contract certainty compared to individual tenders, as successful entry establishes framework membership enabling participation in multiple call-offs without re-competition. However, DPS create continuous competitive pressure, as authorities can add new suppliers at any point and remove suppliers failing performance requirements, unlike traditional framework agreements with fixed supplier sets. The economics of DPS participation shift supplier bidding strategies, with framework membership viewed as foundation for long-term revenue streams rather than individual contract wins, incentivising lower initial framework pricing.
-          </p>
-
-          <p className="article-body-text">
-            DPS expansion into new procurement categories is attracting new suppliers and intensifying competition in established categories, as the mechanism reduces barriers to initial market entry by enabling participation following initial framework qualification. However, DPS also introduce risk for smaller suppliers, as continuous competition and authority discretion to remove underperforming suppliers create contract uncertainty compared to fixed-term agreements. Market consolidation patterns show large suppliers increasingly dominating DPS frameworks, as scale and technology investments required to manage multiple simultaneous call-offs favour established competitors.
-          </p>
-
-          <h2 className="article-subheading">Continuous Competition</h2>
-
-          <p className="article-body-text">
-            DPS procurement notices show distinctive patterns - framework establishment tenders followed by multiple successive call-off notices published sequentially, with individual call-offs attracting varying competition depending on specification clarity and market contestability. Analysis of DPS call-off competition shows that initial call-offs typically attract fewer bids than subsequent ones, suggesting suppliers require time to understand competitive dynamics and develop responsive capabilities. DPS frameworks frequently include 5-15 framework suppliers, larger than traditional framework agreements, but with concentrated spending on 2-3 leading suppliers, demonstrating unequal participation in call-off competitions.
-          </p>
-
-          <p className="article-body-text">
-            eForms publication has improved visibility of DPS structures, with forms identifying whether procurements are DPS framework establishments or call-offs, enabling systematic analysis of DPS adoption patterns. Multi-lot procurement increasingly incorporates DPS features, where individual lots represent recurring call-off opportunities rather than standalone procurements. Publication patterns show DPS adoption concentrated in utilities and large public authorities managing complex, recurring procurement, with lower adoption among small and medium authorities lacking digital systems and procurement expertise.
-          </p>
-
-          <h2 className="article-subheading">DPS Mechanics</h2>
-
-          <p className="article-body-text">
-            DPS adoption is fundamentally altering procurement market structures by reducing barriers to market entry for new suppliers and enabling authorities to exercise greater discretion in supplier selection through continuous competition. Traditional advantage held by incumbent suppliers in fixed-term framework agreements is diminishing as DPS frameworks permit removal of underperforming suppliers and addition of new competitors at authority discretion. The shift from single-tender competition to continuous call-off competition increases competitive intensity for established suppliers, potentially reducing profit margins and favouring innovation and continuous performance improvement.
-          </p>
-
-          <p className="article-body-text">
-            Authorities adopting DPS report increased flexibility and responsiveness to changing specifications and market innovation, though data completeness and visibility of DPS utilisation varies across member states. Regulatory concerns regarding DPS focus on fairness in framework supplier selection and potential for abuse through discriminatory call-off terms for non-preferred suppliers. The transition from framework agreements to DPS represents significant change in competitive dynamics, requiring suppliers to develop continuous competitive positioning rather than resting on initial contract awards.
-          </p>
-
-          <h2 className="article-subheading">Always-Open Markets</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence should monitor DPS framework establishments as leading indicators of recurring procurement opportunity, with successful framework membership supporting forecasts of future call-off demand and competitive positioning. Intelligence operations should distinguish DPS framework competitions from individual tenders, recognising that DPS framework entry provides foundation for multiple subsequent contract opportunities. Analysis of DPS framework supplier lists enables competitor mapping and identification of new market entrants achieving framework membership, signalling market entry or capability expansion by competitors.
-          </p>
-
-          <p className="article-body-text">
-            Call-off competition analysis within DPS frameworks enables development of pricing benchmarks and win-rate tracking over time, as individual call-offs provide repeated competitive datapoints within consistent frameworks. Supplier positioning strategies should recognise DPS framework participation as strategic priority, as framework membership creates foundation for recurring revenue and multiple call-off opportunities. Intelligence teams should monitor DPS expansion into new procurement categories, as category moves into DPS frameworks represent structural changes affecting competitive dynamics and market accessibility.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

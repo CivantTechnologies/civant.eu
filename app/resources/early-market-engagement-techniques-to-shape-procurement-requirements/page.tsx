@@ -1,83 +1,196 @@
 import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/early-market-engagement-techniques-to-shape-procurement-requirements";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/early-market-engagement-techniques-to-shape-procurement-requirements",
+  title: "Early Market Engagement: Techniques to Shape Procurement Requirements",
+  description:
+    "A supplier guide to early market engagement, preliminary market consultation, supplier days, RFIs, and how to use pre-tender signals without creating compliance risk.",
+  publishedAt: "2026-03-14T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Early market engagement is the pre-tender process buyers use to test requirements, understand supplier capability, and reduce delivery risk. Suppliers should use it to educate the buyer, clarify outcomes, and prepare earlier, while staying transparent and avoiding any behavior that could distort competition.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Many important procurement decisions are shaped before the contract
+        notice is published. Buyers may use market engagement to understand the
+        supplier landscape, test assumptions, refine specifications, and avoid
+        requirements that the market cannot realistically deliver.
+      </p>
+      <p className="article-body-text">
+        For suppliers, this is a chance to contribute useful evidence before the
+        formal bid window. The opportunity is real, but so is the need for
+        discipline: engagement must remain transparent, fair, and competition
+        safe.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Timing",
+      text: "The best engagement happens while requirements are still being shaped.",
+    },
+    {
+      label: "Trust",
+      text: "Suppliers should educate with evidence, not try to write the competition around themselves.",
+    },
+    {
+      label: "Signals",
+      text: "Preliminary notices, RFIs, and supplier events are early indicators of future demand.",
+    },
+  ],
+  civantView: {
+    title: "Early engagement is where procurement intelligence becomes account strategy.",
+    content: (
+      <p>
+        Tender alerts show the race after the start. Early engagement signals
+        show where buyers are still defining the problem, which gives suppliers
+        time to bring insight, partners, and proof before the formal process
+        narrows the field.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "engagement-techniques",
+      title: "Engagement Techniques",
+      content: (
+        <>
+          <p className="article-body-text">
+            Common techniques include requests for information, prior
+            information notices, market sounding questionnaires, supplier days,
+            demonstrations, technical consultations, and pilot discussions.
+            These methods help buyers learn what the market can deliver and how
+            requirements should be framed.
+          </p>
+          <p className="article-body-text">
+            Suppliers should respond with practical evidence: delivery models,
+            implementation constraints, pricing drivers, interoperability risks,
+            transition timelines, and examples of outcomes that are measurable
+            without being overly prescriptive.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "compliance-boundaries",
+      title: "Compliance Boundaries",
+      content: (
+        <>
+          <p className="article-body-text">
+            EU procurement rules recognize preliminary market consultation, but
+            buyers must protect equal treatment and competition. That means
+            suppliers should avoid receiving or creating unfair advantages that
+            cannot be shared with the wider market.
+          </p>
+          <p className="article-body-text">
+            Good practice is simple: be transparent, keep records, avoid
+            confidential shortcuts, and provide insight that improves the
+            procurement rather than pushing the buyer toward a closed
+            specification.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "supplier-preparation",
+      title: "Supplier Preparation",
+      content: (
+        <>
+          <p className="article-body-text">
+            Early engagement works best when the supplier prepares before the
+            meeting. That means understanding the buyer's strategy, past awards,
+            incumbent supplier, likely budget constraints, and category history.
+          </p>
+          <p className="article-body-text">
+            The output should be a sharper account plan: what the buyer is
+            trying to solve, who else may influence the requirement, what
+            evidence the supplier needs to build, and whether partners are
+            required.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "intelligence-monitoring",
+      title: "Intelligence Monitoring",
+      content: (
+        <>
+          <p className="article-body-text">
+            Procurement intelligence helps teams find early engagement signals
+            across notices, buyer pages, strategy documents, meeting records,
+            and market updates. It also connects those signals to contract
+            lifecycles and previous buying behavior.
+          </p>
+          <p className="article-body-text">
+            Civant focuses on those pre-publication signals so teams can prepare
+            before the official notice compresses the window. Read more on the{" "}
+            <Link href="/methodology" className="text-link">
+              Methodology page
+            </Link>
+            .
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Find early engagement signals before requirements harden.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is early market engagement in procurement?",
+      answer:
+        "Early market engagement is pre-tender interaction where a public buyer explores market capability, tests requirements, and gathers evidence before launching a formal procurement.",
+    },
+    {
+      question: "Can suppliers shape procurement requirements?",
+      answer:
+        "Suppliers can provide evidence that helps buyers define better requirements, but they must avoid conduct that gives them unfair advantage or distorts competition.",
+    },
+    {
+      question: "How do suppliers find early engagement opportunities?",
+      answer:
+        "They can monitor prior information notices, planned procurement notices, RFIs, supplier days, buyer strategy documents, and other pre-market signals.",
+    },
+  ],
+  sources: getArticleSources([
+    "eurLexDirective201424",
+    "ukProcurementActGuidance",
+    "ukProcurementAct2023",
+    "europeanCommissionPublicProcurement",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "Use Civant to identify buyer activity, lifecycle signals, and early engagement windows before opportunities become formal tenders.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Early Market Engagement: Techniques to Shape Procurement Requirements",
-  description:
-    "Authorities often undertake market engagement activities before launching a tender. Such engagement helps refine requirements, assess the market’s capac...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Early Market Engagement: Techniques to Shape Procurement Requirements",
-  description:
-    "Authorities often undertake market engagement activities before launching a tender. Such engagement helps refine requirements, assess the market’s capac...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Early Market Engagement: Techniques to Shape Procurement Requirements</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Authorities often undertake market engagement activities before launching a tender. Such engagement helps refine requirements, assess the market’s capacity to deliver and avoid overly prescriptive specifications. This brief outlines techniques for early market engagement and how suppliers can use them to shape upcoming procurements.
-          </p>
-
-          <h2 className="article-subheading">Shaping Specifications</h2>
-
-          <p className="article-body-text">
-            Pre‑market engagement can take many forms. Market sounding exercises involve questionnaires or requests for information to understand supplier capabilities and innovations. Supplier days bring potential bidders together to discuss the requirement, ask questions and provide feedback. Pilot projects or proof‑of‑concept studies allow buyers to test solutions in a controlled environment. Innovation partnerships, permitted under procurement rules, allow co‑development of solutions before formal tendering. These techniques help buyers specify outcomes rather than rigid technical requirements.
-          </p>
-
-          <h2 className="article-subheading">Pre-Tender Positioning</h2>
-
-          <p className="article-body-text">
-            Early engagement typically precedes the publication of a contract notice. Authorities may issue a pre‑market engagement notice inviting suppliers to participate. Following consultations, the procurement specification may be refined to align with market feedback. Suppliers who participate gain insights into buyer priorities, which can inform their future bids. However, they must avoid actions that could be construed as unfair assistance or collusion.
-          </p>
-
-          <h2 className="article-subheading">Engagement Influence</h2>
-
-          <p className="article-body-text">
-            For suppliers, early market engagement is an opportunity to demonstrate capability and shape requirements to match their strengths. By contributing insights into emerging technologies or alternative delivery models, suppliers can influence the procurement toward solutions they are best placed to provide. Participation also builds relationships and establishes credibility. It is vital, however, to maintain transparency and avoid misusing any information obtained.
-          </p>
-
-          <h2 className="article-subheading">Building Advantage First</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence helps suppliers identify pre‑market engagement opportunities by monitoring notices and scanning industry news. It also provides context on past engagements and the outcomes of similar consultations. This information enables suppliers to prepare thoughtful contributions and leverage engagement to shape the tender.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

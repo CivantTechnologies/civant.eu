@@ -1,103 +1,200 @@
 import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/procurement-intelligence-for-smes";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/procurement-intelligence-for-smes",
+  title: "Procurement Intelligence for SMEs",
+  description:
+    "How SMEs can use procurement intelligence to focus on better-fit public-sector opportunities, prepare earlier, reduce wasted bid effort, and compete with larger incumbents.",
+  publishedAt: "2026-03-14T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Procurement intelligence helps SMEs compete by showing which buyers, renewals, categories, partners, and early signals deserve attention before tenders are published. It gives smaller teams a way to focus limited bid resources on opportunities where they have credible fit and preparation time.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        SMEs matter to Europe's economy and to public-sector innovation, but
+        public procurement can still be difficult to access. The issue is not
+        only finding notices. It is knowing which opportunities are realistic,
+        where the buyer is heading, and how early the team needs to prepare.
+      </p>
+      <p className="article-body-text">
+        Procurement intelligence gives SMEs a selective operating model. Instead
+        of chasing every relevant keyword, teams can focus on buyer cycles,
+        evidence gaps, partner needs, and opportunities where they can compete
+        with confidence.
+      </p>
+    </>
+  ),
+  visual: {
+    src: "/images/resources/guide-procurement-intelligence-smes.svg",
+    alt: "Civant resource allocation matrix showing how SMEs can prioritize local buyers, partner routes, and framework access",
+    caption:
+      "For SMEs, procurement intelligence is a way to focus scarce time on the best-qualified opportunities.",
+  },
+  takeaways: [
+    {
+      label: "Focus",
+      text: "SMEs win more from qualified focus than from broad tender chasing.",
+    },
+    {
+      label: "Timing",
+      text: "Earlier visibility gives smaller teams time to build proof, partners, and account context.",
+    },
+    {
+      label: "Positioning",
+      text: "Local knowledge, specialist capability, and strong evidence can offset scale disadvantages.",
+    },
+  ],
+  civantView: {
+    title: "For SMEs, procurement intelligence is a resource-allocation tool.",
+    content: (
+      <p>
+        Large incumbents can absorb wasted bid effort more easily. SMEs cannot.
+        The practical advantage is knowing where to spend scarce time, which
+        buyers to nurture, and which tenders to leave alone.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "sme-barriers",
+      title: "SME Barriers",
+      content: (
+        <>
+          <p className="article-body-text">
+            SMEs often face capacity constraints, limited bid teams, compliance
+            burdens, high preparation costs, and weaker access to buyer context.
+            They may also be competing against incumbents with years of delivery
+            knowledge and established stakeholder relationships.
+          </p>
+          <p className="article-body-text">
+            EU policy recognizes SME participation as an important procurement
+            objective, but practical barriers remain. That makes preparation
+            discipline and opportunity selection especially important for
+            smaller suppliers.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "where-smes-compete",
+      title: "Where SMEs Compete",
+      content: (
+        <>
+          <p className="article-body-text">
+            SMEs are often strongest where local presence, specialist knowledge,
+            fast delivery, niche expertise, or direct accountability matters.
+            They can also participate through subcontracting, consortia, and
+            framework lots that match their scale.
+          </p>
+          <p className="article-body-text">
+            Procurement intelligence helps identify those patterns by linking
+            buyer history, contract size, category structure, local demand, and
+            previous supplier outcomes.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "selective-pipeline",
+      title: "Selective Pipeline",
+      content: (
+        <>
+          <p className="article-body-text">
+            A useful SME pipeline is not a long list of notices. It is a smaller
+            set of qualified accounts and future opportunities where the firm
+            can gather evidence, prepare references, assess competition, and
+            shape positioning before publication.
+          </p>
+          <p className="article-body-text">
+            That means tracking renewals, buyer plans, early engagement signals,
+            framework windows, and the contracts where the supplier has a clear
+            reason to win.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "intelligence-routine",
+      title: "Intelligence Routine",
+      content: (
+        <>
+          <p className="article-body-text">
+            SMEs should build a weekly intelligence routine: review priority
+            buyers, scan relevant renewals, update bid/no-bid assumptions,
+            identify evidence gaps, and decide which relationships or partners
+            need attention.
+          </p>
+          <p className="article-body-text">
+            Civant is designed to support that earlier planning motion. Explore
+            the workflow on the{" "}
+            <Link href="/platform" className="text-link">
+              Platform page
+            </Link>
+            .
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Give your SME bid team earlier, cleaner opportunity focus.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is procurement intelligence for SMEs?",
+      answer:
+        "It is the use of procurement records, buyer cycles, renewal signals, market evidence, and early indicators to help SMEs choose and prepare for better-fit public-sector opportunities.",
+    },
+    {
+      question: "Why is tender alerting not enough for SMEs?",
+      answer:
+        "Tender alerts often arrive after publication, when deadlines are tight. SMEs need earlier visibility to build evidence, qualify fit, and avoid wasting limited bid resource.",
+    },
+    {
+      question: "How can SMEs compete with incumbents?",
+      answer:
+        "SMEs can focus on specialist fit, local knowledge, stronger preparation, credible partnerships, and opportunities where buyer needs are shifting away from the incumbent's strengths.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCommissionSmeNeeds",
+    "eurLexDirective201424",
+    "europeanCommissionPublicProcurement",
+    "europeanCourtAuditorsCompetition",
+    "tedEforms",
+  ]),
+  relatedSolution: {
+    solutionSlug: "procurement-intelligence-software",
+    linkLabel: "Explore procurement intelligence software",
+    children:
+      "See how Civant helps smaller teams focus on buyer cycles, lifecycle signals, and better-qualified public-sector opportunities.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Procurement Intelligence for SMEs",
-  description:
-    "Small and medium-sized enterprises (SMEs) represent approximately 99% of European businesses and account for significant portions of employment and inno...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Procurement Intelligence for SMEs",
-  description:
-    "Small and medium-sized enterprises (SMEs) represent approximately 99% of European businesses and account for significant portions of employment and inno...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Procurement Intelligence for SMEs</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Small and medium-sized enterprises (SMEs) represent approximately 99% of European businesses and account for significant portions of employment and innovation, yet participate disproportionately underrepresented in public procurement as prime contractors. EU procurement rules formally support SME participation through subcontracting opportunities and explicit encouragement in Directive 2014/24/EU to promote competition and industrial diversity. However, SMEs face substantial practical barriers to direct procurement participation, including high bid preparation costs, limited market intelligence resources, and competitive disadvantages against large incumbent suppliers with established authority relationships.
-          </p>
-
-          <p className="article-body-text">
-            The EU has committed to increasing SME procurement participation, with targets suggesting SMEs should capture 25-30% of direct public procurement spend, though actual figures typically range 15-20% depending on member state and sector. SME procurement intelligence operations generally operate with limited budgets and personnel, often combining procurement functions with broader business development roles. Access to timely, reliable market intelligence represents a significant competitive factor for SME procurement success, as smaller enterprises must identify high-probability opportunities and avoid wasteful bid expenditure on low-win-probability tenders.
-          </p>
-
-          <h2 className="article-subheading">Small Supplier Advantage</h2>
-
-          <p className="article-body-text">
-            SME procurement participation is characterised by significant geographic concentration, with SMEs more likely to bid for tenders from local and regional authorities rather than national or supranational contracting authorities. Procurement volume thresholds create distinct market segments, with SMEs more competitive in below-threshold procurement where authorities conduct simplified competitive processes and incumbent advantages are less pronounced. Large prime contractors frequently subcontract to SMEs, creating indirect participation pathways, though subcontractor margins are often pressured and dependency on prime contractor selection decisions creates market vulnerability.
-          </p>
-
-          <p className="article-body-text">
-            The shift to digital eForms and structured procurement data has created new opportunities for SME market intelligence, as standardised data enables small enterprises to develop analytical capabilities without custom data acquisition infrastructure. SME consortia and groupings have increased as mechanisms to achieve scale in bidding for larger tenders, combining complementary capabilities and aggregated capacity. However, SME participation in procurement remains highly sensitive to economic cycles, with contraction during recession periods as enterprises redirect resources to commercial business rather than speculative public sector bidding.
-          </p>
-
-          <h2 className="article-subheading">Niche Strategies</h2>
-
-          <p className="article-body-text">
-            SME procurement activity patterns show strong seasonality and concentration in specific sectors, particularly in services, construction, and goods supply categories where barriers to entry and incumbent advantage are lower. Below-threshold procurements, where formal tender publication is not required, represent substantial opportunities for SMEs, with estimates suggesting 40-50% of public procurement spend falls below thresholds where simplified processes apply. SME participation increases significantly in procurement categories requiring local presence or specialized technical knowledge, where geographic factors and niche expertise provide competitive advantages against larger generalist suppliers.
-          </p>
-
-          <p className="article-body-text">
-            Tender preparation cycles reveal SMEs typically allocate 2-4 weeks for bid development, substantially less than large suppliers, creating time pressure that may reduce proposal quality and increase bid abandonment rates. Geographic clustering of SME bids shows concentration around hometown authorities and regional procurement, with limited participation in inter-regional tenders despite formal EU rules permitting cross-border competition. SME success rates in procurement vary substantially by sector and contract type, with highest success in construction and services, lower success in supplies and technical specification-heavy categories where incumbent suppliers maintain technical advantages.
-          </p>
-
-          <h2 className="article-subheading">SME Toolkit</h2>
-
-          <p className="article-body-text">
-            SMEs require differentiated procurement strategies compared to large enterprises, focusing on geographic proximity advantages, technical specialisation, and relationship-based competitive positioning rather than price-based competition. The increasing digitalisation of procurement creates both opportunity and risk for SMEs, as those investing in digital capability can access broader markets, whilst those lacking digital infrastructure face narrowing opportunities. Cost of procurement participation remains a critical constraint for SMEs, with bid preparation, insurance, and compliance costs often exceeding 10,000 EUR per tender, representing substantial commitment relative to contract values.
-          </p>
-
-          <p className="article-body-text">
-            Supply chain relationships and subcontracting represent significant pathways for SME procurement participation, yet frequently come with margin pressure and reduced autonomy in delivery. Policy initiatives promoting SME procurement, such as reserved procurements and simplified award procedures, benefit SMEs but are unevenly implemented across member states and sectors. Understanding local authority procurement patterns and building relationships with procurement officers represents essential SME strategy, as evidence suggests personal relationships and track records strongly influence SME win rates in public procurement.
-          </p>
-
-          <h2 className="article-subheading">Leveling the Field</h2>
-
-          <p className="article-body-text">
-            SME procurement intelligence should focus on identifying high-probability opportunities through geographic targeting and technical specialisation rather than attempting broad market surveillance. Intelligence operations should prioritise monitoring local and regional authority procurement patterns, including below-threshold tenders accessible through direct authority contact, local government websites, and regional procurement platforms. Building understanding of authority purchasing cycles, key personnel, and decision-making preferences provides SMEs with competitive advantage through relationship-based targeting rather than undifferentiated bid responses.
-          </p>
-
-          <p className="article-body-text">
-            SMEs should invest in understanding procurement rules and digital compliance requirements, as technical bid rejections represent significant waste of limited bid preparation resources. Consortium and partnership strategies should be evaluated through intelligence analysis of complementary capabilities and geographic coverage, as successful SME participation often requires aggregating capabilities to meet large contract requirements. Strategic intelligence should identify procurement trends in SME-favourable categories and geographies, enabling prioritisation of market segments where competitive positioning is strongest and bid conversion rates highest.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

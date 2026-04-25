@@ -1,119 +1,188 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/framework-agreements-and-their-impact-on-procurement-competition";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/framework-agreements-and-their-impact-on-procurement-competition",
+  title: "Framework Agreements and Their Impact on Procurement Competition",
+  description:
+    "Understand how public-sector framework agreements shape competition, market access, renewal timing, supplier strategy, and preparation windows.",
+  publishedAt: "2026-03-24T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Framework agreements shape procurement competition because they create a defined supplier panel for a set period. Suppliers on the framework gain access to future call-offs, while excluded suppliers may be locked out until the framework is renewed.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Framework agreements are one of the most important structures in public
+        procurement. They help buyers purchase repeatedly from pre-qualified
+        suppliers without running a full competition each time.
+      </p>
+      <p className="article-body-text">
+        For suppliers, the framework decision is strategic. Winning a place can
+        open recurring revenue. Missing the window can remove access to a market
+        segment for years.
+      </p>
+    </>
+  ),
+  visual: {
+    src: "/images/resources/guide-framework-competition.svg",
+    alt: "Civant visual timeline showing framework competition access windows, award, call-offs, review, and renewal",
+    caption:
+      "Frameworks concentrate access during the panel period and make renewal timing commercially important.",
+  },
+  takeaways: [
+    {
+      label: "Access",
+      text: "Framework membership can determine who is eligible for future call-offs.",
+    },
+    {
+      label: "Timing",
+      text: "Framework renewal dates are high-value preparation signals.",
+    },
+    {
+      label: "Strategy",
+      text: "Framework bids usually require earlier evidence-building than single-contract tenders.",
+    },
+  ],
+  civantView: {
+    title: "Frameworks turn market access into a lifecycle problem.",
+    content: (
+      <p>
+        Civant treats framework expiry and renewal as strategic signals. The
+        best time to prepare for a framework competition is well before the
+        formal notice compresses the market's attention.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "competition-reduction",
+      title: "Competition Reduction",
+      content: (
+        <>
+          <p className="article-body-text">
+            Frameworks reduce repeated procurement effort for buyers and can
+            create efficient routes to market. But they also concentrate access:
+            once a framework is awarded, non-members may be unable to compete
+            for call-offs until the next cycle.
+          </p>
+          <p className="article-body-text">
+            This makes the initial framework competition unusually important.
+            The result can shape supplier access for the full framework period.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "access-limitations",
+      title: "Access Limitations",
+      content: (
+        <>
+          <p className="article-body-text">
+            Frameworks are often used in categories with recurring demand:
+            technology, consultancy, facilities, staffing, professional
+            services, supplies, and other repeatable needs.
+          </p>
+          <p className="article-body-text">
+            Suppliers need to know which frameworks matter, who holds the
+            current places, how call-offs are allocated, and when the next
+            re-competition is likely.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "framework-constraints",
+      title: "Framework Constraints",
+      content: (
+        <>
+          <p className="article-body-text">
+            A framework bid often asks for broad capability, financial
+            resilience, delivery evidence, pricing discipline, and coverage
+            across multiple buyer needs. That evidence cannot always be built
+            during a short tender response window.
+          </p>
+          <p className="article-body-text">
+            For challengers and SMEs, the preparation cycle may need to start
+            long before the renewal notice appears.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "impact-assessment",
+      title: "Impact Assessment",
+      content: (
+        <>
+          <p className="article-body-text">
+            Framework intelligence should combine award records, supplier
+            membership, call-off patterns, expiry dates, and market
+            consultation signals.
+          </p>
+          <p className="article-body-text">
+            The practical outcome is a clearer view of which framework renewals
+            deserve early investment and which are unlikely to fit the supplier
+            strategy.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Track framework renewals before they become market bottlenecks.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is a framework agreement in public procurement?",
+      answer:
+        "A framework agreement is an arrangement that sets terms with one or more suppliers for future purchases or call-offs over a defined period.",
+    },
+    {
+      question: "Why do frameworks affect competition?",
+      answer:
+        "Frameworks can limit future call-off competition to suppliers already appointed to the framework, making the framework award a major market-access event.",
+    },
+    {
+      question: "How should suppliers prepare for framework renewals?",
+      answer:
+        "Suppliers should track expiry dates, current framework holders, call-off patterns, buyer needs, and early engagement signals so they can build evidence before the formal competition.",
+    },
+  ],
+  sources: getArticleSources([
+    "eurLexDirective201424",
+    "europeanCommissionPublicProcurement",
+    "tedEforms",
+    "europeanCourtAuditorsCompetition",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant helps teams track frameworks, renewal cycles, buyer behavior, and supplier access.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Framework Agreements and Their Impact on Procurement Competition",
-  description:
-    "Framework agreements are one of the most significant structural features of European public procurement. They allow contracting authorities to establish...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Framework Agreements and Their Impact on Procurement Competition",
-  description:
-    "Framework agreements are one of the most significant structural features of European public procurement. They allow contracting authorities to establish...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Framework Agreements and Their Impact on Procurement Competition</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Framework agreements are one of the most significant structural features of European public procurement. They allow contracting authorities to establish pre-agreed terms with one or more suppliers for a defined period, typically up to four years as prescribed by EU directives. Within this period, individual contracts or call-offs are awarded based on the framework terms, often without full competitive re-procurement.
-          </p>
-
-          <p className="article-body-text">
-            The prevalence of frameworks varies across sectors and member states, but in categories such as IT services, consultancy, temporary staffing, and facilities management, frameworks are the dominant procurement mechanism. Understanding how frameworks function, how they shape market access, and when they renew is essential for any organisation seeking to build a strategic position in European public sector markets.
-          </p>
-
-          <h2 className="article-subheading">Competition Reduction</h2>
-
-          <p className="article-body-text">
-            Frameworks serve important purposes for contracting authorities. They reduce the administrative burden of repeated procurement, provide access to pre-qualified suppliers, enable faster call-off procurement, and create commercial certainty over multi-year periods. For suppliers on frameworks, they provide predictable revenue streams and reduced bid costs for individual assignments.
-          </p>
-
-          <p className="article-body-text">
-            However, frameworks also create structural challenges for market competition. Once a framework is established, suppliers not included are effectively locked out of that market segment for the framework duration. In sectors where a small number of large frameworks cover the majority of procurement spend, exclusion from the framework can mean exclusion from the market for up to four years.
-          </p>
-
-          <p className="article-body-text">
-            This creates high-stakes competition at framework re-procurement points, where the outcome determines market access for the next cycle. The importance of preparation for these events cannot be overstated. Yet many organisations approach framework re-competitions with the same reactive timeline they use for individual tenders, discovering the opportunity at publication and scrambling to respond.
-          </p>
-
-          <h2 className="article-subheading">Access Limitations</h2>
-
-          <p className="article-body-text">
-            Framework lifecycle patterns are among the most predictable elements of European procurement. The four-year maximum duration creates a clear renewal cycle. Historical data on framework awards provides the start date and duration from which expiry can be calculated. Pre-information notices for framework re-procurements are common due to the significance and complexity of these procedures.
-          </p>
-
-          <p className="article-body-text">
-            The procurement timeline for frameworks is typically longer than for individual contracts. Market engagement activities, including preliminary consultations and information sessions, may begin twelve months or more before the formal procurement. The formal procedure itself, involving prequalification and detailed tender evaluation, can extend over several months.
-          </p>
-
-          <p className="article-body-text">
-            Multi-supplier frameworks introduce additional complexity. The allocation mechanisms, whether through direct award, mini-competition, or cascading, significantly affect the value distribution among framework holders. Understanding these mechanisms and their implications is important for developing effective bid strategies.
-          </p>
-
-          <h2 className="article-subheading">Framework Constraints</h2>
-
-          <p className="article-body-text">
-            For supplier organisations, framework lifecycle management should be a core element of market strategy. This means maintaining a register of relevant frameworks across target markets, tracking their expiry dates, and beginning preparation for re-competition well in advance of formal procurement.
-          </p>
-
-          <p className="article-body-text">
-            The preparation requirements for framework competitions are typically more extensive than for individual contracts. Frameworks often require demonstration of broad capability, financial stability, track record across multiple assignments, and pricing structures that work across diverse requirements. Building this evidence base takes time that is not available in a standard tender response period.
-          </p>
-
-          <p className="article-body-text">
-            For organisations not currently on frameworks, the preparation timeline extends even further. Building the track record, market presence, and buyer awareness needed to compete credibly for a major framework may require two to three years of investment before the framework re-competition occurs.
-          </p>
-
-          <h2 className="article-subheading">Impact Assessment</h2>
-
-          <p className="article-body-text">
-            Framework lifecycle tracking is one of the highest-value applications of procurement intelligence. Because frameworks are well-documented in contract award notices and have defined durations, their renewal cycles can be predicted with high confidence.
-          </p>
-
-          <p className="article-body-text">
-            Intelligence on framework structures, including the number of suppliers, call-off values, allocation mechanisms, and performance indicators, provides essential context for preparation. Understanding who the current framework holders are, what the buyer's experience has been, and how the market has evolved since the framework was established informs both the decision to pursue and the approach to the competition.
-          </p>
-
-          <p className="article-body-text">
-            Procurement intelligence transforms framework re-competitions from periodic crises into planned strategic events that organisations prepare for systematically over months, not weeks.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

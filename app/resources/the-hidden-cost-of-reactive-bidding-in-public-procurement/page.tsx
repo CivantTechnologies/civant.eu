@@ -1,123 +1,195 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/the-hidden-cost-of-reactive-bidding-in-public-procurement";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/the-hidden-cost-of-reactive-bidding-in-public-procurement",
+  title: "The Hidden Cost of Reactive Bidding in Public Procurement",
+  description:
+    "Why reactive tender chasing increases bid cost, weakens preparation, lowers selectivity, and how procurement intelligence helps teams shift to earlier pursuit planning.",
+  publishedAt: "2026-03-14T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Reactive bidding is costly because teams begin serious preparation only after a tender is published, when deadlines are short and buyer context is limited. The hidden cost is not only bid writing time. It is weak qualification, rushed evidence, lower differentiation, and resources spent on opportunities the team should have challenged earlier.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Public-sector bidding consumes scarce commercial, technical, legal,
+        finance, and delivery time. When every pursuit begins at publication,
+        teams are forced to make high-stakes decisions with compressed context.
+      </p>
+      <p className="article-body-text">
+        Reactive bidding can feel busy and productive, but it often hides a
+        weaker economic pattern: too many low-confidence pursuits, too little
+        preparation, and too much resource spent after the buyer's direction is
+        already set.
+      </p>
+    </>
+  ),
+  visual: {
+    src: "/images/resources/guide-reactive-bidding-cost.svg",
+    alt: "Civant matrix comparing reactive bidding, selective bidding, and prepared pursuit across fit, timing, evidence, and risk",
+    caption:
+      "Reactive bidding hides cost by turning weak qualification into urgent bid work.",
+  },
+  takeaways: [
+    {
+      label: "Cost",
+      text: "The true cost includes internal time, opportunity cost, rushed evidence, and weak qualification.",
+    },
+    {
+      label: "Quality",
+      text: "Late-start bids usually have less buyer context and less differentiated positioning.",
+    },
+    {
+      label: "Shift",
+      text: "Procurement intelligence helps teams move from tender response to pursuit preparation.",
+    },
+  ],
+  civantView: {
+    title: "The expensive bid is often the one you should have declined earlier.",
+    content: (
+      <p>
+        The answer is not to bid less blindly or more aggressively. It is to
+        qualify earlier, prepare selectively, and reserve deep bid effort for
+        opportunities where the evidence supports a credible path to win.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "visible-and-hidden-costs",
+      title: "Visible And Hidden Costs",
+      content: (
+        <>
+          <p className="article-body-text">
+            Visible bid costs include writing time, technical input, pricing,
+            legal review, design, submission administration, and external
+            support. Hidden costs include delayed delivery work, leadership
+            distraction, weak pricing discipline, and missed opportunities
+            elsewhere.
+          </p>
+          <p className="article-body-text">
+            The cost is amplified when teams chase tenders with poor buyer fit,
+            unclear differentiation, limited references, or strong incumbent
+            advantage. Those weaknesses are usually visible earlier if the team
+            has the right market context.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "reactive-cycle",
+      title: "Reactive Cycle",
+      content: (
+        <>
+          <p className="article-body-text">
+            Reactive bidding creates a loop. Low visibility leads to rushed
+            qualification. Rushed qualification leads to too many pursuits. Too
+            many pursuits spreads expertise thinly. Thin preparation reduces
+            quality, which creates pressure to chase even more opportunities.
+          </p>
+          <p className="article-body-text">
+            Breaking that loop requires earlier demand visibility and stronger
+            bid/no-bid rules. Teams need to understand future opportunities
+            before they become deadline-driven emergencies.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "preparation-advantage",
+      title: "Preparation Advantage",
+      content: (
+        <>
+          <p className="article-body-text">
+            Better-prepared bids usually show clearer buyer understanding,
+            stronger evidence, more credible implementation planning, and more
+            precise risk handling. Those qualities are difficult to create from
+            scratch in a short response window.
+          </p>
+          <p className="article-body-text">
+            Preparation also supports commercial discipline. Teams can price
+            with more confidence, challenge assumptions, validate partners, and
+            avoid committing to work that will be hard to deliver profitably.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "intelligence-led-selectivity",
+      title: "Intelligence-Led Selectivity",
+      content: (
+        <>
+          <p className="article-body-text">
+            Procurement intelligence gives teams forward visibility into buyer
+            cycles, renewals, competitor behavior, early engagement, and likely
+            demand. That turns bid strategy into a portfolio decision instead of
+            a notice-by-notice scramble.
+          </p>
+          <p className="article-body-text">
+            The result is not fewer opportunities in a defensive sense. It is a
+            cleaner focus on the opportunities where preparation, positioning,
+            and evidence can realistically change the outcome.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Replace reactive bidding with earlier opportunity qualification.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is reactive bidding?",
+      answer:
+        "Reactive bidding is a tender strategy where serious preparation begins only after a public opportunity is published, leaving little time for account research, positioning, evidence building, and partner planning.",
+    },
+    {
+      question: "Why is reactive bidding expensive?",
+      answer:
+        "It consumes bid team time on poorly qualified opportunities, creates rushed submissions, weakens differentiation, and can divert leadership and technical resources from better pursuits.",
+    },
+    {
+      question: "How does procurement intelligence reduce reactive bidding?",
+      answer:
+        "It identifies renewal windows, buyer signals, and market patterns earlier, so teams can qualify opportunities and prepare before formal tender deadlines.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCourtAuditorsCompetition",
+    "europeanCommissionPublicProcurement",
+    "tedEforms",
+    "ukProcurementActGuidance",
+  ]),
+  relatedSolution: {
+    solutionSlug: "procurement-intelligence-software",
+    linkLabel: "Explore procurement intelligence software",
+    children:
+      "Use Civant to move from last-minute tender response to earlier, evidence-led pursuit planning.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "The Hidden Cost of Reactive Bidding in Public Procurement",
-  description:
-    "Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, exter...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "The Hidden Cost of Reactive Bidding in Public Procurement",
-  description:
-    "Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, exter...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">The Hidden Cost of Reactive Bidding in Public Procurement</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Bidding for public sector contracts is expensive. The costs include dedicated bid team time, specialist input from technical and commercial staff, external consultancy for complex requirements, printing and production costs, and the opportunity cost of staff diverted from revenue-generating work. For major framework competitions or complex service contracts, total bid costs can reach six figures.
-          </p>
-
-          <p className="article-body-text">
-            Despite these costs, many organisations approach bidding with a volume strategy: respond to every relevant opportunity and accept low win rates as the cost of market participation. This approach is understandable given the unpredictability of individual tender outcomes, but it represents a poor return on investment when examined systematically.
-          </p>
-
-          <p className="article-body-text">
-            The core problem is that reactive bidding, where preparation begins only after tender publication, produces structurally weaker bids than proactive preparation would allow. The time constraints imposed by standard tender response windows are insufficient for developing the deep understanding, tailored solutions, and stakeholder alignment that characterise winning bids for complex procurement.
-          </p>
-
-          <h2 className="article-subheading">Hidden Costs</h2>
-
-          <p className="article-body-text">
-            The economics of bidding in public procurement are challenging even for well-prepared organisations. Win rates in competitive public procurement vary significantly by sector and competition level, but rates of 20-30% are common for regular participants. For organisations entering new markets or competing against strong incumbents, rates can be considerably lower.
-          </p>
-
-          <p className="article-body-text">
-            At a 25% win rate, an organisation must invest in four bids for every contract won. If each bid costs fifty thousand euros, the effective acquisition cost per contract is two hundred thousand euros. This cost must be absorbed by the contract value, reducing effective margins and competitiveness.
-          </p>
-
-          <p className="article-body-text">
-            The relationship between preparation quality and win probability is well established in procurement practice. Bids that demonstrate deep understanding of the buyer's operational context, that offer tailored solutions rather than generic capabilities, and that address specific concerns identified through engagement score consistently higher in evaluations. These qualities require preparation time that reactive approaches do not provide.
-          </p>
-
-          <h2 className="article-subheading">Opportunity Loss</h2>
-
-          <p className="article-body-text">
-            The pattern of reactive bidding creates a self-reinforcing cycle. Low win rates necessitate high bid volumes to maintain contract pipeline. High bid volumes stretch resources across many opportunities, reducing the preparation quality for each. Lower preparation quality produces lower win rates, which requires even higher volumes to compensate.
-          </p>
-
-          <p className="article-body-text">
-            Breaking this cycle requires shifting the balance from volume to selectivity. This means reducing the total number of bids while increasing the preparation investment in each. The challenge is that selective bidding requires confidence in the pipeline of future opportunities, which reactive approaches cannot provide.
-          </p>
-
-          <p className="article-body-text">
-            Organisations that can see upcoming procurement events months before publication can afford to be selective. They invest preparation time in opportunities where they have genuine competitive advantage, where the buyer's needs align with their strengths, and where adequate preparation time allows for the development of genuinely competitive proposals.
-          </p>
-
-          <h2 className="article-subheading">Preparation Deficiency</h2>
-
-          <p className="article-body-text">
-            The financial implications of shifting from reactive to proactive bidding are significant. If improved preparation increases win rates from 25% to 35%, the same bid investment produces 40% more contract wins. Alternatively, the same number of wins can be achieved with fewer but higher-quality bids, freeing resources for delivery or further business development.
-          </p>
-
-          <p className="article-body-text">
-            The qualitative improvements are equally important. Better-prepared bids lead to contracts that are better understood, more accurately priced, and more effectively delivered. This creates a positive cycle where contract performance builds reputation, references, and relationship capital that strengthens future bids.
-          </p>
-
-          <p className="article-body-text">
-            The transition from reactive to proactive bidding is not binary. Most organisations will continue to respond reactively to some opportunities while building proactive preparation capability for priority markets. The key is shifting the ratio over time towards higher preparation investment in fewer, higher-probability opportunities.
-          </p>
-
-          <h2 className="article-subheading">Cost of Lateness</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence enables the shift from reactive to proactive bidding by providing the forward visibility needed for selective, high-quality preparation. When organisations can see their pipeline of relevant opportunities twelve to eighteen months ahead, they can make informed decisions about where to invest preparation effort.
-          </p>
-
-          <p className="article-body-text">
-            The intelligence dimension adds confidence scoring to pipeline opportunities, helping organisations differentiate between high-probability, strategically aligned opportunities and speculative ones. This scoring incorporates contract lifecycle data, competitive dynamics, buyer behaviour patterns, and timing analysis to produce a qualified view of each opportunity's attractiveness.
-          </p>
-
-          <p className="article-body-text">
-            The result is a more disciplined, higher-return approach to bid investment that replaces volume-based reactive bidding with intelligence-informed selective preparation.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

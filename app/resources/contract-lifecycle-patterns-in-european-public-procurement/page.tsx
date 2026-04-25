@@ -1,119 +1,187 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/contract-lifecycle-patterns-in-european-public-procurement";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/contract-lifecycle-patterns-in-european-public-procurement",
+  title: "Contract Lifecycle Patterns in European Public Procurement",
+  description:
+    "Understand how contract durations, renewal windows, frameworks, extensions, and buyer planning cycles reveal future public procurement opportunities.",
+  publishedAt: "2026-03-15T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Contract lifecycle patterns show when public-sector demand is likely to return. Award dates, contract duration, framework limits, extensions, and buyer planning behavior can be used to estimate renewal windows before formal tender notices are published.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Every public contract has a beginning, an operating period, and an end.
+        Before a new tender is published, the buyer may review performance,
+        approve budgets, test the market, extend the current agreement, or
+        prepare replacement specifications.
+      </p>
+      <p className="article-body-text">
+        Those lifecycle stages are not always visible in one place. But when
+        contract data is analysed across buyers and categories, recurring
+        patterns begin to appear.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Timing",
+      text: "Award dates and contract duration create the baseline for estimating future renewal windows.",
+    },
+    {
+      label: "Signals",
+      text: "Extensions, PINs, consultations, and budget approvals can confirm that a lifecycle is moving.",
+    },
+    {
+      label: "Planning",
+      text: "Lifecycle analysis turns tender discovery into earlier account and pursuit preparation.",
+    },
+  ],
+  civantView: {
+    title: "Lifecycle intelligence changes the question from discovery to preparation.",
+    content: (
+      <p>
+        When teams know which contracts are moving toward expiry or replacement,
+        they can prepare before the market sees the formal notice. Civant uses
+        lifecycle evidence as a core input for tender timing forecasts.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "duration-trends",
+      title: "Duration Trends",
+      content: (
+        <>
+          <p className="article-body-text">
+            Contract duration shapes future opportunity timing. Some contracts
+            run for one or two years. Frameworks often run over longer periods,
+            while complex services and infrastructure programmes may follow
+            multi-year planning cycles.
+          </p>
+          <p className="article-body-text">
+            Duration alone is not a forecast, but it is a strong starting
+            point. A contract awarded in 2022 with a four-year term should be
+            watched well before 2026, because planning and engagement normally
+            begin before expiry.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "renewal-frequencies",
+      title: "Renewal Frequencies",
+      content: (
+        <>
+          <p className="article-body-text">
+            Buyers and categories often show repeatable renewal behavior. Some
+            authorities re-procure at the end of term. Others extend, modify,
+            or use frameworks to sustain supplier relationships.
+          </p>
+          <p className="article-body-text">
+            The intelligence task is to compare the current contract with the
+            buyer's previous behavior, category norms, and any public signals
+            that indicate whether a renewal, extension, or replacement is
+            forming.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "category-variation",
+      title: "Category Variation",
+      content: (
+        <>
+          <p className="article-body-text">
+            Lifecycle patterns vary by category. Facilities, IT, construction,
+            healthcare, professional services, and education all have different
+            planning horizons, risk profiles, and renewal behavior.
+          </p>
+          <p className="article-body-text">
+            Treating all contracts the same creates false confidence. Good
+            forecasting weights category context alongside the buyer's own
+            historical record.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "pattern-based-planning",
+      title: "Pattern-Based Planning",
+      content: (
+        <>
+          <p className="article-body-text">
+            Contract lifecycle analysis gives commercial teams a forward view
+            of the market. Instead of reacting only to live notices, they can
+            identify accounts approaching likely re-procurement windows and
+            decide where to build relationships, partnerships, and evidence.
+          </p>
+          <p className="article-body-text">
+            This is the shift from reactive tender alerts to procurement
+            intelligence: earlier timing, stronger context, and better
+            qualification.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Use contract lifecycles to plan before notices appear.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is a contract lifecycle in public procurement?",
+      answer:
+        "A contract lifecycle covers the period from award and delivery through performance review, extension, renewal planning, market engagement, and eventual re-procurement or replacement.",
+    },
+    {
+      question: "How do lifecycle patterns predict future tenders?",
+      answer:
+        "Award dates, contract duration, framework terms, extensions, and buyer history can indicate when an existing agreement is likely to be renewed, replaced, or re-procured.",
+    },
+    {
+      question: "Why do lifecycle patterns matter to suppliers?",
+      answer:
+        "They help suppliers identify likely opportunities earlier, prepare account strategies, allocate bid resources, and avoid waiting until the formal tender notice compresses the preparation window.",
+    },
+  ],
+  sources: getArticleSources([
+    "eurLexDirective201424",
+    "tedEforms",
+    "europeanCommissionEforms",
+    "europeanCourtAuditorsCompetition",
+  ]),
+  relatedSolution: {
+    solutionSlug: "tender-prediction-software",
+    linkLabel: "Explore tender forecasting software",
+    children:
+      "See how Civant uses lifecycle evidence to estimate likely renewal and re-procurement windows.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Contract Lifecycle Patterns in European Public Procurement",
-  description:
-    "Every public contract has a beginning and an end. Between these points lies a lifecycle that includes contract execution, performance review, renewal pl...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Contract Lifecycle Patterns in European Public Procurement",
-  description:
-    "Every public contract has a beginning and an end. Between these points lies a lifecycle that includes contract execution, performance review, renewal pl...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Contract Lifecycle Patterns in European Public Procurement</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Every public contract has a beginning and an end. Between these points lies a lifecycle that includes contract execution, performance review, renewal planning, specification development, market engagement, and formal procurement. While the formal procurement phase is visible through published notices, the preceding stages are largely invisible to most suppliers.
-          </p>
-
-          <p className="article-body-text">
-            This invisibility is not inherent to the process. Contract award notices, published at the conclusion of procurement procedures, contain structured information about contract duration, start dates, and estimated values. When analysed systematically across thousands of contracts, these data points reveal patterns that allow future procurement activity to be anticipated with reasonable confidence.
-          </p>
-
-          <h2 className="article-subheading">Duration Trends</h2>
-
-          <p className="article-body-text">
-            The EU public procurement framework establishes clear rules about contract duration. Framework agreements may not exceed four years except in exceptional circumstances. Service contracts typically run for one to five years depending on complexity and sector. Infrastructure and construction contracts follow project-specific timelines but are bounded by budgetary cycles.
-          </p>
-
-          <p className="article-body-text">
-            These constraints create recurring procurement events. A four-year framework agreement awarded in 2022 will require re-procurement by 2026. A three-year IT services contract starting in 2023 will enter its renewal planning phase in late 2025. Budget-dependent procurements follow annual or multi-annual financial planning cycles set by national and regional governments.
-          </p>
-
-          <p className="article-body-text">
-            The predictability of these cycles is high when viewed in aggregate. Individual procurements may shift by months due to administrative delays, political changes, or operational priorities. But the underlying demand does not disappear. A public body that procured managed IT services in 2021 will procure managed IT services again.
-          </p>
-
-          <h2 className="article-subheading">Renewal Frequencies</h2>
-
-          <p className="article-body-text">
-            Analysis of TED data reveals several consistent patterns in contract lifecycle behaviour. Contracts in the same sector and geography tend to cluster around similar durations. Healthcare IT frameworks in Northern Europe, for example, frequently follow four-year cycles aligned with regional health authority planning periods.
-          </p>
-
-          <p className="article-body-text">
-            Renewal procurement is typically initiated six to twelve months before the existing contract expires. Pre-information notices, when published, appear three to nine months before the formal contract notice. Market consultations may occur even earlier, providing signals of upcoming activity to organisations monitoring the right channels.
-          </p>
-
-          <p className="article-body-text">
-            The relationship between contract value and procurement lead time is also significant. Higher-value contracts generally involve longer planning and procurement cycles, providing more opportunity for early identification and preparation. Contracts above EU thresholds must follow formal procedures with prescribed minimum timelines, further adding to predictability.
-          </p>
-
-          <h2 className="article-subheading">Category Variations</h2>
-
-          <p className="article-body-text">
-            For supplier organisations, contract lifecycle analysis provides a fundamentally different approach to market development. Rather than waiting for opportunities to appear on tender portals, organisations can build a forward-looking view of their target market based on when existing contracts are likely to expire.
-          </p>
-
-          <p className="article-body-text">
-            This approach enables several strategic advantages. Resource planning becomes more predictable when the pipeline of upcoming opportunities is visible months in advance. Business development efforts can be targeted at buyers approaching renewal cycles rather than spread across unqualified contacts. Solution development can be aligned with specific procurement timelines, ensuring readiness when opportunities materialise.
-          </p>
-
-          <p className="article-body-text">
-            The limitation of lifecycle analysis is that it requires access to comprehensive historical data and the analytical capability to extract patterns from large datasets. Individual contract notices provide limited insight. The value emerges from aggregation and pattern detection across thousands of data points.
-          </p>
-
-          <h2 className="article-subheading">Pattern-Based Planning</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence platforms address this challenge by aggregating contract data across European portals, normalising it into consistent formats, and applying analytical methods to detect lifecycle patterns. The output is a forward-looking pipeline of anticipated procurement events, scored by confidence level based on the strength of the underlying signals.
-          </p>
-
-          <p className="article-body-text">
-            This transforms procurement from a discovery problem into a preparation problem. When an organisation knows that a specific buyer is likely to procure a specific category of service within a defined timeframe, the strategic question shifts from "what opportunities exist?" to "how do we prepare to compete effectively for this specific opportunity?"
-          </p>
-
-          <p className="article-body-text">
-            The shift from reactive discovery to proactive preparation represents a structural change in how organisations approach public sector markets.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

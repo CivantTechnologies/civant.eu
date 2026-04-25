@@ -1,83 +1,177 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/proactive-vs-reactive-bidding-developing-a-winning-strategy";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/proactive-vs-reactive-bidding-developing-a-winning-strategy",
+  title: "Proactive vs Reactive Bidding: Developing a Winning Strategy",
+  description:
+    "Build a public-sector bid strategy that balances proactive opportunity preparation with reactive response discipline and evidence-led bid/no-bid rules.",
+  publishedAt: "2026-04-08T00:00:00+00:00",
+  publishedLabel: "April 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "A winning public-sector bid strategy balances proactive preparation for strategic opportunities with disciplined reactive response for lower-risk work. Teams should tier opportunities by value, fit, timing, buyer context, and evidence strength.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Not every opportunity deserves months of preparation, and not every
+        tender can be handled reactively. Strong bid strategy is about knowing
+        which mode fits the opportunity.
+      </p>
+      <p className="article-body-text">
+        The right approach uses evidence to decide where to invest early and
+        where to preserve capacity.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Tiering",
+      text: "Strategic opportunities deserve earlier preparation than routine or low-fit tenders.",
+    },
+    {
+      label: "Evidence",
+      text: "Buyer context, lifecycle timing, and competition should shape the response mode.",
+    },
+    {
+      label: "Capacity",
+      text: "Bid teams win more consistently when effort matches expected return.",
+    },
+  ],
+  civantView: {
+    title: "The best bid strategy is selective before it is fast.",
+    content: (
+      <p>
+        Civant helps teams rank opportunities by fit, timing, competition, and
+        signal strength so they can decide where to prepare early and where to
+        hold back.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "preparation-advantage",
+      title: "Preparation Advantage",
+      content: (
+        <>
+          <p className="article-body-text">
+            Proactive preparation creates time to understand the buyer, shape
+            the solution, gather evidence, align delivery, and identify
+            partners.
+          </p>
+          <p className="article-body-text">
+            That advantage matters most when the opportunity is strategic,
+            complex, high value, or difficult to respond to from a standing
+            start.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "strategy-framework",
+      title: "Strategy Framework",
+      content: (
+        <>
+          <p className="article-body-text">
+            A practical strategy tiers opportunities. Tier one receives early
+            preparation and account planning. Tier two receives structured
+            monitoring. Tier three may be handled reactively or declined.
+          </p>
+          <p className="article-body-text">
+            The criteria should include value, buyer fit, incumbent context,
+            timing, competition, delivery risk, and evidence strength.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "timing-your-bids",
+      title: "Timing Your Bids",
+      content: (
+        <>
+          <p className="article-body-text">
+            Timing is a resource decision. Preparing too early for weak signals
+            wastes effort. Preparing too late for strategic tenders weakens the
+            bid.
+          </p>
+          <p className="article-body-text">
+            Teams should increase effort as confidence increases, not jump from
+            no action to full bid mode overnight.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "winning-approach",
+      title: "Winning Approach",
+      content: (
+        <>
+          <p className="article-body-text">
+            A strong bidding system combines early intelligence, reusable bid
+            assets, clear internal ownership, and documented bid/no-bid rules.
+          </p>
+          <p className="article-body-text">
+            This lets teams respond quickly when needed while still protecting
+            capacity for the opportunities that deserve deeper work.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Build bid strategy around fit, timing, and evidence.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "Should suppliers always be proactive?",
+      answer:
+        "No. Suppliers should be proactive for strategic, complex, or high-fit opportunities and use lighter response modes for lower-value or lower-confidence tenders.",
+    },
+    {
+      question: "How should bid teams tier opportunities?",
+      answer:
+        "They should assess value, buyer fit, lifecycle timing, incumbent position, competition, delivery risk, preparation window, and evidence strength.",
+    },
+    {
+      question: "What makes a bidding strategy sustainable?",
+      answer:
+        "A sustainable strategy uses clear bid/no-bid rules, early signal monitoring, reusable content, internal ownership, and disciplined resource allocation.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCommissionPublicProcurement",
+    "europeanCourtAuditorsCompetition",
+    "oecdPublicProcurement",
+    "tedEforms",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant helps teams prioritise opportunities with buyer, timing, lifecycle, and competitor evidence.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Proactive vs Reactive Bidding: Developing a Winning Strategy",
-  description:
-    "Bidding on public tenders requires both awareness of the market and disciplined internal processes. Organisations often oscillate between proactive and ...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Proactive vs Reactive Bidding: Developing a Winning Strategy",
-  description:
-    "Bidding on public tenders requires both awareness of the market and disciplined internal processes. Organisations often oscillate between proactive and ...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Proactive vs Reactive Bidding: Developing a Winning Strategy</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Bidding on public tenders requires both awareness of the market and disciplined internal processes. Organisations often oscillate between proactive and reactive behaviours depending on resources and information. This brief explores how to develop a balanced bidding strategy that maximises success while minimising wasted effort.
-          </p>
-
-          <h2 className="article-subheading">Preparation Advantage</h2>
-
-          <p className="article-body-text">
-            Proactive bidding starts with monitoring preliminary notices, renewal signals and policy announcements to identify opportunities early. Bid teams use the extended preparation time to refine solutions, build partnerships and align internal stakeholders. Reactive bidding occurs when a notice is discovered late, leaving little time for these activities, leading to rushed submissions and higher stress. Success depends on balancing the two approaches: being proactive where it matters and reactive where necessary.
-          </p>
-
-          <h2 className="article-subheading">Strategy Framework</h2>
-
-          <p className="article-body-text">
-            A winning strategy involves tiering opportunities. High‑value or strategic opportunities warrant proactive investment, including early engagement and tailored bids. Lower‑value or less strategic opportunities may be pursued reactively with standardised responses. This tiered approach ensures that resources are deployed proportionally to potential return.
-          </p>
-
-          <h2 className="article-subheading">Timing Your Bids</h2>
-
-          <p className="article-body-text">
-            Suppliers need processes to classify opportunities, assign resources and make timely go/no‑go decisions. Internal collaboration between sales, delivery and legal teams is essential to support proactive bidding. Organisations should also maintain a library of bid materials and pricing models that can be adapted quickly, reducing the burden of reactive bids.
-          </p>
-
-          <h2 className="article-subheading">Winning Approach</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence platforms assist in developing a winning strategy by ranking opportunities, forecasting timing and providing context about past awards. These insights enable suppliers to decide which opportunities merit proactive investment and which can be pursued reactively.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

@@ -32,6 +32,12 @@ const article: ResourceArticle = {
       </p>
     </>
   ),
+  visual: {
+    src: "/images/resources/guide-contract-lifecycle-signals.svg",
+    alt: "Civant visual timeline of contract lifecycle signals from award through delivery, modification, extension, expiry, and renewal",
+    caption:
+      "Lifecycle signals turn contract history into earlier renewal and re-procurement context.",
+  },
   takeaways: [
     {
       label: "Timing",

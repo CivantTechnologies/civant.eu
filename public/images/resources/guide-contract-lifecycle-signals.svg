@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1570" height="1000" viewBox="0 0 1570 1000" role="img" aria-labelledby="guide-contract-lifecycle-signals-title guide-contract-lifecycle-signals-desc">
+  <title id="guide-contract-lifecycle-signals-title">Contract Lifecycle Signals</title>
+  <desc id="guide-contract-lifecycle-signals-desc">Civant editorial procurement intelligence graphic for Contract Lifecycle Signals.</desc>
+  
+  <defs>
+    <radialGradient id="guide-contract-lifecycle-signals-glow" cx="50%" cy="45%" r="62%">
+      <stop offset="0%" stop-color="#00c4c4" stop-opacity="0.23"/>
+      <stop offset="48%" stop-color="#0a1628" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#060d18" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="guide-contract-lifecycle-signals-panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#11304a" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.56"/>
+    </linearGradient>
+    <linearGradient id="guide-contract-lifecycle-signals-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00c4c4" stop-opacity="0.15"/>
+      <stop offset="45%" stop-color="#00c4c4" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0.28"/>
+    </linearGradient>
+    <filter id="guide-contract-lifecycle-signals-soft-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="guide-contract-lifecycle-signals-grid" width="58" height="58" patternUnits="userSpaceOnUse">
+      <path d="M 58 0 L 0 0 0 58" fill="none" stroke="#ffffff" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+    <pattern id="guide-contract-lifecycle-signals-dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#00c4c4" fill-opacity="0.28"/>
+    </pattern>
+  </defs>
+  <rect width="1570" height="1000" fill="#08111f"/>
+  <rect width="1570" height="1000" fill="url(#guide-contract-lifecycle-signals-glow)"/>
+  <rect width="1570" height="1000" fill="url(#guide-contract-lifecycle-signals-grid)" opacity="0.58"/>
+  <path d="M-80 690 C 220 540, 342 770, 610 612 S 1090 505, 1650 340" fill="none" stroke="#00c4c4" stroke-opacity="0.14" stroke-width="2"/>
+  <path d="M-60 760 C 260 575, 410 775, 720 630 S 1110 665, 1630 475" fill="none" stroke="#6ee7b7" stroke-opacity="0.1" stroke-width="2"/>
+  <path d="M-60 335 C 270 520, 510 235, 780 400 S 1180 545, 1640 285" fill="none" stroke="#00c4c4" stroke-opacity="0.1" stroke-width="2"/>
+  
+  <g font-family="Montserrat, Inter, Arial, sans-serif">
+    <text x="70" y="86" fill="#00c4c4" font-size="24" font-weight="800" letter-spacing="9">RENEWAL EVIDENCE</text>
+    <text x="70" y="148" fill="#f8fafc" font-size="54" font-weight="800" letter-spacing="-1">Contract Lifecycle Signals</text>
+    <line x1="70" y1="188" x2="1500" y2="188" stroke="#00c4c4" stroke-opacity="0.35"/>
+    
+    <rect x="88" y="250" width="1394" height="456" rx="32" fill="#071321" fill-opacity="0.54" stroke="#00c4c4" stroke-opacity="0.25"/>
+    <rect x="112" y="272" width="570" height="54" rx="18" fill="#00c4c4" fill-opacity="0.12" stroke="#00c4c4" stroke-opacity="0.3"/>
+    <rect x="888" y="272" width="570" height="54" rx="18" fill="#cbd5e1" fill-opacity="0.07" stroke="#cbd5e1" stroke-opacity="0.22"/>
+    <text x="397" y="307" fill="#00c4c4" font-size="21" font-weight="900" text-anchor="middle">Civant advantage</text>
+    <text x="1173" y="307" fill="#dbeafe" font-size="21" font-weight="800" text-anchor="middle">Market awareness</text>
+    <line x1="180" y1="408" x2="1390" y2="408" stroke="url(#guide-contract-lifecycle-signals-accent)" stroke-width="5"/>
+    <rect x="114" y="594" width="1342" height="84" rx="22" fill="url(#guide-contract-lifecycle-signals-dots)" opacity="0.35"/>
+    
+        <g>
+          <rect x="104" y="340" width="152" height="258" rx="22" fill="#06222f" fill-opacity="0.58" stroke="#00c4c4" stroke-opacity="0.42"/>
+          <circle cx="180" cy="408" r="37" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.95" stroke-width="3"/>
+          <circle cx="180" cy="408" r="10" fill="#00c4c4" filter="url(#guide-contract-lifecycle-signals-soft-glow)"/>
+          <text x="180" y="492" fill="#72f7f6" font-size="20" font-weight="900" text-anchor="middle"><tspan x="180" dy="0">Award</tspan></text>
+          <text x="180" y="554" fill="#aeb9ca" font-size="15" font-weight="600" text-anchor="middle">Start point</text>
+        </g>
+        <g>
+          <rect x="346" y="340" width="152" height="258" rx="22" fill="#06222f" fill-opacity="0.58" stroke="#00c4c4" stroke-opacity="0.42"/>
+          <circle cx="422" cy="408" r="37" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.95" stroke-width="3"/>
+          <circle cx="422" cy="408" r="10" fill="#00c4c4" filter="url(#guide-contract-lifecycle-signals-soft-glow)"/>
+          <text x="422" y="492" fill="#72f7f6" font-size="20" font-weight="900" text-anchor="middle"><tspan x="422" dy="0">Delivery</tspan></text>
+          <text x="422" y="554" fill="#aeb9ca" font-size="15" font-weight="600" text-anchor="middle">Performance</text>
+        </g>
+        <g>
+          <rect x="588" y="340" width="152" height="258" rx="22" fill="#06222f" fill-opacity="0.58" stroke="#00c4c4" stroke-opacity="0.42"/>
+          <circle cx="664" cy="408" r="37" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.95" stroke-width="3"/>
+          <circle cx="664" cy="408" r="10" fill="#00c4c4" filter="url(#guide-contract-lifecycle-signals-soft-glow)"/>
+          <text x="664" y="492" fill="#72f7f6" font-size="20" font-weight="900" text-anchor="middle"><tspan x="664" dy="0">Modify</tspan></text>
+          <text x="664" y="554" fill="#aeb9ca" font-size="15" font-weight="600" text-anchor="middle">Scope shifts</text>
+        </g>
+        <g>
+          <rect x="830" y="340" width="152" height="258" rx="22" fill="#06222f" fill-opacity="0.58" stroke="#00c4c4" stroke-opacity="0.42"/>
+          <circle cx="906" cy="408" r="37" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.95" stroke-width="3"/>
+          <circle cx="906" cy="408" r="10" fill="#00c4c4" filter="url(#guide-contract-lifecycle-signals-soft-glow)"/>
+          <text x="906" y="492" fill="#72f7f6" font-size="20" font-weight="900" text-anchor="middle"><tspan x="906" dy="0">Extend</tspan></text>
+          <text x="906" y="554" fill="#aeb9ca" font-size="15" font-weight="600" text-anchor="middle">Option used</text>
+        </g>
+        <g>
+          <rect x="1072" y="340" width="152" height="258" rx="22" fill="#06222f" fill-opacity="0.58" stroke="#00c4c4" stroke-opacity="0.42"/>
+          <circle cx="1148" cy="408" r="37" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.95" stroke-width="3"/>
+          <circle cx="1148" cy="408" r="10" fill="#00c4c4" filter="url(#guide-contract-lifecycle-signals-soft-glow)"/>
+          <text x="1148" y="492" fill="#72f7f6" font-size="20" font-weight="900" text-anchor="middle"><tspan x="1148" dy="0">Expiry</tspan></text>
+          <text x="1148" y="554" fill="#aeb9ca" font-size="15" font-weight="600" text-anchor="middle">Window opens</text>
+        </g>
+        <g>
+          <rect x="1314" y="340" width="152" height="258" rx="22" fill="#111827" fill-opacity="0.5" stroke="#cbd5e1" stroke-opacity="0.28"/>
+          <circle cx="1390" cy="408" r="37" fill="#0b1d31" stroke="#cbd5e1" stroke-opacity="0.64" stroke-width="3"/>
+          <circle cx="1390" cy="408" r="10" fill="#cbd5e1" filter="url(#guide-contract-lifecycle-signals-soft-glow)"/>
+          <text x="1390" y="492" fill="#e5e7eb" font-size="20" font-weight="900" text-anchor="middle"><tspan x="1390" dy="0">Renew</tspan></text>
+          <text x="1390" y="554" fill="#aeb9ca" font-size="15" font-weight="600" text-anchor="middle">Re-compete</text>
+        </g>
+    <rect x="100" y="748" width="655" height="132" rx="22" fill="#06222f" fill-opacity="0.72" stroke="#00c4c4" stroke-opacity="0.7"/>
+    <text x="135" y="800" fill="#00c4c4" font-size="26" font-weight="900">Signal window</text>
+    <text x="135" y="842" fill="#dbeafe" font-size="20" font-weight="650" text-anchor="start"><tspan x="135" dy="0">Extensions and modifications reveal timing.</tspan></text>
+    <rect x="815" y="748" width="655" height="132" rx="22" fill="#111827" fill-opacity="0.72" stroke="#cbd5e1" stroke-opacity="0.4"/>
+    <text x="850" y="800" fill="#e5e7eb" font-size="26" font-weight="900">Late discovery</text>
+    <text x="850" y="842" fill="#aeb9ca" font-size="20" font-weight="650" text-anchor="start"><tspan x="850" dy="0">Waiting for the notice misses lifecycle</tspan><tspan x="850" dy="28">context.</tspan></text>
+    
+  </g>
+</svg>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ResourceIndexAccordion } from "../../components/site/ResourceIndexAccordion";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { Section } from "../../components/site/Section";
 import {
@@ -843,23 +844,16 @@ export default function ResourcesPage() {
             readers can go deep without turning the page into a wall of links.
           </p>
         </div>
-        <div className="resource-index-accordion">
-          {topicCollections.map(({ pillar, articles: group, id }) => (
-            <details key={pillar} id={`${id}-index`} className="resource-index-group">
-              <summary className="resource-index-head">
-                <span className="resource-index-heading">{pillar}</span>
-                <span>{group.length}</span>
-              </summary>
-              <ul>
-                {group.map((article) => (
-                  <li key={article.href}>
-                    <Link href={article.href}>{article.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          ))}
-        </div>
+        <ResourceIndexAccordion
+          collections={topicCollections.map(({ pillar, articles: group, id }) => ({
+            pillar,
+            id,
+            articles: group.map((article) => ({
+              href: article.href,
+              title: article.title,
+            })),
+          }))}
+        />
       </Section>
 
       <Section muted>

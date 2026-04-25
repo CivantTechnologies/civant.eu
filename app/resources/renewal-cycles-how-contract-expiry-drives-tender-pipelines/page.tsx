@@ -1,83 +1,193 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/renewal-cycles-how-contract-expiry-drives-tender-pipelines";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/renewal-cycles-how-contract-expiry-drives-tender-pipelines",
+  title: "Renewal Cycles: How Contract Expiry Drives Tender Pipelines",
+  description:
+    "A guide to using contract expiry, extension options, award history, and buyer lifecycle evidence to forecast future public-sector tender pipelines.",
+  publishedAt: "2026-03-14T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Renewal cycles drive tender pipelines because public contracts eventually expire, extend, or return to competition. By tracking award dates, contract durations, extension options, and buyer decisions, suppliers can forecast likely re-procurement windows and prepare before formal notices appear.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Public procurement has a lifecycle. Contracts are awarded, delivered,
+        reviewed, extended, replaced, or re-competed. Published tender notices
+        are only one visible moment in that longer cycle.
+      </p>
+      <p className="article-body-text">
+        Suppliers that track expiry patterns can build a more reliable pipeline
+        than teams relying only on live notices. The point is not to predict
+        every tender perfectly. It is to create enough visibility to prepare
+        earlier and choose pursuits more intelligently.
+      </p>
+    </>
+  ),
+  visual: {
+    src: "/images/resources/guide-renewal-cycles.svg",
+    alt: "Civant visual showing contract renewal cycles turning award data and expiry timing into future tender pipeline opportunities",
+    caption:
+      "Renewal cycles translate contract expiry evidence into a forward-looking pipeline.",
+  },
+  takeaways: [
+    {
+      label: "Expiry",
+      text: "Contract end dates and extension windows are early indicators of future demand.",
+    },
+    {
+      label: "Cycles",
+      text: "Categories and buyers often follow repeatable procurement rhythms.",
+    },
+    {
+      label: "Pipeline",
+      text: "Lifecycle evidence supports account planning before a tender notice appears.",
+    },
+  ],
+  civantView: {
+    title: "The pipeline starts at award, not publication.",
+    content: (
+      <p>
+        Every award creates a future lifecycle question: will the buyer extend,
+        replace, consolidate, or change direction? Reading that question early is
+        the foundation of renewal-based procurement intelligence.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "expiry-evidence",
+      title: "Expiry Evidence",
+      content: (
+        <>
+          <p className="article-body-text">
+            Renewal intelligence begins with basic contract facts: award date,
+            duration, value, buyer, supplier, category, framework status,
+            extension clauses, and any subsequent modification or extension
+            evidence.
+          </p>
+          <p className="article-body-text">
+            Those facts create an expected opportunity window. The window should
+            then be refined with buyer documents, budget decisions, performance
+            context, policy changes, and signals of changing demand.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "category-rhythms",
+      title: "Category Rhythms",
+      content: (
+        <>
+          <p className="article-body-text">
+            Different categories renew at different speeds. Technology,
+            facilities, professional services, transport, construction, and
+            social services often use different contract lengths, framework
+            structures, and extension habits.
+          </p>
+          <p className="article-body-text">
+            A supplier that understands category rhythm can time research,
+            partner conversations, reference building, and buyer engagement more
+            effectively than a team waiting for publication.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "pipeline-planning",
+      title: "Pipeline Planning",
+      content: (
+        <>
+          <p className="article-body-text">
+            Renewal cycles turn public procurement into a planning problem. A
+            team can map likely future competitions, rank them by fit, decide
+            which accounts need attention, and build delivery evidence before
+            the formal response clock starts.
+          </p>
+          <p className="article-body-text">
+            This also supports capacity planning. If several relevant contracts
+            may re-compete in the same quarter, the team can prepare earlier or
+            decide which ones deserve priority.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "forecasting-limits",
+      title: "Forecasting Limits",
+      content: (
+        <>
+          <p className="article-body-text">
+            Renewal forecasting is probabilistic. Buyers can extend, cancel,
+            consolidate, insource, change procedure, or re-scope the need. A
+            strong intelligence process therefore records confidence and keeps
+            assumptions visible.
+          </p>
+          <p className="article-body-text">
+            The goal is earlier and better preparation, not false certainty.
+            Good renewal intelligence helps teams prepare where evidence is
+            strong and pause where the signal is weak.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Build your pipeline from contract lifecycles, not only live notices.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "How do contract expiries create tender pipelines?",
+      answer:
+        "When a public contract approaches the end of its term, the buyer must decide whether to extend, replace, or re-compete the requirement, creating a future opportunity window.",
+    },
+    {
+      question: "What data is needed for renewal-cycle tracking?",
+      answer:
+        "Useful data includes award dates, contract durations, supplier names, buyer details, category, values, extension options, modifications, and buyer planning documents.",
+    },
+    {
+      question: "Can renewal cycles predict every tender?",
+      answer:
+        "No. They provide evidence-based preparation windows, not certainty. Buyers can extend, cancel, consolidate, or change requirements.",
+    },
+  ],
+  sources: getArticleSources([
+    "tedEforms",
+    "eurLexDirective201424",
+    "europeanCommissionEforms",
+    "ukProcurementActGuidance",
+  ]),
+  relatedSolution: {
+    solutionSlug: "contract-renewal-tracking",
+    linkLabel: "Explore contract renewal tracking",
+    children:
+      "Use Civant to track contract lifecycles, renewal windows, and expiry-based pipeline signals before opportunities become live tenders.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Renewal Cycles: How Contract Expiry Drives Tender Pipelines",
-  description:
-    "Public procurement follows a cyclical rhythm driven by contract expirations. When existing agreements reach the end of their term, authorities must deci...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Renewal Cycles: How Contract Expiry Drives Tender Pipelines",
-  description:
-    "Public procurement follows a cyclical rhythm driven by contract expirations. When existing agreements reach the end of their term, authorities must deci...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Renewal Cycles: How Contract Expiry Drives Tender Pipelines</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Public procurement follows a cyclical rhythm driven by contract expirations. When existing agreements reach the end of their term, authorities must decide whether to renew, extend or re‑procure. Suppliers that rely solely on published tender notices often miss the early signals that a contract is approaching expiry and only become aware once a new competition has been launched. This brief explores renewal cycles as a forecasting tool for tender pipelines.
-          </p>
-
-          <h2 className="article-subheading">Expiry Drives Opportunity</h2>
-
-          <p className="article-body-text">
-            Renewal cycles vary across sectors. In facilities management, contracts worth billions are renewed annually across councils and public bodies, yet opportunities are scattered across multiple portals. When buyers extend contracts, meeting minutes and procurement strategies often reveal these decisions months in advance. Other categories—such as IT systems or professional services—may use longer frameworks, with renewal cycles stretching over several years. By analysing the length of existing contracts and their expiration dates, suppliers can forecast when new competitions are likely to occur.
-          </p>
-
-          <h2 className="article-subheading">Cycle Forecasting</h2>
-
-          <p className="article-body-text">
-            Renewal cycles follow predictable patterns: a contract is awarded, delivered and then either extended or replaced through a fresh competition. Cabinet approvals to extend or replace contracts are recorded in public minutes. Facilities management tends to have annual or bi‑annual renewal rhythms, while framework agreements may only come up every four years. Fragmented portals and localised procurement make it difficult to see these patterns without consolidated intelligence. By mapping expiry dates across a category, suppliers can identify clusters of upcoming opportunities and plan resources accordingly.
-          </p>
-
-          <h2 className="article-subheading">Contract Expiration Signals</h2>
-
-          <p className="article-body-text">
-            For sales and tender teams, renewal cycles are a guide to when the market will be receptive. Investing in monitoring expiry dates allows organisations to pre‑qualify prospects and begin relationship building well before a notice is published. Those who wait until a contract notice goes live are forced into reactive bidding, contending with short timeframes and well‑prepared incumbents. Understanding renewal cycles also helps prioritise sectors where upcoming expiries match strategic capabilities and avoid chasing mature frameworks that are years away from renewal.
-          </p>
-
-          <h2 className="article-subheading">Lifecycle-Based Forecasting</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence platforms capture award dates, contract durations and any extensions to calculate expected expiry windows. By correlating these data with budget cycles and policy signals, intelligence tools can predict which contracts are due to be re‑procured in the near future. For example, a council decision to extend a housing management system to July 2026 signals a replacement procurement thereafter. Armed with renewal insights, suppliers can stage their marketing, allocate resources and build pipelines that anticipate rather than react to procurement demand.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

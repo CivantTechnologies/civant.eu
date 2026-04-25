@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1570" height="1000" viewBox="0 0 1570 1000" role="img" aria-labelledby="guide-reactive-bidding-cost-title guide-reactive-bidding-cost-desc">
+  <title id="guide-reactive-bidding-cost-title">Reactive Bidding Cost</title>
+  <desc id="guide-reactive-bidding-cost-desc">Civant editorial procurement intelligence graphic for Reactive Bidding Cost.</desc>
+  
+  <defs>
+    <radialGradient id="guide-reactive-bidding-cost-glow" cx="50%" cy="45%" r="62%">
+      <stop offset="0%" stop-color="#00c4c4" stop-opacity="0.23"/>
+      <stop offset="48%" stop-color="#0a1628" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#060d18" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="guide-reactive-bidding-cost-panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#11304a" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.56"/>
+    </linearGradient>
+    <linearGradient id="guide-reactive-bidding-cost-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00c4c4" stop-opacity="0.15"/>
+      <stop offset="45%" stop-color="#00c4c4" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0.28"/>
+    </linearGradient>
+    <filter id="guide-reactive-bidding-cost-soft-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="guide-reactive-bidding-cost-grid" width="58" height="58" patternUnits="userSpaceOnUse">
+      <path d="M 58 0 L 0 0 0 58" fill="none" stroke="#ffffff" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+    <pattern id="guide-reactive-bidding-cost-dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#00c4c4" fill-opacity="0.28"/>
+    </pattern>
+  </defs>
+  <rect width="1570" height="1000" fill="#08111f"/>
+  <rect width="1570" height="1000" fill="url(#guide-reactive-bidding-cost-glow)"/>
+  <rect width="1570" height="1000" fill="url(#guide-reactive-bidding-cost-grid)" opacity="0.58"/>
+  <path d="M-80 690 C 220 540, 342 770, 610 612 S 1090 505, 1650 340" fill="none" stroke="#00c4c4" stroke-opacity="0.14" stroke-width="2"/>
+  <path d="M-60 760 C 260 575, 410 775, 720 630 S 1110 665, 1630 475" fill="none" stroke="#6ee7b7" stroke-opacity="0.1" stroke-width="2"/>
+  <path d="M-60 335 C 270 520, 510 235, 780 400 S 1180 545, 1640 285" fill="none" stroke="#00c4c4" stroke-opacity="0.1" stroke-width="2"/>
+  
+  <g font-family="Montserrat, Inter, Arial, sans-serif">
+    <text x="70" y="86" fill="#00c4c4" font-size="24" font-weight="800" letter-spacing="9">PREPARATION ECONOMICS</text>
+    <text x="70" y="148" fill="#f8fafc" font-size="54" font-weight="800" letter-spacing="-1">Reactive Bidding Cost</text>
+    <line x1="70" y1="188" x2="1500" y2="188" stroke="#00c4c4" stroke-opacity="0.35"/>
+    
+    <rect x="90" y="220" width="1390" height="540" rx="30" fill="#071321" fill-opacity="0.58" stroke="#00c4c4" stroke-opacity="0.25"/>
+    <text x="663" y="270" fill="#00c4c4" font-size="20" font-weight="900" text-anchor="middle">Fit</text><text x="853" y="270" fill="#00c4c4" font-size="20" font-weight="900" text-anchor="middle">Timing</text><text x="1043" y="270" fill="#00c4c4" font-size="20" font-weight="900" text-anchor="middle">Evidence</text><text x="1233" y="270" fill="#00c4c4" font-size="20" font-weight="900" text-anchor="middle">Risk</text>
+    
+    <text x="125" y="333" fill="#f8fafc" font-size="25" font-weight="800">Reactive</text>
+    <text x="125" y="363" fill="#9ca3af" font-size="17">Late start, many bids</text>
+  
+    <text x="125" y="433" fill="#f8fafc" font-size="25" font-weight="800">Selective</text>
+    <text x="125" y="463" fill="#9ca3af" font-size="17">Qualified earlier</text>
+  
+    <text x="125" y="533" fill="#f8fafc" font-size="25" font-weight="800">Prepared</text>
+    <text x="125" y="563" fill="#9ca3af" font-size="17">Account plan ready</text>
+  
+    
+          <g>
+            <rect x="595" y="305" width="136" height="58" rx="15" fill="#0b1d31" stroke="#f97316" stroke-opacity="0.54"/>
+            <rect x="609" y="328" width="42" height="12" rx="6" fill="#f97316" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="785" y="305" width="136" height="58" rx="15" fill="#0b1d31" stroke="#f97316" stroke-opacity="0.54"/>
+            <rect x="799" y="328" width="28" height="12" rx="6" fill="#f97316" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="975" y="305" width="136" height="58" rx="15" fill="#0b1d31" stroke="#f97316" stroke-opacity="0.54"/>
+            <rect x="989" y="328" width="38" height="12" rx="6" fill="#f97316" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="1165" y="305" width="136" height="58" rx="15" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.54"/>
+            <rect x="1179" y="328" width="104" height="12" rx="6" fill="#00c4c4" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="595" y="405" width="136" height="58" rx="15" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.54"/>
+            <rect x="609" y="428" width="84" height="12" rx="6" fill="#00c4c4" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="785" y="405" width="136" height="58" rx="15" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.54"/>
+            <rect x="799" y="428" width="82" height="12" rx="6" fill="#00c4c4" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="975" y="405" width="136" height="58" rx="15" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.54"/>
+            <rect x="989" y="428" width="78" height="12" rx="6" fill="#00c4c4" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="1165" y="405" width="136" height="58" rx="15" fill="#0b1d31" stroke="#f97316" stroke-opacity="0.54"/>
+            <rect x="1179" y="428" width="46" height="12" rx="6" fill="#f97316" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="595" y="505" width="136" height="58" rx="15" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.54"/>
+            <rect x="609" y="528" width="104" height="12" rx="6" fill="#00c4c4" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="785" y="505" width="136" height="58" rx="15" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.54"/>
+            <rect x="799" y="528" width="96" height="12" rx="6" fill="#00c4c4" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="975" y="505" width="136" height="58" rx="15" fill="#0b1d31" stroke="#00c4c4" stroke-opacity="0.54"/>
+            <rect x="989" y="528" width="90" height="12" rx="6" fill="#00c4c4" opacity="0.9"/>
+          </g>
+          <g>
+            <rect x="1165" y="505" width="136" height="58" rx="15" fill="#0b1d31" stroke="#f97316" stroke-opacity="0.54"/>
+            <rect x="1179" y="528" width="28" height="12" rx="6" fill="#f97316" opacity="0.9"/>
+          </g>
+    <g transform="translate(1088 800)">
+      <rect width="315" height="86" rx="20" fill="#06222f" stroke="#00c4c4" stroke-opacity="0.65"/>
+      <text x="28" y="34" fill="#00c4c4" font-size="15" font-weight="900" letter-spacing="3.2">RECOMMENDED</text>
+      <text x="28" y="62" fill="#f8fafc" font-size="21" font-weight="850" text-anchor="start"><tspan x="28" dy="0">Prepare selectively</tspan></text>
+    </g>
+    
+  </g>
+</svg>

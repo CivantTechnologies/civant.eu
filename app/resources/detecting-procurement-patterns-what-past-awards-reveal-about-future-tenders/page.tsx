@@ -1,83 +1,183 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/detecting-procurement-patterns-what-past-awards-reveal-about-future-tenders";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/detecting-procurement-patterns-what-past-awards-reveal-about-future-tenders",
+  title: "Detecting Procurement Patterns: What Past Awards Reveal About Future Tenders",
+  description:
+    "Learn how past awards reveal buyer recurrence, incumbent strength, supplier turnover, category timing, and likely future public tender opportunities.",
+  publishedAt: "2026-03-16T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Past awards can reveal future tender patterns because public buying is often cyclical. Contract durations, buyer recurrence, incumbent retention, supplier turnover, and category timing help teams identify where future procurement demand is likely to reappear.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Public procurement is not random. Buyers return to recurring needs,
+        contracts expire, frameworks are replaced, budgets renew, and supplier
+        relationships change over time.
+      </p>
+      <p className="article-body-text">
+        Award history gives suppliers a way to read those patterns. The
+        challenge is separating meaningful recurrence from noise.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Recurrence",
+      text: "Repeated awards in a category can show which buyers are likely to return to market.",
+    },
+    {
+      label: "Competition",
+      text: "Supplier turnover and incumbent retention help qualify how open a future tender may be.",
+    },
+    {
+      label: "Timing",
+      text: "Contract duration and award dates create practical windows for monitoring and preparation.",
+    },
+  ],
+  civantView: {
+    title: "Award history is most useful when it becomes a forward signal.",
+    content: (
+      <p>
+        Civant connects historical awards to lifecycle timing, buyer behavior,
+        and competitive context so teams can prioritise likely future tenders
+        before they become public deadlines.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "what-patterns-predict",
+      title: "What Patterns Predict",
+      content: (
+        <>
+          <p className="article-body-text">
+            Procurement patterns can indicate when a buyer may need to
+            re-procure, whether a category is active, and whether an incumbent
+            is likely to face credible competition. The strongest patterns
+            combine buyer recurrence with contract lifecycle evidence.
+          </p>
+          <p className="article-body-text">
+            For example, a buyer that has re-procured the same service every
+            three or four years gives suppliers a better planning signal than a
+            one-off purchase with no recurring operational need.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "historical-indicators",
+      title: "Historical Indicators",
+      content: (
+        <>
+          <p className="article-body-text">
+            Useful indicators include average contract duration, value bands,
+            supplier count, repeated winners, buyer frequency, award clusters,
+            extensions, and related notices. Together, they show whether the
+            market is open, concentrated, fragmented, or timing-driven.
+          </p>
+          <p className="article-body-text">
+            Teams should also watch for weak signals: missing duration fields,
+            inconsistent publication, or category labels that hide the real
+            scope. Pattern detection is only as strong as its evidence model.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "forecast-models",
+      title: "Building Forecast Models",
+      content: (
+        <>
+          <p className="article-body-text">
+            Forecast models should not pretend to know the future with
+            certainty. A better approach is to score evidence strength and
+            produce confidence bands based on contract timing, buyer behavior,
+            and signal alignment.
+          </p>
+          <p className="article-body-text">
+            That helps teams decide whether to monitor, engage, prepare, or
+            hold back until the evidence improves.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "intelligence-from-history",
+      title: "Intelligence from History",
+      content: (
+        <>
+          <p className="article-body-text">
+            Historical procurement data becomes more valuable when it is
+            translated into commercial questions: Which buyers are active? Which
+            contracts are approaching renewal? Which suppliers dominate? Where
+            is competition weak or changing?
+          </p>
+          <p className="article-body-text">
+            Those questions turn award history into a planning tool rather than
+            a static archive.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Use past awards to prepare for future tenders.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "Can past awards predict future tenders?",
+      answer:
+        "Past awards cannot prove exactly when a future tender will be published, but they can reveal recurrence, likely renewal windows, buyer behavior, and category patterns that improve forecasting.",
+    },
+    {
+      question: "Which award patterns matter most?",
+      answer:
+        "The most useful patterns include contract duration, buyer recurrence, incumbent retention, supplier turnover, award value, category frequency, and evidence of extensions or modifications.",
+    },
+    {
+      question: "How should suppliers use procurement pattern data?",
+      answer:
+        "Suppliers should use pattern data to prioritise buyers, time engagement, plan bid capacity, assess incumbent strength, and avoid treating every live notice as equally attractive.",
+    },
+  ],
+  sources: getArticleSources([
+    "tedEforms",
+    "europeanCommissionEforms",
+    "europeanCourtAuditorsCompetition",
+    "oecdPublicProcurement",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant uses award history and buyer behavior to identify earlier, better-qualified market opportunities.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Detecting Procurement Patterns: What Past Awards Reveal About Future Tenders",
-  description:
-    "Public procurement is not random: past awards often follow discernible patterns. By examining who has won contracts, how long they last and how often th...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Detecting Procurement Patterns: What Past Awards Reveal About Future Tenders",
-  description:
-    "Public procurement is not random: past awards often follow discernible patterns. By examining who has won contracts, how long they last and how often th...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Detecting Procurement Patterns: What Past Awards Reveal About Future Tenders</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Public procurement is not random: past awards often follow discernible patterns. By examining who has won contracts, how long they last and how often they are renewed, suppliers can infer when the next tender may arise. This brief explores how detecting procurement patterns in historical data informs forward‑looking strategies.
-          </p>
-
-          <h2 className="article-subheading">What Patterns Predict</h2>
-
-          <p className="article-body-text">
-            Contracts have typical durations—12 or 24 months for one‑off tenders, two to four years for frameworks. Categories with high competition may see frequent supplier turnover, whereas categories with strong incumbents exhibit longer retention. By analysing award histories across authorities and sectors, suppliers can identify which buyers regularly re‑tender and which tend to extend contracts. Such patterns offer clues about the likelihood of upcoming opportunities.
-          </p>
-
-          <h2 className="article-subheading">Historical Indicators</h2>
-
-          <p className="article-body-text">
-            Award data can be mined for signals such as the average time between contract awards, the distribution of contract values, and the number of bidders per competition. High re‑tender frequency suggests a dynamic market with lower incumbent lock‑in, while long retention indicates a high barrier to entry. Patterns may also reveal cyclical procurement behaviour tied to budget cycles or policy initiatives.
-          </p>
-
-          <h2 className="article-subheading">Building Forecast Models</h2>
-
-          <p className="article-body-text">
-            Understanding procurement patterns helps suppliers prioritise opportunities. They can focus on authorities that regularly re‑tender or have a history of awarding contracts to new entrants. Patterns also inform timing: if a category tends to be re‑procured every two years, suppliers can align their marketing efforts accordingly. This targeted approach improves efficiency and increases chances of success.
-          </p>
-
-          <h2 className="article-subheading">Intelligence from History</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence platforms mine award data to detect patterns and visualise trends. They can generate dashboards showing which buyers have high supplier turnover, average contract values and renewal frequencies. This contextual information enables suppliers to make data‑driven decisions about where and when to compete.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

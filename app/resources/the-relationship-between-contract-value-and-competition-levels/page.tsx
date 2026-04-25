@@ -1,103 +1,179 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/the-relationship-between-contract-value-and-competition-levels";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/the-relationship-between-contract-value-and-competition-levels",
+  title: "The Relationship Between Contract Value and Competition Levels",
+  description:
+    "Understand how contract value affects public tender competition, supplier participation, bid cost, lots, risk, and procurement strategy.",
+  publishedAt: "2026-04-18T00:00:00+00:00",
+  publishedLabel: "April 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Contract value affects competition because it changes supplier incentives, bid cost, risk, qualification requirements, and delivery capacity. Higher-value tenders can attract interest, but they may also narrow the field to suppliers with enough scale and evidence to compete.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Contract value is one of the first numbers suppliers see, but it is not
+        a simple signal. A larger contract may be attractive, yet harder to win
+        and more costly to bid.
+      </p>
+      <p className="article-body-text">
+        Understanding how value shapes competition helps teams make better
+        bid/no-bid, pricing, and partner decisions.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Incentive",
+      text: "Higher values can justify more effort, but also increase bid cost and delivery risk.",
+    },
+    {
+      label: "Capacity",
+      text: "Very large contracts may narrow the supplier field to firms with scale and references.",
+    },
+    {
+      label: "Structure",
+      text: "Lots, frameworks, and contract aggregation can change competition more than value alone.",
+    },
+  ],
+  civantView: {
+    title: "Contract value should be read with competition and capability.",
+    content: (
+      <p>
+        Civant helps teams compare value with bidder behavior, incumbent
+        context, buyer history, and lifecycle timing so opportunity size does
+        not override qualification discipline.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "price-effect",
+      title: "Price Effect",
+      content: (
+        <>
+          <p className="article-body-text">
+            Contract value affects how suppliers assess return on bid effort. A
+            low-value tender may not justify a complex response. A high-value
+            tender may justify investment but require stronger evidence,
+            governance, and pricing discipline.
+          </p>
+          <p className="article-body-text">
+            Bid cost should be part of the value calculation, not an
+            afterthought.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "tender-attractiveness",
+      title: "Tender Attractiveness",
+      content: (
+        <>
+          <p className="article-body-text">
+            A tender is attractive when value, fit, timing, competition, and
+            delivery risk align. Value alone cannot overcome weak buyer fit or
+            unrealistic preparation time.
+          </p>
+          <p className="article-body-text">
+            Suppliers should assess whether the contract size matches their
+            capability, references, balance sheet, and delivery model.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "volume-correlation",
+      title: "Volume Correlation",
+      content: (
+        <>
+          <p className="article-body-text">
+            Contract aggregation can reduce the number of accessible
+            opportunities while increasing individual contract value. Lotting
+            can sometimes broaden participation by making scopes more
+            accessible.
+          </p>
+          <p className="article-body-text">
+            Competition analysis should therefore examine contract structure,
+            not only headline value.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "competition-economics",
+      title: "Competition Economics",
+      content: (
+        <>
+          <p className="article-body-text">
+            Suppliers should build different strategies for low-value
+            high-volume work, mid-value competitive tenders, and large
+            strategic procurements.
+          </p>
+          <p className="article-body-text">
+            Procurement intelligence helps identify which value bands and
+            categories produce the strongest fit for each supplier.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Judge contract value against fit, risk, and competition.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "Does a higher contract value always mean more competition?",
+      answer:
+        "No. Higher values can attract interest, but they can also require scale, references, financial strength, and delivery capacity that narrow the supplier field.",
+    },
+    {
+      question: "How should suppliers assess contract value?",
+      answer:
+        "They should compare value with bid cost, buyer fit, competition, incumbent position, delivery risk, contract structure, and preparation time.",
+    },
+    {
+      question: "Why do lots matter for competition?",
+      answer:
+        "Lots can make large procurements more accessible by separating scope, while aggregated contracts can restrict participation to larger suppliers.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCourtAuditorsCompetition",
+    "eurLexDirective201424",
+    "europeanCommissionPublicProcurement",
+    "tedEforms",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant helps teams compare contract value, competition, timing, and buyer context before bidding.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "The Relationship Between Contract Value and Competition Levels",
-  description:
-    "Contract value represents one of the strongest forecasting indicators of competitive intensity in EU public procurement, with evidence consistently demon...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "The Relationship Between Contract Value and Competition Levels",
-  description:
-    "Contract value represents one of the strongest forecasting indicators of competitive intensity in EU public procurement, with evidence consistently demon...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">The Relationship Between Contract Value and Competition Levels</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Contract value represents one of the strongest forecasting indicators of competitive intensity in EU public procurement, with evidence consistently demonstrating inverse relationships between contract value and tender competition levels across most procurement categories. Economic theory expects that higher-value contracts attract increased supplier participation due to greater profit potential, yet empirical data from TED and eForms publications demonstrates the opposite pattern - smaller-value tenders frequently attract 8-15 bidders whilst large-value tenders receive 3-5 bids on average. This paradox reflects both participation cost barriers and supplier capacity constraints that create threshold effects in competition.
-          </p>
-
-          <p className="article-body-text">
-            The relationship between value and competition varies substantially by sector and contract type, with services and supplies showing different competition patterns compared to works or specialised procurement categories. Small to medium-value contracts (150,000-500,000 EUR) typically exhibit highest competition levels, as values exceed minimum viable bidding costs whilst remaining accessible to diverse supplier pools. Very high-value contracts (&gt;5 million EUR) frequently operate under restricted procedures limiting participation, as capacity requirements and technical specifications restrict eligible supplier sets to established prime contractors and consortia.
-          </p>
-
-          <h2 className="article-subheading">Price Effect</h2>
-
-          <p className="article-body-text">
-            Bid preparation costs create participation thresholds that shift competition dynamics with contract value, with fixed costs of 5,000-25,000 EUR per tender making small-value bids economically unviable for large suppliers and large-value bids requiring substantial investment from smaller competitors. Supplier capacity constraints create de facto participation limits, as mid-market suppliers cannot absorb delivery risk on very high-value contracts, restricting competition to large, established contractors with financial and operational capacity to manage execution. Pricing strategies shift with value thresholds, with low-value contracts subject to unit cost competition while high-value contracts permit fixed-price negotiations and value engineering approaches.
-          </p>
-
-          <p className="article-body-text">
-            Market power dynamics vary substantially with contract value, with high-value contracts enabling incumbent suppliers to leverage existing relationships and technical knowledge to deter new entry, whilst low-value contracts subject suppliers to more generic competition from diverse pools. Strategic bidding behaviour changes with contract value, as suppliers in low-value tenders pursue win-maximising strategies, whilst high-value tenders encourage selective bidding and strategic positioning. Geographic competition patterns shift with value, with low-value contracts attracting primarily local suppliers and high-value contracts enabling cross-border competition and pan-European supplier participation.
-          </p>
-
-          <h2 className="article-subheading">Tender Attractiveness</h2>
-
-          <p className="article-body-text">
-            Analysis of eForms and TED data shows median bid counts of 6-8 for contracts valued 250,000-750,000 EUR, declining to 3-4 bids for contracts exceeding 2 million EUR and declining further to 1-2 bids for utilities contracts and restricted procurements above 10 million EUR. Below-threshold procurement (where notice publication is not required) shows lower average competition than above-threshold, suggesting simplified procedures and direct awards reduce competitive intensity even where competition rules formally apply. Framework agreement procurement generally attracts fewer active bidders in subsequent call-off competitions compared to initial framework establishment, reflecting supplier lock-in and reduced participation from non-framework members.
-          </p>
-
-          <p className="article-body-text">
-            Contract value bands reveal clustering of procurement notices, with significant concentrations in specific value ranges that correspond to authority budgeting practices and procurement categorisation rules. Lowest-cost winner procurement, dominant in value ranges below 1 million EUR, shows positive correlation between competition and average savings achieved, suggesting competitive intensity directly reduces prices. Highest and best value procurement, more common in high-value contracts, shows weaker relationship between bid count and outcome quality, as fewer bids enable larger suppliers to maintain premium pricing despite reduced competition.
-          </p>
-
-          <h2 className="article-subheading">Volume Correlation</h2>
-
-          <p className="article-body-text">
-            The inverse relationship between contract value and competition creates potential inefficiencies, as highest-value procurements frequently exhibit lowest competition levels, potentially resulting in suboptimal pricing and supplier selection in most value-intensive contracts. Authorities pursuing cost efficiency should recognise that splitting high-value contracts into multiple lots can increase competition and reduce prices, though lot structuring creates delivery risk through multiple contractor management. Conversely, aggregating small-value procurements into single framework agreements can reduce transaction costs and improve supplier performance management, though typically at cost of reduced competition in individual call-off awards.
-          </p>
-
-          <p className="article-body-text">
-            The non-linear relationship between value and competition creates challenges for procurement analysis and benchmarking, as direct comparison of bid counts or price outcomes across different value ranges can misrepresent competitive effectiveness. Reserved procurement mechanisms and dynamic purchasing systems specifically designed to increase competition in high-value categories have shown limited effectiveness, as systemic barriers to participation remain despite rule changes. Suppliers should recognise that competition intensity varies substantially with contract value, informing different bidding strategies - participation in high-value contracts should reflect low expected competition and premium pricing opportunities, whilst low-value contracts require cost leadership positioning.
-          </p>
-
-          <h2 className="article-subheading">Competition Economics</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence analysis should treat contract value as a primary variable in competition modeling, recognising that value thresholds create distinct competitive environments and bidding dynamics. Intelligence operations should develop value-specific benchmarks for competition levels, tender response rates, and pricing outcomes, avoiding generic benchmarks that obscure value-driven competitive dynamics. Supplier positioning strategies should explicitly consider value thresholds and competition expectations, with differentiated bidding strategies for low-value high-competition segments versus high-value restricted-competition opportunities.
-          </p>
-
-          <p className="article-body-text">
-            Market intelligence should focus on identifying value ranges and contract categories where competition is suppressed relative to theoretical expectations, as these represent areas where incumbent suppliers enjoy above-normal margins and new entrants face reduced barriers relative to low-competition baseline. Historical analysis of contract values and bid outcomes across similar authorities and time periods enables development of win-rate estimates and bidding efficiency metrics, informing portfolio-level bidding strategies. Intelligence teams should monitor policy discussions regarding lot sizing and contract aggregation, as regulatory changes in structuring rules directly affect competition levels across value ranges and create competitive repositioning opportunities.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

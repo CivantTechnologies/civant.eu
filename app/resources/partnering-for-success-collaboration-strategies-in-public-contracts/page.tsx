@@ -1,83 +1,191 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/partnering-for-success-collaboration-strategies-in-public-contracts";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/partnering-for-success-collaboration-strategies-in-public-contracts",
+  title: "Partnering for Success: Collaboration Strategies in Public Contracts",
+  description:
+    "A guide to consortia, subcontracting, joint ventures, and partner selection in public contracts, with practical procurement intelligence signals for suppliers.",
+  publishedAt: "2026-03-14T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Partnerships help suppliers compete for public contracts when no single firm has all required capabilities, references, geography, or capacity. The strongest strategies identify capability gaps early, choose partners with complementary evidence, and define roles, risk, pricing, and delivery ownership before the tender deadline.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Public contracts often bundle technical, operational, compliance, and
+        geographic requirements that are difficult for one supplier to satisfy
+        alone. That is especially true for complex services, construction,
+        technology, and multi-region delivery.
+      </p>
+      <p className="article-body-text">
+        Collaboration can unlock access, but it also introduces commercial and
+        delivery risk. Successful partnering starts before the live tender, when
+        suppliers still have time to assess fit and structure the relationship
+        properly.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Fit",
+      text: "Partners should close specific capability, geography, evidence, or capacity gaps.",
+    },
+    {
+      label: "Structure",
+      text: "Consortia, subcontracting, and joint ventures create different accountability and risk profiles.",
+    },
+    {
+      label: "Timing",
+      text: "Partnerships formed after publication often lack the trust and evidence needed for complex bids.",
+    },
+  ],
+  civantView: {
+    title: "Partnering is strongest when it is planned from market evidence.",
+    content: (
+      <p>
+        The best partner is not always the most familiar one. Procurement
+        intelligence can show who has delivered similar contracts, where
+        complementary strengths exist, and which relationships are likely to
+        make a bid more credible.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "when-to-partner",
+      title: "When To Partner",
+      content: (
+        <>
+          <p className="article-body-text">
+            Partnering makes sense when the tender requires capability,
+            experience, certifications, capacity, or geographic coverage that a
+            supplier cannot credibly evidence alone. It can also help SMEs
+            access larger opportunities without pretending to be larger than
+            they are.
+          </p>
+          <p className="article-body-text">
+            The decision should be based on pursuit strategy, not panic. If the
+            opportunity does not fit the supplier's core strengths or creates
+            disproportionate delivery risk, partnering may only make the bid
+            more complicated.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "collaboration-models",
+      title: "Collaboration Models",
+      content: (
+        <>
+          <p className="article-body-text">
+            Consortia allow multiple suppliers to bid together. Subcontracting
+            lets a prime supplier hold the buyer relationship while specialists
+            deliver defined work packages. Joint ventures can create a more
+            formal shared vehicle for major contracts.
+          </p>
+          <p className="article-body-text">
+            Each model changes liability, governance, pricing, evidence, and
+            buyer confidence. Teams should decide how the model will be
+            explained in the bid and how delivery accountability will work in
+            practice.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "partner-selection",
+      title: "Partner Selection",
+      content: (
+        <>
+          <p className="article-body-text">
+            Partner selection should examine more than technical capability.
+            Suppliers need to review delivery history, public-sector references,
+            financial resilience, cultural fit, conflict risk, and how the
+            partner's evidence will strengthen the specific evaluation criteria.
+          </p>
+          <p className="article-body-text">
+            Strong teams also agree bid ownership early: who writes which
+            sections, who signs which commitments, how pricing is integrated,
+            and how confidential information is handled.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "intelligence-for-teaming",
+      title: "Intelligence For Teaming",
+      content: (
+        <>
+          <p className="article-body-text">
+            Procurement intelligence helps identify credible partners by
+            analyzing award history, supplier relationships, contract values,
+            category participation, and buyer preferences.
+          </p>
+          <p className="article-body-text">
+            It also shows where partnering may be necessary before an
+            opportunity is published, giving teams time to build trust and
+            evidence before the formal process begins.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Build partner strategy before the tender forces the question.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "When should a supplier partner for a public contract?",
+      answer:
+        "A supplier should consider partnering when the opportunity requires capabilities, references, geography, certifications, or capacity that it cannot credibly provide alone.",
+    },
+    {
+      question: "What is the difference between subcontracting and a consortium?",
+      answer:
+        "In subcontracting, a prime supplier usually holds the buyer relationship and manages delivery. In a consortium, multiple suppliers may bid together and share defined responsibilities.",
+    },
+    {
+      question: "How can procurement intelligence support partner selection?",
+      answer:
+        "It can reveal which suppliers have delivered relevant contracts, where complementary capability exists, and which teaming structures have worked in similar markets.",
+    },
+  ],
+  sources: getArticleSources([
+    "eurLexDirective201424",
+    "europeanCommissionSmeNeeds",
+    "europeanCourtAuditorsCompetition",
+    "europeanCommissionPublicProcurement",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant helps teams map suppliers, buyers, contract history, and opportunity timing before teaming decisions become urgent.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Partnering for Success: Collaboration Strategies in Public Contracts",
-  description:
-    "Public contracts can be large and complex, requiring a breadth of capabilities that few suppliers possess alone. Partnerships—whether through consortia,...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Partnering for Success: Collaboration Strategies in Public Contracts",
-  description:
-    "Public contracts can be large and complex, requiring a breadth of capabilities that few suppliers possess alone. Partnerships—whether through consortia,...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Partnering for Success: Collaboration Strategies in Public Contracts</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Public contracts can be large and complex, requiring a breadth of capabilities that few suppliers possess alone. Partnerships—whether through consortia, joint ventures or subcontracting—provide a way to assemble the necessary skills and experience. This brief examines collaboration strategies and how they help suppliers succeed in public procurement.
-          </p>
-
-          <h2 className="article-subheading">When to Partner</h2>
-
-          <p className="article-body-text">
-            Partnerships are common in sectors like construction, IT and large‑scale services, where a single supplier cannot meet all requirements. Consortia enable multiple firms to submit a joint bid, pooling resources and expertise. Joint ventures create a new entity for a specific contract, sharing risks and rewards. Subcontracting allows smaller suppliers to participate by providing specific services under a prime contractor. These models help meet eligibility criteria and broaden participation.
-          </p>
-
-          <h2 className="article-subheading">Teaming Strategy</h2>
-
-          <p className="article-body-text">
-            Framework agreements often allow consortia or joint ventures to apply, enabling diverse suppliers to access the panel. Public bodies may set rules on the composition of consortia and require clarity on liability and decision‑making. Subcontracting arrangements must comply with rules on transparency and social value, and prime contractors are typically responsible for performance. Suppliers should structure partnerships carefully to manage risk and ensure compliance.
-          </p>
-
-          <h2 className="article-subheading">Partnership Benefits</h2>
-
-          <p className="article-body-text">
-            Partnerships can expand market access for SMEs and specialised suppliers, helping them gain experience and build references. However, forming and managing partnerships requires diligence: partners must align objectives, share information and resolve disputes. Suppliers should conduct due diligence on potential partners and negotiate clear terms before bidding together.
-          </p>
-
-          <h2 className="article-subheading">Collaborative Winning</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence platforms can identify potential partners by analysing who has won relevant contracts and their capabilities. They also provide insights into which consortia have been successful and the structure of joint ventures. By leveraging intelligence, suppliers can approach collaboration strategically and focus on partners with complementary strengths.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

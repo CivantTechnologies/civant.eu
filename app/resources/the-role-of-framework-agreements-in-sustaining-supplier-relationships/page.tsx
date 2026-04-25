@@ -1,83 +1,186 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/the-role-of-framework-agreements-in-sustaining-supplier-relationships";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/the-role-of-framework-agreements-in-sustaining-supplier-relationships",
+  title: "The Role of Framework Agreements in Sustaining Supplier Relationships",
+  description:
+    "How framework agreements shape supplier relationships, market access, call-off competition, renewal timing, and public procurement strategy for incumbents and challengers.",
+  publishedAt: "2026-03-14T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Framework agreements sustain supplier relationships by pre-approving suppliers for future call-offs over a defined period. They can create stable demand for suppliers on the panel, but they can also close access for outsiders until the framework is renewed, making timing and renewal tracking essential.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Framework agreements are one of the most important structures in public
+        procurement because they separate the competition for a place on the
+        framework from later call-offs under that framework.
+      </p>
+      <p className="article-body-text">
+        For suppliers, the consequences are strategic. Winning a place can
+        create access to recurring demand. Missing the window can leave a market
+        difficult to enter until the next framework cycle.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Access",
+      text: "A framework place can open future call-offs; missing it can limit access for years.",
+    },
+    {
+      label: "Relationships",
+      text: "Framework suppliers build buyer familiarity through repeated call-offs and delivery.",
+    },
+    {
+      label: "Renewal",
+      text: "The strongest challenger window is often before the next framework is designed.",
+    },
+  ],
+  civantView: {
+    title: "Framework intelligence is renewal intelligence.",
+    content: (
+      <p>
+        The most important question is not only who is on the current panel. It
+        is when the next framework will be shaped, whether requirements are
+        changing, and whether challengers have time to influence or prepare.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "how-frameworks-work",
+      title: "How Frameworks Work",
+      content: (
+        <>
+          <p className="article-body-text">
+            Framework agreements allow buyers to establish terms and supplier
+            panels for future contracts. Buyers can then award call-offs through
+            the framework rather than running a full open competition every
+            time.
+          </p>
+          <p className="article-body-text">
+            This can reduce administrative burden and create purchasing
+            flexibility. It also concentrates opportunity among suppliers that
+            secured a place at the initial framework competition.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "relationship-effects",
+      title: "Relationship Effects",
+      content: (
+        <>
+          <p className="article-body-text">
+            Framework suppliers can build delivery knowledge, buyer trust, and
+            category familiarity through repeated call-offs. Over time, that can
+            strengthen their position when the next framework is designed or
+            re-competed.
+          </p>
+          <p className="article-body-text">
+            For suppliers outside the framework, the market can feel closed
+            even when future demand exists. The strategic task is to monitor the
+            renewal window and prepare before the next competition is fixed.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "renewal-dynamics",
+      title: "Renewal Dynamics",
+      content: (
+        <>
+          <p className="article-body-text">
+            Framework renewal is a natural moment for buyer reflection. The
+            authority may reassess lots, evaluation criteria, supplier
+            performance, pricing, social value, sustainability, innovation, and
+            whether market conditions have changed.
+          </p>
+          <p className="article-body-text">
+            Suppliers that wait for the framework notice may be late. Early
+            market engagement, prior information, budget plans, and expiring
+            framework dates can all signal a coming reset.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "supplier-strategy",
+      title: "Supplier Strategy",
+      content: (
+        <>
+          <p className="article-body-text">
+            Suppliers on a framework should track call-off performance,
+            relationship quality, changing buyer needs, and evidence for the
+            next renewal. Suppliers outside the framework should track expiry,
+            engagement signals, and potential partner routes.
+          </p>
+          <p className="article-body-text">
+            Procurement intelligence connects those signals into a timeline so
+            teams can prepare for the next access point rather than discovering
+            it after the rules are already set.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Track framework renewals before market access closes again.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is a framework agreement in public procurement?",
+      answer:
+        "A framework agreement sets terms and approved suppliers for future contracts, allowing buyers to place call-offs without repeating a full open procurement each time.",
+    },
+    {
+      question: "Why do frameworks matter for supplier relationships?",
+      answer:
+        "They create repeated interaction between buyers and panel suppliers, which can build familiarity, delivery evidence, and incumbent advantage over the framework period.",
+    },
+    {
+      question: "How can challengers prepare for framework opportunities?",
+      answer:
+        "They should track framework expiry dates, early engagement signals, buyer needs, lot structures, and evidence gaps well before the renewal competition opens.",
+    },
+  ],
+  sources: getArticleSources([
+    "eurLexDirective201424",
+    "europeanCommissionPublicProcurement",
+    "europeanCourtAuditorsCompetition",
+    "tedEforms",
+  ]),
+  relatedSolution: {
+    solutionSlug: "contract-renewal-tracking",
+    linkLabel: "Explore contract renewal tracking",
+    children:
+      "See how Civant helps teams follow framework lifecycles, call-off patterns, and renewal windows before the next competition opens.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "The Role of Framework Agreements in Sustaining Supplier Relationships",
-  description:
-    "Framework agreements are a cornerstone of public procurement in Europe. They allow contracting authorities to establish a panel of pre‑approved supplier...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "The Role of Framework Agreements in Sustaining Supplier Relationships",
-  description:
-    "Framework agreements are a cornerstone of public procurement in Europe. They allow contracting authorities to establish a panel of pre‑approved supplier...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">The Role of Framework Agreements in Sustaining Supplier Relationships</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Framework agreements are a cornerstone of public procurement in Europe. They allow contracting authorities to establish a panel of pre‑approved suppliers for a category over several years. For suppliers, getting onto a framework can provide a stable pipeline of opportunities; missing a framework can shut a category off for years. This brief explores how frameworks sustain supplier relationships and shape the competitive landscape.
-          </p>
-
-          <h2 className="article-subheading">Relationship Sustainability</h2>
-
-          <p className="article-body-text">
-            Frameworks reduce the administrative burden of procuring recurrent services or products. They are prevalent in IT services, professional services, facilities management and construction. Once in place, call‑offs are made among the framework suppliers, meaning that outside firms have little chance to enter until the framework is renewed. This stability allows suppliers to invest in delivery capability and relationship management but reduces competitive pressure on price over the life of the framework.
-          </p>
-
-          <h2 className="article-subheading">Multi-Year Dynamics</h2>
-
-          <p className="article-body-text">
-            Frameworks follow a pattern of initial competition, followed by a long operational phase and eventual renewal. They often include extension clauses, so a nominal four‑year term may stretch to six or more years. As the framework approaches renewal, buyers may conduct market engagement to reassess requirements, presenting an opportunity for new entrants to shape the next iteration. Suppliers who perform well during the framework stand a better chance of securing renewal; conversely, poor performance can lead to replacement.
-          </p>
-
-          <h2 className="article-subheading">Framework Advantages</h2>
-
-          <p className="article-body-text">
-            For suppliers, framework participation requires a long‑term view. Winning a place on a framework demands a strong initial bid and evidence of capability. Once on the panel, relationship management, performance monitoring and awareness of evolving buyer needs are critical to securing call‑offs and subsequent renewals. Suppliers not on a framework should monitor renewal dates and engage early during market consultations to position for the next competition.
-          </p>
-
-          <h2 className="article-subheading">Long-Term Positioning</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence helps suppliers identify framework expiry dates, extension options and spend volumes. By analysing call‑off patterns and supplier performance, intelligence tools can indicate whether a buyer is likely to refresh the panel or continue with incumbents. Early signals about upcoming renewals enable suppliers to plan, engage and build relationships ahead of the formal tender.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

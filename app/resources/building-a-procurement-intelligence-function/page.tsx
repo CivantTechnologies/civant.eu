@@ -33,6 +33,12 @@ const article: ResourceArticle = {
       </p>
     </>
   ),
+  visual: {
+    src: "/images/resources/guide-intelligence-function.svg",
+    alt: "Civant operating system visual showing data, signals, scoring, workflow, and learning feeding account focus and bid decisions",
+    caption:
+      "A procurement intelligence function connects evidence layers to repeatable commercial decisions.",
+  },
   takeaways: [
     {
       label: "Scope",

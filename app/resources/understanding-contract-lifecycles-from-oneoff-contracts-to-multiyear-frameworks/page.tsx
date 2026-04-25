@@ -1,83 +1,188 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/understanding-contract-lifecycles-from-oneoff-contracts-to-multiyear-frameworks";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/understanding-contract-lifecycles-from-oneoff-contracts-to-multiyear-frameworks",
+  title: "Understanding Contract Lifecycles: From One-Off Contracts to Multi-Year Frameworks",
+  description:
+    "A guide to public contract lifecycles, including one-off contracts, frameworks, DPS structures, extension options, renewal windows, and pipeline planning.",
+  publishedAt: "2026-03-14T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Contract lifecycles describe how public contracts move from award to delivery, extension, expiry, renewal, or replacement. One-off contracts create relatively clear future competition points, while multi-year frameworks can lock in supplier access for longer periods and make renewal timing critical.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Suppliers often treat tenders as isolated events, but public contracts
+        have lifecycles. The form of the contract determines when the market may
+        reopen, how difficult it is to enter, and how early a supplier needs to
+        prepare.
+      </p>
+      <p className="article-body-text">
+        Understanding lifecycles helps teams avoid two common mistakes: chasing
+        opportunities before the market is ready and discovering an opportunity
+        only after the buyer and incumbents have had months of preparation.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Structure",
+      text: "One-off contracts, frameworks, and DPS models create different access and renewal patterns.",
+    },
+    {
+      label: "Timing",
+      text: "Award date, duration, extensions, and expiry windows shape future opportunity timing.",
+    },
+    {
+      label: "Planning",
+      text: "Lifecycle intelligence turns public procurement into a forward pipeline, not a notice feed.",
+    },
+  ],
+  civantView: {
+    title: "The contract lifecycle is the hidden calendar behind the tender market.",
+    content: (
+      <p>
+        Every award creates a future question: what happens when this contract
+        ends? Procurement intelligence turns that question into a planning
+        rhythm for sales, bid, partner, and delivery teams.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "contract-forms",
+      title: "Contract Forms",
+      content: (
+        <>
+          <p className="article-body-text">
+            One-off contracts usually have a defined scope and term. When they
+            expire, the buyer may re-compete, extend, replace, or stop the
+            requirement. The resulting opportunity window is often easier to map
+            than a more complex purchasing vehicle.
+          </p>
+          <p className="article-body-text">
+            Framework agreements pre-approve suppliers for future call-offs,
+            often over multiple years. Dynamic purchasing systems can remain
+            open to new suppliers while using competitions for specific
+            call-offs. Each structure changes market access.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "lifecycle-signals",
+      title: "Lifecycle Signals",
+      content: (
+        <>
+          <p className="article-body-text">
+            Useful lifecycle signals include award dates, published durations,
+            extension options, modification notices, buyer minutes, procurement
+            pipelines, budget papers, framework end dates, and prior information
+            notices.
+          </p>
+          <p className="article-body-text">
+            These signals rarely provide certainty on their own. Their value
+            comes from being combined into a timeline that shows when the buyer
+            may next make a sourcing decision.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "strategic-implications",
+      title: "Strategic Implications",
+      content: (
+        <>
+          <p className="article-body-text">
+            A supplier targeting short-cycle one-off contracts needs fast
+            qualification and delivery proof. A supplier targeting frameworks
+            needs earlier preparation, because missing the access window can
+            delay entry for years.
+          </p>
+          <p className="article-body-text">
+            Lifecycle awareness also improves bid/no-bid discipline. A live
+            notice may look attractive, but if the contract is a call-off under
+            a framework the supplier is not on, the realistic strategy may be
+            preparing for the next framework renewal instead.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "pipeline-routine",
+      title: "Pipeline Routine",
+      content: (
+        <>
+          <p className="article-body-text">
+            Procurement intelligence converts lifecycle data into a pipeline
+            routine: track awards, estimate renewal windows, monitor extensions,
+            rank fit, identify incumbent context, and prepare the right evidence
+            before the market reopens.
+          </p>
+          <p className="article-body-text">
+            That routine helps teams move from reactive tender hunting to
+            proactive account and category planning.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Use contract lifecycles to forecast the next procurement window.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is a public contract lifecycle?",
+      answer:
+        "It is the progression of a public contract from award through delivery, extension, expiry, renewal, replacement, or re-procurement.",
+    },
+    {
+      question: "How are one-off contracts different from frameworks?",
+      answer:
+        "One-off contracts usually create a clearer end point for future competition. Frameworks create a panel of suppliers for future call-offs and may limit access until the framework is renewed.",
+    },
+    {
+      question: "Why do contract lifecycles matter for suppliers?",
+      answer:
+        "They help suppliers forecast when demand may return to market, prepare earlier, qualify opportunities, and avoid wasting effort where market access is currently closed.",
+    },
+  ],
+  sources: getArticleSources([
+    "eurLexDirective201424",
+    "tedEforms",
+    "europeanCommissionEforms",
+    "ukProcurementActGuidance",
+  ]),
+  relatedSolution: {
+    solutionSlug: "contract-renewal-tracking",
+    linkLabel: "Explore contract renewal tracking",
+    children:
+      "See how Civant maps contract lifecycles, extension evidence, and renewal windows into earlier opportunity intelligence.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Understanding Contract Lifecycles: From One‑Off Contracts to Multi‑Year Frameworks",
-  description:
-    "Many suppliers treat all public tenders alike, yet the structure and duration of a contract profoundly influence the timing and nature of competition. O...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Understanding Contract Lifecycles: From One‑Off Contracts to Multi‑Year Frameworks",
-  description:
-    "Many suppliers treat all public tenders alike, yet the structure and duration of a contract profoundly influence the timing and nature of competition. O...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Understanding Contract Lifecycles: From One‑Off Contracts to Multi‑Year Frameworks</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Many suppliers treat all public tenders alike, yet the structure and duration of a contract profoundly influence the timing and nature of competition. One‑off contracts have fixed lifespans—often 12 or 24 months—while framework agreements lock multiple suppliers into a longer arrangement lasting two to four years. Without appreciating these distinctions, suppliers risk misaligning their pipeline planning and either chasing opportunities too early or discovering them only after a framework has been renewed. This brief examines the mechanics of contract lifecycles and why they matter for strategic market engagement.
-          </p>
-
-          <h2 className="article-subheading">One-Off vs Multi-Year</h2>
-
-          <p className="article-body-text">
-            In public procurement, contract form dictates market dynamics. One‑off tenders represent discrete procurements with clear end dates; once completed, a new competition is required, providing regular openings for new entrants. Framework agreements, by contrast, establish a procurement vehicle through which multiple contracts can be let over several years. These frameworks are particularly prevalent in categories like IT services, professional services and facilities management, where buyers seek flexibility and administrative efficiency. Dynamic purchasing systems (DPS) offer another structure: suppliers can join at any time, but the system is used for commoditised goods and services and involves mini‑competitions for each call‑off. Understanding which mechanism a buyer uses allows suppliers to tailor their approach—either preparing for a competitive framework competition or registering early on a DPS.
-          </p>
-
-          <h2 className="article-subheading">Framework Structures</h2>
-
-          <p className="article-body-text">
-            Contract lifecycles follow predictable patterns. One‑off contracts expire after their set term and typically require a fresh tender, meaning opportunities reappear on a regular rhythm. Frameworks run for two to four years and often include extension options, leading to long cycles with fewer entry points. Dynamic purchasing systems remain open indefinitely but operate a rolling qualification process. Beyond the formal structures, local council minutes, strategic plans and cabinet approvals often signal decisions to extend or replace contracts months in advance. Suppliers who map these cycles can anticipate when a contract will return to market and decide where to invest their bid resources.
-          </p>
-
-          <h2 className="article-subheading">Cycle Characteristics</h2>
-
-          <p className="article-body-text">
-            For companies selling to the public sector, overlooking contract lifecycles can result in missed opportunities or wasted effort. A team that invests heavily in a sector dominated by long‑term frameworks may face an extended wait before the next competition. Conversely, suppliers can target short‑term one‑off contracts for quicker wins and pipeline diversity. By tracking when frameworks are due for renewal and staying alert to signals of contract extensions, organisations can time engagement with buyers, build relationships ahead of re‑tenders and avoid bidding blind against incumbents entrenched for years.
-          </p>
-
-          <h2 className="article-subheading">Lifecycle Strategy</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence platforms enhance visibility into contract lifecycles by consolidating historical award data, renewal dates and early signals from meeting minutes or budget approvals. Forecasting analytics can estimate when frameworks will expire, highlight sectors with upcoming one-off tenders, and rank opportunities by strategic fit. Armed with such intelligence, suppliers can shift from reactive tender hunting to proactive pipeline planning, ensuring that resources are allocated to competitions they can realistically win.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

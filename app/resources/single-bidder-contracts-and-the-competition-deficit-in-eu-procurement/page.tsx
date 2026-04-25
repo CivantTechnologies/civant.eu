@@ -1,127 +1,187 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/single-bidder-contracts-and-the-competition-deficit-in-eu-procurement";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/single-bidder-contracts-and-the-competition-deficit-in-eu-procurement",
+  title: "Single-Bidder Contracts and the Competition Deficit in EU Procurement",
+  description:
+    "Understand why single-bidder public contracts matter, what they reveal about competition deficits, and how early visibility can improve market access.",
+  publishedAt: "2026-04-02T00:00:00+00:00",
+  publishedLabel: "April 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Single-bidder contracts matter because they reveal weak competition. They can be caused by narrow supplier markets, incumbent advantage, complex requirements, poor visibility, or short preparation windows. Better procurement intelligence helps suppliers identify where low competition reflects market-access problems rather than genuine lack of alternatives.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Single-bidder contracts are a warning sign for public procurement. A
+        process may be formally open, but if only one supplier bids, the market
+        may not be functioning competitively.
+      </p>
+      <p className="article-body-text">
+        For suppliers, low-competition markets can be both risky and
+        attractive. The key is understanding why competition is low.
+      </p>
+    </>
+  ),
+  visual: {
+    src: "/images/resources/guide-single-bidder-competition.svg",
+    alt: "Civant positioning map showing low competition, single-bidder procurement, and new entry signals",
+    caption:
+      "Single-bidder patterns can reveal where competition is weak and where market entry needs better timing.",
+  },
+  takeaways: [
+    {
+      label: "Signal",
+      text: "Single-bidder awards can reveal weak competition, incumbent strength, or poor market access.",
+    },
+    {
+      label: "Diagnosis",
+      text: "Low competition is not always an opportunity; sometimes the market is genuinely narrow.",
+    },
+    {
+      label: "Action",
+      text: "Early visibility can help qualified suppliers enter competitions that would otherwise attract too few bids.",
+    },
+  ],
+  civantView: {
+    title: "The competition deficit is partly an information problem.",
+    content: (
+      <p>
+        Civant helps suppliers see buyer cycles and opportunities earlier, so
+        they can prepare for markets where late discovery and fragmented
+        visibility reduce effective competition.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "absence-of-competition",
+      title: "Absence of Competition",
+      content: (
+        <>
+          <p className="article-body-text">
+            A single bid can mean several things. The requirement may be highly
+            specialised, the incumbent may be unusually strong, the tender may
+            have been hard to find, or the response window may have been too
+            short for new entrants to prepare.
+          </p>
+          <p className="article-body-text">
+            The diagnosis matters. A supplier should not treat every
+            single-bidder market as easy to enter.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "monopoly-situations",
+      title: "Monopoly Situations",
+      content: (
+        <>
+          <p className="article-body-text">
+            Some low-competition procurements reflect genuine market structure:
+            few qualified suppliers, technical lock-in, local delivery
+            constraints, or high switching risk.
+          </p>
+          <p className="article-body-text">
+            Others reflect access problems. If qualified suppliers did not see
+            the opportunity early enough, the market may be more open than the
+            bidder count suggests.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "competition-deficit",
+      title: "Competition Deficit",
+      content: (
+        <>
+          <p className="article-body-text">
+            The European Court of Auditors has highlighted declining competition
+            in EU public procurement. That context makes bidder-count analysis
+            important for both policymakers and suppliers.
+          </p>
+          <p className="article-body-text">
+            Suppliers can use competition data to identify markets where a new
+            entrant may change the dynamic, especially if preparation begins
+            before the formal notice.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "market-failure",
+      title: "Market Failure",
+      content: (
+        <>
+          <p className="article-body-text">
+            Low competition can be a symptom of poor visibility, excessive
+            complexity, incumbent-friendly specifications, or insufficient
+            market engagement.
+          </p>
+          <p className="article-body-text">
+            Procurement intelligence cannot solve every structural problem, but
+            it can help qualified suppliers find and prepare for opportunities
+            where information timing is the main barrier.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Find markets where better timing can improve competition.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is a single-bidder contract?",
+      answer:
+        "A single-bidder contract is a public procurement award where only one supplier submitted a bid, indicating limited competition in that procedure.",
+    },
+    {
+      question: "Why are single-bidder contracts a concern?",
+      answer:
+        "They may indicate weak competition, incumbent advantage, limited market access, overly narrow requirements, or insufficient time for alternative suppliers to prepare.",
+    },
+    {
+      question: "How can procurement intelligence help reduce single-bidder risk?",
+      answer:
+        "It gives suppliers earlier visibility into likely opportunities, buyer cycles, incumbent context, and preparation windows, making it easier for qualified bidders to participate.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCourtAuditorsCompetition",
+    "europeanCommissionPublicProcurement",
+    "europeanCommissionSmeNeeds",
+    "eurLexDirective201424",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant helps teams assess competition, incumbent context, and market-access signals before tender publication.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Single-Bidder Contracts and the Competition Deficit in EU Procurement",
-  description:
-    "The European Court of Auditors published a landmark report in December 2023 examining competition trends in EU public procurement over the preceding dec...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Single-Bidder Contracts and the Competition Deficit in EU Procurement",
-  description:
-    "The European Court of Auditors published a landmark report in December 2023 examining competition trends in EU public procurement over the preceding dec...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Single-Bidder Contracts and the Competition Deficit in EU Procurement</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            The European Court of Auditors published a landmark report in December 2023 examining competition trends in EU public procurement over the preceding decade. The findings were stark: competition had declined significantly across virtually all member states, with single-bidder contracts reaching 42% of all awards in 2021.
-          </p>
-
-          <p className="article-body-text">
-            This trend represents a fundamental challenge to the objectives of EU procurement regulation. The directives are designed to ensure open competition, equal treatment, and transparency. When nearly half of contracts attract only one bid, these principles are formally satisfied but practically undermined.
-          </p>
-
-          <p className="article-body-text">
-            Understanding the drivers of this competition deficit is essential for both policymakers seeking to restore competitive dynamics and suppliers seeking to identify markets where competition remains genuinely open.
-          </p>
-
-          <h2 className="article-subheading">Absence of Competition</h2>
-
-          <p className="article-body-text">
-            The Court of Auditors identified several contributing factors to declining competition. Administrative complexity and regulatory burden deter smaller organisations from participating. Specifications that are overly tailored to existing solutions favour incumbents. Procurement practices in some member states rely heavily on direct awards and negotiated procedures that limit competition by design.
-          </p>
-
-          <p className="article-body-text">
-            However, these explanations, while valid, address primarily the supply-side barriers to competition. Equally important but less discussed are the demand-side dynamics: whether qualified potential bidders are aware of opportunities in time to prepare competitive responses.
-          </p>
-
-          <p className="article-body-text">
-            The fragmentation of procurement information across TED, national portals, regional platforms, and sectoral databases means that many opportunities are not visible to organisations that could compete. Even when opportunities are discovered, the compressed preparation timeline often makes it impractical for a non-incumbent to develop a genuinely competitive bid.
-          </p>
-
-          <p className="article-body-text">
-            This information and timing deficit likely accounts for a meaningful portion of the single-bidder phenomenon. In categories where adequate preparation would take three to six months, a 30-day response window effectively limits competition to organisations that were already preparing.
-          </p>
-
-          <h2 className="article-subheading">Monopoly Situations</h2>
-
-          <p className="article-body-text">
-            The distribution of single-bidder contracts across Europe is not uniform. Some member states report single-bidder rates above 50%, while others maintain rates below 30%. These variations correlate with several factors: the maturity of electronic procurement systems, the prevalence of centralised purchasing organisations, the transparency of forward procurement planning, and the general accessibility of procurement information.
-          </p>
-
-          <p className="article-body-text">
-            Sector-specific patterns are also significant. Highly specialised technical procurement in areas like defence, healthcare technology, and infrastructure tends to attract fewer bidders due to the limited number of qualified suppliers. However, even in categories with substantial supplier markets, such as professional services, IT services, and facilities management, single-bidder rates remain higher than the available supplier base would suggest.
-          </p>
-
-          <p className="article-body-text">
-            The temporal pattern is equally informative. Single-bidder rates tend to be higher for procurements that follow directly from expired contracts, suggesting that the urgency associated with contract gaps may reduce the time available for market engagement and competitive publication.
-          </p>
-
-          <h2 className="article-subheading">Competition Deficit</h2>
-
-          <p className="article-body-text">
-            For supplier organisations, the single-bidder statistics present both a challenge and an opportunity. The challenge is that markets with low competition may indicate structural barriers that are difficult to overcome. The opportunity is that these same markets contain procurement activity where genuine competition could change outcomes.
-          </p>
-
-          <p className="article-body-text">
-            Identifying the right opportunities requires understanding why specific procurements attract limited competition. If the cause is a genuinely narrow supplier market, additional preparation will not create competitive advantage. If the cause is late discovery, inadequate preparation time, or poor market visibility, then procurement intelligence can directly address the barrier.
-          </p>
-
-          <p className="article-body-text">
-            Organisations that can identify high-value procurements where low competition reflects market access barriers rather than market concentration are positioned to enter competitions where their participation genuinely changes the competitive dynamic and improves their win probability.
-          </p>
-
-          <h2 className="article-subheading">Market Failure</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence addresses the competition deficit by expanding the effective preparation window for potential bidders. When organisations can identify upcoming procurements months before publication, the practical barriers to entry are substantially reduced.
-          </p>
-
-          <p className="article-body-text">
-            Furthermore, intelligence on competitive dynamics, including historical bidder counts, supplier participation patterns, and incumbent contract performance, allows organisations to make more informed decisions about where to direct their competitive efforts.
-          </p>
-
-          <p className="article-body-text">
-            The data suggests that improving market visibility and preparation timelines could address a significant portion of the single-bidder phenomenon. Not all low-competition situations will be resolved by better intelligence, but many represent opportunities where qualified suppliers simply did not have sufficient time or visibility to participate.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

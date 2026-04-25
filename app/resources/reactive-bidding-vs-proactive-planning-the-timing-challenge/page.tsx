@@ -1,83 +1,177 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/reactive-bidding-vs-proactive-planning-the-timing-challenge";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/reactive-bidding-vs-proactive-planning-the-timing-challenge",
+  title: "Reactive Bidding vs Proactive Planning: The Timing Challenge",
+  description:
+    "Compare reactive bidding with proactive public procurement planning and learn why earlier visibility improves qualification, preparation, and bid quality.",
+  publishedAt: "2026-04-07T00:00:00+00:00",
+  publishedLabel: "April 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Reactive bidding starts when a tender notice appears. Proactive planning starts when credible signals show that demand may be forming. The timing difference affects qualification, partner selection, solution design, pricing, and bid quality.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Public tender deadlines often create urgency. But the buyer's need
+        usually existed before the notice, and better-prepared competitors may
+        have been watching the account for months.
+      </p>
+      <p className="article-body-text">
+        The timing challenge is deciding how to move from late response to
+        earlier, evidence-led planning without wasting effort.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Reactive",
+      text: "Reactive bidding begins at notice publication, when time is already constrained.",
+    },
+    {
+      label: "Proactive",
+      text: "Proactive planning begins when signals justify monitoring, engagement, or preparation.",
+    },
+    {
+      label: "Discipline",
+      text: "The goal is not to prepare for everything; it is to prepare earlier for the right things.",
+    },
+  ],
+  civantView: {
+    title: "Proactive planning depends on credible early evidence.",
+    content: (
+      <p>
+        Civant helps teams identify buyer movement before tender publication,
+        then qualify which signals deserve action and which should remain on
+        watch.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "reactive-costs",
+      title: "Reactive Costs",
+      content: (
+        <>
+          <p className="article-body-text">
+            Reactive bids often require teams to interpret requirements, secure
+            approvals, align delivery, find partners, price the solution, and
+            write the response under deadline pressure.
+          </p>
+          <p className="article-body-text">
+            That pressure increases the risk of generic answers, weak
+            differentiation, and poor bid/no-bid decisions.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "late-stage-discovery",
+      title: "Late-Stage Discovery",
+      content: (
+        <>
+          <p className="article-body-text">
+            Late discovery is especially damaging when the opportunity is
+            complex. The supplier may be technically capable, but not prepared
+            enough to prove it by the deadline.
+          </p>
+          <p className="article-body-text">
+            Early signals can reduce this gap by giving teams time to research
+            the buyer and build the evidence base.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "preparation-pressure",
+      title: "Preparation Pressure",
+      content: (
+        <>
+          <p className="article-body-text">
+            Proactive planning does not mean writing full bids before tenders
+            exist. It means building readiness in stages: account knowledge,
+            qualification, positioning, partner options, and reusable evidence.
+          </p>
+          <p className="article-body-text">
+            This helps teams move faster when the notice appears without
+            sacrificing quality.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "response-speed",
+      title: "Response Speed",
+      content: (
+        <>
+          <p className="article-body-text">
+            The best response speed comes from preparation, not rushing. Teams
+            with better buyer context and clearer qualification can make faster,
+            calmer decisions.
+          </p>
+          <p className="article-body-text">
+            Procurement intelligence supports that shift by connecting early
+            signals, lifecycle data, and competitor context.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Move bid planning earlier without losing discipline.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is reactive bidding?",
+      answer:
+        "Reactive bidding is when a supplier begins serious qualification and preparation only after a formal tender notice is published.",
+    },
+    {
+      question: "What is proactive procurement planning?",
+      answer:
+        "Proactive planning uses early signals, buyer history, lifecycle timing, and market context to prepare before the formal tender window opens.",
+    },
+    {
+      question: "How can suppliers become more proactive?",
+      answer:
+        "They can monitor early signals, track contract lifecycles, qualify opportunities in stages, maintain reusable bid assets, and commit full resources only when evidence justifies it.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCommissionPublicProcurement",
+    "eurLexDirective201424",
+    "tedEforms",
+    "europeanCourtAuditorsCompetition",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant helps teams move from late tender response to earlier buyer and market planning.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Reactive Bidding vs Proactive Planning: The Timing Challenge",
-  description:
-    "Too often, suppliers respond to public tenders in a reactive manner, scrambling to prepare a bid within a few weeks. This reactive approach leads to rus...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Reactive Bidding vs Proactive Planning: The Timing Challenge",
-  description:
-    "Too often, suppliers respond to public tenders in a reactive manner, scrambling to prepare a bid within a few weeks. This reactive approach leads to rus...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Reactive Bidding vs Proactive Planning: The Timing Challenge</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Too often, suppliers respond to public tenders in a reactive manner, scrambling to prepare a bid within a few weeks. This reactive approach leads to rushed submissions and wasted effort, while proactive competitors have been preparing for months. This brief compares reactive bidding with proactive planning and explains why timing makes the difference in public procurement.
-          </p>
-
-          <h2 className="article-subheading">Reactive Costs</h2>
-
-          <p className="article-body-text">
-            Reactive bidders only enter the fray once a contract notice is published. They must quickly interpret the specification, assemble partners, price the solution and secure internal approvals, often within compressed timelines. Proactive planners, on the other hand, monitor prior information notices, renewal signals and market consultations. They use this early visibility to understand buyer needs, shape the procurement, and prepare key materials long before the competition begins.
-          </p>
-
-          <h2 className="article-subheading">Late-Stage Discovery</h2>
-
-          <p className="article-body-text">
-            The difference between reactive and proactive approaches is reflected in bid quality and win rates. Proactive planners produce more tailored proposals, identify unique value propositions and build trust with buyers, while reactive bidders often submit generic, rushed responses. Time‑to‑opportunity metrics show that longer preparation windows correlate with higher success rates and lower stress. Early engagement is thus a structural advantage.
-          </p>
-
-          <h2 className="article-subheading">Preparation Pressure</h2>
-
-          <p className="article-body-text">
-            For suppliers, moving from reactive to proactive bidding requires investment in market monitoring and relationship building. Sales teams must track preliminary notices, contract expiries and policy signals and allocate time to meet buyers before the tender is issued. Internal processes must support early go/no‑go decisions and maintain bid materials that can be customised quickly. The payoff is higher win rates, better resource utilisation and a calmer bid environment.
-          </p>
-
-          <h2 className="article-subheading">Response Speed</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence enables proactive planning by aggregating early signals and providing contextual analysis. By alerting suppliers to upcoming opportunities and the estimated timeline, these tools give bid teams time to prepare. They also provide data on past awards and incumbent performance, informing strategy and positioning.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

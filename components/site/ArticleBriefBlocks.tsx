@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { ReactNode } from "react";
 import type { ArticleSource } from "../../lib/articleSources";
+import { ArticleExpandableVisual } from "./ArticleExpandableVisual";
 
 type BriefItem = {
   label: string;
@@ -51,16 +51,13 @@ export function ArticleHeroVisual({
   reliefMark?: boolean;
 }) {
   return (
-    <figure
-      className={`article-hero-visual article-hero-visual-${tone} ${
-        reliefMark ? "article-hero-visual-relief" : ""
-      }`.trim()}
-    >
-      <div className="article-hero-image">
-        <Image src={src} alt={alt} fill sizes="(max-width: 760px) 100vw, 48rem" priority={false} />
-      </div>
-      {caption ? <figcaption>{caption}</figcaption> : null}
-    </figure>
+    <ArticleExpandableVisual
+      src={src}
+      alt={alt}
+      caption={caption}
+      tone={tone}
+      reliefMark={reliefMark}
+    />
   );
 }
 

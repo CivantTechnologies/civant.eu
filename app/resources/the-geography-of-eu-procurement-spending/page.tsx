@@ -1,103 +1,177 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/the-geography-of-eu-procurement-spending";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/the-geography-of-eu-procurement-spending",
+  title: "The Geography of EU Procurement Spending",
+  description:
+    "Understand how European procurement spending varies by country, region, buyer type, sector, transparency, and local market structure.",
+  publishedAt: "2026-04-15T00:00:00+00:00",
+  publishedLabel: "April 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "EU procurement spending is geographically uneven. Opportunity varies by country, region, buyer type, sector, transparency, local supplier base, and publication discipline, so suppliers need geographic market intelligence before prioritising expansion.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Public procurement is not evenly distributed across Europe. Market size,
+        buyer density, public-sector structure, digital maturity, and local
+        spending priorities all shape where procurement activity appears.
+      </p>
+      <p className="article-body-text">
+        For suppliers, geography affects discovery, competition, delivery model,
+        local partnerships, and market-entry strategy.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Distribution",
+      text: "Procurement activity varies significantly across countries, regions, and authority types.",
+    },
+    {
+      label: "Access",
+      text: "Geography influences language, local presence, relationships, and portal coverage.",
+    },
+    {
+      label: "Strategy",
+      text: "Market expansion should be prioritised by accessible demand, not just headline spend.",
+    },
+  ],
+  civantView: {
+    title: "Geography is a market signal, not just a map.",
+    content: (
+      <p>
+        Civant helps teams compare countries and regions by buyer activity,
+        procurement timing, sector concentration, and competitive context so
+        expansion choices are evidence-led.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "geographic-distribution",
+      title: "Geographic Distribution",
+      content: (
+        <>
+          <p className="article-body-text">
+            Procurement volume tends to follow population, public-sector size,
+            GDP, infrastructure investment, and service-delivery models. But
+            publication quality and transparency also affect what suppliers can
+            actually see.
+          </p>
+          <p className="article-body-text">
+            A visible market is not always the largest market, and a large
+            market is not always accessible.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "regional-variation",
+      title: "Regional Variation",
+      content: (
+        <>
+          <p className="article-body-text">
+            Within countries, procurement can concentrate around capital
+            regions, major cities, devolved governments, health systems,
+            universities, utilities, or infrastructure authorities.
+          </p>
+          <p className="article-body-text">
+            Suppliers should analyse buyer clusters and authority types, not
+            just national totals.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "spending-patterns",
+      title: "Spending Patterns",
+      content: (
+        <>
+          <p className="article-body-text">
+            Geography also shapes sector mix. Defence, healthcare,
+            construction, digital services, education, and utilities can show
+            different geographic concentrations and procurement rhythms.
+          </p>
+          <p className="article-body-text">
+            Those differences affect which suppliers can compete and what local
+            evidence or partnerships may be needed.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "location-strategy",
+      title: "Location Strategy",
+      content: (
+        <>
+          <p className="article-body-text">
+            Geographic strategy should combine market size, buyer fit, language,
+            local delivery needs, competition, and signal quality.
+          </p>
+          <p className="article-body-text">
+            Procurement intelligence helps suppliers identify which countries or
+            regions deserve immediate focus and which require more groundwork.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Prioritise markets by accessible procurement demand.",
+    primaryHref: "/markets",
+    primaryLabel: "Explore Markets",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "Why does procurement spending vary geographically?",
+      answer:
+        "It varies because countries and regions differ in GDP, public-sector structure, population, buyer density, transparency, sector mix, and digital procurement maturity.",
+    },
+    {
+      question: "Why does geography matter to suppliers?",
+      answer:
+        "It affects language, delivery requirements, portal coverage, buyer relationships, competition, local partnerships, and market-entry sequencing.",
+    },
+    {
+      question: "How should suppliers choose target procurement markets?",
+      answer:
+        "They should compare accessible demand, buyer fit, sector activity, competition, local requirements, timing, and data quality rather than relying on headline market size alone.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCommissionPublicProcurement",
+    "europeanParliamentPublicProcurement",
+    "tedEforms",
+    "oecdPublicProcurement",
+  ]),
+  relatedSolution: {
+    solutionSlug: "eu-tender-monitoring",
+    linkLabel: "Explore EU tender monitoring",
+    children:
+      "See how Civant helps teams compare procurement timing, buyer activity, and opportunity across European markets.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "The Geography of EU Procurement Spending",
-  description:
-    "Public procurement spending is distributed highly unevenly across the European Union, with substantial concentration in high-income member states and ma...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "The Geography of EU Procurement Spending",
-  description:
-    "Public procurement spending is distributed highly unevenly across the European Union, with substantial concentration in high-income member states and ma...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">The Geography of EU Procurement Spending</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Public procurement spending is distributed highly unevenly across the European Union, with substantial concentration in high-income member states and major metropolitan regions. Analysis of TED and eForms data reveals that Germany, France, Italy, Spain, and Poland account for approximately 50-55% of all published EU procurement notices, with Nordic countries and Netherlands demonstrating higher procurement-to-GDP ratios reflecting elevated public spending and transparency practices. Eastern European member states account for lower notice volumes despite comparable populations, reflecting lower public spending levels, below-threshold procurement concentration, and digital transparency gaps.
-          </p>
-
-          <p className="article-body-text">
-            Geographic procurement spending distribution correlates strongly with GDP and public sector size, though member state differences in transparency practices and digital adoption create significant publication gaps. Procurement as percentage of GDP varies 8-16% across member states, with public authorities controlling significant purchasing power representing opportunity for suppliers achieving cross-border market access. Regional variation within member states is substantial, with capital regions and major urban centres hosting disproportionate procurement activity compared to less densely populated areas.
-          </p>
-
-          <h2 className="article-subheading">Geographic Distribution</h2>
-
-          <p className="article-body-text">
-            Geographic concentration of procurement creates regional economic importance, with procurement spending representing significant percentage of turnover for suppliers in concentrated procurement regions. Major procurement centres attract supplier clustering and service provider concentration, as scale enables efficient bidding operations and rapid response to procurement opportunities. Cross-border procurement participation is heavily influenced by geography, with suppliers primarily bidding in neighbouring member states due to logistical proximity, relationship networks, and language advantages, creating regional procurement blocs rather than EU-wide integrated markets.
-          </p>
-
-          <p className="article-body-text">
-            Supplier concentration mirrors geographic procurement concentration, with large multinational suppliers dominating in high-volume procurement regions whilst regional and local suppliers maintain dominance in lower-volume areas lacking sufficient scale for cross-border competition. Digital platform availability and e-procurement adoption vary geographically, with Western European authorities more frequently publishing notices through standardised platforms whilst Eastern European publication remains fragmented across diverse databases. Geographic advantage in procurement participation remains substantial, with suppliers maintaining significant premium in procurements within their home regions compared to cross-border bids.
-          </p>
-
-          <h2 className="article-subheading">Regional Variations</h2>
-
-          <p className="article-body-text">
-            Procurement notice publication shows pronounced geographic clustering, with capitals and major metropolitan areas accounting for 40-50% of published notices despite representing 25-30% of EU population. Sector concentration varies geographically, with defence procurement concentrated in Western Europe, healthcare in wealthy regions with developed public health systems, and infrastructure procurement distributed more broadly across member states. Procurement notice density per capita correlates strongly with regional income levels and public sector development, with substantial variance across regions within member states.
-          </p>
-
-          <p className="article-body-text">
-            Analysis by authority type reveals geographic variation in procurement mechanisms, with local authorities in well-resourced regions more frequently using centralised purchasing organisations and dynamic purchasing systems, whilst smaller authorities in less developed regions rely on traditional individual procurement. Framework agreement concentration is higher in geographically defined regions with coordinated procurement functions, such as German Laender or Spanish autonomous communities, compared to fragmented authority structures. Multi-country procurement groups and shared procurement platforms are emerging primarily in neighbouring country clusters (Benelux, Nordic countries, Alpine regions) reflecting geographic proximity and policy coordination.
-          </p>
-
-          <h2 className="article-subheading">Spending Patterns</h2>
-
-          <p className="article-body-text">
-            Geographic concentration of procurement creates substantial market access challenges for suppliers seeking cross-border participation, as logistical proximity and established relationships provide incumbent suppliers with significant competitive advantages. Regional economic dependence on public procurement creates concentration risk, where local suppliers dependent on government contracting face vulnerability if authorities shift sourcing to cross-border competitors. The limited cross-border integration of EU procurement markets despite formal freedom of movement principles reflects persistent geographic barriers and the importance of local relationships in procurement success.
-          </p>
-
-          <p className="article-body-text">
-            Policy initiatives to increase cross-border procurement participation have achieved limited success, with geographic barriers proving more resilient than regulatory frameworks designed to promote competition. Digital transformation and platform standardisation may reduce geographic barriers by enabling remote procurement participation, though evidence suggests relationship factors often outweigh cost-based competition even where geographic distance is reduced. Geographic disparities in procurement data quality and transparency create intelligence advantages for suppliers in well-documented regions, disadvantaging suppliers in lower-transparency areas.
-          </p>
-
-          <h2 className="article-subheading">Location Strategy</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence strategies should prioritise geographic targeting, recognising that procurement concentration creates efficiency gains through focused participation in high-volume regions rather than attempting pan-European coverage. Intelligence operations should develop regional expertise and relationship networks in priority markets, as geographic proximity and market knowledge provide critical competitive advantages. Market opportunity assessment should factor geographic demand concentration, as some regions offer substantially higher procurement volumes and more active competitive markets than others.
-          </p>
-
-          <p className="article-body-text">
-            Competitive positioning strategies should recognise geographic variation in procurement sophistication and authority practices, with differentiated approaches for well-developed procurement markets versus developing or transitional regions. Supplier expansion into new geographies should be informed by market intelligence regarding incumbent competition, authority relationships, and language and cultural factors affecting market entry. Regional procurement trends and authority consolidation activities should be monitored, as these affect future geographic concentration and market opportunity distribution.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

@@ -1,83 +1,195 @@
 import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/beyond-raw-data-extracting-insights-from-historical-contract-records";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/beyond-raw-data-extracting-insights-from-historical-contract-records",
+  title: "Beyond Raw Data: Extracting Insights from Historical Contract Records",
+  description:
+    "Learn how historical contract records become procurement intelligence when award data, values, suppliers, durations, and renewal signals are connected.",
+  publishedAt: "2026-03-14T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Historical contract records become useful when they are connected into patterns. Award dates, values, durations, suppliers, extensions, and buyer behavior can reveal likely renewal windows, incumbent strength, category movement, and where future tenders may form.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Public procurement produces a large trail of structured information:
+        contract notices, award notices, framework agreements, modification
+        notices, and spending records. On their own, those records are useful
+        reference material. Connected over time, they become market
+        intelligence.
+      </p>
+      <p className="article-body-text">
+        The commercial question is not simply what happened. It is what the
+        history suggests about buyer timing, incumbent position, future demand,
+        and whether a supplier should prepare before a formal notice appears.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Context",
+      text: "Raw records need buyer, supplier, value, duration, and category context before they support decisions.",
+    },
+    {
+      label: "Patterns",
+      text: "Award histories can expose recurrence, renewal timing, incumbent retention, and category-level movement.",
+    },
+    {
+      label: "Action",
+      text: "The goal is not more data. The goal is earlier and better-qualified pursuit decisions.",
+    },
+  ],
+  civantView: {
+    title: "Historical records are the base layer for forward-looking procurement intelligence.",
+    content: (
+      <p>
+        Civant treats award history as evidence, not archive material. When
+        historical records are normalised and connected to lifecycles, signals,
+        and competition data, they help teams forecast where demand is likely to
+        reappear.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "award-patterns",
+      title: "Award Patterns and Trends",
+      content: (
+        <>
+          <p className="article-body-text">
+            Award records show who won, what was bought, which authority bought
+            it, the estimated value, and often the contract duration. Across a
+            single buyer, those records can show recurring needs. Across a
+            category, they can show common contract lengths, spending ranges,
+            and competition patterns.
+          </p>
+          <p className="article-body-text">
+            A single award notice rarely tells the whole story. The insight
+            appears when the same authority, category, supplier, and timeframe
+            are analysed together.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "decoding-records",
+      title: "Decoding the Records",
+      content: (
+        <>
+          <p className="article-body-text">
+            Useful indicators include incumbent identity, contract start and
+            end dates, framework duration, renewal options, modification
+            activity, supplier turnover, and recurring spend. These details
+            help teams understand whether a buyer is likely to extend, renew,
+            replace, or reshape an existing contract.
+          </p>
+          <p className="article-body-text">
+            The hard part is normalisation. Procurement records vary by market,
+            portal, form, language, and publication discipline. Intelligence
+            depends on turning those uneven records into comparable signals.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "strategic-use",
+      title: "Using Intelligence Strategically",
+      content: (
+        <>
+          <p className="article-body-text">
+            Historical records can improve account planning, bid/no-bid
+            discipline, partner selection, and timing. They help suppliers see
+            which buyers regularly re-procure, which categories have strong
+            incumbent retention, and where preparation should begin early.
+          </p>
+          <p className="article-body-text">
+            They also reduce noise. A tender may look attractive in isolation,
+            but the underlying record may show weak fit, entrenched incumbency,
+            or a buyer pattern that suggests low probability of change.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "from-data-to-decision",
+      title: "From Data to Decision",
+      content: (
+        <>
+          <p className="article-body-text">
+            Good procurement intelligence turns historical records into a
+            decision workflow. It should help teams decide what to monitor, who
+            to engage, when to prepare, and which opportunities deserve deeper
+            qualification.
+          </p>
+          <p className="article-body-text">
+            To see how Civant connects historical records with signals and
+            lifecycle evidence, review the{" "}
+            <Link href="/methodology" className="text-link">
+              Methodology page
+            </Link>
+            .
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Turn historical records into earlier market decisions.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "Why are historical contract records useful?",
+      answer:
+        "They show who bought what, who won, how long contracts lasted, and whether similar demand is likely to return. That history helps suppliers forecast renewal timing and qualify future opportunities.",
+    },
+    {
+      question: "What data points matter most in contract records?",
+      answer:
+        "Important data points include buyer identity, supplier identity, award date, contract value, duration, framework structure, modification notices, extensions, and category classification.",
+    },
+    {
+      question: "How does raw procurement data become intelligence?",
+      answer:
+        "Raw data becomes intelligence when records are normalised, linked across time, compared against buyer behavior, and turned into clear actions for monitoring, engagement, or bid/no-bid decisions.",
+    },
+  ],
+  sources: getArticleSources([
+    "tedEforms",
+    "europeanCommissionEforms",
+    "eurLexDirective201424",
+    "europeanCourtAuditorsCompetition",
+  ]),
+  relatedSolution: {
+    solutionSlug: "procurement-intelligence-software",
+    linkLabel: "Explore procurement intelligence software",
+    children:
+      "See how Civant turns historical procurement records into renewal, timing, and market-positioning intelligence.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Beyond Raw Data: Extracting Insights from Historical Contract Records",
-  description:
-    "Public procurement generates vast amounts of data: contract notices, award announcements, framework agreements and spending reports. However, raw data a...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Beyond Raw Data: Extracting Insights from Historical Contract Records",
-  description:
-    "Public procurement generates vast amounts of data: contract notices, award announcements, framework agreements and spending reports. However, raw data a...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Beyond Raw Data: Extracting Insights from Historical Contract Records</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Public procurement generates vast amounts of data: contract notices, award announcements, framework agreements and spending reports. However, raw data alone does not reveal why a supplier won, how long the contract runs or when the next opportunity will arise. This brief explains how to extract insights from historical contract records and why it matters.
-          </p>
-
-          <h2 className="article-subheading">Award Patterns and Trends</h2>
-
-          <p className="article-body-text">
-            Historical data contains patterns about contract values, durations, the number of bidders and incumbent turnover. For example, many contracts run for 12–24 months or four years if they are frameworks. Analysing this data across a category reveals average contract lifespans, renewal frequencies and typical procurement cycles. Without context, suppliers may misinterpret a single notice and miss the broader trend.
-          </p>
-
-          <h2 className="article-subheading">Decoding the Records</h2>
-
-          <p className="article-body-text">
-            Key indicators include the identity of incumbents, their win rates, and whether they retain contracts at renewal. Spending patterns over the contract term indicate whether budgets are increasing or decreasing. By combining award data with expiry dates and pre‑procurement signals, suppliers can forecast when future tenders will be launched. The richness of insight depends on linking disparate datasets and normalising formats.
-          </p>
-
-          <h2 className="article-subheading">Using Intelligence Strategically</h2>
-
-          <p className="article-body-text">
-            Relying on raw data alone leads to an incomplete view of the market. Suppliers may chase tenders without understanding the incumbent’s performance or the likelihood of renewal. Analysing historical records enables better go/no‑go decisions, more realistic bid strategies and targeted marketing. For policymakers, transparency and standardisation of data facilitate competition and accountability.
-          </p>
-
-          <h2 className="article-subheading">From Data to Decision</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence solutions aggregate data across portals, spending reports and performance evaluations. They apply analytics to detect patterns and produce insights such as renewal forecasting signals and confidence scores. By presenting historical data in a contextualised and user-friendly way, intelligence tools empower suppliers to make strategic decisions.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

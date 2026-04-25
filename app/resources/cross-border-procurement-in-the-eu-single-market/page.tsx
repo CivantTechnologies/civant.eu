@@ -1,123 +1,182 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/cross-border-procurement-in-the-eu-single-market";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/cross-border-procurement-in-the-eu-single-market",
+  title: "Cross-Border Procurement in the EU Single Market",
+  description:
+    "Understand why cross-border public procurement remains difficult despite EU rules, and how suppliers can assess language, local presence, and market fit.",
+  publishedAt: "2026-03-30T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Cross-border procurement is possible under EU rules, but practical barriers remain. Language, local delivery expectations, fragmented portals, buyer familiarity, and category-specific requirements mean suppliers need market intelligence before entering another country's public-sector market.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        EU procurement rules are designed to support open competition across
+        the single market. Above-threshold notices, common principles, and TED
+        publication all help suppliers discover opportunities beyond their home
+        market.
+      </p>
+      <p className="article-body-text">
+        In practice, cross-border participation still requires more than seeing
+        a notice. Suppliers need language capability, local context, delivery
+        credibility, and a realistic view of competition.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Rules",
+      text: "EU procurement rules support cross-border competition, especially above threshold.",
+    },
+    {
+      label: "Reality",
+      text: "Language, local knowledge, delivery expectations, and portal fragmentation remain barriers.",
+    },
+    {
+      label: "Entry",
+      text: "Cross-border market entry should be staged around fit, partners, category openness, and buyer evidence.",
+    },
+  ],
+  civantView: {
+    title: "Cross-border opportunity needs country-level context.",
+    content: (
+      <p>
+        Civant helps compare market timing, buyer behavior, supplier presence,
+        and competition across countries so teams can decide where cross-border
+        expansion is realistic.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "cross-border-dynamics",
+      title: "Cross-Border Dynamics",
+      content: (
+        <>
+          <p className="article-body-text">
+            Cross-border participation is easier in some categories than
+            others. Highly specialised products, technology, or services may be
+            more open to foreign suppliers than delivery-heavy local services.
+          </p>
+          <p className="article-body-text">
+            Suppliers should assess whether the buyer requires local presence,
+            local references, regulatory knowledge, language coverage, or
+            partnerships before treating a notice as accessible.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "single-market-rules",
+      title: "Single Market Rules",
+      content: (
+        <>
+          <p className="article-body-text">
+            EU procurement principles create a common legal foundation, but
+            tender documents, local procurement practice, and buyer expectations
+            still vary by country.
+          </p>
+          <p className="article-body-text">
+            This is why cross-border strategy should combine legal visibility
+            with practical market intelligence.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "geographic-competition",
+      title: "Geographic Competition",
+      content: (
+        <>
+          <p className="article-body-text">
+            Geographic competition depends on market size, category maturity,
+            domestic supplier depth, border-region dynamics, and the buyer's
+            willingness to work with suppliers outside its usual base.
+          </p>
+          <p className="article-body-text">
+            Competitor analysis should distinguish between genuine foreign
+            entry and multinational suppliers bidding through local operations.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "international-bidding",
+      title: "International Bidding",
+      content: (
+        <>
+          <p className="article-body-text">
+            A strong cross-border plan starts with market selection. Suppliers
+            should compare opportunity volume, renewal timing, competition,
+            language burden, partner needs, and buyer fit before committing bid
+            resources.
+          </p>
+          <p className="article-body-text">
+            Procurement intelligence reduces the cost of that assessment by
+            normalising data across markets and surfacing patterns that are hard
+            to see through individual portals.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Assess cross-border opportunity before committing bid effort.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "Can suppliers bid for public contracts in other EU countries?",
+      answer:
+        "Yes. EU procurement rules support cross-border competition, especially for above-threshold procurement, but practical barriers such as language, delivery model, local context, and buyer expectations still matter.",
+    },
+    {
+      question: "What makes cross-border procurement difficult?",
+      answer:
+        "Common barriers include language, local legal or operational context, fragmented portals, local delivery requirements, incumbent relationships, and the need for local partners.",
+    },
+    {
+      question: "How should suppliers choose cross-border markets?",
+      answer:
+        "They should compare market size, buyer fit, category openness, renewal timing, competitor landscape, language burden, and whether local partnerships are needed.",
+    },
+  ],
+  sources: getArticleSources([
+    "europeanCommissionPublicProcurement",
+    "europeanParliamentPublicProcurement",
+    "tedEforms",
+    "europeanCourtAuditorsCompetition",
+  ]),
+  relatedSolution: {
+    solutionSlug: "eu-tender-monitoring",
+    linkLabel: "Explore EU tender monitoring",
+    children:
+      "See how Civant helps teams compare procurement activity, timing, and competition across European markets.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Cross-Border Procurement in the EU Single Market",
-  description:
-    "The EU public procurement directives were designed, in part, to create a single market for public contracts. By establishing common rules for above-thre...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Cross-Border Procurement in the EU Single Market",
-  description:
-    "The EU public procurement directives were designed, in part, to create a single market for public contracts. By establishing common rules for above-thre...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Cross-Border Procurement in the EU Single Market</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            The EU public procurement directives were designed, in part, to create a single market for public contracts. By establishing common rules for above-threshold procurement and requiring publication through TED, the regulatory framework aims to enable suppliers from any member state to compete for contracts across the EU.
-          </p>
-
-          <p className="article-body-text">
-            The reality of cross-border procurement participation tells a different story. Approximately 14% of EU procurement contracts are awarded to foreign suppliers, a figure that has remained relatively stable despite decades of regulatory harmonisation. This suggests that practical barriers to cross-border participation persist beyond what regulatory framework changes alone can address.
-          </p>
-
-          <p className="article-body-text">
-            For organisations with genuine cross-border capability, understanding these barriers and developing strategies to overcome them is essential for accessing the full scope of the European procurement market.
-          </p>
-
-          <h2 className="article-subheading">Cross-Border Dynamics</h2>
-
-          <p className="article-body-text">
-            The practical barriers to cross-border procurement participation operate at several levels. The most immediate is language. While TED publishes notices in the language of the contracting authority with summary translations, tender documentation, specifications, and evaluation criteria are typically available only in the national language. For complex procurement, engaging with several hundred pages of technical specifications in an unfamiliar language represents a significant barrier.
-          </p>
-
-          <p className="article-body-text">
-            Local knowledge requirements create a second barrier. Public procurement does not exist in a vacuum. Understanding the organisational structure of a foreign contracting authority, the regulatory context in which it operates, and the practical expectations of the buyer requires familiarity with local institutional arrangements that takes time to develop.
-          </p>
-
-          <p className="article-body-text">
-            Information fragmentation is the third barrier. While TED provides a central publication point for above-threshold procurement, significant procurement activity occurs below EU thresholds on national portals. These portals vary in language, interface, data structure, and accessibility, making systematic cross-border monitoring challenging.
-          </p>
-
-          <h2 className="article-subheading">Single Market Rules</h2>
-
-          <p className="article-body-text">
-            Cross-border procurement participation shows distinct sectoral patterns. In highly specialised sectors such as defence, aerospace, and advanced technology, cross-border awards are more common because the supplier base is inherently international. In services, facilities management, and construction, local presence requirements and language demands reduce cross-border participation.
-          </p>
-
-          <p className="article-body-text">
-            Geographic patterns also emerge. Border regions show higher cross-border procurement activity, reflecting natural economic integration. Smaller member states with limited domestic supplier bases tend to award more contracts to foreign suppliers. Larger markets with deep domestic supplier pools show lower cross-border participation rates.
-          </p>
-
-          <p className="article-body-text">
-            The mechanism of participation also matters. Some cross-border awards go to the foreign headquarters of multinational companies with local operational presence. Others represent genuine cross-border service delivery. The distinction is important for understanding actual market accessibility.
-          </p>
-
-          <h2 className="article-subheading">Geographic Competition</h2>
-
-          <p className="article-body-text">
-            For organisations considering cross-border procurement market entry, the barriers suggest a staged approach. Initial entry is most effective in sectors where cross-border participation is already established and where the organisation's specific expertise provides differentiation that overcomes local preference.
-          </p>
-
-          <p className="article-body-text">
-            Building local knowledge is a prerequisite for sustained cross-border success. This includes understanding national procurement practices, establishing relationships with local partners, and developing familiarity with the regulatory and operational context of target markets.
-          </p>
-
-          <p className="article-body-text">
-            The information barrier can be partially addressed through procurement intelligence that aggregates and normalises data across national systems. This provides a unified view of market activity that would otherwise require separate monitoring of multiple national portals in multiple languages.
-          </p>
-
-          <h2 className="article-subheading">International Bidding</h2>
-
-          <p className="article-body-text">
-            Cross-border procurement intelligence addresses the fragmentation problem by aggregating data from multiple national sources into normalised, searchable formats. This enables organisations to analyse procurement activity across borders without navigating individual national portal interfaces.
-          </p>
-
-          <p className="article-body-text">
-            By providing consistent data on contract values, durations, sectors, and suppliers across multiple countries, procurement intelligence platforms enable comparative market analysis that identifies the most accessible cross-border opportunities for specific organisational capabilities.
-          </p>
-
-          <p className="article-body-text">
-            This analytical capability is particularly valuable for organisations targeting EU-wide market presence, where understanding relative market size, competition levels, and timing patterns across member states informs market prioritisation and entry sequencing.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

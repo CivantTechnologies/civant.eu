@@ -1,103 +1,180 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/the-impact-of-eu-procurement-reform-on-market-competition";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/the-impact-of-eu-procurement-reform-on-market-competition",
+  title: "The Impact of EU Procurement Reform on Market Competition",
+  description:
+    "Understand how EU procurement reform affects competition, transparency, digital notices, SME access, evaluation criteria, and supplier strategy.",
+  publishedAt: "2026-04-19T00:00:00+00:00",
+  publishedLabel: "April 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "EU procurement reform affects competition by changing procedures, transparency, notice standards, evaluation criteria, and market-access mechanisms. But rule changes only improve competition when buyers implement them well and suppliers can understand the new signals.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Procurement reform changes the rules of the market. Directives,
+        national implementation, eForms, digital systems, and strategic
+        procurement policies all influence how buyers publish, evaluate, and
+        award public contracts.
+      </p>
+      <p className="article-body-text">
+        For suppliers, the question is not only what changed in law. It is how
+        each authority applies the change in practice.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Rules",
+      text: "Reform can change procedures, evaluation, notice data, transparency, and supplier access.",
+    },
+    {
+      label: "Practice",
+      text: "Competitive impact depends on authority capability and implementation quality.",
+    },
+    {
+      label: "Strategy",
+      text: "Suppliers should monitor how buyers adopt new tools, not just the existence of reform.",
+    },
+  ],
+  civantView: {
+    title: "Reform creates signals when buyers change behavior.",
+    content: (
+      <p>
+        Civant tracks procurement practice through notices, awards, buyer
+        history, and market signals so teams can see where reforms are changing
+        real competition.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "regulatory-changes",
+      title: "Regulatory Changes",
+      content: (
+        <>
+          <p className="article-body-text">
+            EU procurement rules support transparency, competition, equal
+            treatment, SME access, and value-based evaluation. Reforms also
+            introduce or refine tools such as dynamic purchasing systems,
+            innovation-oriented procedures, and structured digital notices.
+          </p>
+          <p className="article-body-text">
+            The effect depends on how member states and authorities implement
+            the rules.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "market-impact",
+      title: "Market Impact",
+      content: (
+        <>
+          <p className="article-body-text">
+            Reform can open markets by improving visibility, simplifying access,
+            encouraging lots, or allowing quality and lifecycle criteria beyond
+            lowest price.
+          </p>
+          <p className="article-body-text">
+            It can also create complexity if buyers use new mechanisms
+            inconsistently or suppliers cannot interpret the data.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "competition-effect",
+      title: "Competition Effect",
+      content: (
+        <>
+          <p className="article-body-text">
+            Competition is affected by more than formal rules. Publication
+            quality, preparation windows, buyer planning, incumbent behavior,
+            and supplier capacity all influence whether reforms improve market
+            access.
+          </p>
+          <p className="article-body-text">
+            This is why reform analysis should be grounded in actual notice and
+            award behavior.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "new-rules-impact",
+      title: "New Rules Impact",
+      content: (
+        <>
+          <p className="article-body-text">
+            Suppliers should monitor which authorities adopt DPS, market
+            consultations, quality-based evaluation, eForms, and transparent
+            forward planning.
+          </p>
+          <p className="article-body-text">
+            Those adoption patterns can indicate which buyers are more open to
+            differentiated suppliers and early engagement.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Track reform through buyer behavior, not headlines.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "How does EU procurement reform affect suppliers?",
+      answer:
+        "It can change procedures, evaluation criteria, publication data, transparency, market-access mechanisms, and how suppliers need to prepare.",
+    },
+    {
+      question: "Does procurement reform always increase competition?",
+      answer:
+        "No. Reform can support competition, but actual impact depends on buyer implementation, supplier awareness, data quality, and market structure.",
+    },
+    {
+      question: "What should suppliers monitor after procurement reform?",
+      answer:
+        "They should monitor buyer adoption of new procedures, notice quality, evaluation models, DPS usage, market consultations, framework structures, and award patterns.",
+    },
+  ],
+  sources: getArticleSources([
+    "eurLexDirective201424",
+    "europeanCommissionPublicProcurement",
+    "europeanCommissionEforms",
+    "europeanCourtAuditorsCompetition",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant connects procurement rules, notice behavior, buyer history, and market signals into practical intelligence.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "The Impact of EU Procurement Reform on Market Competition",
-  description:
-    "The 2014 EU procurement directive reforms represented major restructuring of public procurement rules across the European Union, introducing new mechani...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "The Impact of EU Procurement Reform on Market Competition",
-  description:
-    "The 2014 EU procurement directive reforms represented major restructuring of public procurement rules across the European Union, introducing new mechani...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">The Impact of EU Procurement Reform on Market Competition</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            The 2014 EU procurement directive reforms represented major restructuring of public procurement rules across the European Union, introducing new mechanisms (dynamic purchasing systems, innovation partnerships, competitive dialogue) and new evaluation approaches (most economically advantageous tender, lifecycle costing) intended to improve competition and procurement outcomes. Implementation of 2014 directives between 2014-2016 created transition period during which member states and authorities gradually adopted new rules, with variable implementation quality and compliance across jurisdictions. Subsequent regulatory evolution, including eForms standardisation and digital procurement expansion, continues to reshape competitive market structures.
-          </p>
-
-          <p className="article-body-text">
-            The stated objectives of 2014 reforms included increasing competition through reduced barriers to entry, promoting innovation through alternative award criteria, improving procurement transparency, and enabling SME participation through simplified procedures and reserved procurements. Empirical assessment of whether reforms achieved objectives requires analysis of post-reform competition patterns, supplier participation, and procurement outcomes compared to pre-2014 baselines, with evidence showing mixed results across different procurement categories and member states.
-          </p>
-
-          <h2 className="article-subheading">Regulatory Changes</h2>
-
-          <p className="article-body-text">
-            Post-2014 competition data shows overall increase in bid participation in several procurement categories, particularly in services and supplies where innovation partnerships and dynamic purchasing mechanisms have expanded supplier access. However, some procurement categories show consolidation and reduced competition following reforms, with dominant suppliers strengthening market positions through framework agreements and long-term supplier relationships. SME participation in public procurement shows modest increases following 2014 reforms, with particular gains in reserved procurement and below-threshold categories, though above-threshold SME participation remains limited.
-          </p>
-
-          <p className="article-body-text">
-            The introduction of most economically advantageous tender criteria and lifecycle costing enabled authorities to evaluate supplier quality, service performance, and total cost of ownership beyond simple price competition. This shift has increased supplier differentiation opportunities through non-price competition, enabling quality and innovation leaders to compete against pure cost competitors. However, evaluation of subjective quality and non-price factors introduces complexity and potential bias, with concerns emerging regarding evaluation consistency and fairness across different authorities and procurement categories.
-          </p>
-
-          <h2 className="article-subheading">Market Impact</h2>
-
-          <p className="article-body-text">
-            Post-2014 procurement market shows increased adoption of alternative procurement procedures (competitive dialogue, innovation partnerships) in complex procurements, with authorities gradually building expertise in these mechanisms. Procurement notice data shows increased framework agreement usage, with dynamic purchasing systems emerging particularly in IT and facility services categories. Geographic variation in reform implementation is substantial, with Nordic countries and Netherlands showing rapid adoption of new mechanisms whilst Southern and Eastern European member states show more gradual evolution.
-          </p>
-
-          <p className="article-body-text">
-            Bid participation patterns post-2014 show increased competition in SME-reserved procurements and below-threshold categories, with framework agreement and DPS adoption creating recurring opportunities for SME participation. However, above-threshold competition in mainstream categories shows limited structural change, with many categories continuing to demonstrate concentrated supplier bases and limited new entrant success. Procurement notice quality and completeness has improved following eForms implementation, enabling better informed supplier participation decisions compared to pre-eForms free-text notices.
-          </p>
-
-          <h2 className="article-subheading">Competition Effect</h2>
-
-          <p className="article-body-text">
-            The 2014 procurement reforms have modestly increased competition in some categories whilst showing limited competitive impact in others, suggesting that rule changes alone are insufficient to drive competitive transformation without supporting implementation capacity. SME participation improvements are most evident in specifically targeted mechanisms (reserved procurement, below-threshold simplified procedures) rather than broad market competition increases. The shift towards alternative procurement procedures and quality-based evaluation has enabled innovation and differentiation-based competition, reducing pure cost-focus in some procurement segments.
-          </p>
-
-          <p className="article-body-text">
-            Implementation variations across member states have created divergent competitive environments, with well-resourced, digitally-advanced authorities demonstrating greater benefit from reforms compared to authorities with limited procurement capacity. The continued evolution of procurement rules (eForms, digital transformation, centralised purchasing) suggests that competitive effects of 2014 reforms remain incomplete, with ongoing regulatory change continuing to reshape market structures. Concerns regarding procurement efficiency and effectiveness persist, with some authorities using reformed procedures inconsistently or inappropriately, limiting competitive benefits.
-          </p>
-
-          <h2 className="article-subheading">New Rules Impact</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence should assess procurement reform adoption by target authorities, recognising that implementation variations create differentiated competitive environments across jurisdictions. Intelligence operations should monitor authority procedural choices regarding use of alternative mechanisms (DPS, innovation partnerships) as indicators of authority sophistication and openness to non-traditional supplier participation. Competitive positioning strategies should recognise that quality and innovation-based competition has expanded opportunities for differentiated suppliers.
-          </p>
-
-          <p className="article-body-text">
-            Market opportunities for new suppliers have increased in reformed procurement environment, particularly in mechanisms emphasising capability and innovation over incumbent relationships. Supplier strategies should assess whether target authorities have adopted quality-based evaluation criteria and value-based procurement approaches that enable competition beyond pure cost. Understanding authority adaptation to new procurement procedures enables suppliers to position strategically within reform-created opportunities and identify markets where alternative mechanisms create competitive advantages.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

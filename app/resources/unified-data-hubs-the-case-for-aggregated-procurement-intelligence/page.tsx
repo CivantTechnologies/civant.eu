@@ -1,83 +1,177 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/unified-data-hubs-the-case-for-aggregated-procurement-intelligence";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/unified-data-hubs-the-case-for-aggregated-procurement-intelligence",
+  title: "Unified Data Hubs: The Case for Aggregated Procurement Intelligence",
+  description:
+    "See why unified procurement data hubs matter for suppliers dealing with fragmented tender portals, inconsistent data, and cross-market intelligence needs.",
+  publishedAt: "2026-04-11T00:00:00+00:00",
+  publishedLabel: "April 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Unified procurement data hubs aggregate tenders, awards, notices, buyer records, and public signals from fragmented sources into one normalised workflow. They reduce discovery cost and make strategic market intelligence possible.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Public procurement data is scattered across many systems. Suppliers can
+        spend more time finding and cleaning information than using it to make
+        better market decisions.
+      </p>
+      <p className="article-body-text">
+        A unified data hub changes the starting point: instead of searching
+        many portals, teams work from a consolidated, structured market view.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Aggregation",
+      text: "Unified hubs collect procurement records from multiple official and local sources.",
+    },
+    {
+      label: "Normalisation",
+      text: "The value comes from cleaning, deduplication, entity matching, and comparable fields.",
+    },
+    {
+      label: "Intelligence",
+      text: "A hub becomes strategic when it connects notices, awards, lifecycles, and signals.",
+    },
+  ],
+  civantView: {
+    title: "A unified hub is the base layer for procurement intelligence.",
+    content: (
+      <p>
+        Civant combines procurement records, awards, lifecycle evidence, and
+        external signals so suppliers can move from scattered alerts to a
+        structured view of market movement.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "why-aggregation-matters",
+      title: "Why Aggregation Matters",
+      content: (
+        <>
+          <p className="article-body-text">
+            Fragmented sources increase the cost of tender discovery. Teams
+            must check many portals, reconcile duplicate records, interpret
+            inconsistent fields, and decide which signals matter.
+          </p>
+          <p className="article-body-text">
+            Aggregation brings those sources together so suppliers can spend
+            more time qualifying and preparing, not hunting for records.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "breaking-down-silos",
+      title: "Breaking Down Silos",
+      content: (
+        <>
+          <p className="article-body-text">
+            A useful data hub connects TED, national portals, regional sources,
+            buyer websites, award records, modification notices, and early
+            public signals where available.
+          </p>
+          <p className="article-body-text">
+            The hard work is making those records comparable through shared
+            structures, source attribution, and entity resolution.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "unified-visibility",
+      title: "Unified Visibility",
+      content: (
+        <>
+          <p className="article-body-text">
+            Unified visibility helps suppliers see buyer activity across time:
+            planned work, live tenders, awards, renewals, extensions, and
+            changes in market participation.
+          </p>
+          <p className="article-body-text">
+            This is what turns procurement data into a strategic market map
+            rather than a list of current notices.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "integrated-intelligence",
+      title: "Integrated Intelligence Platform",
+      content: (
+        <>
+          <p className="article-body-text">
+            The strongest hubs add analytics on top of aggregated data:
+            confidence scoring, renewal forecasting, buyer behavior, competitor
+            context, and timing signals.
+          </p>
+          <p className="article-body-text">
+            That integrated view supports better account planning, bid/no-bid
+            decisions, and pipeline prioritisation.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Unify fragmented procurement data into a market view.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is a unified procurement data hub?",
+      answer:
+        "It is a system that aggregates procurement notices, awards, buyer records, and related public signals from multiple sources into one structured workflow.",
+    },
+    {
+      question: "Why do suppliers need procurement data hubs?",
+      answer:
+        "They reduce the cost of monitoring fragmented sources and make it easier to analyse buyer behavior, competition, lifecycle timing, and future opportunity signals.",
+    },
+    {
+      question: "What makes a data hub strategic rather than just searchable?",
+      answer:
+        "Strategic value comes from normalisation, source attribution, entity matching, historical context, signal connection, forecasting, and decision support.",
+    },
+  ],
+  sources: getArticleSources([
+    "tedEforms",
+    "europeanCommissionEforms",
+    "europeanCommissionPublicProcurement",
+    "oecdPublicProcurement",
+  ]),
+  relatedSolution: {
+    solutionSlug: "procurement-intelligence-software",
+    linkLabel: "Explore procurement intelligence software",
+    children:
+      "See how Civant aggregates procurement records, buyer history, lifecycle signals, and market context in one workflow.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Unified Data Hubs: The Case for Aggregated Procurement Intelligence",
-  description:
-    "Fragmentation of tender publication across Europe poses a major challenge for suppliers. Data is scattered across national systems, regional portals and...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Unified Data Hubs: The Case for Aggregated Procurement Intelligence",
-  description:
-    "Fragmentation of tender publication across Europe poses a major challenge for suppliers. Data is scattered across national systems, regional portals and...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Unified Data Hubs: The Case for Aggregated Procurement Intelligence</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            Fragmentation of tender publication across Europe poses a major challenge for suppliers. Data is scattered across national systems, regional portals and sector‑specific sites, each with its own format and search requirements. The concept of a unified data hub aims to solve this by aggregating information into a single, coherent platform. This brief examines the benefits and considerations of unified procurement data hubs.
-          </p>
-
-          <h2 className="article-subheading">Why Aggregation Matters</h2>
-
-          <p className="article-body-text">
-            In the current landscape, suppliers invest significant time and resources to monitor multiple portals. The cost of discovery disproportionately affects SMEs and new entrants, while incumbents with established relationships may rely on informal signals. Unified data hubs consolidate notices, normalise data fields and provide advanced search and alert capabilities. By standardising formats, these hubs enable analysis of market trends and supplier participation.
-          </p>
-
-          <h2 className="article-subheading">Breaking Down Silos</h2>
-
-          <p className="article-body-text">
-            Unified data hubs typically draw from official national portals, regional sites and TED, storing structured data in a common schema. They often offer APIs for integration with third‑party systems and dashboards for visualising opportunity pipelines. Some hubs also include contract award data, spending information and renewal signals, enabling comprehensive market intelligence. To be effective, unified hubs must stay current, handle multiple languages and comply with data privacy rules.
-          </p>
-
-          <h2 className="article-subheading">Unified Visibility</h2>
-
-          <p className="article-body-text">
-            For suppliers, unified data hubs reduce the administrative burden of tender discovery, freeing time for analysis and relationship building. SMEs particularly benefit from improved visibility and equal access to opportunities. For policymakers, aggregated data enhances transparency and competition, supporting economic inclusion.
-          </p>
-
-          <h2 className="article-subheading">Integrated Intelligence Platform</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence platforms often serve as unified data hubs, integrating tender notices, contract awards, renewal signals and pre‑procurement records. Advanced platforms also apply analytics, scoring and forecasting to the aggregated data, delivering a comprehensive view of the market. By subscribing to such platforms, suppliers gain a consolidated view of opportunities and insights for strategic planning.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

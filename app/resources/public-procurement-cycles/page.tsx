@@ -33,6 +33,12 @@ const article: ResourceArticle = {
       </p>
     </>
   ),
+  visual: {
+    src: "/images/resources/guide-public-procurement-cycles.svg",
+    alt: "Civant visual timeline of public procurement cycles from need and planning through tender, award, review, and renewal",
+    caption:
+      "Public procurement cycles create early preparation windows before the market sees a formal notice.",
+  },
   takeaways: [
     {
       label: "Rhythm",

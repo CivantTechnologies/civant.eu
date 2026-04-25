@@ -1,83 +1,183 @@
-import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath = "/resources/early-engagement-leveraging-prior-information-and-premarket-engagement-notices";
-const publishedAt = "2026-03-14T00:00:00+00:00";
+const article: ResourceArticle = {
+  path: "/resources/early-engagement-leveraging-prior-information-and-premarket-engagement-notices",
+  title: "Early Engagement: Leveraging Prior Information and Pre-Market Engagement Notices",
+  description:
+    "Understand how prior information, planned procurement, and preliminary market engagement notices help suppliers prepare before tender publication.",
+  publishedAt: "2026-03-19T00:00:00+00:00",
+  publishedLabel: "March 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "Early engagement notices give suppliers visibility before the formal tender stage. Prior information notices, planned procurement notices, and preliminary market engagement notices can help teams understand buyer intent, assess fit, prepare evidence, and participate appropriately before requirements are finalised.",
+  intro: (
+    <>
+      <p className="article-body-text">
+        Early market engagement is where procurement intelligence becomes
+        practical. A supplier that sees buyer intent before the formal notice
+        can prepare, ask better questions, shape partnerships, and decide
+        whether the future opportunity is worth serious pursuit.
+      </p>
+      <p className="article-body-text">
+        The important distinction is discipline. Early engagement should improve
+        understanding and readiness; it should not become wishful thinking about
+        every early notice.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Visibility",
+      text: "Early notices can reveal planned procurement activity before a formal tender is published.",
+    },
+    {
+      label: "Engagement",
+      text: "Consultations and market engagement help suppliers understand needs and prepare evidence.",
+    },
+    {
+      label: "Fairness",
+      text: "Early engagement must be handled transparently so it does not distort later competition.",
+    },
+  ],
+  civantView: {
+    title: "Early engagement is most valuable when it is tied to evidence.",
+    content: (
+      <p>
+        Civant helps teams separate meaningful early buyer movement from weak
+        signals by connecting notices, consultations, lifecycle timing, and
+        historical buyer behavior.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "prior-information-usage",
+      title: "Prior Information Usage",
+      content: (
+        <>
+          <p className="article-body-text">
+            Prior information and planned procurement notices can alert the
+            market before the formal tender stage. They may provide enough
+            information for suppliers to begin buyer research, partner
+            conversations, and internal qualification.
+          </p>
+          <p className="article-body-text">
+            Their value is strongest when the notice aligns with known contract
+            lifecycles, budget approvals, or a buyer's previous procurement
+            rhythm.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "pre-market-notices",
+      title: "Pre-Market Notices",
+      content: (
+        <>
+          <p className="article-body-text">
+            Preliminary market engagement notices and consultation activity can
+            show that an authority is testing requirements or seeking supplier
+            input. This can be a useful moment for suppliers to demonstrate
+            relevant capability and understand the buyer's problem.
+          </p>
+          <p className="article-body-text">
+            Suppliers should document what they learn and avoid assuming that
+            early engagement creates an advantage by itself. The later tender
+            still needs to be qualified on fit, evidence, and competition.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "engagement-windows",
+      title: "Engagement Windows",
+      content: (
+        <>
+          <p className="article-body-text">
+            The period before a formal notice can be used to validate demand,
+            understand constraints, identify consortium needs, build references,
+            and prepare a realistic bid plan.
+          </p>
+          <p className="article-body-text">
+            Teams that wait until publication often face compressed timelines
+            and less room to differentiate.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: "early-positioning",
+      title: "Early Positioning",
+      content: (
+        <>
+          <p className="article-body-text">
+            Early positioning should be selective. Not every early notice is a
+            strong opportunity, and not every consultation deserves the same
+            level of effort.
+          </p>
+          <p className="article-body-text">
+            A structured intelligence workflow helps teams decide where to
+            engage, where to monitor, and where to conserve bid capacity.
+          </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Build an early engagement workflow around real buyer signals.",
+    primaryHref: "/platform",
+    primaryLabel: "Explore Platform",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What is early market engagement in procurement?",
+      answer:
+        "Early market engagement is communication between a contracting authority and the market before a formal procurement process, often used to understand capability, refine requirements, or test feasibility.",
+    },
+    {
+      question: "Why do early engagement notices matter?",
+      answer:
+        "They can reveal buyer intent earlier than a contract notice, giving suppliers time to qualify the opportunity, prepare evidence, identify partners, and understand requirements.",
+    },
+    {
+      question: "Can early engagement create unfair advantage?",
+      answer:
+        "Procurement rules require authorities to manage engagement fairly and avoid distorting competition. Suppliers should treat early engagement as preparation intelligence, not as a guarantee of preferential treatment.",
+    },
+  ],
+  sources: getArticleSources([
+    "ukProcurementActGuidance",
+    "ukProcurementAct2023",
+    "eurLexDirective201424",
+    "tedEforms",
+  ]),
+  relatedSolution: {
+    solutionSlug: "public-procurement-intelligence",
+    linkLabel: "Explore public procurement intelligence",
+    children:
+      "See how Civant helps teams track early notices, consultations, lifecycle timing, and buyer movement.",
+  },
+};
 
 export const metadata = buildArticleMetadata({
-  title: "Early Engagement: Leveraging Prior Information and Pre‑Market Engagement Notices",
-  description:
-    "The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish p...",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "Early Engagement: Leveraging Prior Information and Pre‑Market Engagement Notices",
-  description:
-    "The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish p...",
-  path: pagePath,
-  datePublished: publishedAt,
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
 });
 
 export default function ArticlePage() {
-  return (
-    <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Early Engagement: Leveraging Prior Information and Pre‑Market Engagement Notices</h1>
-        <p className="article-byline">
-          By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
-          <p className="article-body-text">
-            The UK Procurement Act 2023 introduces mechanisms for early market engagement aimed at improving transparency and competition. Authorities can publish prior information notices, planned procurement notices and pre‑market engagement notices before issuing a contract notice. These signals give suppliers visibility of future procurements and invite them to inform the design of tenders. This brief explores how early engagement transforms the bidding landscape.
-          </p>
-
-          <h2 className="article-subheading">Prior Information Usage</h2>
-
-          <p className="article-body-text">
-            Prior information notices and PPNs must be published 35 days to 12 months before the contract notice. When used, they allow authorities to shorten subsequent tender periods because suppliers have already been alerted. Pre‑market engagement notices invite suppliers to participate in consultations, demonstrate capabilities and influence the procurement specification. Suppliers monitoring these notices can plan resources, form consortia and shape the eventual tender to their strengths.
-          </p>
-
-          <h2 className="article-subheading">Pre-Market Notices</h2>
-
-          <p className="article-body-text">
-            Early engagement notices follow a predictable pattern. A PIN or PPN is published with high‑level information about the planned procurement and an estimated timeline. Pre‑market engagement sessions may be scheduled where suppliers can discuss requirements with the authority. After consultation, a formal contract notice is published, often with a shorter tender period because suppliers have had time to prepare. Suppliers who miss these early notices must react quickly within the compressed timetable.
-          </p>
-
-          <h2 className="article-subheading">Engagement Windows</h2>
-
-          <p className="article-body-text">
-            For suppliers, early engagement is both a duty and an opportunity. Monitoring preliminary notices ensures they are aware of upcoming tenders and can allocate resources accordingly. Participating in pre‑market consultations allows suppliers to showcase expertise, influence procurement design and build relationships. Failing to engage early means reacting to a contract notice with little time to differentiate.
-          </p>
-
-          <h2 className="article-subheading">Early Positioning</h2>
-
-          <p className="article-body-text">
-            Procurement intelligence platforms aggregate PINs, PPNs and pre‑market engagement notices from multiple authorities. They flag early signals and provide contextual data on past contracts in the same category, enabling suppliers to assess whether to engage. By integrating these signals with renewal forecasts, intelligence tools support a proactive strategy centred on early engagement.
-          </p>
-
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+  return <ResourceArticleTemplate article={article} />;
 }

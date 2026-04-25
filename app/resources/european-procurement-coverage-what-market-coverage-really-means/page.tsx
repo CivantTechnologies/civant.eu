@@ -1,138 +1,126 @@
 import Link from "next/link";
-import { Section } from "../../../components/site/Section";
-import { SchemaScript } from "../../../components/site/SchemaScript";
-import { RelatedArticles } from "../../../components/site/RelatedArticles";
-import { RelatedSolution } from "../../../components/site/RelatedSolution";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import {
+  ResourceArticleTemplate,
+  type ResourceArticle,
+} from "../../../components/site/ResourceArticleTemplate";
+import { getArticleSources } from "../../../lib/articleSources";
+import { buildArticleMetadata } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
-const pagePath =
-  "/resources/european-procurement-coverage-what-market-coverage-really-means";
-const publishedAt = "2026-04-23T00:00:00+00:00";
-
-export const metadata = buildArticleMetadata({
+const article: ResourceArticle = {
+  path: "/resources/european-procurement-coverage-what-market-coverage-really-means",
   title: "European Procurement Coverage: What Market Coverage Really Means",
   description:
     "Real European procurement coverage means country-by-country evidence, comparable signals, and a consistent workflow across live and upcoming markets.",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-const articleSchema = buildArticleSchema({
-  title: "European Procurement Coverage: What Market Coverage Really Means",
-  description:
-    "Real European procurement coverage means country-by-country evidence, comparable signals, and a consistent workflow across live and upcoming markets.",
-  path: pagePath,
-  datePublished: publishedAt,
-});
-
-export default function ArticlePage() {
-  return (
+  publishedAt: "2026-04-14T00:00:00+00:00",
+  publishedLabel: "April 2026",
+  modifiedAt: "2026-04-25T00:00:00+00:00",
+  modifiedLabel: "April 2026",
+  answer:
+    "European procurement coverage is not just a country count. Real coverage means reliable country-level sources, local context, comparable fields, buyer and award history, and one workflow that lets teams compare markets without flattening their differences.",
+  intro: (
     <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">
-          European Procurement Coverage: What Market Coverage Really Means
-        </h1>
-        <p className="article-byline">
-          By{" "}
-          <a
-            href="https://www.linkedin.com/in/davidmanriquecivant/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            David Manrique
-          </a>{" "}
-          | April 2026
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="article-prose">
+      <p className="article-body-text">
+        Market coverage is easy to overstate. A list of countries sounds broad,
+        but it does not prove that a platform can support useful market
+        decisions in each one.
+      </p>
+      <p className="article-body-text">
+        Real European coverage combines official evidence, local market
+        structure, source quality, and comparable intelligence logic.
+      </p>
+    </>
+  ),
+  takeaways: [
+    {
+      label: "Evidence",
+      text: "Coverage needs reliable sources and data quality market by market.",
+    },
+    {
+      label: "Context",
+      text: "Country differences in portals, buyers, thresholds, and publication habits must be preserved.",
+    },
+    {
+      label: "Workflow",
+      text: "Teams need one operating model for cross-market planning, not disconnected habits.",
+    },
+  ],
+  civantView: {
+    title: "Coverage should be honest, comparable, and operational.",
+    content: (
+      <p>
+        Civant approaches European rollout as a country-by-country evidence
+        model. The goal is not vague regional language; it is a workflow that
+        stays consistent as new markets become useful.
+      </p>
+    ),
+  },
+  sections: [
+    {
+      id: "country-count",
+      title: "Coverage Is Not Just Country Count",
+      content: (
+        <>
           <p className="article-body-text">
-            In European public procurement, market coverage is easy to describe
-            badly. A lot of vendors use it to mean a long list of countries or
-            a broad claim about access to notices. That sounds impressive, but
-            it does not tell a buyer what the product can actually do market by
-            market.
+            European procurement is fragmented by portals, publication rules,
+            buyer structures, data quality, language, thresholds, and category
+            norms.
           </p>
-
           <p className="article-body-text">
-            Real coverage means something more disciplined. It means a
-            country-by-country evidence model, consistent signal logic, and a
-            workflow that helps teams compare markets without flattening the
-            important local differences.
+            A platform claiming coverage should be clear about what is live,
+            what data is included, and how reliable each market is for the
+            workflow being promised.
           </p>
-
-          <h2 className="article-subheading">Coverage Is Not Just Country Count</h2>
-
+        </>
+      ),
+    },
+    {
+      id: "good-coverage",
+      title: "What Good Coverage Looks Like",
+      content: (
+        <>
           <p className="article-body-text">
-            European procurement is fragmented by design. National systems,
-            buyer structures, publication habits, thresholds, and category
-            norms vary widely. A supplier entering Ireland is not entering the
-            UK, and neither market behaves like Spain, France, or Italy.
+            Good coverage connects live notices, award data, buyer records,
+            lifecycle evidence, and signals in a comparable model. It should
+            still preserve local detail where local detail matters.
           </p>
-
           <p className="article-body-text">
-            That means strong market coverage cannot rely on one source or one
-            rule. It needs local evidence, normalized into a comparable model,
-            so teams can understand buyer activity, contract lifecycles,
-            participation patterns, and timing signals in each country.
+            That balance lets teams compare markets without pretending they all
+            behave the same way.
           </p>
-
-          <h2 className="article-subheading">What Good Coverage Looks Like</h2>
-
+        </>
+      ),
+    },
+    {
+      id: "rollout-transparency",
+      title: "Why Rollout Transparency Matters",
+      content: (
+        <>
           <p className="article-body-text">
-            Good European coverage usually has three ingredients. First, it
-            connects official procurement evidence and market context within
-            each country. Second, it preserves enough local detail that teams
-            can trust the interpretation. Third, it brings those markets into a
-            consistent workflow so cross-border planning does not become a
-            collection of disconnected habits.
+            For a growing platform, rollout transparency builds trust. Buyers
+            should know which markets are currently usable, which are next, and
+            how new markets will fit into the same intelligence model.
           </p>
-
           <p className="article-body-text">
-            This matters even more for companies expanding across Europe. A
-            useful platform should not just tell you that a market exists. It
-            should help you decide where to focus first, which buyers matter,
-            and how timing differs from one country to the next.
+            Honest coverage messaging is stronger than broad claims that hide
+            gaps.
           </p>
-
-          <h2 className="article-subheading">Why Rollout Transparency Matters</h2>
-
+        </>
+      ),
+    },
+    {
+      id: "commercial-importance",
+      title: "Why It Matters Commercially",
+      content: (
+        <>
           <p className="article-body-text">
-            Coverage claims are only useful when they are honest about what is
-            live now and what is coming next. That is especially important for
-            early-stage companies and growing platforms. Buyers need a clear
-            view of present capability, upcoming rollout, and how new markets
-            will fit into the same operating model.
+            Coverage affects territory planning, account sequencing,
+            partnership strategy, and market entry. A team needs to know not
+            only that opportunities exist, but which markets deserve focus.
           </p>
-
           <p className="article-body-text">
-            Transparent rollout messaging builds trust. It tells the market
-            that the product is growing deliberately, not hiding gaps behind
-            vague regional language.
-          </p>
-
-          <h2 className="article-subheading">Why It Matters Commercially</h2>
-
-          <p className="article-body-text">
-            For teams selling into public-sector markets, European coverage is
-            not a branding detail. It affects territory planning, account
-            sequencing, partnership strategy, and how quickly a team can move
-            from one country to the next.
-          </p>
-
-          <p className="article-body-text">
-            The commercial advantage comes from having one intelligence workflow
-            that can travel with the team as new markets go live. That creates
-            continuity. It also makes country expansion feel manageable instead
-            of bespoke every time.
-          </p>
-
-          <p className="article-body-text">
-            To see how Civant approaches this, review the{" "}
+            To see how Civant positions this, review the{" "}
             <Link href="/markets" className="text-link">
               Markets page
             </Link>{" "}
@@ -142,27 +130,57 @@ export default function ArticlePage() {
             </Link>
             .
           </p>
+        </>
+      ),
+    },
+  ],
+  action: {
+    eyebrow: "Next Step",
+    title: "Compare European markets with coverage you can actually use.",
+    primaryHref: "/markets",
+    primaryLabel: "Explore Markets",
+    secondaryHref: "/contact",
+    secondaryLabel: "Talk To Civant",
+  },
+  faqs: [
+    {
+      question: "What does European procurement coverage mean?",
+      answer:
+        "It means reliable procurement evidence across countries, including source quality, local market context, buyer and award records, notices, and comparable workflows.",
+    },
+    {
+      question: "Why is a country list not enough?",
+      answer:
+        "A country list does not show data quality, depth, source reliability, local context, or whether the product can support real decisions in that market.",
+    },
+    {
+      question: "How should suppliers evaluate coverage?",
+      answer:
+        "They should ask what sources are included, how data is normalised, whether local differences are preserved, and how live and future markets fit into one workflow.",
+    },
+  ],
+  sources: getArticleSources([
+    "tedEforms",
+    "europeanCommissionEforms",
+    "europeanCommissionPublicProcurement",
+    "europeanCourtAuditorsCompetition",
+  ]),
+  relatedSolution: {
+    solutionSlug: "eu-tender-monitoring",
+    linkLabel: "Explore EU tender monitoring",
+    children:
+      "See how Civant applies one intelligence workflow across live and upcoming European markets while keeping country context intact.",
+  },
+};
 
-          <RelatedSolution
-            solutionSlug="eu-tender-monitoring"
-            linkLabel="Explore EU tender monitoring"
-          >
-            See how Civant applies one intelligence workflow across live and
-            upcoming European markets while keeping the country context intact.
-          </RelatedSolution>
+export const metadata = buildArticleMetadata({
+  title: article.title,
+  description: article.description,
+  path: article.path,
+  datePublished: article.publishedAt,
+  dateModified: article.modifiedAt,
+});
 
-          <RelatedArticles currentPath={pagePath} />
-          <div className="button-row" style={{ marginTop: "3rem" }}>
-            <Link href="/resources" className="btn btn-secondary">
-              Back to Resources
-            </Link>
-            <Link href="/pricing" className="btn btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </Section>
-      <SchemaScript data={articleSchema} />
-    </>
-  );
+export default function ArticlePage() {
+  return <ResourceArticleTemplate article={article} />;
 }
