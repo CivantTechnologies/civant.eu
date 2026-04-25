@@ -76,8 +76,79 @@ type ProofSectionProps = {
 };
 
 export function ProofSection({ compact = false }: ProofSectionProps) {
+  if (compact) {
+    return (
+      <div className="proof-section proof-section-compact">
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Proof</p>
+          <h2 className="headline-lg">Trusted customers. Trusted advisors.</h2>
+          <p className="text-lead section-intro">
+            Civant is already supporting European market entry and shaped with
+            credible enterprise advisory networks.
+          </p>
+        </div>
+
+        <div className="home-proof-grid">
+          {customerProof.map((item) => (
+            <article key={item.company} className="card customer-proof-card home-proof-card">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="customer-logo-link"
+                aria-label={`Visit ${item.company}`}
+              >
+                <Image
+                  src={item.logo}
+                  alt={`${item.company} logo`}
+                  width={item.logoWidth}
+                  height={item.logoHeight}
+                  loading="eager"
+                  className="customer-logo"
+                />
+              </a>
+              <blockquote className="customer-quote">
+                <p>"{item.quote}"</p>
+                <footer>
+                  {item.person}
+                  <span>{item.role}</span>
+                </footer>
+              </blockquote>
+            </article>
+          ))}
+        </div>
+
+        <div className="home-advisor-rail" aria-label="Civant advisory support">
+          {advisedBy.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-advisor-logo-link"
+              aria-label={`Visit ${item.name}`}
+            >
+              {item.logo && item.logoWidth && item.logoHeight ? (
+                <Image
+                  src={item.logo}
+                  alt={`${item.name} logo`}
+                  width={item.logoWidth}
+                  height={item.logoHeight}
+                  loading="eager"
+                  className={`advisor-logo advisor-logo-${item.logoSize ?? "standard"}`}
+                />
+              ) : (
+                item.name
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className={compact ? "proof-section proof-section-compact" : "proof-section"}>
+    <div className="proof-section">
       <div className="section-heading-wrap">
         <p className="eyebrow">Proof</p>
         <h2 className="headline-lg">Trusted customers. Trusted advisors.</h2>

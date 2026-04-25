@@ -50,7 +50,7 @@ export const ARTICLES: ArticleMeta[] = [
   // --- Timing & Signals ---
   { href: "/resources/external-signals-in-public-procurement", title: "External Signals in Public Procurement", pillar: "Timing & Signals" },
   { href: "/resources/early-market-engagement-techniques-to-shape-procurement-requirements", title: "Early Market Engagement: Techniques to Shape Procurement Requirements", pillar: "Timing & Signals" },
-  { href: "/resources/predictive-renewal-signals-forecasting-contract-expiration-and-next-tenders", title: "Predictive Renewal Signals: Forecasting Contract Expiration and Next Tenders", pillar: "Timing & Signals" },
+  { href: "/resources/predictive-renewal-signals-forecasting-contract-expiration-and-next-tenders", title: "Renewal Forecasting Signals: Contract Expiration and Next Tenders", pillar: "Timing & Signals" },
   { href: "/resources/maximising-preparation-windows-how-long-before-tender-publication-should-suppliers-act", title: "Maximising Preparation Windows: How Long Before Tender Publication Should Suppliers Act?", pillar: "Timing & Signals" },
   { href: "/resources/shrinking-tender-windows-impact-of-planned-procurement-notices", title: "Shrinking Tender Windows: Impact of Planned Procurement Notices", pillar: "Timing & Signals" },
   { href: "/resources/early-engagement-leveraging-prior-information-and-premarket-engagement-notices", title: "Early Engagement: Leveraging Prior Information and Pre-Market Engagement Notices", pillar: "Timing & Signals" },

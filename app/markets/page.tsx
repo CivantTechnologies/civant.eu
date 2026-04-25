@@ -165,7 +165,7 @@ export default function MarketsPage() {
             <h3 className="card-title">AI-assisted interpretation</h3>
             <p className="card-body">
               AI helps interpret match, scope, buyer intent, and strategy. It
-              does not replace the evidence-based prediction engine.
+              does not replace the evidence-based forecasting engine.
             </p>
           </article>
         </div>

@@ -48,7 +48,7 @@ export default function ArticlePage() {
             Renewal cycles vary across sectors. In facilities management, contracts worth billions are renewed annually across councils and public bodies, yet opportunities are scattered across multiple portals. When buyers extend contracts, meeting minutes and procurement strategies often reveal these decisions months in advance. Other categories—such as IT systems or professional services—may use longer frameworks, with renewal cycles stretching over several years. By analysing the length of existing contracts and their expiration dates, suppliers can forecast when new competitions are likely to occur.
           </p>
 
-          <h2 className="article-subheading">Cycle Prediction</h2>
+          <h2 className="article-subheading">Cycle Forecasting</h2>
 
           <p className="article-body-text">
             Renewal cycles follow predictable patterns: a contract is awarded, delivered and then either extended or replaced through a fresh competition. Cabinet approvals to extend or replace contracts are recorded in public minutes. Facilities management tends to have annual or bi‑annual renewal rhythms, while framework agreements may only come up every four years. Fragmented portals and localised procurement make it difficult to see these patterns without consolidated intelligence. By mapping expiry dates across a category, suppliers can identify clusters of upcoming opportunities and plan resources accordingly.

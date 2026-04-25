@@ -1,9 +1,17 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import {
+  ArticleActionPanel,
+  ArticleBriefGrid,
+  ArticleFaq,
+  ArticleInsightPanel,
+  ArticleTakeaways,
+  ArticleToc,
+} from "../../../components/site/ArticleBriefBlocks";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { RelatedSolution } from "../../../components/site/RelatedSolution";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import { buildArticleMetadata, buildArticleSchema, buildFaqSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
@@ -18,13 +26,34 @@ export const metadata = buildArticleMetadata({
   datePublished: publishedAt,
 });
 
-const articleSchema = buildArticleSchema({
+const articleFaqs = [
+  {
+    question: "What is competitor intelligence in public procurement?",
+    answer:
+      "Competitor intelligence in public procurement is the structured analysis of supplier participation, award history, incumbent position, buyer relationships, framework structure, and category-level competitive pressure.",
+  },
+  {
+    question: "Why does incumbent position matter in public tenders?",
+    answer:
+      "Incumbent position matters because repeated wins, stable buyer relationships, and category continuity can shape how much preparation a challenger needs before a tender is published.",
+  },
+  {
+    question: "How should competitor intelligence influence bid/no-bid decisions?",
+    answer:
+      "It should help teams judge competitive pressure, preparation requirements, partnership needs, differentiation strategy, and whether an opportunity deserves bid effort at all.",
+  },
+];
+
+const articleSchema = [
+  ...buildArticleSchema({
   title: "Competitor Intelligence in Public Procurement",
   description:
     "Understand incumbent strength, participation patterns, and competitive pressure before committing bid effort in public procurement markets.",
   path: pagePath,
   datePublished: publishedAt,
-});
+  }),
+  buildFaqSchema(articleFaqs),
+];
 
 export default function ArticlePage() {
   return (
@@ -61,7 +90,48 @@ export default function ArticlePage() {
             often shape the playing field long before the notice appears.
           </p>
 
-          <h2 className="article-subheading">What Competitor Intelligence Means</h2>
+          <ArticleBriefGrid>
+            <ArticleTakeaways
+              items={[
+                {
+                  label: "Pressure",
+                  text: "Participation depth and repeat awards show whether a market is open, crowded, or incumbent-led.",
+                },
+                {
+                  label: "Positioning",
+                  text: "Competitive context changes the account strategy long before the bid team starts writing.",
+                },
+                {
+                  label: "Timing",
+                  text: "Competitor intelligence is most useful when tied to buyer cycles and contract lifecycle timing.",
+                },
+              ]}
+            />
+            <ArticleToc
+              items={[
+                { label: "What competitor intelligence means", href: "#what-it-means" },
+                { label: "Why it changes bid decisions", href: "#why-it-changes-bid-decisions" },
+                { label: "What to look for", href: "#what-to-look-for" },
+                { label: "A better way to use it", href: "#better-way-to-use-it" },
+              ]}
+            />
+          </ArticleBriefGrid>
+
+          <ArticleInsightPanel
+            eyebrow="Civant View"
+            title="Competitive pressure should be read before the tender is live."
+          >
+            <p>
+              Bid teams need to know whether they are entering an open contest,
+              challenging a durable incumbent, or preparing for a category shift.
+              That context changes pursuit strategy, partner selection, and
+              how early the account deserves attention.
+            </p>
+          </ArticleInsightPanel>
+
+          <h2 id="what-it-means" className="article-subheading">
+            What Competitor Intelligence Means
+          </h2>
 
           <p className="article-body-text">
             In procurement markets, competitor intelligence is the structured
@@ -79,7 +149,9 @@ export default function ArticlePage() {
             right positioning?
           </p>
 
-          <h2 className="article-subheading">Why It Changes Bid Decisions</h2>
+          <h2 id="why-it-changes-bid-decisions" className="article-subheading">
+            Why It Changes Bid Decisions
+          </h2>
 
           <p className="article-body-text">
             A tender can look attractive in isolation and still be a poor use
@@ -95,7 +167,9 @@ export default function ArticlePage() {
             That is where competitor intelligence becomes commercially useful.
           </p>
 
-          <h2 className="article-subheading">What To Look For</h2>
+          <h2 id="what-to-look-for" className="article-subheading">
+            What To Look For
+          </h2>
 
           <p className="article-body-text">
             The strongest signals usually come from repeat participation, award
@@ -112,7 +186,9 @@ export default function ArticlePage() {
             be is much more actionable.
           </p>
 
-          <h2 className="article-subheading">A Better Way To Use It</h2>
+          <h2 id="better-way-to-use-it" className="article-subheading">
+            A Better Way To Use It
+          </h2>
 
           <p className="article-body-text">
             Competitor intelligence should support real commercial decisions:
@@ -140,6 +216,18 @@ export default function ArticlePage() {
             </Link>
             .
           </p>
+
+          <ArticleActionPanel
+            eyebrow="Next Step"
+            title="Use competitor context to sharpen account strategy."
+            body="Civant connects incumbent footprint, participation patterns, buyer timing, and market pressure so teams can qualify opportunities with more discipline."
+            primaryHref="/solutions/public-procurement-intelligence"
+            primaryLabel="Explore Solution"
+            secondaryHref="/contact"
+            secondaryLabel="Talk To Civant"
+          />
+
+          <ArticleFaq items={articleFaqs} />
 
           <RelatedSolution
             solutionSlug="public-procurement-intelligence"

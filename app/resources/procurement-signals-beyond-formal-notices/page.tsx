@@ -84,7 +84,7 @@ export default function ArticlePage() {
           </p>
 
           <p className="article-body-text">
-            Intelligence teams should develop target authority signal monitoring profiles, identifying which signals are most reliable predictors of future procurement in specific categories and authorities. Forecasting models should integrate early signals alongside formal notice data to develop procurement demand predictions with extended lead times. Competitive positioning strategies should emphasise early engagement in preliminary market consultations and authority relationship development, as early signal awareness and participation provides sustained competitive advantage in procurement markets.
+            Intelligence teams should develop target authority signal monitoring profiles, identifying which signals are most reliable forecasting inputs for future procurement in specific categories and authorities. Forecasting models should integrate early signals alongside formal notice data to estimate procurement demand with extended lead times. Competitive positioning strategies should emphasise early engagement in preliminary market consultations and authority relationship development, as early signal awareness and participation provides sustained competitive advantage in procurement markets.
           </p>
 
           <RelatedSolution

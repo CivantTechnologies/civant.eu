@@ -8,6 +8,7 @@ const FOOTER_NAV_ITEMS = [
   { href: "/pricing", label: "Pricing" },
   { href: "/resources", label: "Resources" },
   { href: "/company", label: "Company" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Footer() {
@@ -18,7 +19,7 @@ export function Footer() {
           <div>
             <h3 className="footer-title">Civant</h3>
             <p className="footer-copy">
-              Predictive procurement intelligence for enterprise teams operating
+              Procurement forecasting intelligence for enterprise teams operating
               in European public-sector markets.
             </p>
           </div>

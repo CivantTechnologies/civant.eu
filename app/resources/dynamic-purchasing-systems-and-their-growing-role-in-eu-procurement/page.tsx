@@ -79,7 +79,7 @@ export default function ArticlePage() {
           <h2 className="article-subheading">Always-Open Markets</h2>
 
           <p className="article-body-text">
-            Procurement intelligence should monitor DPS framework establishments as leading indicators of recurring procurement opportunity, with successful framework membership enabling prediction of future call-off demand and competitive positioning. Intelligence operations should distinguish DPS framework competitions from individual tenders, recognising that DPS framework entry provides foundation for multiple subsequent contract opportunities. Analysis of DPS framework supplier lists enables competitor mapping and identification of new market entrants achieving framework membership, signalling market entry or capability expansion by competitors.
+            Procurement intelligence should monitor DPS framework establishments as leading indicators of recurring procurement opportunity, with successful framework membership supporting forecasts of future call-off demand and competitive positioning. Intelligence operations should distinguish DPS framework competitions from individual tenders, recognising that DPS framework entry provides foundation for multiple subsequent contract opportunities. Analysis of DPS framework supplier lists enables competitor mapping and identification of new market entrants achieving framework membership, signalling market entry or capability expansion by competitors.
           </p>
 
           <p className="article-body-text">

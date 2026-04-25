@@ -99,7 +99,7 @@ export default function ArticlePage() {
 
           <RelatedSolution
             solutionSlug="tender-prediction-software"
-            linkLabel="Explore tender prediction software"
+            linkLabel="Explore tender forecasting software"
           >
             See how Civant connects contract lifecycle signals with buyer
             recurrence and public evidence to forecast likely tender windows.

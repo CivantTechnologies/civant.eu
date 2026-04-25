@@ -192,7 +192,7 @@ export const MARKETS: Market[] = [
       {
         question: "Is Civant an AI chatbot for French tenders?",
         answer:
-          "No. Civant is a predictive procurement intelligence platform. AI helps interpret match, scope, intent, and strategy, but the forecast layer is built on structured procurement evidence.",
+          "No. Civant is a procurement forecasting intelligence platform. AI helps interpret match, scope, intent, and strategy, but the forecast layer is built on structured procurement evidence.",
       },
     ],
   },

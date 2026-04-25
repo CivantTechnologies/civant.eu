@@ -48,7 +48,7 @@ export default function SolutionsPage() {
       <Section className="hero-block hero-section">
         <p className="eyebrow">Solutions</p>
         <h1 className="headline-xl">
-          Predictive procurement intelligence for teams that need to act earlier
+          Forecasting intelligence for teams that need to act earlier
         </h1>
         <p className="text-lead">
           Civant helps suppliers move beyond tender alerts by connecting
@@ -94,7 +94,7 @@ export default function SolutionsPage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Civant Positioning</p>
           <h2 className="headline-lg">
-            Not a chatbot. Not another alert feed. A prediction intelligence
+            Not a chatbot. Not another alert feed. A forecasting intelligence
             layer.
           </h2>
           <p className="text-lead section-intro">

@@ -1,9 +1,17 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import {
+  ArticleActionPanel,
+  ArticleBriefGrid,
+  ArticleFaq,
+  ArticleInsightPanel,
+  ArticleTakeaways,
+  ArticleToc,
+} from "../../../components/site/ArticleBriefBlocks";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { RelatedSolution } from "../../../components/site/RelatedSolution";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import { buildArticleMetadata, buildArticleSchema, buildFaqSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
@@ -18,13 +26,34 @@ export const metadata = buildArticleMetadata({
   datePublished: publishedAt,
 });
 
-const articleSchema = buildArticleSchema({
+const articleFaqs = [
+  {
+    question: "What is procurement intelligence?",
+    answer:
+      "Procurement intelligence is the structured analysis of procurement records, contract lifecycles, buyer behavior, market participation, and external signals so teams can plan before formal tender notices appear.",
+  },
+  {
+    question: "How is procurement intelligence different from tender alerts?",
+    answer:
+      "Tender alerts notify teams after an opportunity is published. Procurement intelligence adds an earlier evidence layer by reading cycles, renewals, buyer patterns, and signals that shape future demand.",
+  },
+  {
+    question: "How does Civant use procurement intelligence?",
+    answer:
+      "Civant connects buyer history, awards, lifecycle signals, competitor movement, and public external signals into forecasting intelligence that helps teams prioritize accounts and prepare earlier.",
+  },
+];
+
+const articleSchema = [
+  ...buildArticleSchema({
   title: "What Is Procurement Intelligence?",
   description:
     "In public-sector markets, opportunity timing determines preparation quality. Procurement intelligence focuses on identifying where demand is likely to...",
   path: pagePath,
   datePublished: publishedAt,
-});
+  }),
+  buildFaqSchema(articleFaqs),
+];
 
 export default function ArticlePage() {
   return (
@@ -49,10 +78,50 @@ export default function ArticlePage() {
 
           <p className="article-body-text">
             This is not guesswork. It is evidence-based analysis of buying
- patterns, contract windows, and participation dynamics over time.
+patterns, contract windows, and participation dynamics over time.
           </p>
 
-          <h2 className="article-subheading">Intelligence Defined</h2>
+          <ArticleBriefGrid>
+            <ArticleTakeaways
+              items={[
+                {
+                  label: "Timing",
+                  text: "The commercial advantage comes from recognizing demand before the notice compresses the buying window.",
+                },
+                {
+                  label: "Evidence",
+                  text: "Useful intelligence is built from procurement records, lifecycles, participation behavior, and verified signals.",
+                },
+                {
+                  label: "Action",
+                  text: "The output should shape account focus, partner choices, and bid/no-bid preparation.",
+                },
+              ]}
+            />
+            <ArticleToc
+              items={[
+                { label: "Intelligence defined", href: "#intelligence-defined" },
+                { label: "Cycle-based thinking", href: "#cycle-based-thinking" },
+                { label: "Evidence-based planning", href: "#evidence-based-planning" },
+              ]}
+            />
+          </ArticleBriefGrid>
+
+          <ArticleInsightPanel
+            eyebrow="Civant View"
+            title="Procurement intelligence is a preparation system, not a notice feed."
+          >
+            <p>
+              The strongest teams are not simply faster at finding published
+              tenders. They are better at understanding which buyers, categories,
+              contracts, and market movements deserve attention before the
+              market becomes crowded.
+            </p>
+          </ArticleInsightPanel>
+
+          <h2 id="intelligence-defined" className="article-subheading">
+            Intelligence Defined
+          </h2>
 
           <p className="article-body-text">
             Traditional tender monitoring platforms are useful for tracking
@@ -67,7 +136,9 @@ export default function ArticlePage() {
  behavior and emerging opportunity signals before formal release.
           </p>
 
-          <h2 className="article-subheading">Cycle-Based Thinking</h2>
+          <h2 id="cycle-based-thinking" className="article-subheading">
+            Cycle-Based Thinking
+          </h2>
 
           <p className="article-body-text">
             Public-sector buying is cyclical. Institutions buy, renew, and
@@ -81,7 +152,9 @@ export default function ArticlePage() {
  alerts often react too late.
           </p>
 
-          <h2 className="article-subheading">Evidence-Based Planning</h2>
+          <h2 id="evidence-based-planning" className="article-subheading">
+            Evidence-Based Planning
+          </h2>
 
           <p className="article-body-text">
             Civant is built as a procurement intelligence platform centered on
@@ -101,6 +174,18 @@ export default function ArticlePage() {
             </Link>
             .
           </p>
+
+          <ArticleActionPanel
+            eyebrow="Next Step"
+            title="Turn procurement intelligence into a working account routine."
+            body="Use Civant to connect procurement cycles, lifecycle signals, buyer behavior, and competitor context into earlier, better-qualified opportunities."
+            primaryHref="/platform"
+            primaryLabel="Explore Platform"
+            secondaryHref="/contact"
+            secondaryLabel="Talk To Civant"
+          />
+
+          <ArticleFaq items={articleFaqs} />
 
           <RelatedSolution
             solutionSlug="procurement-intelligence-software"

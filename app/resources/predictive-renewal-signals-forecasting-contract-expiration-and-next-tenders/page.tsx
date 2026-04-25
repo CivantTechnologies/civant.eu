@@ -11,17 +11,17 @@ const pagePath = "/resources/predictive-renewal-signals-forecasting-contract-exp
 const publishedAt = "2026-03-14T00:00:00+00:00";
 
 export const metadata = buildArticleMetadata({
-  title: "Predictive Renewal Signals: Forecasting Contract Expiration and Next Tenders",
+  title: "Renewal Forecasting Signals: Contract Expiration and Next Tenders",
   description:
-    "Knowing when a contract will be re‑procured can make the difference between a reactive bid and a strategic pursuit. Predictive renewal signals leverage ...",
+    "Knowing when a contract will be re-procured can make the difference between a reactive bid and a strategic pursuit. Renewal forecasting signals leverage ...",
   path: pagePath,
   datePublished: publishedAt,
 });
 
 const articleSchema = buildArticleSchema({
-  title: "Predictive Renewal Signals: Forecasting Contract Expiration and Next Tenders",
+  title: "Renewal Forecasting Signals: Contract Expiration and Next Tenders",
   description:
-    "Knowing when a contract will be re‑procured can make the difference between a reactive bid and a strategic pursuit. Predictive renewal signals leverage ...",
+    "Knowing when a contract will be re-procured can make the difference between a reactive bid and a strategic pursuit. Renewal forecasting signals leverage ...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -31,7 +31,7 @@ export default function ArticlePage() {
     <>
       <Section className="hero-block hero-section">
         <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Predictive Renewal Signals: Forecasting Contract Expiration and Next Tenders</h1>
+        <h1 className="headline-xl">Renewal Forecasting Signals: Contract Expiration and Next Tenders</h1>
         <p className="article-byline">
           By <a href="https://www.linkedin.com/in/davidmanriquecivant/" target="_blank" rel="noopener noreferrer">David Manrique</a> | March 2026
         </p>
@@ -40,7 +40,7 @@ export default function ArticlePage() {
       <Section muted>
         <div className="article-prose">
           <p className="article-body-text">
-            Knowing when a contract will be re‑procured can make the difference between a reactive bid and a strategic pursuit. Predictive renewal signals leverage data on contract durations, spending patterns and policy shifts to anticipate the timing of future tenders. This brief explains how these signals work and how suppliers can use them.
+            Knowing when a contract will be re-procured can make the difference between a reactive bid and a strategic pursuit. Renewal forecasting signals leverage data on contract durations, spending patterns, and policy shifts to estimate the timing of future tenders. This brief explains how these signals work and how suppliers can use them.
           </p>
 
           <h2 className="article-subheading">When Retenders Come</h2>
@@ -52,7 +52,7 @@ export default function ArticlePage() {
           <h2 className="article-subheading">Lifecycle Intelligence</h2>
 
           <p className="article-body-text">
-            Predictive renewal models integrate multiple variables. Public minutes and procurement strategies may signal an extension or replacement for a contract. Historical data shows how often a buyer extends contracts versus re‑procures. By combining these inputs, a model can assign probabilities to various renewal dates and prioritise them based on strategic relevance.
+            Renewal forecasting models integrate multiple variables. Public minutes and procurement strategies may signal an extension or replacement for a contract. Historical data shows how often a buyer extends contracts versus re-procures. By combining these inputs, a model can estimate likely renewal windows and prioritise them based on strategic relevance.
           </p>
 
           <h2 className="article-subheading">Planning the Next Bid</h2>
@@ -61,15 +61,15 @@ export default function ArticlePage() {
             For suppliers, renewal forecasting allows more deliberate business planning. Sales teams can time their engagement with buyers, avoiding wasted effort on contracts far from expiry and focusing on those entering the re‑procurement window. This leads to a more balanced pipeline and more efficient use of bid resources.
           </p>
 
-          <h2 className="article-subheading">Predictive Advantage</h2>
+          <h2 className="article-subheading">Forecasting Advantage</h2>
 
           <p className="article-body-text">
-            Procurement intelligence platforms compute predictive renewal signals by integrating contract data, budget information and policy insights. They provide dashboards and alerts indicating when key contracts are likely to come back to market. Such tools also factor in incumbent performance and spending trends to refine predictions.
+            Procurement intelligence platforms compute renewal forecasting signals by integrating contract data, budget information, and policy insights. They provide dashboards and alerts indicating when key contracts are likely to come back to market. Such tools also factor in incumbent performance and spending trends to refine forecast windows.
           </p>
 
           <RelatedSolution
             solutionSlug="tender-prediction-software"
-            linkLabel="Explore tender prediction software"
+            linkLabel="Explore tender forecasting software"
           >
             See how Civant uses lifecycle evidence, renewal windows, and public
             signals to estimate likely future tender timing.

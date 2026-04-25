@@ -42,7 +42,7 @@ export const SOLUTIONS: SolutionPage[] = [
     civantApproach:
       "Civant connects official procurement data with lifecycle analysis, competitor intelligence, and external public signals so teams can prioritize buyers and categories before the formal tender window.",
     differentiator:
-      "Civant is not a chatbot layered on top of tender notices. AI helps interpret match, scope, intent, and strategy, while the predictive layer is grounded in structured procurement evidence.",
+      "Civant is not a chatbot layered on top of tender notices. AI helps interpret match, scope, intent, and strategy, while the forecasting layer is grounded in structured procurement evidence.",
     proofPoint:
       "Live coverage includes Ireland, the United Kingdom, Spain, France, and Italy, with Finland, Belgium, Germany, and the Netherlands coming next.",
     useCases: [
@@ -71,22 +71,22 @@ export const SOLUTIONS: SolutionPage[] = [
       {
         question: "Is Civant an AI chatbot?",
         answer:
-          "No. Civant is a predictive procurement intelligence platform. AI supports interpretation of match, tender documents, buyer intent, and strategic context, but it does not replace the evidence-based forecast engine.",
+          "No. Civant is a procurement forecasting intelligence platform. AI supports interpretation of match, tender documents, buyer intent, and strategic context, but it does not replace the evidence-based forecast engine.",
       },
     ],
   },
   {
     slug: "tender-prediction-software",
-    title: "Tender Prediction Software",
+    title: "Tender Forecasting Software",
     metaTitle: "Tender Forecasting Software | Civant",
-    eyebrow: "Solution / Tender Prediction Software",
-    headline: "Tender prediction software built on procurement evidence",
+    eyebrow: "Solution / Tender Forecasting Software",
+    headline: "Tender forecasting software built on procurement evidence",
     description:
-      "Civant helps teams estimate likely future tender windows with tender prediction software built on contract lifecycles, award history, buyer recurrence, and public-domain market signals.",
+      "Civant helps teams estimate likely future tender windows with tender forecasting software built on contract lifecycles, award history, buyer recurrence, and public-domain market signals.",
     metaDescription:
       "Civant helps teams estimate likely tender windows using contract lifecycles, award history, buyer recurrence, and public market signals.",
     definition:
-      "Tender prediction software estimates where and when public-sector opportunities may emerge by analyzing previous awards, contract durations, buyer patterns, and pre-procurement signals.",
+      "Tender forecasting software estimates where and when public-sector opportunities may emerge by analyzing previous awards, contract durations, buyer patterns, and pre-procurement signals.",
     primaryAudience:
       "For teams that need preparation time before formal tender publication, especially across complex EU and UK public-sector markets.",
     problem:
@@ -96,7 +96,7 @@ export const SOLUTIONS: SolutionPage[] = [
     differentiator:
       "The forecast layer is deterministic and evidence-led. AI is used to explain and interpret opportunities, not to invent probabilities or replace structured scoring.",
     proofPoint:
-      "Civant continuously validates signals against subsequently published tenders so prediction quality improves through feedback, not guesswork.",
+      "Civant continuously validates signals against subsequently published tenders so forecast quality improves through feedback, not guesswork.",
     useCases: [
       "Identify likely renewal and re-procurement windows.",
       "Sequence buyer engagement before requirements are locked.",
@@ -111,17 +111,17 @@ export const SOLUTIONS: SolutionPage[] = [
     ],
     faqs: [
       {
-        question: "Can software really predict tenders?",
+        question: "Can software really forecast tenders?",
         answer:
-          "It can estimate likely opportunity windows when the prediction is grounded in procurement evidence such as contract duration, award history, buyer recurrence, and external public signals. Civant treats these as confidence-scored indicators, not guarantees.",
+          "It can estimate likely opportunity windows when the forecasting model is grounded in procurement evidence such as contract duration, award history, buyer recurrence, and external public signals. Civant treats these as confidence-scored indicators, not guarantees.",
       },
       {
-        question: "What data does Civant use for tender prediction?",
+        question: "What data does Civant use for tender forecasting?",
         answer:
           "Civant uses official procurement notices, award records, contract lifecycle data, competitor and incumbent patterns, and public external signals such as PINs, grants, budgets, policy movement, and hiring.",
       },
       {
-        question: "Who benefits from tender prediction?",
+        question: "Who benefits from tender forecasting?",
         answer:
           "Bid teams, sales teams, partnerships teams, and market intelligence teams benefit when they need to prepare before tender publication rather than react after an alert arrives.",
       },
@@ -227,7 +227,7 @@ export const SOLUTIONS: SolutionPage[] = [
       {
         question: "Where does AI fit in Civant?",
         answer:
-          "AI helps analyze tender documents, match, buyer intent, scope, and strategic implications. The prediction engine itself is built from structured procurement data and public evidence.",
+          "AI helps analyze tender documents, match, buyer intent, scope, and strategic implications. The forecasting engine itself is built from structured procurement data and public evidence.",
       },
     ],
   },

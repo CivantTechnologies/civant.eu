@@ -40,7 +40,7 @@ const methodologyFaqs = [
   {
     question: "Is Civant an AI chatbot?",
     answer:
-      "No. Civant is a predictive procurement intelligence platform. AI helps interpret matches, documents, buyer intent, and scope, while the forecasting methodology is grounded in structured procurement evidence and external public signals.",
+      "No. Civant is a procurement forecasting intelligence platform. AI helps interpret matches, documents, buyer intent, and scope, while the forecasting methodology is grounded in structured procurement evidence and external public signals.",
   },
   {
     question: "Does Civant guarantee tender publication dates?",
@@ -125,7 +125,7 @@ const validationPrinciples = [
   },
   {
     title: "Corroborated signals",
-    body: "External signals strengthen context, but Civant does not rely on isolated, unsupported public hints as prediction proof.",
+    body: "External signals strengthen context, but Civant does not rely on isolated, unsupported public hints as forecast proof.",
   },
   {
     title: "Live calibration",

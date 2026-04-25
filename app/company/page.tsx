@@ -17,7 +17,7 @@ export const metadata = buildPageMetadata({
 const founderSchema = buildFounderPersonSchema();
 
 const whatCivantIs = [
-  "Civant is a predictive procurement intelligence platform for Europe.",
+  "Civant is a procurement forecasting intelligence platform for Europe.",
   "Civant reconciles and normalizes data from EU, national, and public-domain procurement sources.",
   "Civant analyzes hard procurement evidence, contract lifecycles, competitor activity, and external signals.",
   "Civant uses AI to interpret match, scope, buyer intent, and strategy on top of structured evidence.",
@@ -289,7 +289,7 @@ export default function CompanyPage() {
             buyers, and the public sector.
           </p>
           <p className="card-body company-copy">
-            The platform is built as a prediction engine first: official
+            The platform is built around a forecasting engine: official
             procurement records, contract lifecycles, competitor movement, and
             external public signals form the evidence base. AI is used as an
             interpretation layer that helps teams understand match, scope,

@@ -92,7 +92,7 @@ export default function MarketPage({ params }: MarketPageProps) {
       cta: "View Solution",
     },
     {
-      title: "See tender prediction in context",
+      title: "See tender forecasting in context",
       body: "Understand how contract lifecycles and public signals support earlier market timing.",
       href: "/solutions/tender-prediction-software",
       cta: "View Solution",
@@ -148,7 +148,7 @@ export default function MarketPage({ params }: MarketPageProps) {
           </article>
           <article className="card market-detail-card">
             <span className="market-status market-status-live">Evidence-led</span>
-            <h3 className="card-title">What does the prediction engine read?</h3>
+            <h3 className="card-title">What does the forecasting engine read?</h3>
             <p className="card-body">
               Forecasting is based on procurement evidence, contract lifecycles,
               buyer behavior, competitor context, and public external signals.

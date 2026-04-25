@@ -8,7 +8,6 @@ import {
   buildPageMetadata,
 } from "../../lib/seo";
 import { getAllReports } from "../../lib/reportDownloads";
-import { SOLUTIONS } from "../../lib/solutions";
 
 export const dynamic = "force-static";
 
@@ -31,6 +30,15 @@ type IntentLink = {
   answer: string;
   href: string;
   cta: string;
+};
+
+type PillarProfile = {
+  title: string;
+  description: string;
+  visualLabel: string;
+  question: string;
+  bestFor: string;
+  proofPoint: string;
 };
 
 const articles: Article[] = [
@@ -102,8 +110,8 @@ const articles: Article[] = [
   },
   {
     href: "/resources/predictive-renewal-signals-forecasting-contract-expiration-and-next-tenders",
-    title: "Predictive Renewal Signals: Forecasting Contract Expiration and Next Tenders",
-    summary: "Knowing when a contract will be re‑procured can make the difference between a reactive bid and a strategic pursuit. Predictive renewal signals leverage data on contract durations, spending patterns...",
+    title: "Renewal Forecasting Signals: Contract Expiration and Next Tenders",
+    summary: "Knowing when a contract will be re-procured can make the difference between a reactive bid and a strategic pursuit. Renewal forecasting signals use contract durations, spending patterns...",
     pillar: "Timing & Signals",
   },
   {
@@ -349,7 +357,7 @@ const articles: Article[] = [
   {
     href: "/resources/the-relationship-between-contract-value-and-competition-levels",
     title: "The Relationship Between Contract Value and Competition Levels",
-    summary: "Contract value represents one of the strongest predictive indicators of competitive intensity in EU public procurement, with evidence consistently ...",
+    summary: "Contract value represents one of the strongest forecasting indicators of competitive intensity in EU public procurement, with evidence consistently ...",
     pillar: "Market Intelligence",
   },
   {
@@ -463,6 +471,111 @@ const resourceIntentLinks: IntentLink[] = [
   },
 ];
 
+const featuredArticleHrefs = [
+  "/resources/what-is-procurement-intelligence",
+  "/resources/external-signals-in-public-procurement",
+  "/resources/competitor-intelligence-in-public-procurement",
+];
+
+const pillarProfiles: Record<string, PillarProfile> = {
+  "Market Intelligence": {
+    title: "Data-driven procurement insights",
+    description:
+      "Understand demand, competitive pressure, buyer behavior, and market structure before committing bid effort.",
+    visualLabel: "Market",
+    question: "Where is public-sector demand forming?",
+    bestFor: "Market intelligence, sales leadership, and bid teams sizing opportunity.",
+    proofPoint: "Buyer history, award patterns, competition, and category movement.",
+  },
+  "Timing & Signals": {
+    title: "Early signals and preparation windows",
+    description:
+      "Learn how lifecycle evidence, public signals, and source quality shape earlier opportunity timing.",
+    visualLabel: "Signals",
+    question: "What evidence appears before the notice?",
+    bestFor: "Teams trying to prepare before live tender alerts compress the window.",
+    proofPoint: "Budgets, PINs, lifecycle movement, public plans, and renewal timing.",
+  },
+  "Contract Lifecycle": {
+    title: "Renewal cycles and framework dynamics",
+    description:
+      "Map how contract duration, extensions, renewals, frameworks, and DPS structures create future windows.",
+    visualLabel: "Lifecycle",
+    question: "When is a contract likely to move again?",
+    bestFor: "Suppliers tracking retenders, frameworks, and renewal-driven pipeline.",
+    proofPoint: "Award dates, contract duration, extensions, modifications, and buyer recurrence.",
+  },
+  Strategy: {
+    title: "Bidding strategy and market positioning",
+    description:
+      "Move from reactive tender response toward disciplined pursuit, positioning, pricing, and bid/no-bid decisions.",
+    visualLabel: "Strategy",
+    question: "Which opportunities deserve bid effort?",
+    bestFor: "Commercial teams improving qualification, pricing, and pursuit discipline.",
+    proofPoint: "Fit, competitive pressure, incumbent context, value, and preparation time.",
+  },
+  "SME Access": {
+    title: "Levelling the playing field for SMEs",
+    description:
+      "Explore how earlier intelligence helps capable suppliers compete with better timing and sharper preparation.",
+    visualLabel: "Access",
+    question: "How can smaller suppliers compete earlier?",
+    bestFor: "SMEs entering public-sector markets or expanding across Europe.",
+    proofPoint: "Eligibility, partnerships, incumbent pressure, capacity, and buyer fit.",
+  },
+  "Market Structure": {
+    title: "How EU procurement markets are structured",
+    description:
+      "See how geography, thresholds, centralisation, and regulation shape public-sector market opportunity.",
+    visualLabel: "Structure",
+    question: "How does the market itself shape opportunity?",
+    bestFor: "Teams entering new countries, sectors, or regulated buyer environments.",
+    proofPoint: "Thresholds, portals, centralisation, regulation, and country-level patterns.",
+  },
+};
+
+const libraryStats = [
+  {
+    value: "6",
+    label: "topic collections",
+    body: "Built around the way bid and market teams actually learn.",
+  },
+  {
+    value: "70+",
+    label: "authority resources",
+    body: "Crawlable articles, reports, and practical procurement explainers.",
+  },
+  {
+    value: "3",
+    label: "forecast reports",
+    body: "Sector outlooks that turn research into market timing.",
+  },
+];
+
+const libraryEntryPoints = [
+  {
+    label: "Primer",
+    title: "New to procurement intelligence",
+    body: "Start with category definitions, then move into cycles, signals, and market evidence.",
+    href: "/resources/what-is-procurement-intelligence",
+    cta: "Start with the primer",
+  },
+  {
+    label: "Signals",
+    title: "Trying to prepare earlier",
+    body: "Learn what can be detected before a formal notice appears and why evidence quality matters.",
+    href: "/resources/external-signals-in-public-procurement",
+    cta: "Study early signals",
+  },
+  {
+    label: "Decision",
+    title: "Improving bid/no-bid discipline",
+    body: "Use timing, value, competition, and incumbent context to protect team capacity.",
+    href: "/resources/the-economics-of-bid-no-bid-decisions",
+    cta: "Sharpen bid choices",
+  },
+];
+
 const resourcePathLinks = [
   {
     title: "See the platform workflow",
@@ -512,6 +625,17 @@ function groupByPillar(items: Article[]) {
 export default function ResourcesPage() {
   const grouped = groupByPillar(articles);
   const reports = getAllReports();
+  const featuredArticles = featuredArticleHrefs
+    .map((href) => articles.find((article) => article.href === href))
+    .filter((article): article is Article => Boolean(article));
+  const topicCollections = pillarOrder
+    .map((pillar) => ({
+      pillar,
+      profile: pillarProfiles[pillar],
+      articles: grouped[pillar] || [],
+      id: pillar.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and"),
+    }))
+    .filter((collection) => collection.articles.length > 0);
   const resourceSchema = [
     buildCollectionPageSchema({
       name: "Civant Procurement Intelligence Resources",
@@ -531,95 +655,213 @@ export default function ResourcesPage() {
   ];
 
   return (
-    <div className="resources-page">
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Resources</p>
-        <h1 className="headline-xl">Procurement intelligence insights</h1>
-        <p className="text-lead">
-          {articles.length} articles covering procurement intelligence, market
-          signals, contract lifecycles, bidding strategy, and SME access across
-          European public-sector markets.
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="market-link-panel market-link-panel-compact report-hub-intro">
-          <p className="eyebrow">Forecast Reports</p>
-          <h2 className="headline-lg">
-            Keep downloadable sector outlooks separate from the article library
-          </h2>
-          <p className="card-body">
-            Civant now has a dedicated report hub for gated sector outlooks.
-            Use the resources library for explainers and methodology, then move
-            into forecast reports when you want a sector-specific download.
-          </p>
-          <div className="button-row">
-            <Link href="/resources/reports" className="btn btn-primary">
-              Browse {reports.length} Forecast Reports
-            </Link>
+    <div className="resources-page resources-library-page">
+      <Section className="hero-block hero-section resource-library-hero">
+        <div className="resource-library-hero-grid">
+          <div className="resource-library-hero-copy">
+            <p className="eyebrow">Civant Intelligence Library</p>
+            <h1 className="headline-xl">
+              Procurement intelligence, organized for earlier decisions
+            </h1>
+            <p className="text-lead">
+              A curated research library for teams that need to understand buyer
+              cycles, lifecycle signals, competitive pressure, and public-sector
+              market structure before a tender notice appears.
+            </p>
+            <div className="button-row">
+              <a className="btn btn-primary" href="#start-here">
+                Start Reading
+              </a>
+              <Link className="btn btn-secondary" href="/resources/reports">
+                View Reports
+              </Link>
+            </div>
+            <p className="cred-line">
+              Built for bid teams, B2G sales leaders, founders, and market
+              intelligence teams operating across European public procurement.
+            </p>
           </div>
+          <aside className="resource-library-proof" aria-label="Library summary">
+            <div className="resource-library-orbit" aria-hidden="true" />
+            {libraryStats.map((stat) => (
+              <div key={stat.label} className="resource-library-stat">
+                <strong>{stat.value}</strong>
+                <div>
+                  <p>{stat.label}</p>
+                  <span>{stat.body}</span>
+                </div>
+              </div>
+            ))}
+          </aside>
         </div>
       </Section>
 
-      <Section muted>
-        <div className="section-heading-wrap">
+      <Section muted id="start-here" className="resource-library-start">
+        <div className="section-heading-wrap resource-library-heading">
           <p className="eyebrow">Start Here</p>
           <h2 className="headline-lg">
-            Begin with the question your team is trying to answer
+            Choose the question your team is trying to answer
           </h2>
           <p className="text-lead section-intro">
-            These are the most common educational entry points for teams building
-            a procurement intelligence function.
+            The fastest route through the library depends on whether you are
+            learning the category, looking for earlier timing evidence, or
+            improving commercial qualification.
           </p>
         </div>
-        <div className="grid grid-2 solution-card-grid">
-          {resourceIntentLinks.map((item) => (
+        <div className="resource-entry-grid">
+          {libraryEntryPoints.map((entry) => (
             <Link
-              key={item.question}
-              href={item.href}
-              className="card card-link interactive-surface solution-card"
+              key={entry.title}
+              href={entry.href}
+              className="resource-entry-card interactive-surface"
             >
-              <h2 className="card-title">{item.question}</h2>
-              <p className="card-body">{item.answer}</p>
-              <span className="card-link-cta">{item.cta}</span>
+              <p className="module-label">{entry.label}</p>
+              <h3>{entry.title}</h3>
+              <p>{entry.body}</p>
+              <span>{entry.cta}</span>
+            </Link>
+          ))}
+        </div>
+        <div className="resource-featured-band">
+          <div>
+            <p className="eyebrow">Featured Guides</p>
+            <h2 className="headline-lg">The three reads that set the frame</h2>
+          </div>
+          {featuredArticles.map((article) => (
+            <Link
+              key={article.href}
+              href={article.href}
+              className="resource-featured-mini interactive-surface"
+            >
+              <p className="module-label">{article.pillar}</p>
+              <h3>{article.title}</h3>
+              <span>Read guide</span>
             </Link>
           ))}
         </div>
       </Section>
 
-      {pillarOrder.map((pillar) => {
-        const group = grouped[pillar];
-        if (!group || group.length === 0) return null;
+      <Section className="resource-topic-section">
+        <div className="section-heading-wrap resource-library-heading">
+          <p className="eyebrow">Topic Collections</p>
+          <h2 className="headline-lg">
+            Six paths through the procurement intelligence stack
+          </h2>
+          <p className="text-lead section-intro">
+            Each collection works as a learning route: start with the question,
+            read the most useful guides, then move into the full index when you
+            need depth.
+          </p>
+        </div>
+        <div className="resource-topic-grid">
+          {topicCollections.map(({ pillar, profile, articles: group, id }) => (
+            <article key={pillar} id={id} className="resource-topic-card">
+              <div className="resource-topic-visual" aria-hidden="true">
+                <span>{profile.visualLabel}</span>
+              </div>
+              <div className="resource-topic-copy">
+                <p className="module-label">{pillar}</p>
+                <h3>{profile.question}</h3>
+                <p>{profile.description}</p>
+                <dl>
+                  <div>
+                    <dt>Best for</dt>
+                    <dd>{profile.bestFor}</dd>
+                  </div>
+                  <div>
+                    <dt>Evidence lens</dt>
+                    <dd>{profile.proofPoint}</dd>
+                  </div>
+                </dl>
+              </div>
+              <div className="resource-topic-links">
+                <p>{group.length} resources in this collection</p>
+                {group.slice(0, 3).map((article) => (
+                  <Link key={article.href} href={article.href}>
+                    {article.title}
+                  </Link>
+                ))}
+                <a href="#complete-index" className="resource-topic-index-link">
+                  View full index
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
 
-        return (
-          <Section key={pillar} muted>
-            <div className="section-heading-wrap">
-              <p className="eyebrow">{pillar}</p>
-              <h2 className="headline-lg">
-                {pillar === "Market Intelligence" && "Data-driven procurement insights"}
-                {pillar === "Timing & Signals" && "Early signals and preparation windows"}
-                {pillar === "Contract Lifecycle" && "Renewal cycles and framework dynamics"}
-                {pillar === "Strategy" && "Bidding strategy and market positioning"}
-                {pillar === "SME Access" && "Levelling the playing field for SMEs"}
-                {pillar === "Market Structure" && "How EU procurement markets are structured"}
-              </h2>
-            </div>
-            <div className="grid grid-3 resources-grid">
-              {group.map((article) => (
-                <Link
-                  key={article.href}
-                  href={article.href}
-                  className="card card-link resource-card interactive-surface"
-                >
-                  <h2 className="card-title">{article.title}</h2>
-                  <p className="card-body">{article.summary}</p>
-                  <span className="card-link-cta">Read Article</span>
-                </Link>
-              ))}
-            </div>
-          </Section>
-        );
-      })}
+      <Section muted>
+        <div className="resource-report-panel resource-report-panel-premium">
+          <div>
+            <p className="eyebrow">Forecast Reports</p>
+            <h2 className="headline-lg">
+              Move from article learning into sector outlooks
+            </h2>
+            <p className="card-body">
+              Downloadable Civant reports turn the same evidence-led library
+              into public-safe sector views for education, healthcare, and
+              public construction.
+            </p>
+          </div>
+          <Link href="/resources/reports" className="btn btn-primary">
+            Browse {reports.length} Forecast Reports
+          </Link>
+        </div>
+      </Section>
+
+      <Section id="complete-index" className="resource-index-section">
+        <div className="section-heading-wrap resource-library-heading">
+          <p className="eyebrow">Complete Index</p>
+          <h2 className="headline-lg">Every guide remains visible and crawlable</h2>
+          <p className="text-lead section-intro">
+            The landing page stays focused, but the full article surface remains
+            available for readers, search engines, and answer engines.
+          </p>
+        </div>
+        <div className="resource-index-grid">
+          {topicCollections.map(({ pillar, articles: group }) => (
+            <section key={pillar} className="resource-index-group">
+              <div className="resource-index-head">
+                <h3>{pillar}</h3>
+                <span>{group.length}</span>
+              </div>
+              <ul>
+                {group.map((article) => (
+                  <li key={article.href}>
+                    <Link href={article.href}>{article.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </Section>
+
+      <Section muted>
+        <div className="section-heading-wrap resource-library-heading">
+          <p className="eyebrow">Reader Routing</p>
+          <h2 className="headline-lg">
+            Fast answers for high-intent procurement questions
+          </h2>
+          <p className="text-lead section-intro">
+            These are the practical answer paths buyers and searchers tend to
+            need before they understand why Civant exists.
+          </p>
+        </div>
+        <div className="resource-answer-grid">
+          {resourceIntentLinks.map((item) => (
+            <Link
+              key={item.question}
+              href={item.href}
+              className="resource-answer-card interactive-surface"
+            >
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+              <span>{item.cta}</span>
+            </Link>
+          ))}
+        </div>
+      </Section>
 
       <Section>
         <MarketCoverageLinks
@@ -631,41 +873,14 @@ export default function ResourcesPage() {
       </Section>
 
       <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Solutions</p>
-          <h2 className="headline-lg">
-            Move from research into Civant workflows
-          </h2>
-          <p className="text-lead section-intro">
-            These solution pages translate the resource library into buyer
-            problems, search intent, and practical procurement intelligence
-            workflows.
-          </p>
-        </div>
-        <div className="grid grid-4 solution-link-grid">
-          {SOLUTIONS.map((solution) => (
-            <Link
-              key={solution.slug}
-              href={`/solutions/${solution.slug}`}
-              className="card card-link interactive-surface solution-link-card"
-            >
-              <h3 className="card-title">{solution.title}</h3>
-              <p className="card-body">{solution.description}</p>
-              <span className="card-link-cta">View Solution</span>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <div className="section-heading-wrap">
+        <div className="section-heading-wrap resource-library-heading">
           <p className="eyebrow">From Reading To Action</p>
           <h2 className="headline-lg">
-            Connect the resources library to the rest of Civant
+            Connect research to the Civant workflow
           </h2>
           <p className="text-lead section-intro">
-            Educational content works best when it leads into the platform, a
-            solution path, the methodology, or a buying decision.
+            Educational content should lead into a platform view, a methodology
+            explanation, a solution path, or a buying decision.
           </p>
         </div>
         <div className="grid grid-4 solution-related-grid">
@@ -684,10 +899,21 @@ export default function ResourcesPage() {
       </Section>
 
       <Section>
-        <div className="button-row resources-cta-row">
-          <Link href="/pricing" className="btn btn-primary">
-            View Pricing
-          </Link>
+        <div className="resource-library-final">
+          <div>
+            <p className="eyebrow">Next Step</p>
+            <h2 className="headline-lg">
+              Turn procurement research into earlier market timing
+            </h2>
+          </div>
+          <div className="button-row">
+            <Link href="/platform" className="btn btn-secondary">
+              View Platform
+            </Link>
+            <Link href="/pricing" className="btn btn-primary">
+              View Pricing
+            </Link>
+          </div>
         </div>
       </Section>
 

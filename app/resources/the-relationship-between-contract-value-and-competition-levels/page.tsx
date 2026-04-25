@@ -12,7 +12,7 @@ const publishedAt = "2026-03-14T00:00:00+00:00";
 export const metadata = buildArticleMetadata({
   title: "The Relationship Between Contract Value and Competition Levels",
   description:
-    "Contract value represents one of the strongest predictive indicators of competitive intensity in EU public procurement, with evidence consistently demon...",
+    "Contract value represents one of the strongest forecasting indicators of competitive intensity in EU public procurement, with evidence consistently demon...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -20,7 +20,7 @@ export const metadata = buildArticleMetadata({
 const articleSchema = buildArticleSchema({
   title: "The Relationship Between Contract Value and Competition Levels",
   description:
-    "Contract value represents one of the strongest predictive indicators of competitive intensity in EU public procurement, with evidence consistently demon...",
+    "Contract value represents one of the strongest forecasting indicators of competitive intensity in EU public procurement, with evidence consistently demon...",
   path: pagePath,
   datePublished: publishedAt,
 });
@@ -39,7 +39,7 @@ export default function ArticlePage() {
       <Section muted>
         <div className="article-prose">
           <p className="article-body-text">
-            Contract value represents one of the strongest predictive indicators of competitive intensity in EU public procurement, with evidence consistently demonstrating inverse relationships between contract value and tender competition levels across most procurement categories. Economic theory predicts that higher-value contracts attract increased supplier participation due to greater profit potential, yet empirical data from TED and eForms publications demonstrates the opposite pattern - smaller-value tenders frequently attract 8-15 bidders whilst large-value tenders receive 3-5 bids on average. This paradox reflects both participation cost barriers and supplier capacity constraints that create threshold effects in competition.
+            Contract value represents one of the strongest forecasting indicators of competitive intensity in EU public procurement, with evidence consistently demonstrating inverse relationships between contract value and tender competition levels across most procurement categories. Economic theory expects that higher-value contracts attract increased supplier participation due to greater profit potential, yet empirical data from TED and eForms publications demonstrates the opposite pattern - smaller-value tenders frequently attract 8-15 bidders whilst large-value tenders receive 3-5 bids on average. This paradox reflects both participation cost barriers and supplier capacity constraints that create threshold effects in competition.
           </p>
 
           <p className="article-body-text">
@@ -83,7 +83,7 @@ export default function ArticlePage() {
           </p>
 
           <p className="article-body-text">
-            Market intelligence should focus on identifying value ranges and contract categories where competition is suppressed relative to theoretical expectations, as these represent areas where incumbent suppliers enjoy above-normal margins and new entrants face reduced barriers relative to low-competition baseline. Historical analysis of contract values and bid outcomes across similar authorities and time periods enables development of win-rate predictions and bidding efficiency metrics, informing portfolio-level bidding strategies. Intelligence teams should monitor policy discussions regarding lot sizing and contract aggregation, as regulatory changes in structuring rules directly affect competition levels across value ranges and create competitive repositioning opportunities.
+            Market intelligence should focus on identifying value ranges and contract categories where competition is suppressed relative to theoretical expectations, as these represent areas where incumbent suppliers enjoy above-normal margins and new entrants face reduced barriers relative to low-competition baseline. Historical analysis of contract values and bid outcomes across similar authorities and time periods enables development of win-rate estimates and bidding efficiency metrics, informing portfolio-level bidding strategies. Intelligence teams should monitor policy discussions regarding lot sizing and contract aggregation, as regulatory changes in structuring rules directly affect competition levels across value ranges and create competitive repositioning opportunities.
           </p>
 
           <RelatedArticles currentPath={pagePath} />

@@ -1,145 +1,155 @@
 import Link from "next/link";
-import {
-  Activity,
-  BriefcaseBusiness,
-  CalendarClock,
-  CircleGauge,
-  Compass,
-  Landmark,
-  Target,
-  type LucideIcon,
-} from "lucide-react";
+import { BriefcaseBusiness, Compass, Landmark } from "lucide-react";
+import { BrowserFrame } from "../components/site/BrowserFrame";
 import { CTAGroup } from "../components/site/CTAGroup";
-import { MarketCoverageLinks } from "../components/site/MarketCoverageLinks";
 import { ProofSection } from "../components/site/ProofSection";
+import { SchemaScript } from "../components/site/SchemaScript";
 import { Section } from "../components/site/Section";
-import { buildPageMetadata } from "../lib/seo";
-import { SOLUTIONS } from "../lib/solutions";
+import {
+  buildFaqSchema,
+  buildPageMetadata,
+  buildPricingProductSchema,
+  buildSoftwareApplicationSchema,
+} from "../lib/seo";
 
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Procurement Intelligence for Europe | Civant",
+  title: "Win Before the Tender | Procurement Forecasting Intelligence | Civant",
   description:
-    "Civant is a procurement intelligence platform for Europe, helping teams forecast tender timing using buyer cycles, contract lifecycles, and public signals.",
+    "Civant is a procurement forecasting intelligence platform for Europe, helping teams identify likely tender timing using buyer cycles, contract lifecycles, and public signals.",
   path: "/",
 });
 
-const howItWorks = [
+const heroProof = [
   {
-    step: "01",
-    icon: CircleGauge as LucideIcon,
-    title: "Procurement history",
-    body: "Historical procurement records reveal recurring buying cadence.",
+    label: "Validation Match Rate",
+    value: "90.8%",
+    detail: "Measured against subsequently published tender activity.",
   },
   {
-    step: "02",
-    icon: CalendarClock as LucideIcon,
-    title: "Contract lifecycle signals",
-    body: "Lifecycle and renewal windows indicate likely retender periods.",
+    label: "Forecasts Validated To Date",
+    value: "79K",
+    detail: "Structured checks across lifecycle and market evidence.",
   },
   {
-    step: "03",
-    icon: Activity as LucideIcon,
-    title: "Market activity analysis",
-    body: "Participation and award patterns surface demand and competition shifts.",
-  },
-  {
-    step: "04",
-    icon: Target as LucideIcon,
-    title: "Actionable insights",
-    body: "Signals are ranked into prioritized opportunities and action paths.",
+    label: "Evidence Refresh",
+    value: "Hourly",
+    detail: "Tender notices, awards, buyer movement, and public signals.",
   },
 ];
 
-const modules = [
+const pricingPreview = [
   {
-    slug: "panorama",
-    title: "Panorama",
-    purpose: "Maps buyer, category, and market momentum in one view.",
-    label: "Market View",
+    name: "Vanguard",
+    price: "€299",
+    cadence: "/month",
   },
   {
-    slug: "finder",
-    title: "Finder",
-    purpose: "Identifies institutions and segments aligned to your focus.",
-    label: "Target Discovery",
-  },
-  {
-    slug: "forecast",
-    title: "Forecast",
-    purpose: "Estimates likely tender windows by buyer, segment, and category.",
-    label: "Forecast Layer",
-  },
-  {
-    slug: "competitors",
-    title: "Competitors",
-    purpose: "Shows incumbent footprint and competitive pressure by account.",
-    label: "Competitive Signal",
-  },
-  {
-    slug: "alerts",
-    title: "Alerts",
-    purpose: "Flags material signal changes across your tracked targets.",
-    label: "Monitoring",
-  },
-  {
-    slug: "bids",
-    title: "Bids",
-    purpose: "Connects intelligence to bid planning, ownership, and follow-through.",
-    label: "Execution",
+    name: "Summit",
+    price: "€699",
+    cadence: "/month",
+    featured: true,
   },
 ];
 
-const idealCustomers = [
+const audienceCards = [
   {
-    icon: BriefcaseBusiness as LucideIcon,
     title: "SMEs entering new public-sector markets",
     body: "See which buyers, frameworks, and renewal windows deserve attention before a formal tender appears.",
-    signal: "Best fit: expansion into Ireland, the UK, Spain, France, or Italy.",
+    fit: "Best fit: expansion into Ireland, the UK, Spain, France, or Italy.",
+    icon: BriefcaseBusiness,
   },
   {
-    icon: Compass as LucideIcon,
     title: "Bid teams escaping reactive tender alerts",
     body: "Prioritize likely opportunities early enough to shape positioning, partnerships, and qualification work.",
-    signal: "Best fit: teams that need preparation time, not another inbox feed.",
+    fit: "Best fit: teams that need preparation time, not another inbox feed.",
+    icon: Compass,
   },
   {
-    icon: Landmark as LucideIcon,
     title: "Commercial teams tracking strategic buyers",
     body: "Monitor incumbent patterns, buyer cycles, and external public signals so account engagement starts months earlier.",
-    signal: "Best fit: suppliers selling into complex public-sector accounts.",
+    fit: "Best fit: suppliers selling into complex public-sector accounts.",
+    icon: Landmark,
   },
 ];
 
-const useCases = [
+const productTour = [
   {
-    title: "Bid Management Teams",
-    body: "Allocate bid effort earlier on higher-probability opportunities.",
+    title: "Panorama",
+    label: "User dashboard",
+    body: "See market momentum, strategic runway, and renewal opportunities in one operating view.",
+    screenshot: "/screenshots/panorama.png",
+    width: 2880,
+    height: 1558,
+    alt: "Panorama dashboard showing strategic runway, operational status, and renewal opportunities",
+    caption: "Panorama: your strategic runway at a glance",
   },
   {
-    title: "Sales & Partnerships",
-    body: "Time account and partner engagement before tender publication.",
+    title: "Forecast",
+    label: "Forecasting engine",
+    body: "Track scoped opportunities, upcoming windows, horizon timing, and validation evidence across markets.",
+    screenshot: "/screenshots/forecast-validation.png",
+    width: 1352,
+    height: 680,
+    alt: "Forecast dashboard showing scoped opportunities, upcoming windows, horizon timing and validation metrics",
+    caption: "Forecast: validation, timing, and market evidence in one view",
   },
   {
-    title: "Market Intelligence Teams",
-    body: "Deliver clear market signals leadership can prioritize with confidence.",
+    title: "Finder",
+    label: "Target discovery",
+    body: "Narrow the market by buyer, country, source, and category so teams focus on the right accounts.",
+    screenshot: "/screenshots/finder-filters.png",
+    width: 2876,
+    height: 1436,
+    alt: "Finder search interface with country, source, buyer, and CPV category filters",
+    caption: "Finder: precision filters to narrow your target market",
+  },
+  {
+    title: "Competitors",
+    label: "Incumbent pressure",
+    body: "Understand contract footprint, competitive intensity, and positioning context before committing bid effort.",
+    screenshot: "/screenshots/competitors.png",
+    width: 2880,
+    height: 1552,
+    alt: "Competitors overview showing contracts, value, strategic insights and strengths",
+    caption: "Competitors: incumbent footprint and competitive pressure",
   },
 ];
 
-const trustBlocks = [
+const connectedWorkflows = [
+  { label: "Alerts", href: "/platform#alerts" },
+  { label: "Bids", href: "/platform#bids" },
+  { label: "Reports", href: "/resources/reports" },
+];
+
+const homeFaqs = [
   {
-    title: "Procurement-cycle intelligence",
-    body: "Civant is built for early planning and prioritization, not post-publication alert chasing or chatbot-only workflows.",
+    question: "What is Civant?",
+    answer:
+      "Civant is a European procurement forecasting intelligence platform. It helps bid, sales, and market intelligence teams identify likely tender timing earlier by combining buyer history, contract lifecycles, competitor activity, and public evidence.",
   },
   {
-    title: "Built on public procurement evidence",
-    body: "Coverage includes notices, award records, supplier participation, contract lifecycle data, budgets, grants, PINs, policy changes, and hiring signals.",
+    question: "How is Civant different from a tender alert tool?",
+    answer:
+      "Tender alert tools notify teams after notices are published. Civant is built for earlier planning: it monitors procurement history, renewal cycles, awards, market movement, and external signals so teams can prioritise accounts before the formal notice appears.",
   },
   {
-    title: "Continuously validated",
-    body: "Signals are continuously checked against subsequently published tenders.",
+    question: "What does Civant validate?",
+    answer:
+      "Civant validates forecast logic against subsequently published tenders and award activity. The validation loop checks whether evidence-led signals, timing windows, and buyer patterns align with real procurement outcomes over time.",
   },
+  {
+    question: "Who should use Civant?",
+    answer:
+      "Civant is built for B2G sales teams, bid teams, founders, market intelligence teams, and public-sector suppliers that need earlier visibility, better account prioritisation, and more disciplined bid or no-bid decisions.",
+  },
+];
+
+const homeSchema = [
+  buildSoftwareApplicationSchema(),
+  buildPricingProductSchema(),
+  buildFaqSchema(homeFaqs),
 ];
 
 export default function HomePage() {
@@ -149,70 +159,42 @@ export default function HomePage() {
         className="hero-block hero-section home-hero"
         containerClassName="home-hero-container"
       >
-        <div className="home-hero-main">
-          <p className="eyebrow">Predictive Procurement Intelligence</p>
-          <h1 className="headline-xl hero-headline">Predictive procurement intelligence for Europe</h1>
-          <p className="text-lead hero-subheadline">
-            Civant is a procurement intelligence platform that combines
-            procurement history, contract lifecycles, competitor activity, and
-            external public signals to help teams identify likely upcoming
-            tenders across European public-sector markets.
-          </p>
-          <CTAGroup
-            primaryHref="/pricing"
-            primaryLabel="View Pricing"
-            secondaryHref="/platform"
-            secondaryLabel="Explore the Platform"
-          />
-          <p className="cred-line">
-            Built on European public procurement evidence and continuously
-            validated against published tenders.
-          </p>
-          <div className="hero-mini-grid">
-            <article className="micro-card">
-              <p className="micro-label">Coverage Focus</p>
-              <p className="micro-value">EU Public Sector Markets</p>
-            </article>
-            <article className="micro-card">
-              <p className="micro-label">Signal Model</p>
-              <p className="micro-value">Lifecycle + Participation</p>
-            </article>
-            <article className="micro-card">
-              <p className="micro-label">Verification Loop</p>
-              <p className="micro-value">Checked Against Published Tenders</p>
-            </article>
+        <div className="home-hero-layout">
+          <div className="home-hero-main">
+            <p className="eyebrow">Procurement Forecasting Intelligence</p>
+            <h1 className="headline-xl hero-headline">Win before the tender.</h1>
+            <p className="text-lead hero-subheadline">
+              Evidence-led forecasting for European procurement teams, built
+              from buyer cycles, contract lifecycles, competitor movement, and
+              public signals.
+            </p>
+            <CTAGroup
+              primaryHref="/pricing"
+              primaryLabel="Get Started"
+              secondaryHref="/platform"
+              secondaryLabel="See Platform"
+            />
+            <p className="cred-line">
+              Evidence-led forecasting, continuously checked against published
+              tender activity.
+            </p>
           </div>
-        </div>
-      </Section>
 
-      <Section muted className="section-overlap">
-        <div className="section-heading-wrap">
-          <p className="eyebrow">How Civant Works</p>
-          <h2 className="headline-lg">
-            Four connected layers from procurement evidence to action
-          </h2>
-          <p className="text-lead section-intro">
-            A focused sequence that turns fragmented public procurement data
-            into prioritized opportunities.
-          </p>
         </div>
-        <div className="flow-track">
-          {howItWorks.map((item) => (
-            <article key={item.step} className="flow-card">
-              <div className="flow-title-row">
-                <span className="flow-icon" aria-hidden="true">
-                  <item.icon />
-                </span>
-                <h3 className="card-title">{item.title}</h3>
-              </div>
-              <p className="card-body">{item.body}</p>
+
+        <div className="hero-proof-strip" aria-label="Civant validation proof">
+          {heroProof.map((item) => (
+            <article key={item.label} className="hero-proof-item">
+              <p>{item.label}</p>
+              <strong>{item.value}</strong>
+              <span>{item.detail}</span>
             </article>
           ))}
         </div>
       </Section>
 
-      <Section>
-        <div className="section-heading-wrap">
+      <Section muted className="home-audience-section">
+        <div className="home-audience-heading">
           <p className="eyebrow">Who Civant Is For</p>
           <h2 className="headline-lg">
             Built for teams that need earlier public-sector market timing
@@ -222,19 +204,27 @@ export default function HomePage() {
             positioning, rushed qualification, or a poor bid/no-bid decision.
           </p>
         </div>
-        <div className="grid grid-3 audience-grid">
-          {idealCustomers.map((item) => (
-            <article key={item.title} className="card audience-card">
-              <span className="audience-icon" aria-hidden="true">
-                <item.icon />
-              </span>
-              <h3 className="card-title">{item.title}</h3>
-              <p className="card-body">{item.body}</p>
-              <p className="audience-signal">{item.signal}</p>
-            </article>
-          ))}
+
+        <div className="home-audience-grid">
+          {audienceCards.map((card) => {
+            const Icon = card.icon;
+
+            return (
+              <article key={card.title} className="home-audience-card">
+                <div className="home-audience-card-head">
+                  <span className="home-audience-icon" aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <h3>{card.title}</h3>
+                </div>
+                <p>{card.body}</p>
+                <p className="home-audience-fit">{card.fit}</p>
+              </article>
+            );
+          })}
         </div>
-        <div className="audience-decision">
+
+        <div className="home-audience-decision">
           <p>
             If your team only needs a list of live tender notices, Civant is
             probably more intelligence than you need. If you need to know where
@@ -246,135 +236,105 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Platform Overview</p>
+      <Section className="product-tour-section">
+        <div className="section-heading-wrap product-tour-heading">
+          <p className="eyebrow">Product</p>
           <h2 className="headline-lg">
-            Procurement intelligence software built for earlier decisions
+            A Forecasting Engine built from hard data, evidence and validated every day
           </h2>
           <p className="text-lead section-intro">
-            A concise preview of the core modules that power planning,
-            prioritization, and execution.
+            Forecast is the center of Civant. The screens below show how market
+            visibility, target discovery, and competitor context feed the
+            forecasting workflow for public-sector growth teams.
           </p>
         </div>
-        <div className="grid grid-3 module-grid">
-          {modules.map((module) => (
-            <Link
-              key={module.slug}
-              href={`/platform#${module.slug}`}
-              className="card module-card module-card-link"
-            >
-              <p className="module-label">{module.label}</p>
-              <h3 className="card-title">{module.title}</h3>
-              <p className="card-body">{module.purpose}</p>
-              <span className="module-link-hint" aria-hidden="true">
-                View module &rarr;
-              </span>
-            </Link>
-          ))}
-        </div>
-        <div className="button-row">
-          <Link href="/platform" className="btn btn-secondary">
-            Explore Platform Details
-          </Link>
-        </div>
-      </Section>
 
-      <Section>
-        <MarketCoverageLinks
-          eyebrow="European Coverage"
-          title="Live in five markets, expanding every month"
-          body="Start with Ireland, the United Kingdom, Spain, France, and Italy today, with Finland, Belgium, Germany, and the Netherlands coming next."
-        />
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Solutions</p>
-          <h2 className="headline-lg">
-            Procurement intelligence pages for high-intent searches
-          </h2>
-          <p className="text-lead section-intro">
-            Explore the specific problems Civant solves for tender prediction,
-            EU monitoring, and strategic public procurement planning.
-          </p>
-        </div>
-        <div className="grid grid-4 solution-link-grid">
-          {SOLUTIONS.map((solution) => (
-            <Link
-              key={solution.slug}
-              href={`/solutions/${solution.slug}`}
-              className="card card-link interactive-surface solution-link-card"
-            >
-              <h3 className="card-title">{solution.title}</h3>
-              <p className="card-body">{solution.description}</p>
-              <span className="card-link-cta">View Solution</span>
-            </Link>
-          ))}
-        </div>
-        <div className="button-row">
-          <Link href="/solutions" className="btn btn-secondary">
-            Explore All Solutions
-          </Link>
-        </div>
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Use Cases Preview</p>
-          <h2 className="headline-lg">
-            Built for teams making high-stakes bid and market decisions
-          </h2>
-          <p className="text-lead section-intro">
-            Three common teams use Civant to plan earlier, prioritize better,
-            and execute with tighter focus.
-          </p>
-        </div>
-        <div className="grid grid-3 use-case-grid">
-          {useCases.map((item) => (
-            <article key={item.title} className="card use-case-card">
-              <h3 className="card-title">{item.title}</h3>
-              <p className="card-body">{item.body}</p>
+        <div className="product-tour-grid">
+          {productTour.map((item) => (
+            <article key={item.title} className="product-tour-card">
+              <div className="product-tour-card-copy">
+                <p className="micro-label">{item.label}</p>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+              <BrowserFrame
+                src={item.screenshot}
+                alt={item.alt}
+                caption={item.caption}
+                width={item.width}
+                height={item.height}
+              />
             </article>
           ))}
         </div>
-        <div className="button-row">
-          <Link href="/use-cases" className="btn btn-secondary">
-            Explore Use Cases
-          </Link>
-        </div>
-      </Section>
 
-      <Section>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Why Civant</p>
-          <h2 className="headline-lg">
-            Predictive procurement intelligence, not an AI tender chatbot
-          </h2>
-          <p className="text-lead section-intro">
-            Civant combines official procurement data, lifecycle analysis,
-            external market signals, competitor intelligence, and continuous
-            validation. AI helps interpret match, scope, intent, and strategy;
-            the forecast engine is built on hard evidence.
-          </p>
-        </div>
-        <div className="grid grid-3">
-          {trustBlocks.map((item) => (
-            <article key={item.title} className="card">
-              <h3 className="card-title">{item.title}</h3>
-              <p className="card-body">{item.body}</p>
-            </article>
+        <div className="product-tour-workflows" aria-label="Connected Civant workflows">
+          <span>Connected workflows</span>
+          {connectedWorkflows.map((item) => (
+            <Link key={item.label} href={item.href}>
+              {item.label}
+            </Link>
           ))}
-        </div>
-        <div className="button-row">
-          <Link href="/methodology" className="btn btn-secondary">
-            Explore Methodology
-          </Link>
         </div>
       </Section>
 
       <Section muted>
-        <ProofSection />
+        <ProofSection compact />
+      </Section>
+
+      <Section className="pricing-preview-section">
+        <div className="section-heading-wrap">
+          <p className="eyebrow">Our Starter Plans</p>
+          <h2 className="headline-lg">Start with the plan that matches your bid motion</h2>
+          <p className="text-lead section-intro">
+            Vanguard gives lean teams the operating rhythm. Summit gives bid
+            teams broader coverage, competitor context, and more saved rules.
+          </p>
+        </div>
+
+        <div className="pricing-preview-grid">
+          {pricingPreview.map((plan) => (
+            <Link
+              href="/pricing"
+              key={plan.name}
+              className={`pricing-preview-card ${
+                plan.featured ? "pricing-preview-card-featured" : ""
+              }`}
+              aria-label={`View ${plan.name} pricing`}
+            >
+              <div className="pricing-preview-top">
+                <div>
+                  <p className="micro-label">{plan.featured ? "Most popular" : "Starter"}</p>
+                  <h3>{plan.name}</h3>
+                </div>
+                <div className="pricing-preview-price">
+                  <strong>{plan.price}</strong>
+                  <span>{plan.cadence}</span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section muted className="home-faq-section">
+        <div className="section-heading-wrap">
+          <p className="eyebrow">FAQ</p>
+          <h2 className="headline-lg">Clear answers for buyers and search engines</h2>
+          <p className="text-lead section-intro">
+            Civant is built for earlier, evidence-led procurement decisions,
+            not generic alerts or vague market noise.
+          </p>
+        </div>
+
+        <div className="home-faq-list">
+          {homeFaqs.map((faq) => (
+            <article key={faq.question} className="home-faq-item">
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </article>
+          ))}
+        </div>
       </Section>
 
       <Section>
@@ -384,12 +344,14 @@ export default function HomePage() {
           </h2>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="View Pricing"
+            primaryLabel="Get Started"
             secondaryHref="/contact"
             secondaryLabel="Request Custom Plan"
           />
         </div>
       </Section>
+
+      <SchemaScript data={homeSchema} />
     </>
   );
 }

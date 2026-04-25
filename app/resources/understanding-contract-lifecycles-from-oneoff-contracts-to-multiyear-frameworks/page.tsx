@@ -63,7 +63,7 @@ export default function ArticlePage() {
           <h2 className="article-subheading">Lifecycle Strategy</h2>
 
           <p className="article-body-text">
-            Procurement intelligence platforms enhance visibility into contract lifecycles by consolidating historical award data, renewal dates and early signals from meeting minutes or budget approvals. Predictive analytics can forecast when frameworks will expire, highlight sectors with upcoming one‑off tenders and rank opportunities by strategic fit. Armed with such intelligence, suppliers can shift from reactive tender hunting to proactive pipeline planning, ensuring that resources are allocated to competitions they can realistically win.
+            Procurement intelligence platforms enhance visibility into contract lifecycles by consolidating historical award data, renewal dates and early signals from meeting minutes or budget approvals. Forecasting analytics can estimate when frameworks will expire, highlight sectors with upcoming one-off tenders, and rank opportunities by strategic fit. Armed with such intelligence, suppliers can shift from reactive tender hunting to proactive pipeline planning, ensuring that resources are allocated to competitions they can realistically win.
           </p>
 
           <RelatedArticles currentPath={pagePath} />

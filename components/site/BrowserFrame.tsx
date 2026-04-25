@@ -78,12 +78,12 @@ export function BrowserFrame({
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
+          onClick={() => setOpen(false)}
         >
           <button
             type="button"
             className="screenshot-lightbox-backdrop"
             aria-label="Close expanded screenshot"
-            onClick={() => setOpen(false)}
           />
           <div className="screenshot-lightbox-panel">
             <div className="screenshot-lightbox-topbar">

@@ -8,7 +8,7 @@ import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
   variable: "--font-montserrat",
 });
 

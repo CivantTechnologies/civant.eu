@@ -39,7 +39,7 @@ export default function ArticlePage() {
       <Section muted>
         <div className="article-prose">
           <p className="article-body-text">
-            Procurement intelligence maturity reflects the sophistication, integration, and effectiveness of an organisation's procurement market information and analysis capabilities, ranging from reactive notice monitoring to strategic foresight and predictive analytics. Organisations at low maturity levels typically monitor published procurement notices reactively, whilst organisations at higher maturity integrate procurement market intelligence with strategic planning, supplier relationship management, and business development. Assessment of intelligence maturity is increasingly relevant as digitalisation and data standardisation enable development of more sophisticated intelligence capabilities.
+            Procurement intelligence maturity reflects the sophistication, integration, and effectiveness of an organisation's procurement market information and analysis capabilities, ranging from reactive notice monitoring to strategic foresight and forecasting analytics. Organisations at low maturity levels typically monitor published procurement notices reactively, whilst organisations at higher maturity integrate procurement market intelligence with strategic planning, supplier relationship management, and business development. Assessment of intelligence maturity is increasingly relevant as digitalisation and data standardisation enable development of more sophisticated intelligence capabilities.
           </p>
 
           <p className="article-body-text">
@@ -59,7 +59,7 @@ export default function ArticlePage() {
           <h2 className="article-subheading">Capability Levels</h2>
 
           <p className="article-body-text">
-            Organisational intelligence maturity assessment reveals clustering at low and high maturity extremes, with limited organisations operating at intermediate maturity levels. Low-maturity organisations typically allocate 1-2 FTE to procurement intelligence functions, focusing on notice tracking and basic opportunity identification. High-maturity organisations allocate 5-20+ FTE to dedicated intelligence functions, with investment in specialised tools, predictive analytics, and strategic planning integration. Mid-market suppliers increasingly invest in intermediate-level intelligence capabilities, recognising competitive necessity whilst managing cost constraints.
+            Organisational intelligence maturity assessment reveals clustering at low and high maturity extremes, with limited organisations operating at intermediate maturity levels. Low-maturity organisations typically allocate 1-2 FTE to procurement intelligence functions, focusing on notice tracking and basic opportunity identification. High-maturity organisations allocate 5-20+ FTE to dedicated intelligence functions, with investment in specialised tools, forecasting analytics, and strategic planning integration. Mid-market suppliers increasingly invest in intermediate-level intelligence capabilities, recognising competitive necessity whilst managing cost constraints.
           </p>
 
           <p className="article-body-text">
@@ -79,7 +79,7 @@ export default function ArticlePage() {
           <h2 className="article-subheading">Progression Framework</h2>
 
           <p className="article-body-text">
-            Organisations should assess current intelligence maturity and develop roadmaps for capability advancement, recognising that intelligence investment provides measurable competitive returns. Intelligence maturity advancement should proceed through staged capability development, starting with data collection and basic analysis before advancing to predictive analytics and strategic integration. Prioritisation of maturity advancement should focus on areas with highest competitive impact - opportunity identification, win-rate prediction, competitive positioning - before investing in lower-value peripheral capabilities.
+            Organisations should assess current intelligence maturity and develop roadmaps for capability advancement, recognising that intelligence investment provides measurable competitive returns. Intelligence maturity advancement should proceed through staged capability development, starting with data collection and basic analysis before advancing to forecasting analytics and strategic integration. Prioritisation of maturity advancement should focus on areas with highest competitive impact - opportunity identification, win-rate estimation, competitive positioning - before investing in lower-value peripheral capabilities.
           </p>
 
           <p className="article-body-text">

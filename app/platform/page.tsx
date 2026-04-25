@@ -40,7 +40,7 @@ const platformFaqs = [
   {
     question: "Where does AI fit in the platform?",
     answer:
-      "AI helps interpret match, scope, buyer intent, and tender context. It sits on top of deterministic procurement evidence rather than replacing the prediction engine.",
+      "AI helps interpret match, scope, buyer intent, and tender context. It sits on top of deterministic procurement evidence rather than replacing the forecasting engine.",
   },
   {
     question: "Who is the platform built for?",
@@ -103,6 +103,21 @@ const modules: PlatformModule[] = [
     screenshotCaption: "Panorama: your strategic runway at a glance",
   },
   {
+    slug: "forecast",
+    title: "Forecast",
+    purpose:
+      "Generates confidence-scored projections for likely procurement windows by buyer and category.",
+    benefit:
+      "Helps teams engage early, plan resources, and reduce reactive bid cycles.",
+    role: "Workflow role: timing intelligence and planning trigger.",
+    label: "Forecast Engine",
+    screenshot: "/screenshots/forecast-pipeline.png",
+    screenshotWidth: 1352,
+    screenshotHeight: 760,
+    screenshotAlt: "Forecast pipeline showing estimated opportunities by month and a list of buyer renewal windows",
+    screenshotCaption: "Forecast: opportunity timing, buyer windows, and action flow",
+  },
+  {
     slug: "finder",
     title: "Finder",
     purpose:
@@ -116,16 +131,6 @@ const modules: PlatformModule[] = [
     screenshotAlt: "Finder search interface with country, source, buyer, and CPV category filters",
     screenshotCaption: "Finder: precision filters to narrow your target market",
     label: "Target Discovery",
-  },
-  {
-    slug: "forecast",
-    title: "Forecast",
-    purpose:
-      "Generates confidence-scored projections for likely procurement windows by buyer and category.",
-    benefit:
-      "Helps teams engage early, plan resources, and reduce reactive bid cycles.",
-    role: "Workflow role: timing intelligence and planning trigger.",
-    label: "Forecast Engine",
   },
   {
     slug: "competitors",

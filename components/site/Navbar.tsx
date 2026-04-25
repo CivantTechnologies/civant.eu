@@ -50,6 +50,7 @@ const PRIMARY_NAV_GROUPS: NavGroup[] = [
 
 const DIRECT_NAV_ITEMS: NavLink[] = [
   { href: "/company", label: "Company" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function isActivePath(pathname: string, href: string) {

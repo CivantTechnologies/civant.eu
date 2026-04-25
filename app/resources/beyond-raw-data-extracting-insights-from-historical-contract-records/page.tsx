@@ -63,7 +63,7 @@ export default function ArticlePage() {
           <h2 className="article-subheading">From Data to Decision</h2>
 
           <p className="article-body-text">
-            Procurement intelligence solutions aggregate data across portals, spending reports and performance evaluations. They apply analytics to detect patterns and produce insights such as predictive renewal signals and confidence scores. By presenting historical data in a contextualised and user‑friendly way, intelligence tools empower suppliers to make strategic decisions.
+            Procurement intelligence solutions aggregate data across portals, spending reports and performance evaluations. They apply analytics to detect patterns and produce insights such as renewal forecasting signals and confidence scores. By presenting historical data in a contextualised and user-friendly way, intelligence tools empower suppliers to make strategic decisions.
           </p>
 
           <RelatedArticles currentPath={pagePath} />

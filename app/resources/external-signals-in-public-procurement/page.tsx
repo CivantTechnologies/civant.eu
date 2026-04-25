@@ -1,9 +1,17 @@
 import Link from "next/link";
 import { Section } from "../../../components/site/Section";
 import { SchemaScript } from "../../../components/site/SchemaScript";
+import {
+  ArticleActionPanel,
+  ArticleBriefGrid,
+  ArticleFaq,
+  ArticleInsightPanel,
+  ArticleTakeaways,
+  ArticleToc,
+} from "../../../components/site/ArticleBriefBlocks";
 import { RelatedArticles } from "../../../components/site/RelatedArticles";
 import { RelatedSolution } from "../../../components/site/RelatedSolution";
-import { buildArticleMetadata, buildArticleSchema } from "../../../lib/seo";
+import { buildArticleMetadata, buildArticleSchema, buildFaqSchema } from "../../../lib/seo";
 
 export const dynamic = "force-static";
 
@@ -18,13 +26,34 @@ export const metadata = buildArticleMetadata({
   datePublished: publishedAt,
 });
 
-const articleSchema = buildArticleSchema({
+const articleFaqs = [
+  {
+    question: "What are external signals in public procurement?",
+    answer:
+      "External signals are public indicators of potential procurement demand, such as budgets, grants, PINs, hiring, policy changes, consultations, infrastructure plans, and programme announcements.",
+  },
+  {
+    question: "Do external signals prove that a tender will be published?",
+    answer:
+      "No. External signals should be treated as evidence inputs, not proof. They become more useful when combined with buyer history, contract lifecycle timing, category recurrence, and participation behavior.",
+  },
+  {
+    question: "How should bid teams use external signals?",
+    answer:
+      "Bid teams should use external signals to decide which buyers to watch, where to engage earlier, which partners may be needed, and whether an opportunity deserves deeper qualification before publication.",
+  },
+];
+
+const articleSchema = [
+  ...buildArticleSchema({
   title: "External Signals in Public Procurement",
   description:
     "See how budgets, grants, PINs, hiring, and policy changes help teams spot public procurement demand earlier than formal tender notices alone.",
   path: pagePath,
   datePublished: publishedAt,
-});
+  }),
+  buildFaqSchema(articleFaqs),
+];
 
 export default function ArticlePage() {
   return (
@@ -61,7 +90,48 @@ export default function ArticlePage() {
             the market is worth pursuing at all.
           </p>
 
-          <h2 className="article-subheading">Why External Signals Matter</h2>
+          <ArticleBriefGrid>
+            <ArticleTakeaways
+              items={[
+                {
+                  label: "Source",
+                  text: "Budgets, grants, PINs, hiring, policy, and public plans can reveal movement before a formal procurement notice.",
+                },
+                {
+                  label: "Weight",
+                  text: "A single signal is rarely enough. Confidence improves when signals align with buyer history and lifecycle timing.",
+                },
+                {
+                  label: "Workflow",
+                  text: "External signals should trigger qualification, monitoring, engagement, or restraint depending on the evidence strength.",
+                },
+              ]}
+            />
+            <ArticleToc
+              items={[
+                { label: "Why external signals matter", href: "#why-signals-matter" },
+                { label: "What counts as a signal", href: "#what-counts-as-a-signal" },
+                { label: "Signals need structure", href: "#signals-need-structure" },
+                { label: "What teams gain", href: "#what-teams-gain" },
+              ]}
+            />
+          </ArticleBriefGrid>
+
+          <ArticleInsightPanel
+            eyebrow="Civant View"
+            title="External signals are strongest when they are tied to procurement cycles."
+          >
+            <p>
+              Signals become commercially useful when they connect to known
+              buyer behavior, category recurrence, contract windows, and market
+              participation. Civant treats them as evidence in a forecasting
+              workflow, not as isolated headlines.
+            </p>
+          </ArticleInsightPanel>
+
+          <h2 id="why-signals-matter" className="article-subheading">
+            Why External Signals Matter
+          </h2>
 
           <p className="article-body-text">
             Formal tender notices are still essential, but they are not the
@@ -77,7 +147,9 @@ export default function ArticlePage() {
             contract lifecycle is moving toward a real buying event.
           </p>
 
-          <h2 className="article-subheading">What Counts As an External Signal</h2>
+          <h2 id="what-counts-as-a-signal" className="article-subheading">
+            What Counts As an External Signal
+          </h2>
 
           <p className="article-body-text">
             Useful external signals are evidence-backed public indicators of
@@ -94,7 +166,9 @@ export default function ArticlePage() {
             participation patterns, and category recurrence.
           </p>
 
-          <h2 className="article-subheading">Signals Need Structure</h2>
+          <h2 id="signals-need-structure" className="article-subheading">
+            Signals Need Structure
+          </h2>
 
           <p className="article-body-text">
             This is where many teams go wrong. They either ignore external
@@ -111,7 +185,9 @@ export default function ArticlePage() {
             simply to watch more closely.
           </p>
 
-          <h2 className="article-subheading">What Teams Gain</h2>
+          <h2 id="what-teams-gain" className="article-subheading">
+            What Teams Gain
+          </h2>
 
           <p className="article-body-text">
             Teams that monitor external signals well can build a stronger
@@ -138,6 +214,18 @@ export default function ArticlePage() {
             </Link>
             .
           </p>
+
+          <ArticleActionPanel
+            eyebrow="Next Step"
+            title="Put external signals into an evidence-led routine."
+            body="Civant helps teams connect public signals to buyer history, contract lifecycle timing, and market movement so earlier demand becomes easier to qualify."
+            primaryHref="/methodology"
+            primaryLabel="Review Methodology"
+            secondaryHref="/contact"
+            secondaryLabel="Talk To Civant"
+          />
+
+          <ArticleFaq items={articleFaqs} />
 
           <RelatedSolution
             solutionSlug="tender-prediction-software"

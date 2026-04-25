@@ -1074,7 +1074,7 @@ export default function PricingPageClient() {
             Match your plan to the procurement problem
           </h2>
           <p className="text-lead section-intro" style={{ marginInline: "auto" }}>
-            Civant supports tender prediction, EU monitoring, and strategic
+            Civant supports tender forecasting, EU monitoring, and strategic
             public procurement intelligence from the same evidence-led platform.
           </p>
         </div>
