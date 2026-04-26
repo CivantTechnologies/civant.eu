@@ -1,6 +1,15 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
+import { createPortal } from "react-dom";
+
+function replaceImageExtension(src: string, extension: "avif" | "webp") {
+  const suffixIndex = src.search(/[?#]/);
+  const path = suffixIndex === -1 ? src : src.slice(0, suffixIndex);
+  const suffix = suffixIndex === -1 ? "" : src.slice(suffixIndex);
+
+  return `${path.replace(/\.[^./]+$/, `.${extension}`)}${suffix}`;
+}
 
 /**
  * BrowserFrame – wraps a screenshot in a minimal browser-chrome UI.
@@ -21,8 +30,58 @@ export function BrowserFrame({
 }) {
   const [open, setOpen] = useState(false);
   const titleId = useId();
-  const avifSrc = src.replace(/\.[^.]+$/, ".avif");
-  const webpSrc = src.replace(/\.[^.]+$/, ".webp");
+  const avifSrc = replaceImageExtension(src, "avif");
+  const webpSrc = replaceImageExtension(src, "webp");
+  const lightbox = open ? (
+    <div
+      className="screenshot-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+    >
+      <button
+        type="button"
+        className="screenshot-lightbox-backdrop"
+        aria-label="Close expanded screenshot"
+        onClick={() => setOpen(false)}
+      />
+      <div className="screenshot-lightbox-panel">
+        <div className="screenshot-lightbox-topbar">
+          <p id={titleId} className="screenshot-lightbox-title">
+            {caption || "Product screenshot"}
+          </p>
+          <button
+            type="button"
+            className="screenshot-lightbox-close"
+            aria-label="Close expanded screenshot"
+            onClick={() => setOpen(false)}
+          >
+            Close
+          </button>
+        </div>
+        <div className="screenshot-lightbox-scroll">
+          <button
+            type="button"
+            className="screenshot-lightbox-image-button"
+            aria-label="Close expanded screenshot"
+            onClick={() => setOpen(false)}
+          >
+            <picture>
+              <source srcSet={avifSrc} type="image/avif" />
+              <source srcSet={webpSrc} type="image/webp" />
+              <img
+                src={src}
+                alt={alt}
+                width={width}
+                height={height}
+                className="screenshot-lightbox-img"
+              />
+            </picture>
+          </button>
+        </div>
+      </div>
+    </div>
+  ) : null;
 
   useEffect(() => {
     if (!open) return;
@@ -72,49 +131,7 @@ export function BrowserFrame({
       </button>
       {caption && <figcaption className="browser-frame-caption">{caption}</figcaption>}
 
-      {open ? (
-        <div
-          className="screenshot-lightbox"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={titleId}
-          onClick={() => setOpen(false)}
-        >
-          <button
-            type="button"
-            className="screenshot-lightbox-backdrop"
-            aria-label="Close expanded screenshot"
-          />
-          <div className="screenshot-lightbox-panel">
-            <div className="screenshot-lightbox-topbar">
-              <p id={titleId} className="screenshot-lightbox-title">
-                {caption || "Product screenshot"}
-              </p>
-              <button
-                type="button"
-                className="screenshot-lightbox-close"
-                aria-label="Close expanded screenshot"
-                onClick={() => setOpen(false)}
-              >
-                Close
-              </button>
-            </div>
-            <div className="screenshot-lightbox-scroll">
-              <picture>
-                <source srcSet={avifSrc} type="image/avif" />
-                <source srcSet={webpSrc} type="image/webp" />
-                <img
-                  src={src}
-                  alt={alt}
-                  width={width}
-                  height={height}
-                  className="screenshot-lightbox-img"
-                />
-              </picture>
-            </div>
-          </div>
-        </div>
-      ) : null}
+      {lightbox ? createPortal(lightbox, document.body) : null}
     </figure>
   );
 }

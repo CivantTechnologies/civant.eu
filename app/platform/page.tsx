@@ -9,7 +9,6 @@ import {
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { BrowserFrame } from "../../components/site/BrowserFrame";
-import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import {
   buildBreadcrumbSchema,
@@ -18,14 +17,13 @@ import {
   buildPageMetadata,
   buildSoftwareApplicationSchema,
 } from "../../lib/seo";
-import { SOLUTIONS } from "../../lib/solutions";
 
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Procurement Intelligence Software | Civant Platform",
+  title: "Procurement Forecasting Software | Civant Platform",
   description:
-    "Civant turns buyer cycles, contract lifecycles, competitor context, and public signals into earlier targeting, forecasting, and bid planning.",
+    "Civant is procurement forecasting software that turns buyer cycles, contract lifecycles, competitor context, and public signals into earlier targeting and bid planning.",
   path: "/platform",
 });
 
@@ -47,28 +45,112 @@ const platformFaqs = [
     answer:
       "Civant is built for bid teams, sales teams, partnerships teams, and commercial leaders working across European public-sector markets.",
   },
+  {
+    question: "What data does Civant use to forecast procurement opportunities?",
+    answer:
+      "Civant combines official tender records, award history, contract lifecycle patterns, buyer and category behaviour, competitor context, and external public signals such as budgets, policy movement, grants, hiring, and prior information notices.",
+  },
+  {
+    question: "How does Civant score forecast confidence?",
+    answer:
+      "Confidence is based on deterministic evidence such as buyer recurrence, category patterns, lifecycle timing, award history, signal density, and market context. AI can help explain the context, but it does not replace the scoring logic.",
+  },
+  {
+    question: "How does the platform turn intelligence into action?",
+    answer:
+      "Forecasts feed into target discovery, alerts, competitor views, bid tracking, and reporting so teams can move from market signal to account planning, early engagement, and bid execution in one workflow.",
+  },
 ];
 
 const systemLayers = [
   {
     icon: CircleGauge as LucideIcon,
-    title: "Unify market context",
-    body: "Panorama creates a single intelligence layer across buyers, categories, and procurement momentum.",
+    label: "Context",
+    title: "Unify the market",
+    body: "Bring buyers, categories, awards, and market momentum into one operating view.",
   },
   {
     icon: ScanSearch as LucideIcon,
-    title: "Select strategic targets",
-    body: "Finder narrows the field to institutions and segments aligned to your commercial focus.",
+    label: "Targets",
+    title: "Select strategic accounts",
+    body: "Filter the market to institutions and segments worth pursuing before the notice appears.",
   },
   {
     icon: Crosshair as LucideIcon,
-    title: "Estimate opportunity timing",
-    body: "Forecast applies lifecycle and behavior signals to estimate where opportunities will likely emerge.",
+    label: "Timing",
+    title: "Forecast opportunity windows",
+    body: "Use lifecycle and behaviour signals to estimate where opportunities are likely to emerge.",
+    featured: true,
   },
   {
     icon: Target as LucideIcon,
-    title: "Execute with confidence",
-    body: "Competitors, Alerts, and Bids connect market intelligence to bid planning and team ownership.",
+    label: "Execution",
+    title: "Move into action",
+    body: "Turn forecasted opportunities into alerts, bid planning, and team ownership.",
+  },
+];
+
+const platformHeroMetrics = [
+  {
+    label: "Forecast layer",
+    value: "Timing",
+    detail: "Buyer and category windows.",
+    href: "#forecast",
+  },
+  {
+    label: "Evidence checks",
+    value: "79K",
+    detail: "Validated against notices.",
+    href: "/methodology",
+  },
+  {
+    label: "Live markets",
+    value: "5",
+    detail: "Europe-wide model.",
+    href: "/markets",
+  },
+];
+
+const platformHeroLinks = [
+  { label: "Market context", href: "#panorama" },
+  { label: "Target discovery", href: "#finder" },
+  { label: "Forecast timing", href: "#forecast" },
+  { label: "Bid execution", href: "#bids" },
+];
+
+const platformProofMetrics = [
+  {
+    label: "Evidence checks",
+    value: "79K",
+    body: "Validation compares forecast logic against official notices and historical procurement evidence.",
+    href: "/methodology",
+  },
+  {
+    label: "Live markets",
+    value: "5",
+    body: "Ireland, the UK, Spain, France, and Italy run on the same country-aware platform model.",
+    href: "/markets",
+  },
+  {
+    label: "Workflow modules",
+    value: "7",
+    body: "Forecast, Panorama, Finder, Competitors, Alerts, Bids, and Reports connect signal to action.",
+    href: "#forecast",
+  },
+];
+
+const platformProofLinks = [
+  {
+    title: "How external signals fit the platform",
+    body: "Budgets, grants, PINs, hiring, and policy movement add context without replacing procurement evidence.",
+    href: "/resources/external-signals-in-public-procurement",
+    signals: ["Budgets", "PINs", "Policy"],
+  },
+  {
+    title: "How competitor intelligence fits the platform",
+    body: "Incumbent footprint, participation intensity, and market pressure shape stronger account decisions.",
+    href: "/resources/competitor-intelligence-in-public-procurement",
+    signals: ["Incumbents", "Participation", "Win patterns"],
   },
 ];
 
@@ -88,21 +170,6 @@ interface PlatformModule {
 
 const modules: PlatformModule[] = [
   {
-    slug: "panorama",
-    title: "Panorama",
-    purpose:
-      "Provides a macro-level view of procurement activity by institution, category, and market segment.",
-    benefit:
-      "Gives leadership teams a strategic map of where momentum is building or cooling.",
-    role: "Workflow role: market baseline and opportunity prioritization.",
-    label: "Market Intelligence",
-    screenshot: "/screenshots/panorama.png",
-    screenshotWidth: 2880,
-    screenshotHeight: 1558,
-    screenshotAlt: "Panorama dashboard showing strategic runway, operational status, and renewal opportunities",
-    screenshotCaption: "Panorama: your strategic runway at a glance",
-  },
-  {
     slug: "forecast",
     title: "Forecast",
     purpose:
@@ -116,6 +183,21 @@ const modules: PlatformModule[] = [
     screenshotHeight: 760,
     screenshotAlt: "Forecast pipeline showing estimated opportunities by month and a list of buyer renewal windows",
     screenshotCaption: "Forecast: opportunity timing, buyer windows, and action flow",
+  },
+  {
+    slug: "panorama",
+    title: "Panorama",
+    purpose:
+      "Provides a macro-level view of procurement activity by institution, category, and market segment.",
+    benefit:
+      "Gives leadership teams a strategic map of where momentum is building or cooling.",
+    role: "Workflow role: market baseline and opportunity prioritization.",
+    label: "Market Intelligence",
+    screenshot: "/screenshots/panorama.png",
+    screenshotWidth: 2880,
+    screenshotHeight: 1558,
+    screenshotAlt: "Panorama dashboard showing strategic runway, operational status, and renewal opportunities",
+    screenshotCaption: "Panorama: your strategic runway at a glance",
   },
   {
     slug: "finder",
@@ -156,6 +238,11 @@ const modules: PlatformModule[] = [
       "Moves teams from static reporting to time-sensitive action when conditions change.",
     role: "Workflow role: operational signal monitoring.",
     label: "Signal Monitoring",
+    screenshot: "/screenshots/alerts.png",
+    screenshotWidth: 2690,
+    screenshotHeight: 1342,
+    screenshotAlt: "Alerts workspace showing active buyer and forecast alerts with recent matches",
+    screenshotCaption: "Alerts: live signal monitoring for tracked buyers and forecasts",
   },
   {
     slug: "bids",
@@ -166,8 +253,30 @@ const modules: PlatformModule[] = [
       "Bridges strategy and delivery so opportunity intelligence becomes measurable execution.",
     role: "Workflow role: bid orchestration and accountability.",
     label: "Execution Workspace",
+    screenshot: "/screenshots/bids.png?v=20260426-3",
+    screenshotWidth: 1352,
+    screenshotHeight: 692,
+    screenshotAlt: "Active Bids workspace showing pursuit status, bid filters, and active procurement opportunities",
+    screenshotCaption: "Bids: active pursuit tracking and bid ownership",
+  },
+  {
+    slug: "reports",
+    title: "Reports",
+    purpose:
+      "Turns platform intelligence into configurable reports for leadership, pipeline planning, and market reviews.",
+    benefit:
+      "Gives teams a clean way to package forecast accuracy, pipeline views, buyer context, and competitor landscape.",
+    role: "Workflow role: reporting and decision communication.",
+    label: "Reporting Workspace",
+    screenshot: "/screenshots/reports.png?v=20260426-2",
+    screenshotWidth: 1352,
+    screenshotHeight: 692,
+    screenshotAlt: "Reports workspace showing report configuration controls and selectable report sections",
+    screenshotCaption: "Reports: configurable intelligence outputs for planning reviews",
   },
 ];
+
+const [featuredModule, ...supportingModules] = modules;
 
 const platformPathLinks = [
   {
@@ -219,186 +328,221 @@ export default function PlatformPage() {
 
   return (
     <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Platform</p>
-        <h1 className="headline-xl">Procurement intelligence software for earlier public-sector decisions</h1>
-        <p className="text-lead">
-          Civant is procurement intelligence software built around procurement
-          cycles. It combines market context, contract lifecycle signals,
-          forecasting logic, monitoring, and execution workflows so teams can
-          identify, prioritize, and act earlier.
-        </p>
+      <Section
+        className="hero-block hero-section platform-hero"
+        containerClassName="platform-hero-container"
+      >
+        <div className="platform-hero-layout">
+          <div className="platform-hero-copy">
+            <p className="eyebrow">Platform</p>
+            <h1 className="headline-xl">
+              Procurement forecasting software for earlier public-sector decisions
+            </h1>
+            <p className="text-lead">
+              Civant connects market context, contract lifecycle signals,
+              competitor movement, and forecasting logic into one operating
+              layer for public-sector growth teams.
+            </p>
+            <p className="platform-hero-definition">
+              Civant is procurement forecasting software for B2G teams that need
+              to identify likely tender timing, prioritize strategic buyers, and
+              act before formal notices appear.
+            </p>
+            <CTAGroup
+              primaryHref="/pricing"
+              primaryLabel="Get Started"
+              secondaryHref="/methodology"
+              secondaryLabel="See Methodology"
+            />
+          </div>
+
+          <aside className="platform-hero-console" aria-label="Civant platform workflow">
+            <div className="platform-hero-console-head">
+              <p>Platform operating layer</p>
+              <span>Signal to action</span>
+            </div>
+            <div className="platform-hero-metrics">
+              {platformHeroMetrics.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`platform-hero-metric ${
+                    item.label === "Forecast layer" ? "platform-hero-metric-featured" : ""
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  <strong>{item.value}</strong>
+                  <em>{item.detail}</em>
+                </Link>
+              ))}
+            </div>
+            <div className="platform-hero-flow">
+              <p>Workflow modules</p>
+              <div>
+                {platformHeroLinks.map((item) => (
+                  <Link key={item.label} href={item.href}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
       </Section>
 
       <Section muted>
-        <div className="section-heading-wrap">
+        <div className="section-heading-wrap platform-workflow-heading">
           <p className="eyebrow">How Modules Work Together</p>
           <h2 className="headline-lg">
-            One software workflow from market signal to bid execution
+            From market signal to forecasted action
           </h2>
           <p className="text-lead section-intro">
-            Each module has a defined role, but the advantage comes from how
-            the software connects targeting, forecasting, monitoring, and bid
-            execution into one decision workflow.
+            The platform is strongest when each module feeds the next: context
+            narrows the market, targets shape the forecast, and forecasted
+            timing drives execution.
           </p>
         </div>
-        <div className="flow-track">
-          {systemLayers.map((layer) => (
-            <article key={layer.title} className="flow-card">
+        <div className="platform-workflow-track">
+          {systemLayers.map((layer, index) => (
+            <article
+              key={layer.title}
+              className={`platform-workflow-card ${
+                layer.featured ? "platform-workflow-card-featured" : ""
+              }`}
+            >
+              <span className="platform-workflow-index">{String(index + 1).padStart(2, "0")}</span>
               <div className="flow-title-row">
                 <span className="flow-icon" aria-hidden="true">
                   <layer.icon />
                 </span>
-                <h3 className="card-title">{layer.title}</h3>
+                <div>
+                  <p className="module-label">{layer.label}</p>
+                  <h3 className="card-title">{layer.title}</h3>
+                </div>
               </div>
               <p className="card-body">{layer.body}</p>
             </article>
           ))}
         </div>
+        <p className="platform-workflow-bridge">
+          Civant turns scattered procurement evidence into a practical sequence:
+          know the market, choose the right accounts, forecast timing, and move
+          the work into execution.
+        </p>
       </Section>
 
       <Section>
-        <div className="section-heading-wrap">
+        <div className="section-heading-wrap platform-modules-heading">
           <p className="eyebrow">Platform Modules</p>
-          <h2 className="headline-lg">Software modules for each stage of the workflow</h2>
+          <h2 className="headline-lg">Forecast leads the platform workflow</h2>
+          <p className="text-lead section-intro">
+            Forecast is the planning layer. Panorama, Finder, Competitors,
+            Alerts, and Bids support the path from market evidence to action.
+          </p>
         </div>
-        <div className="platform-modules-list">
-          {modules.map((module) => (
-            <article
-              key={module.slug}
-              id={module.slug}
-              className="platform-module-section"
-            >
-              <div className="platform-module-text">
-                <p className="module-label">{module.label}</p>
-                <h3 className="card-title">{module.title}</h3>
-                <p className="card-body">{module.purpose}</p>
-                <p className="module-benefit">{module.benefit}</p>
-                <p className="module-role">{module.role}</p>
-              </div>
-              {module.screenshot && module.screenshotWidth && module.screenshotHeight && (
+        <div className="platform-modules-system">
+          <article
+            id={featuredModule.slug}
+            className="platform-module-section platform-module-section-featured"
+          >
+            <div className="platform-module-text">
+              <p className="module-label">{featuredModule.label}</p>
+              <h3 className="card-title">{featuredModule.title}</h3>
+              <p className="card-body">{featuredModule.purpose}</p>
+              <p className="module-benefit">{featuredModule.benefit}</p>
+              <p className="module-role">{featuredModule.role}</p>
+            </div>
+            {featuredModule.screenshot &&
+              featuredModule.screenshotWidth &&
+              featuredModule.screenshotHeight && (
                 <div className="platform-module-visual">
                   <BrowserFrame
-                    src={module.screenshot}
-                    alt={module.screenshotAlt || `${module.title} module`}
-                    caption={module.screenshotCaption}
-                    width={module.screenshotWidth}
-                    height={module.screenshotHeight}
+                    src={featuredModule.screenshot}
+                    alt={featuredModule.screenshotAlt || `${featuredModule.title} module`}
+                    caption={featuredModule.screenshotCaption}
+                    width={featuredModule.screenshotWidth}
+                    height={featuredModule.screenshotHeight}
                   />
                 </div>
               )}
-            </article>
-          ))}
+          </article>
+
+          <div className="platform-module-support-grid">
+            {supportingModules.map((module) => (
+              <article
+                key={module.slug}
+                id={module.slug}
+                className={`platform-module-section platform-module-section-support ${
+                  module.screenshot ? "platform-module-section-support-visual" : ""
+                }`}
+              >
+                <div className="platform-module-text">
+                  <p className="module-label">{module.label}</p>
+                  <h3 className="card-title">{module.title}</h3>
+                  <p className="card-body">{module.purpose}</p>
+                  <p className="module-benefit">{module.benefit}</p>
+                  <p className="module-role">{module.role}</p>
+                </div>
+                {module.screenshot && module.screenshotWidth && module.screenshotHeight && (
+                  <div className="platform-module-visual">
+                    <BrowserFrame
+                      src={module.screenshot}
+                      alt={module.screenshotAlt || `${module.title} module`}
+                      caption={module.screenshotCaption}
+                      width={module.screenshotWidth}
+                      height={module.screenshotHeight}
+                    />
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
         </div>
       </Section>
 
-      <Section muted>
-        <div className="section-heading-wrap">
+      <Section id="proof" muted className="platform-proof-section">
+        <div className="section-heading-wrap platform-proof-heading">
           <p className="eyebrow">Proof</p>
           <h2 className="headline-lg">
-            Why teams trust the Civant software workflow
+            The evidence stack behind the platform
           </h2>
           <p className="text-lead section-intro">
-            The software is strongest when timing, market context, and
-            execution live in the same operating layer.
+            Civant is designed around official evidence first, forecast logic
+            second, and practical execution always.
           </p>
         </div>
-        <div className="solution-proof-strip">
-          <article>
-            <h3 className="card-title">Evidence-led from the start</h3>
+        <div className="platform-proof-console">
+          <div className="platform-proof-copy">
+            <p className="module-label">Validation model</p>
+            <h3 className="card-title">Inspectable evidence, not decoration.</h3>
             <p className="card-body">
-              The workflow begins with official procurement records, awards,
-              lifecycle timing, buyer recurrence, and public external signals.
+              The platform connects procurement records, awards, lifecycle timing,
+              recurrence patterns, external public signals, and team workflows so
+              each forecast can be understood before it becomes action.
             </p>
-          </article>
-          <article>
-            <h3 className="card-title">Live across active markets</h3>
-            <p className="card-body">
-              One platform model already supports Ireland, the UK, Spain,
-              France, and Italy, with more countries joining next.
-            </p>
-          </article>
-          <article>
-            <h3 className="card-title">Built for action, not observation</h3>
-            <p className="card-body">
-              Civant helps teams prioritize accounts, prepare earlier, and move
-              from signal discovery into concrete bid execution.
-            </p>
-          </article>
+          </div>
+          <div className="platform-proof-metrics" aria-label="Civant platform proof points">
+            {platformProofMetrics.map((item) => (
+              <Link key={item.label} href={item.href} className="platform-proof-metric">
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+                <p>{item.body}</p>
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="grid grid-2 solution-related-grid" style={{ marginTop: "2rem" }}>
-          <Link
-            href="/resources/external-signals-in-public-procurement"
-            className="card card-link interactive-surface"
-          >
-            <h3 className="card-title">How external signals fit the platform</h3>
-            <p className="card-body">
-              Learn how budgets, grants, PINs, hiring, and policy movement add
-              context to the software workflow without replacing procurement
-              evidence.
-            </p>
-            <span className="card-link-cta">Read the resource</span>
-          </Link>
-          <Link
-            href="/resources/competitor-intelligence-in-public-procurement"
-            className="card card-link interactive-surface"
-          >
-            <h3 className="card-title">How competitor intelligence fits the platform</h3>
-            <p className="card-body">
-              See how incumbent footprint, participation intensity, and market
-              pressure shape stronger account and bid decisions.
-            </p>
-            <span className="card-link-cta">Read the resource</span>
-          </Link>
-        </div>
-      </Section>
-
-      <Section muted>
-        <MarketCoverageLinks
-          eyebrow="Country Layer"
-          title="One platform model across each Civant market"
-          body="The same procurement-cycle workflow is available across live markets today and is being extended into the next country rollout."
-          compact
-        />
-      </Section>
-
-      <Section>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Solution Paths</p>
-          <h2 className="headline-lg">
-            Connect the platform workflow to the problem your team is solving
-          </h2>
-        </div>
-        <div className="grid grid-4 solution-link-grid">
-          {SOLUTIONS.map((solution) => (
-            <Link
-              key={solution.slug}
-              href={`/solutions/${solution.slug}`}
-              className="card card-link interactive-surface solution-link-card"
-            >
-              <h3 className="card-title">{solution.title}</h3>
-              <p className="card-body">{solution.description}</p>
-              <span className="card-link-cta">View Solution</span>
+        <div className="platform-proof-links">
+          {platformProofLinks.map((item) => (
+            <Link key={item.title} href={item.href} className="platform-proof-link">
+              <h3 className="card-title">{item.title}</h3>
+              <p className="card-body">{item.body}</p>
+              <div className="platform-proof-link-signals" aria-label={`${item.title} evidence cues`}>
+                {item.signals.map((signal) => (
+                  <span key={signal}>{signal}</span>
+                ))}
+              </div>
+              <span className="card-link-cta">Read the resource</span>
             </Link>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Common Questions</p>
-          <h2 className="headline-lg">What teams ask before they buy procurement intelligence software</h2>
-          <p className="text-lead section-intro">
-            Short answers to the questions that usually come up once the platform
-            workflow starts to make sense.
-          </p>
-        </div>
-        <div className="faq-list">
-          {platformFaqs.map((faq) => (
-            <article key={faq.question} className="faq-item">
-              <h3 className="card-title">{faq.question}</h3>
-              <p className="card-body">{faq.answer}</p>
-            </article>
           ))}
         </div>
       </Section>
@@ -425,21 +569,61 @@ export default function PlatformPage() {
         </div>
       </Section>
 
+      <Section id="faq" className="platform-faq-section">
+        <div className="platform-faq-shell">
+          <div className="platform-faq-copy">
+            <p className="eyebrow">Common Questions</p>
+            <h2 className="headline-lg">
+              What teams ask before they buy procurement intelligence software
+            </h2>
+            <p className="text-lead section-intro">
+              Short answers to the questions that usually come up once the
+              platform workflow starts to make sense.
+            </p>
+            <div className="platform-faq-cues" aria-label="Platform FAQ themes">
+              <span>Evidence-first</span>
+              <span>AI-aware</span>
+              <span>Built for teams</span>
+            </div>
+          </div>
+          <div className="platform-faq-list">
+            {platformFaqs.map((faq, index) => (
+              <details
+                key={faq.question}
+                className="platform-faq-item"
+                open={index === 0}
+              >
+                <summary>
+                  <span className="platform-faq-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span>{faq.question}</span>
+                </summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <Section muted>
         <div className="final-cta">
           <h2 className="headline-lg final-cta-title">
-            See the platform in your market context
+            Find your next public-sector opportunity with Civant
           </h2>
           <p className="text-lead platform-cta-copy">
-            Start directly with a self-serve plan, or request a custom plan if
-            your team needs tailored setup across markets, categories, or workflows.
+            Choose a Civant plan to start using procurement forecasts across
+            available markets, or talk to us about a custom setup for your team.
           </p>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="View Pricing"
+            primaryLabel="Get Started"
             secondaryHref="/contact"
-            secondaryLabel="Request Custom Plan"
+            secondaryLabel="Talk to Us"
           />
+          <p className="final-cta-note">
+            All plans include available Civant markets from the start.
+          </p>
         </div>
       </Section>
       <SchemaScript data={pageSchema} />
