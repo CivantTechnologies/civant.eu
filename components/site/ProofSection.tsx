@@ -81,10 +81,10 @@ export function ProofSection({ compact = false }: ProofSectionProps) {
       <div className="proof-section proof-section-compact">
         <div className="section-heading-wrap">
           <p className="eyebrow">Proof</p>
-          <h2 className="headline-lg">Trusted customers. Trusted advisors.</h2>
+          <h2 className="headline-lg">Early customers. Credible support.</h2>
           <p className="text-lead section-intro">
-            Civant is already supporting European market entry and shaped with
-            credible enterprise advisory networks.
+            Civant is already helping teams plan market entry earlier, with
+            enterprise support around the company as it grows.
           </p>
         </div>
 
@@ -118,7 +118,12 @@ export function ProofSection({ compact = false }: ProofSectionProps) {
           ))}
         </div>
 
-        <div className="home-advisor-rail" aria-label="Civant advisory support">
+        <div className="home-advisor-proof">
+          <div className="home-advisor-proof-copy">
+            <p>Advisory support</p>
+            <span>Enterprise networks helping shape Civant’s growth.</span>
+          </div>
+          <div className="home-advisor-rail" aria-label="Civant advisory support">
           {advisedBy.map((item) => (
             <a
               key={item.name}
@@ -142,6 +147,7 @@ export function ProofSection({ compact = false }: ProofSectionProps) {
               )}
             </a>
           ))}
+          </div>
         </div>
       </div>
     );

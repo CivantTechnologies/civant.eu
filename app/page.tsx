@@ -17,25 +17,44 @@ export const dynamic = "force-static";
 export const metadata = buildPageMetadata({
   title: "Win Before the Tender | Procurement Forecasting Intelligence | Civant",
   description:
-    "Civant is a procurement forecasting intelligence platform for Europe, helping teams identify likely tender timing using buyer cycles, contract lifecycles, and public signals.",
+    "Civant is procurement forecasting software for European B2G teams, helping teams identify likely tender timing using buyer cycles, contract lifecycles, and public signals.",
   path: "/",
 });
 
 const heroProof = [
   {
-    label: "Validation Match Rate",
+    label: "Match rate",
     value: "90.8%",
-    detail: "Measured against subsequently published tender activity.",
+    detail: "Against tender activity.",
+    href: "/methodology",
   },
   {
-    label: "Forecasts Validated To Date",
+    label: "Validated",
     value: "79K",
-    detail: "Structured checks across lifecycle and market evidence.",
+    detail: "Evidence checks.",
+    href: "/platform",
   },
   {
-    label: "Evidence Refresh",
-    value: "Hourly",
-    detail: "Tender notices, awards, buyer movement, and public signals.",
+    label: "Opportunity",
+    value: "€1.1tn+",
+    detail: "Covered markets.",
+    href: "/markets",
+  },
+];
+
+const heroSignalLayers = [
+  { label: "Buyer cycles", href: "/resources/public-procurement-cycles" },
+  {
+    label: "Renewal windows",
+    href: "/resources/renewal-cycles-how-contract-expiry-drives-tender-pipelines",
+  },
+  {
+    label: "Competitor movement",
+    href: "/resources/competitor-intelligence-in-public-procurement",
+  },
+  {
+    label: "Public signals",
+    href: "/resources/external-signals-in-public-procurement",
   },
 ];
 
@@ -44,51 +63,53 @@ const pricingPreview = [
     name: "Vanguard",
     price: "€299",
     cadence: "/month",
+    description: "For lean teams building an early procurement rhythm.",
+    note: "All available countries included.",
   },
   {
     name: "Summit",
     price: "€699",
     cadence: "/month",
+    description: "For teams that need broader coverage and competitor context.",
+    note: "All available countries included.",
     featured: true,
   },
 ];
 
 const audienceCards = [
   {
-    title: "SMEs entering new public-sector markets",
-    body: "See which buyers, frameworks, and renewal windows deserve attention before a formal tender appears.",
+    label: "Market entry",
+    title: "Teams entering new public-sector markets",
+    body: "Choose countries, buyers, and renewal windows before a formal tender appears.",
     fit: "Best fit: expansion into Ireland, the UK, Spain, France, or Italy.",
+    href: "/markets",
     icon: BriefcaseBusiness,
   },
   {
+    label: "Bid timing",
     title: "Bid teams escaping reactive tender alerts",
-    body: "Prioritize likely opportunities early enough to shape positioning, partnerships, and qualification work.",
+    body: "Move earlier on qualification, partner planning, and bid/no-bid decisions.",
     fit: "Best fit: teams that need preparation time, not another inbox feed.",
+    href: "/use-cases",
     icon: Compass,
   },
   {
+    label: "Account strategy",
     title: "Commercial teams tracking strategic buyers",
-    body: "Monitor incumbent patterns, buyer cycles, and external public signals so account engagement starts months earlier.",
+    body: "Track buyers, incumbents, renewal cycles, and public signals for better account timing.",
     fit: "Best fit: suppliers selling into complex public-sector accounts.",
+    href: "/platform",
     icon: Landmark,
   },
 ];
 
 const productTour = [
   {
-    title: "Panorama",
-    label: "User dashboard",
-    body: "See market momentum, strategic runway, and renewal opportunities in one operating view.",
-    screenshot: "/screenshots/panorama.png",
-    width: 2880,
-    height: 1558,
-    alt: "Panorama dashboard showing strategic runway, operational status, and renewal opportunities",
-    caption: "Panorama: your strategic runway at a glance",
-  },
-  {
     title: "Forecast",
     label: "Forecasting engine",
-    body: "Track scoped opportunities, upcoming windows, horizon timing, and validation evidence across markets.",
+    body: "Turn buyer cycles, renewal windows, award history, and public signals into scoped forecast windows your team can act on.",
+    href: "/platform#forecast",
+    featured: true,
     screenshot: "/screenshots/forecast-validation.png",
     width: 1352,
     height: 680,
@@ -96,9 +117,21 @@ const productTour = [
     caption: "Forecast: validation, timing, and market evidence in one view",
   },
   {
+    title: "Panorama",
+    label: "User dashboard",
+    body: "See market momentum, strategic runway, and renewal opportunities in one operating view.",
+    href: "/platform",
+    screenshot: "/screenshots/panorama.png",
+    width: 2880,
+    height: 1558,
+    alt: "Panorama dashboard showing strategic runway, operational status, and renewal opportunities",
+    caption: "Panorama: your strategic runway at a glance",
+  },
+  {
     title: "Finder",
     label: "Target discovery",
     body: "Narrow the market by buyer, country, source, and category so teams focus on the right accounts.",
+    href: "/platform#finder",
     screenshot: "/screenshots/finder-filters.png",
     width: 2876,
     height: 1436,
@@ -109,6 +142,7 @@ const productTour = [
     title: "Competitors",
     label: "Incumbent pressure",
     body: "Understand contract footprint, competitive intensity, and positioning context before committing bid effort.",
+    href: "/platform#competitors",
     screenshot: "/screenshots/competitors.png",
     width: 2880,
     height: 1552,
@@ -125,24 +159,34 @@ const connectedWorkflows = [
 
 const homeFaqs = [
   {
-    question: "What is Civant?",
+    question: "What is procurement forecasting intelligence?",
     answer:
-      "Civant is a European procurement forecasting intelligence platform. It helps bid, sales, and market intelligence teams identify likely tender timing earlier by combining buyer history, contract lifecycles, competitor activity, and public evidence.",
+      "Procurement forecasting intelligence helps teams identify likely tender timing before formal notices appear. Civant builds forecasts from buyer cycles, contract lifecycles, award history, competitor movement, and public signals.",
   },
   {
-    question: "How is Civant different from a tender alert tool?",
+    question: "How is Civant different from tender alerts?",
     answer:
-      "Tender alert tools notify teams after notices are published. Civant is built for earlier planning: it monitors procurement history, renewal cycles, awards, market movement, and external signals so teams can prioritise accounts before the formal notice appears.",
+      "Tender alerts tell teams when a notice has already been published. Civant helps teams plan earlier by monitoring renewal windows, buyer behaviour, incumbent patterns, and external public signals before the tender appears.",
   },
   {
-    question: "What does Civant validate?",
+    question: "Which European markets does Civant cover?",
     answer:
-      "Civant validates forecast logic against subsequently published tenders and award activity. The validation loop checks whether evidence-led signals, timing windows, and buyer patterns align with real procurement outcomes over time.",
+      "Civant currently covers Ireland, the United Kingdom, Spain, France, and Italy, with Finland, Belgium, Germany, and the Netherlands listed as upcoming markets.",
+  },
+  {
+    question: "Do Civant plans include all available countries?",
+    answer:
+      "Yes. Civant plans include all available countries, so teams can compare markets and build cross-border coverage without paying separately for each market.",
   },
   {
     question: "Who should use Civant?",
     answer:
       "Civant is built for B2G sales teams, bid teams, founders, market intelligence teams, and public-sector suppliers that need earlier visibility, better account prioritisation, and more disciplined bid or no-bid decisions.",
+  },
+  {
+    question: "How does Civant validate forecast quality?",
+    answer:
+      "Civant checks forecast logic against subsequently published tender and award activity. The validation loop tests whether evidence-led timing signals and buyer patterns align with real procurement outcomes over time.",
   },
 ];
 
@@ -168,6 +212,11 @@ export default function HomePage() {
               from buyer cycles, contract lifecycles, competitor movement, and
               public signals.
             </p>
+            <p className="home-hero-definition">
+              Civant is procurement forecasting software for B2G teams that
+              need earlier market timing, buyer intelligence, and evidence-led
+              bid planning.
+            </p>
             <CTAGroup
               primaryHref="/pricing"
               primaryLabel="Get Started"
@@ -175,33 +224,58 @@ export default function HomePage() {
               secondaryLabel="See Platform"
             />
             <p className="cred-line">
-              Evidence-led forecasting, continuously checked against published
-              tender activity.
+              Validated against 79K evidence checks across live and upcoming
+              European markets.
             </p>
           </div>
 
-        </div>
+          <aside className="home-hero-console" aria-label="Civant forecasting console">
+            <div className="home-hero-console-head">
+              <p>Forecast operating layer</p>
+              <span>Evidence loop</span>
+            </div>
 
-        <div className="hero-proof-strip" aria-label="Civant validation proof">
-          {heroProof.map((item) => (
-            <article key={item.label} className="hero-proof-item">
-              <p>{item.label}</p>
-              <strong>{item.value}</strong>
-              <span>{item.detail}</span>
-            </article>
-          ))}
+            <div className="home-hero-console-metrics">
+              {heroProof.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`home-hero-metric ${
+                    item.label === "Opportunity" ? "home-hero-metric-opportunity" : ""
+                  }`}
+                  aria-label={`${item.label}: ${item.value}. ${item.detail}`}
+                >
+                  <span>{item.label}</span>
+                  <strong>{item.value}</strong>
+                  <em>{item.detail}</em>
+                </Link>
+              ))}
+            </div>
+
+            <div className="home-hero-signal-panel">
+              <div className="home-hero-signal-copy">
+                <p>Signals into forecast</p>
+                <span>Each layer links to the evidence behind the model.</span>
+              </div>
+              <div className="home-hero-signal-list">
+                {heroSignalLayers.map((item) => (
+                  <Link key={item.label} href={item.href}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
       </Section>
 
       <Section muted className="home-audience-section">
         <div className="home-audience-heading">
           <p className="eyebrow">Who Civant Is For</p>
-          <h2 className="headline-lg">
-            Built for teams that need earlier public-sector market timing
-          </h2>
+          <h2 className="headline-lg">Who Civant is for</h2>
           <p className="text-lead section-intro">
-            Civant is strongest when the cost of finding out late is missed
-            positioning, rushed qualification, or a poor bid/no-bid decision.
+            Civant is for B2G teams where finding out late means missed
+            positioning, rushed qualification, or weaker bid/no-bid decisions.
           </p>
         </div>
 
@@ -210,25 +284,29 @@ export default function HomePage() {
             const Icon = card.icon;
 
             return (
-              <article key={card.title} className="home-audience-card">
+              <Link key={card.title} href={card.href} className="home-audience-card">
                 <div className="home-audience-card-head">
                   <span className="home-audience-icon" aria-hidden="true">
                     <Icon />
                   </span>
-                  <h3>{card.title}</h3>
+                  <div>
+                    <p className="home-audience-label">{card.label}</p>
+                    <h3>{card.title}</h3>
+                  </div>
                 </div>
                 <p>{card.body}</p>
                 <p className="home-audience-fit">{card.fit}</p>
-              </article>
+                <span className="home-audience-link">Explore fit</span>
+              </Link>
             );
           })}
         </div>
 
         <div className="home-audience-decision">
           <p>
-            If your team only needs a list of live tender notices, Civant is
-            probably more intelligence than you need. If you need to know where
-            the market is likely to move next, this is the right layer.
+            If your team only needs a list of live tender notices, Civant may be
+            more intelligence than you need. If timing, evidence, and account
+            focus shape the outcome, this is the right layer.
           </p>
           <Link href="/pricing" className="btn btn-primary">
             Start with Civant
@@ -240,22 +318,32 @@ export default function HomePage() {
         <div className="section-heading-wrap product-tour-heading">
           <p className="eyebrow">Product</p>
           <h2 className="headline-lg">
-            A Forecasting Engine built from hard data, evidence and validated every day
+            Procurement forecasting software built from buyer cycles, awards, and public signals
           </h2>
           <p className="text-lead section-intro">
-            Forecast is the center of Civant. The screens below show how market
-            visibility, target discovery, and competitor context feed the
-            forecasting workflow for public-sector growth teams.
+            Forecast sits at the center of Civant. Market visibility, target
+            discovery, and competitor context all feed the workflow that helps
+            public-sector growth teams act earlier.
           </p>
         </div>
 
         <div className="product-tour-grid">
           {productTour.map((item) => (
-            <article key={item.title} className="product-tour-card">
+            <article
+              key={item.title}
+              className={`product-tour-card ${
+                item.featured ? "product-tour-card-featured" : ""
+              } ${
+                item.featured ? "" : "product-tour-card-secondary"
+              }`}
+            >
               <div className="product-tour-card-copy">
                 <p className="micro-label">{item.label}</p>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
+                <Link href={item.href} className="product-tour-card-link">
+                  View module
+                </Link>
               </div>
               <BrowserFrame
                 src={item.screenshot}
@@ -269,12 +357,24 @@ export default function HomePage() {
         </div>
 
         <div className="product-tour-workflows" aria-label="Connected Civant workflows">
-          <span>Connected workflows</span>
+          <span>From signal to action</span>
           {connectedWorkflows.map((item) => (
             <Link key={item.label} href={item.href}>
               {item.label}
             </Link>
           ))}
+        </div>
+
+        <div className="product-tour-next-step">
+          <p>
+            Start with market coverage, then use the forecast layer to turn
+            timing signals into account plans, bid/no-bid decisions, and earlier
+            pipeline conversations.
+          </p>
+          <div>
+            <Link href="/markets">See markets</Link>
+            <Link href="/platform">Explore platform</Link>
+          </div>
         </div>
       </Section>
 
@@ -285,10 +385,11 @@ export default function HomePage() {
       <Section className="pricing-preview-section">
         <div className="section-heading-wrap">
           <p className="eyebrow">Our Starter Plans</p>
-          <h2 className="headline-lg">Start with the plan that matches your bid motion</h2>
+          <h2 className="headline-lg">Start forecasting before the next tender appears</h2>
           <p className="text-lead section-intro">
-            Vanguard gives lean teams the operating rhythm. Summit gives bid
-            teams broader coverage, competitor context, and more saved rules.
+            Every Civant plan includes all available countries, so teams can
+            start with market visibility from day one instead of paying per
+            market.
           </p>
         </div>
 
@@ -306,12 +407,15 @@ export default function HomePage() {
                 <div>
                   <p className="micro-label">{plan.featured ? "Most popular" : "Starter"}</p>
                   <h3>{plan.name}</h3>
+                  <p className="pricing-preview-description">{plan.description}</p>
+                  <p className="pricing-preview-note">{plan.note}</p>
                 </div>
                 <div className="pricing-preview-price">
                   <strong>{plan.price}</strong>
                   <span>{plan.cadence}</span>
                 </div>
               </div>
+              <span className="pricing-preview-cta">View pricing</span>
             </Link>
           ))}
         </div>
@@ -320,10 +424,10 @@ export default function HomePage() {
       <Section muted className="home-faq-section">
         <div className="section-heading-wrap">
           <p className="eyebrow">FAQ</p>
-          <h2 className="headline-lg">Clear answers for buyers and search engines</h2>
+          <h2 className="headline-lg">Questions teams ask before switching from tender alerts</h2>
           <p className="text-lead section-intro">
-            Civant is built for earlier, evidence-led procurement decisions,
-            not generic alerts or vague market noise.
+            Short answers for teams comparing tender alerts, procurement
+            intelligence, market coverage, and forecast validation.
           </p>
         </div>
 
