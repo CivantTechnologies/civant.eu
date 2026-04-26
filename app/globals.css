@@ -475,7 +475,9 @@ a {
 .home-hero::after {
   content: "";
   position: absolute;
-  inset: 0 0 auto;
+  top: 0;
+  left: 50%;
+  width: 100vw;
   height: clamp(368px, 50vh, 460px);
   background-image: url("/civant-micrologo.jpg");
   background-repeat: no-repeat;
@@ -484,6 +486,7 @@ a {
   opacity: 0.026;
   filter: saturate(0.78) blur(0.2px);
   pointer-events: none;
+  transform: translateX(-50%);
   z-index: 0;
 }
 
