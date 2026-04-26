@@ -167,6 +167,35 @@ export default async function MarketPage({ params }: MarketPageProps) {
         </div>
       </Section>
 
+      {market.procurementSpend ? (
+        <Section>
+          <div className="market-scale-panel liquid-card">
+            <div>
+              <p className="eyebrow">Market Scale</p>
+              <h2 className="headline-lg">
+                {market.country} represents a {market.procurementSpend.value} public procurement market
+              </h2>
+              <p className="text-lead section-intro">
+                {market.procurementSpend.note}
+              </p>
+            </div>
+            <div className="market-scale-stat">
+              <strong>{market.procurementSpend.value}</strong>
+              <span>{market.procurementSpend.label}</span>
+              <a
+                href={market.procurementSpend.sourceHref}
+                target="_blank"
+                rel="noreferrer"
+                className="market-source-link"
+              >
+                Source: {market.procurementSpend.sourceLabel}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </Section>
+      ) : null}
+
       <Section>
         <div className="section-heading-wrap">
           <p className="eyebrow">Signals</p>

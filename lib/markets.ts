@@ -16,6 +16,13 @@ export type Market = {
   metaDescription?: string;
   summary: string;
   buyersLabel: string;
+  procurementSpend?: {
+    value: string;
+    label: string;
+    note: string;
+    sourceLabel: string;
+    sourceHref: string;
+  };
   signalFocus: string[];
   useCases: string[];
   faqs: MarketFaq[];
@@ -42,6 +49,14 @@ export const MARKETS: Market[] = [
     summary:
       "Live Irish coverage supports teams tracking public-sector buyers, recurring contract cycles, supplier participation, and renewal signals.",
     buyersLabel: "Irish public-sector buyers",
+    procurementSpend: {
+      value: "€22bn+",
+      label: "Estimated annual public procurement spend",
+      note: "A useful scale marker for teams assessing Ireland as a recurring public-sector opportunity market.",
+      sourceLabel: "OECD / OGP Ireland case study",
+      sourceHref:
+        "https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/07/procurement-for-better-value-a-case-study-of-ireland_41ab8ce4/ca1e6c47-en.pdf",
+    },
     signalFocus: [
       "National and TED procurement records",
       "Award history and contract lifecycle patterns",
@@ -84,6 +99,13 @@ export const MARKETS: Market[] = [
     summary:
       "Live UK coverage supports teams operating in a high-volume market where timing, buyer segmentation, and incumbent context matter.",
     buyersLabel: "UK public-sector buyers",
+    procurementSpend: {
+      value: "£434bn",
+      label: "public procurement spend",
+      note: "A high-volume market where buyer segmentation, framework context, and renewal timing can materially change pipeline quality.",
+      sourceLabel: "House of Commons Library",
+      sourceHref: "https://commonslibrary.parliament.uk/research-briefings/cbp-9317/",
+    },
     signalFocus: [
       "National procurement records and public notices",
       "Award history and contract duration patterns",
@@ -126,6 +148,14 @@ export const MARKETS: Market[] = [
     summary:
       "Live Spanish coverage supports teams tracking buyers, categories, supplier participation, and timing signals across a decentralized public-sector market.",
     buyersLabel: "Spanish public-sector buyers",
+    procurementSpend: {
+      value: "€108bn",
+      label: "public procurement tender value",
+      note: "A substantial, decentralized market where official platform coverage and regional buyer behavior both matter.",
+      sourceLabel: "OIReScon annual supervision report",
+      sourceHref:
+        "https://www.hacienda.gob.es/RSC/OIReScon/informe-anual-supervision-2024/ias2024-resumen-ejecutivo-en.pdf",
+    },
     signalFocus: [
       "National and TED procurement records",
       "Award history and buyer recurrence",
@@ -168,6 +198,14 @@ export const MARKETS: Market[] = [
     summary:
       "Live French coverage supports teams tracking public buyers, category recurrence, incumbent movement, and early indicators of future procurement.",
     buyersLabel: "French public-sector buyers",
+    procurementSpend: {
+      value: "€233bn",
+      label: "public contract value",
+      note: "A large public-contracting market where national, local, hospital, and entity-buyer activity needs careful separation.",
+      sourceLabel: "OECP / DAJ 2024 figures",
+      sourceHref:
+        "https://www.economie.gouv.fr/files/files/directions_services/daj/media-document/Recensement2024-0326DEF.pdf",
+    },
     signalFocus: [
       "National and TED procurement records",
       "Award and buyer history",
@@ -210,6 +248,14 @@ export const MARKETS: Market[] = [
     summary:
       "Live Italian coverage supports teams tracking buyers, categories, supplier participation, and renewal patterns across public-sector opportunities.",
     buyersLabel: "Italian public-sector buyers",
+    procurementSpend: {
+      value: "€272bn",
+      label: "public contract value",
+      note: "A major procurement market where digital procurement data, award history, and buyer recurrence create useful planning signals.",
+      sourceLabel: "ANAC annual report summary",
+      sourceHref:
+        "https://www.anticorruzione.it/documents/91439/307867242/Anac%2B-%2BRelazione%2B2025%2Bsu%2Battivit%C3%A0%2B2024%2B-%2BSintesi%2Bsul%2Bmercato%2Bappalti.pdf/4698998b-aa51-1d27-bf7c-2cfae9a47fb5",
+    },
     signalFocus: [
       "National and TED procurement records",
       "Award history and contract lifecycle patterns",
@@ -252,6 +298,14 @@ export const MARKETS: Market[] = [
     summary:
       "Finnish coverage is coming next, supporting teams preparing Nordic public-sector expansion and education-market opportunities.",
     buyersLabel: "Finnish public-sector buyers",
+    procurementSpend: {
+      value: "€47bn",
+      label: "annual public procurement spend",
+      note: "A meaningful Nordic public-sector market for teams planning education, software, services, and innovation-led selling motions.",
+      sourceLabel: "Business Finland",
+      sourceHref:
+        "https://www.businessfinland.fi/en/services/funding/funding-services/research-and-development-funding/innovative-public-procurement%3B/",
+    },
     signalFocus: [
       "National and TED procurement records",
       "Buyer, category, and renewal-cycle mapping",
@@ -294,6 +348,14 @@ export const MARKETS: Market[] = [
     summary:
       "Belgian coverage is coming next, supporting teams that need early visibility across national, regional, and European public-sector demand.",
     buyersLabel: "Belgian public-sector buyers",
+    procurementSpend: {
+      value: "€77bn",
+      label: "estimated public procurement spend",
+      note: "Belgium's decentralized public-sector structure makes source coverage, buyer mapping, and regional context especially important.",
+      sourceLabel: "OECD Government at a Glance",
+      sourceHref:
+        "https://www.oecd.org/en/publications/government-at-a-glance-2023_c4200b14-en/belgium_054f6923-en.html",
+    },
     signalFocus: [
       "National, regional, and TED procurement records",
       "Buyer and category recurrence",
@@ -336,6 +398,14 @@ export const MARKETS: Market[] = [
     summary:
       "German coverage is coming next, supporting teams preparing for a large, distributed public-sector market with complex buyer and category structures.",
     buyersLabel: "German public-sector buyers",
+    procurementSpend: {
+      value: "€123.5bn",
+      label: "public contract value",
+      note: "Germany's distributed procurement landscape rewards careful buyer segmentation and structured evidence across federal, state, and local demand.",
+      sourceLabel: "German Federal Statistical Office",
+      sourceHref:
+        "https://www.destatis.de/EN/Themes/Government/Public-Finance/Public-procurement/_node.html",
+    },
     signalFocus: [
       "National and TED procurement records",
       "Buyer and category segmentation",
@@ -378,6 +448,14 @@ export const MARKETS: Market[] = [
     summary:
       "Dutch coverage is coming next, supporting teams preparing Benelux public-sector expansion and earlier opportunity planning.",
     buyersLabel: "Dutch public-sector buyers",
+    procurementSpend: {
+      value: "€116.2bn",
+      label: "estimated procurement volume",
+      note: "The Netherlands is a high-value public procurement market where open data, buyer recurrence, and tender history can support earlier planning.",
+      sourceLabel: "PIANOo / TenderNed monitor",
+      sourceHref:
+        "https://www.pianoo.nl/nl/document/19201/monitor-aanbestedingen-nederland-2021-2023",
+    },
     signalFocus: [
       "National and TED procurement records",
       "Buyer and category recurrence",
