@@ -19,17 +19,18 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 type SolutionPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return SOLUTIONS.map((solution) => ({ slug: solution.slug }));
 }
 
-export function generateMetadata({ params }: SolutionPageProps) {
-  const solution = getSolutionBySlug(params.slug);
+export async function generateMetadata({ params }: SolutionPageProps) {
+  const { slug } = await params;
+  const solution = getSolutionBySlug(slug);
 
   if (!solution) {
     return {};
@@ -63,8 +64,9 @@ function buildSolutionSchema(
   ];
 }
 
-export default function SolutionDetailPage({ params }: SolutionPageProps) {
-  const solution = getSolutionBySlug(params.slug);
+export default async function SolutionDetailPage({ params }: SolutionPageProps) {
+  const { slug } = await params;
+  const solution = getSolutionBySlug(slug);
 
   if (!solution) {
     notFound();

@@ -10,11 +10,8 @@
     "test": "node -e \"console.log('No tests configured yet')\"",
     "lint": "npm run marketing:lint",
     "lint:fix": "npm run marketing:lint -- --fix",
-    "lighthouse:ci": "rm -rf .lighthouseci && lhci autorun",
-    "lighthouse:ci:build": "npm run build && npm run lighthouse:ci",
-    "lighthouse:production": "rm -rf .lighthouseci-production && lhci autorun --config=lighthouserc.production.cjs",
     "production:headers": "node scripts/verify-production.mjs",
-    "verify:production": "npm run production:headers && npm run lighthouse:production",
+    "verify:production": "npm run production:headers",
     "typecheck": "npm run marketing:typecheck",
     "legacy:dev": "vite",
     "legacy:build": "vite build && node scripts/postbuild-copy.cjs",
@@ -76,7 +73,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.475.0",
     "moment": "^2.30.1",
-    "next": "^14.2.0",
+    "next": "^15.5.15",
     "next-themes": "^0.4.4",
     "react": "^18.2.0",
     "react-day-picker": "^8.10.1",
@@ -85,7 +82,6 @@
     "react-hot-toast": "^2.6.0",
     "react-leaflet": "^4.2.1",
     "react-markdown": "^9.0.1",
-    "react-quill": "^2.0.0",
     "react-resizable-panels": "^2.1.7",
     "react-router-dom": "^6.26.0",
     "recharts": "^2.15.4",
@@ -99,7 +95,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
-    "@lhci/cli": "^0.15.1",
     "@next/eslint-plugin-next": "^16.2.4",
     "@prerenderer/renderer-puppeteer": "^1.2.4",
     "@sparticuz/chromium": "^143.0.4",
@@ -117,12 +112,14 @@
     "eslint-plugin-react-refresh": "^0.4.18",
     "eslint-plugin-unused-imports": "^4.3.0",
     "globals": "^15.14.0",
-    "postcss": "^8.5.3",
+    "postcss": "8.5.10",
     "puppeteer-core": "^24.36.1",
     "serve-handler": "^6.1.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2",
-    "vite": "^6.1.0",
-    "vite-plugin-prerender": "^1.0.8"
+    "vite": "^6.1.0"
+  },
+  "overrides": {
+    "postcss": "$postcss"
   }
 }

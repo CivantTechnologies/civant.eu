@@ -16,17 +16,18 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 type MarketPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return MARKETS.map((market) => ({ slug: market.slug }));
 }
 
-export function generateMetadata({ params }: MarketPageProps) {
-  const market = getMarketBySlug(params.slug);
+export async function generateMetadata({ params }: MarketPageProps) {
+  const { slug } = await params;
+  const market = getMarketBySlug(slug);
 
   if (!market) {
     return {};
@@ -69,8 +70,9 @@ function getCtaMarketLabel(market: NonNullable<ReturnType<typeof getMarketBySlug
   return market.country;
 }
 
-export default function MarketPage({ params }: MarketPageProps) {
-  const market = getMarketBySlug(params.slug);
+export default async function MarketPage({ params }: MarketPageProps) {
+  const { slug } = await params;
+  const market = getMarketBySlug(slug);
 
   if (!market) {
     notFound();
