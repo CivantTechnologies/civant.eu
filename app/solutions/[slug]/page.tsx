@@ -56,7 +56,7 @@ function buildSolutionSchema(
     }),
     buildBreadcrumbSchema([
       { name: "Home", item: SITE_URL },
-      { name: "Solutions", item: `${SITE_URL}/solutions` },
+      { name: "Solution", item: `${SITE_URL}/solutions` },
       { name: solution.title, item: `${SITE_URL}/solutions/${solution.slug}` },
     ]),
     buildSoftwareApplicationSchema(),
@@ -315,7 +315,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
 
       <Section muted>
         <div className="section-heading-wrap">
-          <p className="eyebrow">Related Solutions</p>
+          <p className="eyebrow">Related Paths</p>
           <h2 className="headline-lg">Explore adjacent search paths</h2>
         </div>
         <div className="grid grid-3 solution-related-grid">
@@ -327,7 +327,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
             >
               <h3 className="card-title">{item.title}</h3>
               <p className="card-body">{item.description}</p>
-              <span className="card-link-cta">View Solution</span>
+              <span className="card-link-cta">View Path</span>
             </Link>
           ))}
         </div>

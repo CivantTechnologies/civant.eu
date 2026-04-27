@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { SchemaScript } from "../../components/site/SchemaScript";
@@ -13,9 +14,9 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Procurement Intelligence Solutions | Civant",
+  title: "Procurement Intelligence Solution | Civant",
   description:
-    "Explore Civant solutions for procurement intelligence software, tender forecasting, EU tender monitoring, and public procurement strategy.",
+    "Explore the Civant solution for procurement intelligence software, tender forecasting, EU tender monitoring, and public procurement strategy.",
   path: "/solutions",
 });
 
@@ -23,10 +24,10 @@ const solutionsSchema = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Civant Procurement Intelligence Solutions",
+    name: "Civant Procurement Intelligence Solution",
     url: `${SITE_URL}/solutions`,
     description:
-      "Solution pages explaining Civant's procurement intelligence platform for European public-sector markets.",
+      "Search paths explaining Civant's procurement intelligence platform for European public-sector markets.",
     hasPart: SOLUTIONS.map((solution) => ({
       "@type": "WebPage",
       name: solution.title,
@@ -42,49 +43,106 @@ const solutionsSchema = [
   buildSoftwareApplicationSchema(),
 ];
 
+const solutionEvidenceChips = [
+  "Official notices",
+  "Award outcomes",
+  "Lifecycle signals",
+  "Buyer recurrence",
+  "Competitor movement",
+  "External public signals",
+  "Agentic analysis",
+];
+
 export default function SolutionsPage() {
   return (
     <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Solutions</p>
-        <h1 className="headline-xl">
-          Forecasting intelligence for teams that need to act earlier
-        </h1>
-        <p className="text-lead">
-          Civant helps suppliers move beyond tender alerts by connecting
-          procurement history, award outcomes, contract lifecycles, competitor
-          movement, and external public signals into one planning workflow.
-        </p>
-        <CTAGroup
-          primaryHref="/pricing"
-          primaryLabel="View Pricing"
-          secondaryHref="/contact"
-          secondaryLabel="Request Custom Plan"
-        />
+      <Section
+        className="hero-block hero-section solution-hero"
+        containerClassName="solution-hero-container"
+      >
+        <div className="solution-hero-editorial">
+          <p className="eyebrow">Solution</p>
+          <h1 className="headline-xl">
+            One procurement intelligence platform for public-sector growth
+          </h1>
+          <p className="text-lead">
+            Civant connects tender history, award outcomes, contract lifecycles,
+            competitor movement, and external public signals so teams can focus
+            on the right opportunities before the market gets crowded.
+          </p>
+          <CTAGroup
+            primaryHref="/pricing"
+            primaryLabel="Get Started"
+            secondaryHref="/contact"
+            secondaryLabel="Talk to Us"
+          />
+        </div>
+
+        <nav className="solution-hero-rail" aria-label="Explore Civant search paths">
+          <span>Explore by intent</span>
+          <div>
+            {SOLUTIONS.map((solution) => (
+              <Link key={solution.slug} href={`/solutions/${solution.slug}`}>
+                {solution.title}
+              </Link>
+            ))}
+          </div>
+        </nav>
       </Section>
 
       <Section muted>
         <div className="section-heading-wrap">
-          <p className="eyebrow">Solution Map</p>
+          <p className="eyebrow">Intent Map</p>
           <h2 className="headline-lg">
-            Four ways buyers search for what Civant does
+            Different search intents. One Civant solution.
           </h2>
           <p className="text-lead section-intro">
-            Each page answers a high-intent search pattern with clear language,
-            evidence-led positioning, and a path into pricing.
+            Teams arrive through different language, but each path leads back
+            to the same evidence engine: procurement records, award outcomes,
+            lifecycle signals, competitor movement, external public signals,
+            and agentic analysis.
           </p>
         </div>
-        <div className="grid grid-2 solution-card-grid">
+        <div className="solution-engine-panel">
+          <div className="solution-engine-visual">
+            <Image
+              src="/images/solutions/civant-evidence-engine.png"
+              alt="Abstract Civant evidence engine showing public-sector signals flowing into a European procurement forecast"
+              width={1586}
+              height={992}
+              sizes="(max-width: 900px) 100vw, 58vw"
+            />
+          </div>
+          <div className="solution-engine-copy">
+            <p className="module-label">Evidence engine</p>
+            <h3 className="card-title">
+              Public signals converge before the market moves.
+            </h3>
+            <p className="card-body">
+              Civant connects fragmented procurement evidence into one planning
+              layer, so each search path starts with the same structured signal
+              base.
+            </p>
+            <div className="solution-engine-chips" aria-label="Civant evidence signals">
+              {solutionEvidenceChips.map((chip) => (
+                <span key={chip}>{chip}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="solution-intent-grid">
           {SOLUTIONS.map((solution) => (
             <Link
               key={solution.slug}
               href={`/solutions/${solution.slug}`}
-              className="card card-link interactive-surface solution-card"
+              className="solution-intent-card"
             >
-              <p className="module-label">{solution.title}</p>
-              <h2 className="card-title">{solution.headline}</h2>
-              <p className="card-body">{solution.description}</p>
-              <span className="card-link-cta">Explore Solution</span>
+              <div className="solution-intent-copy">
+                <p className="module-label">{solution.title}</p>
+                <h3 className="card-title">{solution.headline}</h3>
+                <p className="card-body">{solution.description}</p>
+                <span className="card-link-cta">Explore Path</span>
+              </div>
             </Link>
           ))}
         </div>

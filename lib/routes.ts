@@ -12,7 +12,7 @@ export type ContentRoute = {
 export const TOP_LEVEL_ROUTES: SiteRoute[] = [
   { href: "/", label: "Home" },
   { href: "/platform", label: "Platform" },
-  { href: "/solutions", label: "Solutions" },
+  { href: "/solutions", label: "Solution" },
   { href: "/markets", label: "Markets" },
   { href: "/use-cases", label: "Use Cases" },
   { href: "/methodology", label: "Methodology" },

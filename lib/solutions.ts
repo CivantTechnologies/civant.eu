@@ -211,7 +211,7 @@ export const SOLUTIONS: SolutionPage[] = [
       "Supplier participation and competition levels",
       "Framework and contract lifecycle patterns",
       "External policy, budget, grant, and hiring signals",
-      "AI-assisted tender and scope interpretation",
+      "Agentic tender and scope interpretation",
     ],
     faqs: [
       {

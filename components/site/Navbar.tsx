@@ -26,7 +26,7 @@ const PRIMARY_NAV_GROUPS: NavGroup[] = [
     href: "/platform",
     items: [
       { href: "/platform", label: "Platform overview" },
-      { href: "/solutions", label: "Solutions" },
+      { href: "/solutions", label: "Solution" },
     ],
   },
   {

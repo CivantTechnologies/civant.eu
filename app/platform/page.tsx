@@ -289,7 +289,7 @@ const platformPathLinks = [
     title: "Match the right solution",
     body: "Choose the search path that best reflects the procurement problem your team is solving.",
     href: "/solutions",
-    cta: "Explore Solutions",
+    cta: "Explore Solution",
   },
   {
     title: "Explore market coverage",
