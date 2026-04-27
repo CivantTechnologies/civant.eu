@@ -6,6 +6,7 @@ import { SchemaScript } from "../../components/site/SchemaScript";
 import { Section } from "../../components/site/Section";
 import { SOLUTIONS } from "../../lib/solutions";
 import {
+  buildFaqSchema,
   buildPageMetadata,
   buildSoftwareApplicationSchema,
   SITE_URL,
@@ -14,11 +15,44 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Procurement Intelligence Solution | Civant",
+  title: "Procurement Intelligence Solution",
   description:
     "Explore the Civant solution for procurement intelligence software, tender forecasting, EU tender monitoring, and public procurement strategy.",
   path: "/solutions",
 });
+
+const solutionFaqs = [
+  {
+    question: "What is Civant?",
+    answer:
+      "Civant is a public procurement forecasting intelligence platform that connects tender history, award outcomes, contract lifecycles, competitor movement, and external public signals into earlier market visibility.",
+  },
+  {
+    question: "How is Civant different from tender alerts?",
+    answer:
+      "Tender alerts usually notify teams after a notice is published. Civant focuses on earlier visibility by analyzing procurement evidence, lifecycle timing, buyer recurrence, and market signals before tender windows open.",
+  },
+  {
+    question: "How does Civant forecast tender opportunities?",
+    answer:
+      "Civant translates structured procurement evidence into signals for likely demand timing, opportunity fit, confidence, and competitive pressure, helping teams prioritize where to prepare.",
+  },
+  {
+    question: "What evidence does Civant use?",
+    answer:
+      "Civant uses official procurement records, award history, contract lifecycle timing, buyer recurrence, competitor activity, and external public signals such as budgets, grants, policy movement, and hiring.",
+  },
+  {
+    question: "Where does agentic analysis fit?",
+    answer:
+      "Agentic analysis helps interpret match, scope, buyer intent, and strategic context on top of structured procurement evidence. It supports interpretation without replacing the forecasting logic.",
+  },
+  {
+    question: "Who is Civant built for?",
+    answer:
+      "Civant is built for bid, B2G sales, partnerships, and market intelligence teams that need earlier visibility and stronger bid/no-bid discipline in public-sector markets.",
+  },
+];
 
 const solutionsSchema = [
   {
@@ -41,6 +75,7 @@ const solutionsSchema = [
     },
   },
   buildSoftwareApplicationSchema(),
+  buildFaqSchema(solutionFaqs),
 ];
 
 const solutionEvidenceChips = [
@@ -148,46 +183,59 @@ export default function SolutionsPage() {
         </div>
       </Section>
 
-      <Section>
-        <div className="section-heading-wrap">
+      <Section className="solution-positioning-section">
+        <div className="section-heading-wrap solution-positioning-heading">
           <p className="eyebrow">Civant Positioning</p>
           <h2 className="headline-lg">
-            Not a chatbot. Not another alert feed. A forecasting intelligence
-            layer.
+            Forecasting intelligence built on public procurement evidence
           </h2>
           <p className="text-lead section-intro">
-            AI is useful when it interprets match, scope, documents, and buyer
-            intent. Civant's forecasting advantage comes from hard public
-            evidence: procurement records, TED context, awards, lifecycles, and
-            external signals.
+            Civant connects tender history, award outcomes, contract lifecycles,
+            competitor movement, and external public signals into forecasting
+            visibility your team can act on before tender windows open.
           </p>
         </div>
-        <div className="solution-proof-strip">
-          <article>
-            <h3 className="card-title">Evidence first</h3>
+        <div className="solution-positioning-panel">
+          <article className="solution-positioning-card">
+            <span className="solution-positioning-index">01</span>
+            <h3 className="card-title">Evidence base</h3>
             <p className="card-body">
-              Forecasting starts from official records, awards, lifecycle
-              timing, buyer recurrence, and public external signals.
+              Official procurement records, award history, lifecycle timing,
+              buyer recurrence, competitor movement, and external public
+              signals.
             </p>
           </article>
-          <article>
-            <h3 className="card-title">AI where it helps</h3>
+          <article className="solution-positioning-card solution-positioning-card-featured">
+            <span className="solution-positioning-index">02</span>
+            <h3 className="card-title">Forecasting logic</h3>
             <p className="card-body">
-              AI supports interpretation, tender analysis, and strategic
-              context on top of deterministic procurement intelligence.
+              Signals are translated into likely demand timing, opportunity
+              fit, confidence, and competitive pressure.
             </p>
           </article>
-          <article>
-            <h3 className="card-title">Built for action</h3>
+          <article className="solution-positioning-card">
+            <span className="solution-positioning-index">03</span>
+            <h3 className="card-title">Commercial discipline</h3>
             <p className="card-body">
-              Teams use Civant to prioritize buyers, prepare earlier, and make
-              stronger bid/no-bid decisions.
+              Teams prepare earlier, prioritize better, and make stronger
+              bid/no-bid decisions before the market becomes reactive.
             </p>
           </article>
+        </div>
+        <div className="solution-compact-faq">
+          <h3 className="card-title">Solution FAQ</h3>
+          <div className="solution-compact-faq-list">
+            {solutionFaqs.map((faq) => (
+              <details key={faq.question} className="solution-compact-faq-item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </Section>
 
-      <Section muted>
+      <Section muted className="solution-coverage-section">
         <MarketCoverageLinks
           eyebrow="Coverage"
           title="One intelligence model across live and upcoming markets"
@@ -199,17 +247,17 @@ export default function SolutionsPage() {
       <Section>
         <div className="final-cta">
           <h2 className="headline-lg final-cta-title">
-            Turn search intent into a working procurement plan
+            Build your public-sector pipeline before tender windows open
           </h2>
           <p className="text-lead platform-cta-copy">
-            Start with a self-serve plan, or request a custom plan if your team
-            needs market, category, or workflow setup.
+            Start with a self-serve plan, or talk to us about market, category,
+            and workflow setup for your team.
           </p>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="View Pricing"
+            primaryLabel="Get Started"
             secondaryHref="/contact"
-            secondaryLabel="Request Custom Plan"
+            secondaryLabel="Talk to Us"
           />
         </div>
       </Section>

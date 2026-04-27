@@ -1092,17 +1092,19 @@ a {
 
 .solution-hero-rail a {
   display: flex;
-  min-height: 46px;
+  min-height: 54px;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(0, 196, 196, 0.24);
-  border-radius: 999px;
-  background: rgba(0, 196, 196, 0.052);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(0, 196, 196, 0.075), rgba(255, 255, 255, 0.026)),
+    rgba(0, 196, 196, 0.04);
   color: #f3f7fb;
   font-size: 0.88rem;
   font-weight: 600;
   line-height: 1.3;
-  padding: 0.55rem 0.85rem;
+  padding: 0.62rem 0.95rem;
   text-align: center;
   text-decoration: none;
   transition:
@@ -1116,7 +1118,9 @@ a {
 .solution-hero-rail a:hover,
 .solution-hero-rail a:focus-visible {
   border-color: rgba(140, 238, 237, 0.58);
-  background: rgba(0, 196, 196, 0.12);
+  background:
+    linear-gradient(145deg, rgba(0, 196, 196, 0.14), rgba(255, 255, 255, 0.04)),
+    rgba(0, 196, 196, 0.07);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
   color: #ffffff;
   transform: translateY(-1px);
@@ -3865,6 +3869,214 @@ a {
   margin-top: 1.1rem;
   padding-top: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.solution-positioning-section {
+  position: relative;
+}
+
+.solution-positioning-heading {
+  max-width: 70rem;
+}
+
+.solution-positioning-heading .headline-lg {
+  max-width: 28ch;
+}
+
+.solution-positioning-heading .section-intro {
+  max-width: 62rem;
+}
+
+.solution-positioning-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 2rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 196, 196, 0.28);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(0, 196, 196, 0.18), transparent 42%),
+    rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 24px 70px rgba(0, 0, 0, 0.26);
+}
+
+.solution-positioning-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(112deg, transparent 12%, rgba(255, 255, 255, 0.12) 38%, transparent 68%),
+    radial-gradient(circle at 18% 8%, rgba(116, 244, 242, 0.18), transparent 34%);
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.solution-positioning-card {
+  position: relative;
+  z-index: 1;
+  min-height: 16.5rem;
+  padding: clamp(1.25rem, 2.4vw, 2rem);
+  background:
+    linear-gradient(180deg, rgba(12, 25, 43, 0.88), rgba(8, 17, 31, 0.88)),
+    rgba(255, 255, 255, 0.04);
+}
+
+.solution-positioning-card-featured {
+  background:
+    linear-gradient(180deg, rgba(0, 196, 196, 0.1), rgba(8, 17, 31, 0.9)),
+    rgba(255, 255, 255, 0.05);
+}
+
+.solution-positioning-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 1.75rem;
+  margin-bottom: 1.45rem;
+  border: 1px solid rgba(0, 196, 196, 0.32);
+  border-radius: 999px;
+  color: #8ff7f4;
+  background: rgba(0, 196, 196, 0.08);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.solution-positioning-card .card-title {
+  font-size: clamp(1.22rem, 1.8vw, 1.55rem);
+  font-weight: 600;
+}
+
+.solution-positioning-card .card-body {
+  max-width: 28rem;
+  margin-top: 0.85rem;
+  color: rgba(216, 225, 238, 0.78);
+}
+
+.solution-compact-faq {
+  margin-top: clamp(1.25rem, 3vw, 1.8rem);
+}
+
+.solution-compact-faq > .card-title {
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.solution-compact-faq-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.solution-compact-faq-item {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 0.82rem 0.95rem;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.solution-compact-faq-item:hover,
+.solution-compact-faq-item:focus-within {
+  border-color: rgba(140, 238, 237, 0.28);
+  background: rgba(0, 196, 196, 0.052);
+  transform: translateY(-1px);
+}
+
+.solution-compact-faq-item[open] {
+  border-color: rgba(140, 238, 237, 0.24);
+  background:
+    linear-gradient(136deg, rgba(0, 196, 196, 0.07), rgba(255, 255, 255, 0.026)),
+    rgba(255, 255, 255, 0.032);
+}
+
+.solution-compact-faq-item summary {
+  cursor: pointer;
+  color: #f8fafc;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.solution-compact-faq-item summary::marker {
+  color: #8ceeed;
+}
+
+.solution-compact-faq-item summary:focus-visible {
+  outline: 2px solid rgba(140, 238, 237, 0.72);
+  outline-offset: 4px;
+}
+
+.solution-compact-faq-item p {
+  margin: 0.58rem 0 0;
+  color: #aeb8c6;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.solution-coverage-section {
+  padding: clamp(2.35rem, 5vw, 3.1rem) 0;
+}
+
+.solution-coverage-section .market-link-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+  max-width: 1120px;
+  text-align: left;
+}
+
+.solution-coverage-section .market-link-panel-heading {
+  max-width: 34rem;
+  margin: 0;
+}
+
+.solution-coverage-section .market-link-panel-compact .headline-lg {
+  max-width: 17ch;
+  font-size: clamp(1.55rem, 2.25vw, 2.05rem);
+  line-height: 1.12;
+}
+
+.solution-coverage-section .market-link-panel-heading .section-intro {
+  max-width: 36rem;
+  margin-top: 0.65rem;
+  color: rgba(216, 225, 238, 0.78);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.solution-coverage-section .market-link-groups {
+  align-self: end;
+  gap: 0.82rem;
+  margin-top: 0;
+}
+
+.solution-coverage-section .market-link-group {
+  justify-items: start;
+  gap: 0.48rem;
+}
+
+.solution-coverage-section .market-link-row {
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.solution-coverage-section .market-chip {
+  min-height: 34px;
+  padding: 0.36rem 0.72rem;
+  font-size: 0.82rem;
+}
+
+.solution-coverage-section .market-link-all {
+  margin-top: 0.9rem;
 }
 
 .solution-definition {
@@ -7174,6 +7386,8 @@ a {
   }
 
   .solution-proof-strip,
+  .solution-positioning-panel,
+  .solution-compact-faq-list,
   .solution-use-case-flow,
   .solution-signal-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -7433,7 +7647,8 @@ a {
   }
 
   .solution-hero-rail a {
-    min-height: 42px;
+    min-height: 48px;
+    border-radius: 16px;
   }
 
   .solution-intent-card {
@@ -7485,9 +7700,87 @@ a {
   }
 
   .solution-proof-strip,
+  .solution-positioning-panel,
+  .solution-compact-faq-list,
   .solution-signal-list,
   .solution-use-case-flow {
     grid-template-columns: 1fr;
+  }
+
+  .solution-positioning-heading .headline-lg {
+    max-width: 18ch;
+  }
+
+  .solution-positioning-panel {
+    margin-top: 1.35rem;
+  }
+
+  .solution-positioning-card {
+    min-height: 0;
+    padding: 1.25rem;
+  }
+
+  .solution-positioning-index {
+    margin-bottom: 0.85rem;
+  }
+
+  .solution-positioning-card .card-title {
+    font-size: 1.38rem;
+  }
+
+  .solution-positioning-card .card-body {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .solution-coverage-section .market-link-panel {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .solution-coverage-section .market-link-panel-heading {
+    max-width: var(--reading-max);
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .solution-coverage-section .market-link-panel-compact .headline-lg {
+    max-width: none;
+    font-size: clamp(1.45rem, 7vw, 1.82rem);
+    line-height: 1.15;
+  }
+
+  .solution-coverage-section .market-link-panel-heading .section-intro {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .solution-coverage-section .market-link-group {
+    justify-items: center;
+  }
+
+  .solution-coverage-section .market-link-groups {
+    transform: none;
+  }
+
+  .solution-coverage-section .market-link-row {
+    justify-content: center;
+    gap: 0.45rem;
+  }
+
+  .solution-coverage-section .market-chip {
+    min-height: 34px;
+    padding: 0.36rem 0.68rem;
+    font-size: 0.84rem;
+  }
+
+  .solution-coverage-section .market-chip span {
+    font-size: 0.68rem;
+  }
+
+  .solution-coverage-section .market-link-all {
+    justify-self: center;
+    font-size: 0.98rem;
   }
 
   .platform-proof-console {
