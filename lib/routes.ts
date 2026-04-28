@@ -21,6 +21,7 @@ export const TOP_LEVEL_ROUTES: SiteRoute[] = [
   { href: "/resources/reports", label: "Forecast Reports" },
   { href: "/company", label: "Company" },
   { href: "/team", label: "Team" },
+  { href: "/understanding-civant", label: "Understanding Civant" },
   { href: "/contact", label: "Contact" },
 ];
 

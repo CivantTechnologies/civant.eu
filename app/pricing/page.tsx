@@ -18,6 +18,11 @@ export const metadata = buildPageMetadata({
 
 const pricingFaqs = [
   {
+    question: "What does every Civant plan include?",
+    answer:
+      "Every plan includes all live Civant countries, buyer and award history, renewal forecasting, tender monitoring, saved alerts, competitor tracking, and intelligence briefs. Plan differences are mainly about seats, alert volume, competitor coverage, support, and rollout needs.",
+  },
+  {
     question: "What happens after I choose Vanguard or Summit?",
     answer:
       "You complete a short signup flow, pay through Stripe, and your Civant workspace is created after payment. From there, onboarding starts with your company profile, target markets, competitors, and alert setup.",
@@ -41,6 +46,11 @@ const pricingFaqs = [
     question: "How fresh is the procurement data?",
     answer:
       "Tender data is updated daily across all markets. Award and contract history is updated weekly. AI intelligence briefs are cached for 7 days to maintain quality and consistency, then refreshed on demand.",
+  },
+  {
+    question: "How accurate is the ROI calculator?",
+    answer:
+      "The ROI calculator is an illustrative planning model, not a revenue guarantee. It helps teams estimate the potential upside of earlier visibility, sharper prioritisation, and better pursuit focus using their own tender volume, win rate, and contract value assumptions.",
   },
   {
     question: "How long does onboarding take?",

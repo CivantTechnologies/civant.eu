@@ -19,10 +19,11 @@ export default function ContactPage() {
     <>
       <Section className="hero-block hero-section">
         <p className="eyebrow">Contact</p>
-        <h1 className="headline-xl">Contact the Civant Team</h1>
+        <h1 className="headline-xl">Talk to Civant</h1>
         <p className="text-lead">
-          Select the path that matches your request. We route each inquiry type
-          directly to the right team so follow-up is faster and more relevant.
+          For platform questions, custom plans, partnerships, funding, research,
+          or strategic collaboration, send the right context and we will route it
+          to the right conversation.
         </p>
       </Section>
 

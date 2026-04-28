@@ -7,13 +7,20 @@ import {
   GraduationCap,
   Handshake,
   Loader2,
+  Radar,
   Settings2,
   type LucideIcon,
 } from "lucide-react";
 import { useRef, useState } from "react";
 import { Section } from "./Section";
 
-type ReasonValue = "custom-plan" | "grants" | "investment" | "partnership" | "research";
+type ReasonValue =
+  | "platform"
+  | "custom-plan"
+  | "grants"
+  | "investment"
+  | "partnership"
+  | "research";
 
 type Reason = {
   value: ReasonValue;
@@ -23,6 +30,12 @@ type Reason = {
 };
 
 const reasons: Reason[] = [
+  {
+    value: "platform",
+    label: "Platform & Market Fit",
+    description: "Use cases, market coverage, buyer segments, and procurement intelligence workflows",
+    icon: Radar,
+  },
   {
     value: "custom-plan",
     label: "Custom Plan",
@@ -145,10 +158,15 @@ export function ContactLiveSections() {
     <>
       <Section muted>
         <div className="contact-live-form-wrap" id="contact-form" ref={formRef}>
-          <h2 className="headline-lg contact-live-form-title">How can we help?</h2>
+          <h2 className="headline-lg contact-live-form-title">
+            Start the conversation
+          </h2>
 
           <article className="card contact-live-form-card">
-            <form onSubmit={handleSubmit} className="contact-live-form-grid">
+            <form
+              onSubmit={handleSubmit}
+              className="contact-live-form-grid contact-live-primary-form"
+            >
               <div className="contact-field">
                 <label htmlFor="contact-name" className="contact-label">
                   Name <span className="contact-required">*</span>
@@ -213,7 +231,7 @@ export function ContactLiveSections() {
                   value={formData.message}
                   onChange={(event) => updateField("message", event.target.value)}
                   className="contact-textarea"
-                  placeholder="Tell us what you'd like to discuss"
+                  placeholder="Share the platform question, plan, partnership, funding, research, or collaboration you want to discuss"
                 />
               </div>
 
@@ -228,7 +246,7 @@ export function ContactLiveSections() {
                     Sending...
                   </>
                 ) : (
-                  "Send"
+                  "Send inquiry"
                 )}
               </button>
 
@@ -273,7 +291,7 @@ export function ContactLiveSections() {
       <Section>
         <div className="contact-live-reasons-wrap">
           <h3 className="contact-live-reasons-title">
-            Common reasons people reach out
+            Choose a conversation path
           </h3>
           <div className="grid grid-2 contact-live-reasons-grid">
             {reasons.map((reason) => {

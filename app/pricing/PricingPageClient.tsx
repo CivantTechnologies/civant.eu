@@ -2,12 +2,10 @@
 
 import { type CSSProperties, type FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { Check, ChevronDown, ChevronUp, Minus, Plus } from "lucide-react";
+import { Check, Minus, Plus } from "lucide-react";
 import { Section } from "../../components/site/Section";
 import { CTAGroup } from "../../components/site/CTAGroup";
-import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { ProofSection } from "../../components/site/ProofSection";
-import { SOLUTIONS } from "../../lib/solutions";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -53,7 +51,7 @@ const plans: Plan[] = [
   {
     name: "Vanguard",
     tagline:
-      "For one operator or a lean team building a steady procurement rhythm.",
+      "For one user or a lean team building a steady procurement rhythm.",
     headline: "Build your market routine",
     monthlyPrice: 299,
     annualPrice: 249,
@@ -122,6 +120,10 @@ const plans: Plan[] = [
 
 const faqs: FaqItem[] = [
   {
+    q: "What does every Civant plan include?",
+    a: "Every plan includes all live Civant countries, buyer and award history, renewal forecasting, tender monitoring, saved alerts, competitor tracking, and intelligence briefs. Plan differences are mainly about seats, alert volume, competitor coverage, support, and rollout needs.",
+  },
+  {
     q: "What happens after I choose Vanguard or Summit?",
     a: "You enter a short signup flow, complete payment through Stripe, and your Civant workspace is created after payment. From there, onboarding starts with your company profile, target markets, competitors, and alert setup.",
   },
@@ -150,6 +152,10 @@ const faqs: FaqItem[] = [
     a: "Tender data is updated daily across all markets. Award and contract history is updated weekly. AI intelligence briefs are cached for 7 days to maintain quality and consistency, then refreshed on demand.",
   },
   {
+    q: "How accurate is the ROI calculator?",
+    a: "The ROI calculator is an illustrative planning model, not a revenue guarantee. It helps teams estimate the potential upside of earlier visibility, sharper prioritisation, and better pursuit focus using their own tender volume, win rate, and contract value assumptions.",
+  },
+  {
     q: "How long does onboarding take?",
     a: "Most teams are fully set up within 15 minutes. You complete a short company profile that calibrates your CPV codes, target markets, and buyer types. From there, your dashboard and alerts are live immediately.",
   },
@@ -157,34 +163,32 @@ const faqs: FaqItem[] = [
 
 const buyingPaths = [
   {
-    title: "Self-serve plans",
-    label: "Vanguard or Summit",
-    body: "Start with Vanguard or Summit and get your team up and running quickly.",
-    cta: "See Plans",
+    title: "Vanguard",
+    label: "Focused start",
+    body: "For one user or a compact team that wants full market coverage and a disciplined way to monitor future demand.",
+    cta: "Compare Plans",
     href: "#plans",
   },
   {
-    title: "Custom plans",
-    label: "Larger teams",
-    body: "Choose custom if you need onboarding, rollout support, billing terms, or workflow alignment.",
-    cta: "Discuss Custom Plans",
+    title: "Summit",
+    label: "Team pipeline",
+    body: "For bid, sales, or intelligence teams that need shared visibility, competitor context, and broader alert capacity.",
+    cta: "Compare Plans",
+    href: "#plans",
+  },
+  {
+    title: "Custom",
+    label: "Enterprise rollout",
+    body: "For larger teams that need onboarding support, invoice terms, governance, SLA alignment, or a tailored buying path.",
+    cta: "Talk to Us",
     href: "/contact",
   },
 ];
 
-const pricingCommitments = [
-  {
-    title: "All live countries are included",
-    body: "Pricing is based on team fit, not on adding countries one by one. Every plan includes all currently live Civant coverage.",
-  },
-  {
-    title: "You can get operational quickly",
-    body: "Most teams can set up buyers, categories, alerts, and competitor tracking the same day they start.",
-  },
-  {
-    title: "You can scale without switching tools",
-    body: "Start self-serve now and move into a custom rollout later if your team, workflow, or buying process gets more complex.",
-  },
+const pricingHeroProof = [
+  "All live countries included",
+  "Monthly or annual",
+  "Custom rollout available",
 ];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -515,10 +519,10 @@ function Stepper({
 
 // ─── ROI Calculator ───────────────────────────────────────────────────────────
 
-const SEAT_OPTIONS    = [1, 2, 3, 5, 10, 15];
-const TENDER_OPTIONS  = [5, 10, 20, 30, 50, 75, 100, 150];
-const WIN_OPTIONS     = [5, 10, 15, 20, 25, 30, 35, 40, 50, 65];
-const CONTRACT_OPTIONS = [10000, 25000, 50000, 100000, 250000, 500000, 1000000];
+const SEAT_OPTIONS    = [1, 2, 3, 4, 5, 7, 10, 15, 25, 50];
+const TENDER_OPTIONS  = [5, 10, 15, 20, 30, 40, 50, 75, 100, 150, 200, 300];
+const WIN_OPTIONS     = [5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 65, 70, 75, 80, 85, 90];
+const CONTRACT_OPTIONS = [10000, 25000, 50000, 75000, 100000, 250000, 500000, 1000000, 2500000, 5000000];
 
 function RoiCalculator() {
   const [seatIdx,     setSeatIdx]     = useState(1); // 2 people
@@ -532,7 +536,7 @@ function RoiCalculator() {
   const contract = CONTRACT_OPTIONS[contractIdx];
 
   const extraOpps  = Math.round(tenders * 0.4);
-  const newWinRate = Math.min(winRate * 1.35, 0.85);
+  const newWinRate = Math.max(winRate, Math.min(winRate * 1.35, 0.85));
   const extraWins  = Math.max(0, (tenders + extraOpps) * newWinRate - tenders * winRate);
   const revenue    = Math.round(extraWins * contract);
 
@@ -557,7 +561,7 @@ function RoiCalculator() {
           }
         : {
             name: "Vanguard annual",
-            detail: "Best fit for one operator or a lean team building a repeatable routine.",
+            detail: "Best fit for one user or a lean team building a repeatable routine.",
           };
   const calculatorInputs = [
     {
@@ -613,132 +617,62 @@ function RoiCalculator() {
   ];
 
   return (
-    <div
-      style={{
-        background: "linear-gradient(150deg, rgba(0,196,196,0.06), rgba(255,255,255,0.03) 65%)",
-        border: "1px solid rgba(0,196,196,0.25)",
-        borderRadius: "var(--radius-lg)",
-        padding: "2.4rem",
-        marginTop: "1.2rem",
-      }}
-    >
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "1.8rem",
-          alignItems: "start",
-        }}
-      >
-        <div>
-          <p style={{ margin: 0, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#00c4c4" }}>
-            Model your current team
-          </p>
-          <h3 style={{ margin: "0.7rem 0 0", fontSize: "1.45rem", lineHeight: 1.2, color: "#f8fafc" }}>
-            Use your numbers, then judge the upside against the plan that fits.
-          </h3>
-          <p style={{ margin: "0.75rem 0 0", color: "#cbd5e1", fontSize: "0.98rem", lineHeight: 1.7, maxWidth: "38rem" }}>
-            Adjust team size, annual tender volume, win rate, and contract value to
-            estimate what earlier visibility and sharper prioritisation could be
-            worth over a year.
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "1rem",
-              marginTop: "1.6rem",
-            }}
-          >
-            {calculatorInputs.map((column) => (
-              <div
-                key={column.id}
-                style={{
-                  padding: "1.1rem",
-                  borderRadius: "var(--radius-md)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  background: "rgba(255,255,255,0.03)",
-                }}
-              >
-                <Stepper
-                  label={column.stepper.label}
-                  display={column.stepper.display}
-                  onDecrement={column.stepper.onDecrement}
-                  onIncrement={column.stepper.onIncrement}
-                  atMin={column.stepper.atMin}
-                  atMax={column.stepper.atMax}
-                />
-              </div>
-            ))}
-          </div>
+    <div className="pricing-roi-shell">
+      <div className="pricing-roi-header">
+        <p className="eyebrow">Model your current team</p>
+        <h3>Estimate the value of better timing</h3>
+        <p>
+          Adjust four assumptions to see how earlier visibility and sharper
+          prioritisation could change the economics of your public-sector
+          pipeline.
+        </p>
+      </div>
+
+      <div className="pricing-roi-layout">
+        <div className="pricing-roi-controls" aria-label="ROI calculator assumptions">
+          {calculatorInputs.map((column) => (
+            <div key={column.id} className="pricing-roi-control-card">
+              <Stepper
+                label={column.stepper.label}
+                display={column.stepper.display}
+                onDecrement={column.stepper.onDecrement}
+                onIncrement={column.stepper.onIncrement}
+                atMin={column.stepper.atMin}
+                atMax={column.stepper.atMax}
+              />
+            </div>
+          ))}
         </div>
-        <div
-          style={{
-            borderRadius: "var(--radius-lg)",
-            border: "1px solid rgba(0,196,196,0.28)",
-            background: "linear-gradient(160deg, rgba(5,13,24,0.9), rgba(8,17,31,0.72))",
-            padding: "1.35rem",
-            boxShadow: "0 0 28px rgba(0,196,196,0.1)",
-          }}
-        >
-          <p style={{ margin: 0, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#7dd3fc" }}>
-            Estimated annual upside
+
+        <aside className="pricing-roi-value-card" aria-label="Estimated annual value">
+          <p className="pricing-roi-value-label">Estimated annual value</p>
+          <p className="pricing-roi-value">{fmt(revenue)}</p>
+          <p className="pricing-roi-value-copy">
+            Based on {tenders} tenders per year, a {WIN_OPTIONS[winIdx]}% current
+            win rate, and an average contract value of {fmt(contract)}.
           </p>
-          <p style={{ margin: "0.65rem 0 0", fontSize: "clamp(2.35rem, 5vw, 3.35rem)", fontWeight: 700, color: "#ffffff", letterSpacing: "-0.04em", lineHeight: 1 }}>
-            {fmt(revenue)}
-          </p>
-          <p style={{ margin: "0.75rem 0 0", color: "#cbd5e1", fontSize: "0.98rem", lineHeight: 1.7 }}>
-            Based on {tenders} tenders per year, a {WIN_OPTIONS[winIdx]}% current win
-            rate, and an average contract value of {fmt(contract)}.
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-              gap: "0.85rem",
-              marginTop: "1.25rem",
-            }}
-          >
-            {calculatorOutputs.map((item) => (
-              <div
-                key={item.label}
-                style={{
-                  padding: "0.95rem",
-                  borderRadius: "var(--radius-md)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  background: "rgba(255,255,255,0.03)",
-                }}
-              >
-                <p style={{ margin: 0, fontSize: "1.15rem", fontWeight: 700, color: "#00c4c4", letterSpacing: "-0.02em", lineHeight: 1.1 }}>
-                  {item.value}
-                </p>
-                <p style={{ margin: "0.42rem 0 0", fontSize: "0.74rem", color: "#94a3b8", lineHeight: 1.45, textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                  {item.label}
-                </p>
-              </div>
-            ))}
+          <div className="pricing-roi-assumption-strip">
+            <span>{tenders} tenders/year</span>
+            <span>{WIN_OPTIONS[winIdx]}% win rate</span>
+            <span>{fmt(contract)} average value</span>
           </div>
-          <div
-            style={{
-              marginTop: "1.2rem",
-              paddingTop: "1.1rem",
-              borderTop: "1px solid rgba(255,255,255,0.08)",
-            }}
-          >
-            <p style={{ margin: 0, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#94a3b8" }}>
-              Indicative plan fit
-            </p>
-            <p style={{ margin: "0.45rem 0 0", fontSize: "1.15rem", fontWeight: 700, color: "#f8fafc", lineHeight: 1.25 }}>
-              {recommendedPlan.name}
-            </p>
-            <p style={{ margin: "0.4rem 0 0", color: "#9ca3af", fontSize: "0.9rem", lineHeight: 1.6 }}>
-              {recommendedPlan.detail}
-            </p>
+        </aside>
+      </div>
+
+      <div className="pricing-roi-summary-grid">
+        {calculatorOutputs.map((item) => (
+          <div key={item.label} className="pricing-roi-summary-card">
+            <p>{item.value}</p>
+            <span>{item.label}</span>
           </div>
+        ))}
+        <div className="pricing-roi-summary-card pricing-roi-plan-card">
+          <p>{recommendedPlan.name}</p>
+          <span>{recommendedPlan.detail}</span>
         </div>
       </div>
 
-      <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "1.2rem", lineHeight: 1.7 }}>
+      <p className="pricing-roi-disclaimer">
         Illustrative planning model only. It estimates the commercial effect of
         earlier tender visibility, stronger prioritisation, and better pursuit
         focus. It is not a guarantee of revenue.
@@ -917,42 +851,18 @@ function PlanCard({
   );
 }
 
-function PricingCommitmentsGrid() {
-  return (
-    <div className="grid grid-3 solution-detail-grid">
-      {pricingCommitments.map((item) => (
-        <article key={item.title} className="card">
-          <h3 className="card-title">{item.title}</h3>
-          <p className="card-body">{item.body}</p>
-        </article>
-      ))}
-    </div>
-  );
-}
-
 function FaqAccordion() {
-  const [open, setOpen] = useState<number | null>(null);
   return (
-    <div style={{ maxWidth: "720px", margin: "1.4rem auto 0", display: "grid", gap: "0.65rem" }}>
-      {faqs.map((item, i) => (
-        <div key={item.q} style={{ border: "1px solid rgba(255,255,255,0.1)", borderRadius: "var(--radius-md)", overflow: "hidden" }}>
-          <button
-            onClick={() => setOpen(open === i ? null : i)}
-            style={{ width: "100%", background: "none", border: "none", padding: "1.05rem 1.2rem", textAlign: "left", color: open === i ? "#00c4c4" : "#f3f4f6", fontSize: "0.95rem", fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", fontFamily: "inherit", transition: "color 180ms" }}
-            aria-expanded={open === i}
-          >
-            {item.q}
-            {open === i
-              ? <ChevronUp size={18} color="#00c4c4" style={{ flexShrink: 0 }} />
-              : <ChevronDown size={18} color="#00c4c4" style={{ flexShrink: 0 }} />}
-          </button>
-          {open === i && (
-            <p style={{ margin: 0, padding: "0 1.2rem 1.1rem", color: "#9ca3af", fontSize: "0.92rem", lineHeight: 1.65 }}>
-              {item.a}
-            </p>
-          )}
-        </div>
-      ))}
+    <div className="solution-compact-faq pricing-compact-faq">
+      <h3 className="card-title">Pricing FAQ</h3>
+      <div className="solution-compact-faq-list pricing-compact-faq-list">
+        {faqs.map((item) => (
+          <details key={item.q} className="solution-compact-faq-item pricing-compact-faq-item">
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
     </div>
   );
 }
@@ -987,35 +897,55 @@ export default function PricingPageClient() {
       {/* Hero */}
       <Section className="hero-block hero-section">
         <p className="eyebrow">Pricing</p>
-        <h1 className="headline-xl">Start with the right Civant plan</h1>
+        <h1 className="headline-xl">Pricing for serious public-sector growth</h1>
         <p className="text-lead">
-          Every Civant plan includes all currently available countries. Choose
-          Vanguard or Summit to get started today, or talk to us about a custom
-          rollout for a larger team.
+          Every plan includes all live countries, buyer history, tender
+          forecasting, and market monitoring. Start self-serve when you want
+          immediate access, or talk to us when seats, rollout, billing, or
+          workflow alignment matter.
         </p>
         <div className="pricing-hero-actions">
           <Link href="#plans" className="btn btn-primary">
-            See Plans
+            Get Started
           </Link>
           <Link href="/contact" className="btn btn-secondary">
-            Discuss Custom Plans
+            Talk to Us
           </Link>
+        </div>
+        <div className="pricing-hero-proof" aria-label="Pricing highlights">
+          {pricingHeroProof.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
         </div>
       </Section>
 
       <Section muted>
+        <div className="section-heading-wrap pricing-buying-paths-heading">
+          <p className="eyebrow">Where to start</p>
+          <h2 className="headline-lg">Choose by team shape, not by country count</h2>
+          <p className="text-lead section-intro">
+            Civant does not make you buy one market at a time. The real choice is
+            how much team coverage, competitor context, and rollout support you
+            need.
+          </p>
+        </div>
         <BuyingPathCards />
+        <p className="pricing-start-note">
+          Vanguard: immediate access and focused monitoring. Summit: shared
+          visibility across buyers, competitors, and upcoming opportunities.
+          Custom: onboarding, governance, billing, seats, or workflow alignment.
+        </p>
       </Section>
 
       {/* Plans */}
       <Section id="plans">
         <div style={{ textAlign: "center", marginBottom: "0.5rem" }}>
           <p className="eyebrow">Plans</p>
-          <h2 className="headline-lg">Pick the plan that matches your team</h2>
+          <h2 className="headline-lg">Match the plan to your operating rhythm</h2>
           <p className="text-lead section-intro pricing-plans-intro">
-            Start with Vanguard or Summit for immediate access. Choose custom
-            when your team needs rollout support, workflow alignment, or
-            tailored commercial terms.
+            Start with Vanguard or Summit for immediate access. Choose Custom
+            when your team needs supported rollout, procurement workflow
+            alignment, or tailored commercial terms.
           </p>
         </div>
 
@@ -1040,17 +970,6 @@ export default function PricingPageClient() {
           ))}
         </div>
 
-        <div className="section-heading-wrap" style={{ textAlign: "center", marginTop: "2.4rem" }}>
-          <p className="eyebrow">What This Pricing Includes</p>
-          <h2 className="headline-lg">A buying path that stays simple as your team grows</h2>
-        </div>
-        <PricingCommitmentsGrid />
-        <MarketCoverageLinks
-          eyebrow="All markets included"
-          title="Live coverage now, next countries included automatically"
-          body="Self-serve plans include every live Civant market, with the next rollout countries added automatically as coverage becomes available."
-          compact
-        />
       </Section>
 
       {/* ROI Calculator */}
@@ -1067,32 +986,6 @@ export default function PricingPageClient() {
         <RoiCalculator />
       </Section>
 
-      <Section muted>
-        <div className="section-heading-wrap" style={{ textAlign: "center" }}>
-          <p className="eyebrow">Buying Context</p>
-          <h2 className="headline-lg">
-            Match your plan to the procurement problem
-          </h2>
-          <p className="text-lead section-intro" style={{ marginInline: "auto" }}>
-            Civant supports tender forecasting, EU monitoring, and strategic
-            public procurement intelligence from the same evidence-led platform.
-          </p>
-        </div>
-        <div className="grid grid-4 solution-link-grid">
-          {SOLUTIONS.map((solution) => (
-            <Link
-              key={solution.slug}
-              href={`/solutions/${solution.slug}`}
-              className="card card-link interactive-surface solution-link-card"
-            >
-              <h3 className="card-title">{solution.title}</h3>
-              <p className="card-body">{solution.description}</p>
-              <span className="card-link-cta">View Solution</span>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
       {/* Proof */}
       <Section muted>
         <ProofSection compact />
@@ -1100,26 +993,22 @@ export default function PricingPageClient() {
 
       {/* FAQ */}
       <Section>
-        <div className="section-heading-wrap" style={{ textAlign: "center", margin: "0 auto 0" }}>
-          <p className="eyebrow">Questions</p>
-          <h2 className="headline-lg">Everything you need to know</h2>
-        </div>
         <FaqAccordion />
       </Section>
 
       {/* Final CTA */}
       <Section muted>
         <div className="final-cta">
-          <h2 className="headline-lg final-cta-title">Ready to win before the tender?</h2>
+          <h2 className="headline-lg final-cta-title">Start building your public-sector advantage</h2>
           <p className="text-lead platform-cta-copy">
             Start with Vanguard or Summit today. Use custom plans when your team
             needs tailored onboarding, procurement workflows, or commercial terms.
           </p>
           <CTAGroup
             primaryHref="#plans"
-            primaryLabel="Choose a Plan"
+            primaryLabel="Get Started"
             secondaryHref="/contact"
-            secondaryLabel="Request Custom Plan"
+            secondaryLabel="Talk to Us"
           />
         </div>
       </Section>

@@ -52,13 +52,13 @@ const PRIMARY_NAV_GROUPS: NavGroup[] = [
     items: [
       { href: "/company", label: "Company" },
       { href: "/team", label: "Team" },
+      { href: "/understanding-civant", label: "Understanding Civant" },
+      { href: "/contact", label: "Contact" },
     ],
   },
 ];
 
-const DIRECT_NAV_ITEMS: NavLink[] = [
-  { href: "/contact", label: "Contact" },
-];
+const DIRECT_NAV_ITEMS: NavLink[] = [];
 
 function isActivePath(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);

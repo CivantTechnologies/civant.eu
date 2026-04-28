@@ -422,22 +422,16 @@ export default function HomePage() {
       </Section>
 
       <Section muted className="home-faq-section">
-        <div className="section-heading-wrap">
-          <p className="eyebrow">FAQ</p>
-          <h2 className="headline-lg">Questions teams ask before switching from tender alerts</h2>
-          <p className="text-lead section-intro">
-            Short answers for teams comparing tender alerts, procurement
-            intelligence, market coverage, and forecast validation.
-          </p>
-        </div>
-
-        <div className="home-faq-list">
-          {homeFaqs.map((faq) => (
-            <article key={faq.question} className="home-faq-item">
-              <h3>{faq.question}</h3>
-              <p>{faq.answer}</p>
-            </article>
-          ))}
+        <div className="solution-compact-faq home-compact-faq">
+          <h3 className="card-title">Home FAQ</h3>
+          <div className="solution-compact-faq-list home-compact-faq-list">
+            {homeFaqs.map((faq) => (
+              <details key={faq.question} className="solution-compact-faq-item home-compact-faq-item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </Section>
 

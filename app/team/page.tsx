@@ -3,7 +3,11 @@ import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { advisors, founder } from "../../lib/company";
-import { buildFounderPersonSchema, buildPageMetadata } from "../../lib/seo";
+import {
+  buildFaqSchema,
+  buildFounderPersonSchema,
+  buildPageMetadata,
+} from "../../lib/seo";
 
 export const dynamic = "force-static";
 
@@ -16,7 +20,42 @@ export const metadata = buildPageMetadata({
 
 const founderSchema = buildFounderPersonSchema();
 
+const teamFaqs = [
+  {
+    question: "Who is behind Civant?",
+    answer:
+      "Civant is led by its founder, combining commercial, partnerships, and go-to-market experience in SaaS and public-sector ecosystems, supported by an advisory network across product, data infrastructure, and financial strategy.",
+  },
+  {
+    question: "How involved is the advisory network?",
+    answer:
+      "Advisors support specific areas of the business including product architecture, data infrastructure, financial strategy, and go-to-market execution. Their role is to guide critical decisions as Civant evolves.",
+  },
+  {
+    question: "Is Civant a large team?",
+    answer:
+      "Civant is intentionally built as a focused, high-capability organisation. The platform is designed around data systems and automation, supported by specialist advisors rather than a large internal team.",
+  },
+  {
+    question: "What experience is behind Civant?",
+    answer:
+      "Civant is built on experience across SaaS, partnerships, and European public-sector markets, with a strong focus on market expansion, commercial strategy, and data-led decision making.",
+  },
+  {
+    question: "Where is Civant based?",
+    answer:
+      "Civant is based in Ireland and focused on European public procurement markets.",
+  },
+  {
+    question: "How is Civant supported?",
+    answer:
+      "Civant is supported by Enterprise Ireland, the Local Enterprise Office, and Dundalk Institute of Technology through structured programmes designed to support high-potential companies.",
+  },
+];
+
 export default function TeamPage() {
+  const pageSchema = [founderSchema, buildFaqSchema(teamFaqs)];
+
   return (
     <>
       <Section
@@ -25,11 +64,10 @@ export default function TeamPage() {
       >
         <div className="company-hero-copy team-hero-copy">
           <p className="eyebrow">Team</p>
-          <h1 className="headline-xl">The operators behind Civant</h1>
+          <h1 className="headline-xl">The people behind Civant</h1>
           <p className="text-lead">
-            Civant is founder-led and supported by advisors across company
-            management, product infrastructure, financial operations, and
-            go-to-market partnerships.
+            Founder-led and advised by experienced leaders across company
+            building, product, finance, and go-to-market execution.
           </p>
           <CTAGroup
             primaryHref="/contact"
@@ -38,39 +76,9 @@ export default function TeamPage() {
             secondaryLabel="Company Thesis"
           />
           <p className="company-hero-proof">
-            Founder-led · Operator advised · Built in Ireland
+            Founder-led · Advisor-supported · Built in Ireland
           </p>
         </div>
-
-        <aside className="team-hero-panel" aria-label="Civant operating guidance">
-          <div className="team-operator-panel-head">
-            <span>Operating Model</span>
-            <strong>Founder-led execution with specialist guidance.</strong>
-            <p>
-              Product judgement, procurement-market experience, technical
-              infrastructure, finance discipline, and European go-to-market
-              perspective.
-            </p>
-          </div>
-          <div className="team-domain-grid" aria-label="Advisory domains">
-            <div>
-              <span>Company</span>
-              <strong>Management & sales</strong>
-            </div>
-            <div>
-              <span>Product</span>
-              <strong>Technical scale</strong>
-            </div>
-            <div>
-              <span>Finance</span>
-              <strong>Operations & regulation</strong>
-            </div>
-            <div>
-              <span>GTM</span>
-              <strong>Strategy & partnerships</strong>
-            </div>
-          </div>
-        </aside>
       </Section>
 
       <Section muted>
@@ -91,30 +99,35 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <article className="founder-profile-card founder-profile-card-premium team-founder-card">
-            <a
-              href={founder.profileHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="founder-photo-link"
-              aria-label="View David Manrique on LinkedIn"
-            >
-              <Image
-                src={founder.image}
-                alt={founder.name}
-                width={220}
-                height={220}
-                className="founder-photo"
-              />
-            </a>
-            <div>
-              <p className="module-label">Founder & CEO</p>
-              <h3 className="card-title">{founder.name}</h3>
-              <p className="card-body founder-role">{founder.role}</p>
-              <p className="founder-belief">
-                Building Civant as a prediction intelligence platform: evidence
-                first, public-data only, and designed for better bid/no-bid
-                discipline.
+          <article className="team-founder-card">
+            <div className="team-founder-identity">
+              <a
+                href={founder.profileHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="founder-photo-link team-founder-photo-link"
+                aria-label="View David Manrique on LinkedIn"
+              >
+                <Image
+                  src={founder.image}
+                  alt={founder.name}
+                  width={220}
+                  height={220}
+                  className="founder-photo team-founder-photo"
+                />
+              </a>
+              <div>
+                <p className="module-label">Founder & CEO</p>
+                <h3 className="card-title">{founder.name}</h3>
+                <p className="card-body founder-role">{founder.role}</p>
+              </div>
+            </div>
+
+            <div className="team-founder-note">
+              <p>
+                Civant is built for preparation before pressure: evidence first,
+                public-data only, and disciplined decisions before the tender
+                window closes.
               </p>
               <a
                 href={founder.profileHref}
@@ -127,6 +140,10 @@ export default function TeamPage() {
             </div>
           </article>
         </div>
+        <p className="team-trust-line">
+          Supported by Irish enterprise networks, with advisory input across
+          product, finance, and market expansion.
+        </p>
       </Section>
 
       <Section>
@@ -183,18 +200,42 @@ export default function TeamPage() {
         </div>
       </Section>
 
+      <Section muted id="faq" className="team-faq-section">
+        <div className="solution-compact-faq team-compact-faq">
+          <h3 className="card-title">Team FAQ</h3>
+          <div className="solution-compact-faq-list team-compact-faq-list">
+            {teamFaqs.map((faq) => (
+              <details
+                key={faq.question}
+                className="solution-compact-faq-item team-compact-faq-item"
+              >
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <Section>
         <div className="final-cta">
-          <h2 className="headline-lg final-cta-title">Meet the system behind the team</h2>
+          <h2 className="headline-lg final-cta-title">
+            Talk to the people building procurement intelligence differently
+          </h2>
+          <p className="text-lead platform-cta-copy">
+            If your team needs stronger bid discipline, better market context,
+            or a clearer way to read public-sector demand, Civant can help you
+            understand what is forming before the tender window closes.
+          </p>
           <CTAGroup
-            primaryHref="/company"
-            primaryLabel="Company Thesis"
-            secondaryHref="/contact"
-            secondaryLabel="Talk to Us"
+            primaryHref="/contact"
+            primaryLabel="Talk to Us"
+            secondaryHref="/platform"
+            secondaryLabel="Explore the Platform"
           />
         </div>
       </Section>
-      <SchemaScript data={founderSchema} />
+      <SchemaScript data={pageSchema} />
     </>
   );
 }

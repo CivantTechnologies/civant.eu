@@ -11,6 +11,8 @@ const FOOTER_NAV_ITEMS = [
   { href: "/contact", label: "Contact" },
 ];
 
+const LINKEDIN_URL = "https://www.linkedin.com/company/civant-technologies/";
+
 export function Footer() {
   return (
     <footer className="site-footer">
@@ -58,6 +60,25 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/contact">Custom Plans</Link>
+              </li>
+              <li>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-link"
+                  aria-label="Follow Civant Technologies on LinkedIn"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                    className="footer-social-icon"
+                  >
+                    <path d="M5.1 8.7h3.2v10.2H5.1V8.7Zm1.6-5.1c1 0 1.8.8 1.8 1.8S7.7 7.2 6.7 7.2 4.9 6.4 4.9 5.4s.8-1.8 1.8-1.8Zm3.6 5.1h3.1v1.4h.1c.4-.8 1.5-1.7 3.1-1.7 3.3 0 3.9 2.2 3.9 5v5.5h-3.2V14c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7v5h-3.2V8.7Z" />
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
               </li>
               <li>Registered in Ireland</li>
             </ul>
