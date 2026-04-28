@@ -17,6 +17,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    qualities: [75, 100],
+  },
   async redirects() {
     return [
       {

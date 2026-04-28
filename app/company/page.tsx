@@ -1,323 +1,194 @@
 import Image from "next/image";
 import { CTAGroup } from "../../components/site/CTAGroup";
-import { advisedBy } from "../../components/site/ProofSection";
+import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { Section } from "../../components/site/Section";
-import { SchemaScript } from "../../components/site/SchemaScript";
-import { buildFounderPersonSchema, buildPageMetadata } from "../../lib/seo";
+import {
+  companySupport,
+  companyWhyPoints,
+  whatCivantIs,
+  whatCivantIsNot,
+} from "../../lib/company";
+import { buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
   title: "Company",
   description:
-    "About Civant Technologies and our mission to improve enterprise decision-making in European public procurement markets.",
+    "About Civant Technologies and the evidence-led procurement intelligence system we are building for European public-sector markets.",
   path: "/company",
 });
-
-const founderSchema = buildFounderPersonSchema();
-
-const whatCivantIs = [
-  "Civant is a procurement forecasting intelligence platform for Europe.",
-  "Civant reconciles and normalizes data from EU, national, and public-domain procurement sources.",
-  "Civant analyzes hard procurement evidence, contract lifecycles, competitor activity, and external signals.",
-  "Civant uses AI to interpret match, scope, buyer intent, and strategy on top of structured evidence.",
-];
-
-const whatCivantIsNot = [
-  "Civant is not an AI chatbot company.",
-  "Civant is not an insider tool or source of non-public information.",
-  "Civant is not a tender issuer, influencer, or intermediary.",
-  "Civant does not guarantee tender outcomes.",
-  "Civant does not replace sales strategy, account management expertise, or commercial judgement.",
-];
-
-const advisoryPillars = [
-  "Public procurement",
-  "Education market expansion",
-  "Enterprise technology",
-  "Data and analytics",
-  "Go-to-market leadership",
-];
-
-const founder = {
-  name: "David Manrique",
-  role: "Founder & CEO, Civant",
-  image: "/people/david-manrique.jpg",
-  profileHref: "https://www.linkedin.com/in/davidmanriquec/",
-};
-
-const advisors = [
-  {
-    name: "Jean-Marie Cognet",
-    role: "Co-founder & CEO, UbiCast",
-    context: "VP Higher Education at EdTech France, with deep European EdTech and public-sector market experience.",
-    image: "/people/jean-marie-cognet.jpg",
-    imageAlt: "Jean-Marie Cognet",
-    imagePosition: "50% 50%",
-    profileHref: "https://www.linkedin.com/in/jmcognet/",
-    profileLabel: "View Jean-Marie on LinkedIn",
-  },
-  {
-    name: "Florent Thiery",
-    role: "Product, OVHcloud; former CTO, UbiCast",
-    context: "Technical and infrastructure guidance for European SaaS scale-up decisions.",
-    image: "/people/florent-thiery.jpg",
-    imageAlt: "Florent Thiery",
-    imagePosition: "50% 50%",
-    profileHref: "https://www.linkedin.com/in/fthiery/",
-    profileLabel: "View Florent on LinkedIn",
-  },
-  {
-    name: "Anita van der Laan",
-    role: "Director Shipping, Hanzevast",
-    context: "Scale-up, finance, and category-expansion perspective from regulated operating environments.",
-    image: "/people/anita-van-der-laan.jpg",
-    imageAlt: "Anita van der Laan",
-    imagePosition: "50% 50%",
-    profileHref: "https://www.linkedin.com/in/anita-van-der-laan-40450218/",
-    profileLabel: "View Anita on LinkedIn",
-  },
-  {
-    name: "Jukka Sormunen",
-    role: "RDI Director, Mobie",
-    context:
-      "Education-market, Nordic expansion, and public-sector learning technology perspective.",
-    image: "/people/jukka-sormunen.jpg",
-    imageAlt: "Jukka Sormunen",
-    imagePosition: "50% 50%",
-    profileHref: "https://www.linkedin.com/in/jukkasormunen/",
-    profileLabel: "View Jukka on LinkedIn",
-  },
-];
 
 export default function CompanyPage() {
   return (
     <>
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Company</p>
-        <h1 className="headline-xl">Who we are and why we exist</h1>
-        <p className="text-lead">
-          Civant was built from practical procurement operating experience and
-          is focused on enabling structured, earlier, and better-timed decisions
-          in public-sector markets.
-        </p>
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap company-reading">
-          <p className="eyebrow">Background</p>
-          <h2 className="headline-lg">
-            Civant originated from real operational procurement pressure
-          </h2>
-          <p className="card-body section-intro company-copy">
-            Civant Technologies was founded in Ireland by David Manrique, after
-            more than 15 years working in SaaS and educational technology with
-            public-sector buyers and suppliers across international markets.
+      <Section
+        className="hero-block hero-section company-hero"
+        containerClassName="company-hero-container"
+      >
+        <div className="company-hero-copy">
+          <p className="eyebrow">Company</p>
+          <h1 className="headline-xl">A new way to understand public procurement</h1>
+          <p className="text-lead">
+            Civant turns official records, renewal cycles, competitor movement,
+            and external public signals into evidence-led market decisions for
+            teams that need to prepare before the tender appears.
           </p>
-          <article className="founder-profile-card">
-            <a
-              href={founder.profileHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="founder-photo-link"
-              aria-label="View David Manrique on LinkedIn"
-            >
-              <Image
-                src={founder.image}
-                alt={founder.name}
-                width={220}
-                height={220}
-                className="founder-photo"
-              />
-            </a>
-            <div>
-              <p className="module-label">Founder</p>
-              <h3 className="card-title">{founder.name}</h3>
-              <p className="card-body founder-role">{founder.role}</p>
-              <a
-                href={founder.profileHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-link"
-              >
-                View David on LinkedIn →
-              </a>
-            </div>
-          </article>
-          <p className="card-body company-copy">
-            Over time, David saw strong teams lose opportunities not because
-            solutions were weak, but because tenders surfaced too late and
-            decisions were forced under compressed timelines.
+          <CTAGroup
+            primaryHref="/pricing"
+            primaryLabel="Get Started"
+            secondaryHref="/team"
+            secondaryLabel="Meet the Team"
+          />
+          <p className="company-hero-proof">
+            For teams preparing earlier, choosing better, and competing on evidence.
           </p>
-          <p className="card-body company-copy">
-            While entering new markets, he manually mapped institutions,
-            incumbents, and renewal cycles with spreadsheets and reminders. That
-            manual process exposed a systemic visibility gap in procurement
-            planning and became the first real iteration of Civant.
-          </p>
-          <p className="card-body company-copy">
-            The underlying issue was structural: public procurement data exists,
-            but it has not been consistently usable, connected, or organized for
-            proactive decision-making.
-          </p>
-
-          <blockquote className="company-quote">
-            <p className="company-quote-text">
-              "When preparation replaces reaction, tenders stop being feared and
-              start becoming a viable, repeatable path to growth."
-            </p>
-            <p className="company-quote-meta">
-              — David Manrique
-              <br />
-              Founder, Civant
-            </p>
-          </blockquote>
-
-          <a
-            href="https://www.linkedin.com/in/davidmanriquec/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-link company-link"
-          >
-            View David Manrique on LinkedIn →
-          </a>
         </div>
+
+        <aside
+          className="company-hero-panel"
+          aria-label="How Civant understands public procurement"
+        >
+          <div className="company-hero-panel-head">
+            <span>System Thesis</span>
+            <strong>Public data becomes useful when timing, context, and market structure connect.</strong>
+          </div>
+          <div className="company-origin-flow">
+            <div>
+              <strong>Official records</strong>
+              <p>Notices, eForms, awards, and public procurement histories.</p>
+            </div>
+            <div>
+              <strong>Market memory</strong>
+              <p>Renewal cycles, buyer recurrence, incumbent patterns, and category movement.</p>
+            </div>
+            <div>
+              <strong>Earlier decisions</strong>
+              <p>Teams align around fit, timing, and bid discipline before pressure peaks.</p>
+            </div>
+          </div>
+          <div className="company-hero-principles">
+            <span>Evidence &gt; assumptions</span>
+            <span>Signals &gt; noise</span>
+            <span>Timing before reaction</span>
+          </div>
+        </aside>
       </Section>
 
       <Section>
-        <div className="section-heading-wrap company-reading">
-          <p className="eyebrow">Advisory Network</p>
-          <h2 className="headline-lg">
-            Guidance from experienced domain and operating leaders
-          </h2>
-          <p className="card-body section-intro company-copy">
-            Civant benefits from advisors with experience across:
-          </p>
-          <div className="pill-row">
-            {advisoryPillars.map((item) => (
-              <span key={item} className="pill">
-                {item}
-              </span>
-            ))}
-          </div>
-          <div className="grid grid-4 advisor-grid">
-            {advisors.map((advisor) => (
-              <article key={advisor.name} className="card advisor-card">
-                <a
-                  href={advisor.profileHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="advisor-photo-link"
-                  aria-label={advisor.profileLabel}
-                >
-                  <Image
-                    src={advisor.image}
-                    alt={advisor.imageAlt}
-                    width={180}
-                    height={180}
-                    className="advisor-photo"
-                    style={{
-                      objectPosition: advisor.imagePosition,
-                    }}
-                  />
-                </a>
-                <h3 className="card-title">{advisor.name}</h3>
-                <p className="module-label">{advisor.role}</p>
-                <p className="card-body">{advisor.context}</p>
-                <a
-                  href={advisor.profileHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-link advisor-link"
-                >
-                  {advisor.profileLabel} →
-                </a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap company-reading">
-          <p className="eyebrow">Supported by</p>
-          <h2 className="headline-lg">
-            Founder and enterprise support networks behind Civant
-          </h2>
-          <p className="card-body section-intro company-copy">
-            These programmes and institutions supported Civant as the company
-            took shape in Ireland and built its early operating foundation.
-          </p>
-          <div className="advisor-proof-grid company-support-grid">
-            {advisedBy.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card card-link advisor-proof-card interactive-surface"
-              >
-                {item.logo && item.logoWidth && item.logoHeight ? (
-                  <span
-                    className={`advisor-logo-wrap advisor-logo-wrap-${item.logoTone ?? "light"}`}
-                  >
-                    <Image
-                      src={item.logo}
-                      alt={`${item.name} logo`}
-                      width={item.logoWidth}
-                      height={item.logoHeight}
-                      className={`advisor-logo advisor-logo-${item.logoSize ?? "standard"}`}
-                    />
-                  </span>
-                ) : null}
-                <h3 className="card-title">{item.name}</h3>
-                <p className="card-body">{item.context}</p>
-                <span className="card-link-cta">Visit website</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      <Section muted>
         <div className="section-heading-wrap company-reading">
           <p className="eyebrow">Mission</p>
-          <h2 className="headline-lg">What Civant is built to do</h2>
+          <h2 className="headline-lg">Public procurement intelligence for decisions made earlier</h2>
           <p className="card-body section-intro company-copy">
-            Civant exists to transform complex public procurement processes into
-            structured, confident, and well-timed decisions for suppliers,
-            buyers, and the public sector.
+            Civant turns fragmented procurement markets into structured,
+            evidence-led decisions.
           </p>
           <p className="card-body company-copy">
-            The platform is built around a forecasting engine: official
-            procurement records, contract lifecycles, competitor movement, and
-            external public signals form the evidence base. AI is used as an
-            interpretation layer that helps teams understand match, scope,
-            buyer intent, and next-best action.
+            By combining procurement history, contract lifecycles, competitor
+            movement, and public signals, Civant builds a continuous view of
+            where demand is likely to emerge. AI acts as an interpretation
+            layer, helping teams understand relevance, buyer intent, and the
+            next best action with clarity and confidence.
           </p>
         </div>
       </Section>
 
+      <Section muted>
+        <div className="section-heading-wrap company-reading company-background-block">
+          <div className="company-background-intro">
+            <div className="company-background-heading">
+              <p className="eyebrow">Background</p>
+              <h2 className="headline-lg">To balance the scales.</h2>
+              <p className="card-body section-intro company-copy">
+                Public procurement is meant to be transparent and competitive.
+                In practice, advantage still gathers around the teams with the
+                time, proximity, and resources to interpret the market first.
+              </p>
+            </div>
+          </div>
+
+          <div className="company-origin-system company-origin-system-thesis">
+            <article className="company-system-thesis">
+              <p className="module-label">Why Civant exists</p>
+              <h3>
+                Fair competition depends on more than access to documents. It
+                depends on the ability to read the market in time.
+              </h3>
+              <p>
+                Civant connects fragmented public data into a practical market
+                view, so better solutions have a better chance to win.
+              </p>
+            </article>
+
+            <div className="company-why-grid">
+              {companyWhyPoints.map((item) => (
+                <article key={item.title} className="company-why-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+
+            <p className="company-principle-line">
+              Better solutions should have a better chance to win the contract.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section muted>
+        <MarketCoverageLinks
+          eyebrow="Country Coverage"
+          title="A consistent intelligence model across European markets"
+          body="Civant applies the same evidence model country by country: live coverage across Ireland, the United Kingdom, Spain, France, and Italy, with Finland, Belgium, Germany, and the Netherlands coming next."
+        />
+      </Section>
+
       <Section>
-        <div className="section-heading-wrap company-reading">
-          <p className="eyebrow">Why This Matters</p>
-          <h2 className="headline-lg">
-            Procurement intelligence has system-level impact
-          </h2>
-          <p className="card-body section-intro company-copy">
-            Public procurement is designed to support fair competition, stronger
-            outcomes, and responsible use of public funds.
-          </p>
-          <p className="card-body company-copy">
-            When preparation time is uneven and timing visibility is poor, those
-            goals weaken: capable suppliers are excluded, buyers receive fewer
-            high-quality responses, and public value is reduced.
-          </p>
-          <p className="card-body company-copy">
-            Making timing visible helps teams compete on merit rather than
-            reaction speed, improves planning quality, and supports healthier
-            market participation.
-          </p>
+        <div className="company-reading company-matters-panel">
+          <figure className="company-matters-image">
+            <Image
+              src="/images/company/public-procurement-architecture.jpg"
+              alt="Modern public-sector architecture with glass and concrete"
+              width={2200}
+              height={1469}
+              className="company-matters-photo"
+            />
+            <figcaption>Public markets should be readable before the tender window closes.</figcaption>
+          </figure>
+
+          <div className="company-matters-copy">
+            <p className="eyebrow">Why This Matters</p>
+            <h2 className="headline-lg">
+              The real competition starts before the tender is published
+            </h2>
+            <p className="card-body section-intro company-copy">
+              Once a tender is published, the conversation narrows. Buyers
+              cannot simply brief every supplier or answer strategic questions
+              outside the formal process. By then, the incumbent often has
+              context others are still trying to assemble.
+            </p>
+            <p className="card-body company-copy">
+              That timing gap shapes more than bids. Sales teams chase late
+              leads, leaders question where effort is going, and marketing,
+              technical, and commercial teams struggle to prioritize together.
+            </p>
+            <p className="card-body company-copy">
+              Civant gives those teams a shared evidence base earlier, so they
+              can focus on the right opportunities, estimate acquisition cost
+              more accurately, and compete on substance before the window
+              closes.
+            </p>
+            <div className="company-matters-action">
+              <p>Turn public procurement data into earlier market decisions.</p>
+              <CTAGroup
+                primaryHref="/pricing"
+                primaryLabel="Get Started"
+                secondaryHref="/contact"
+                secondaryLabel="Talk to Us"
+              />
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -347,17 +218,71 @@ export default function CompanyPage() {
       </Section>
 
       <Section>
+        <div className="section-heading-wrap company-reading">
+          <p className="eyebrow">Supported by & member of</p>
+          <h2 className="headline-lg">
+            Institutional support around Civant in Ireland
+          </h2>
+          <p className="card-body section-intro company-copy">
+            These programmes, institutions, and membership networks support
+            Civant as the company takes shape in Ireland and builds its early
+            operating foundation.
+          </p>
+          <div className="company-support-network">
+            <div className="company-support-core">
+              <span>Built in Ireland</span>
+              <strong>Enterprise support around Civant</strong>
+              <p>
+                Founder development, regional incubation, and local business
+                membership give Civant a practical base as the company grows.
+              </p>
+            </div>
+
+            <div className="company-support-nodes" aria-label="Civant support network">
+              {companySupport.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="company-support-node interactive-surface"
+                  aria-label={`${item.relationship}: ${item.name}. ${item.context}`}
+                >
+                  {item.logo && item.logoWidth && item.logoHeight ? (
+                    <span
+                      className={`advisor-logo-wrap advisor-logo-wrap-${item.logoTone ?? "light"}`}
+                    >
+                      <Image
+                        src={item.logo}
+                        alt={`${item.name} logo`}
+                        width={item.logoWidth}
+                        height={item.logoHeight}
+                        quality={100}
+                        className={`advisor-logo advisor-logo-${item.logoSize ?? "standard"}`}
+                      />
+                    </span>
+                  ) : null}
+                  <span className="support-relationship">{item.relationship}</span>
+                  <strong>{item.name}</strong>
+                  <p>{item.supportLine}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section>
         <div className="final-cta">
-          <h2 className="headline-lg final-cta-title">Choose the path that fits</h2>
+          <h2 className="headline-lg final-cta-title">Build from evidence, not reaction</h2>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="View Pricing"
-            secondaryHref="/contact"
-            secondaryLabel="Request Custom Plan"
+            primaryLabel="Get Started"
+            secondaryHref="/team"
+            secondaryLabel="Meet the Team"
           />
         </div>
       </Section>
-      <SchemaScript data={founderSchema} />
     </>
   );
 }

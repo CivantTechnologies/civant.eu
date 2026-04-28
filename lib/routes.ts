@@ -20,6 +20,7 @@ export const TOP_LEVEL_ROUTES: SiteRoute[] = [
   { href: "/resources", label: "Resources" },
   { href: "/resources/reports", label: "Forecast Reports" },
   { href: "/company", label: "Company" },
+  { href: "/team", label: "Team" },
   { href: "/contact", label: "Contact" },
 ];
 

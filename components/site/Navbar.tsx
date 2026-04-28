@@ -46,10 +46,17 @@ const PRIMARY_NAV_GROUPS: NavGroup[] = [
       { href: "/resources/reports", label: "Forecast reports" },
     ],
   },
+  {
+    label: "Company",
+    href: "/company",
+    items: [
+      { href: "/company", label: "Company" },
+      { href: "/team", label: "Team" },
+    ],
+  },
 ];
 
 const DIRECT_NAV_ITEMS: NavLink[] = [
-  { href: "/company", label: "Company" },
   { href: "/contact", label: "Contact" },
 ];
 
