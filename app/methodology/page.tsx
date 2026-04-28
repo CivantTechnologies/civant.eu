@@ -1,13 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
-  Binary,
-  Database,
+  Activity,
+  CalendarDays,
+  Clock3,
+  FileText,
+  Globe2,
+  ListChecks,
+  Radar,
   SearchCheck,
-  TrendingUp,
+  ShieldCheck,
+  Trophy,
   type LucideIcon,
 } from "lucide-react";
 import { CTAGroup } from "../../components/site/CTAGroup";
-import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { buildFaqSchema, buildPageMetadata } from "../../lib/seo";
@@ -15,7 +21,7 @@ import { buildFaqSchema, buildPageMetadata } from "../../lib/seo";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Tender Forecasting Methodology | Civant",
+  title: "Tender Forecasting Methodology",
   description:
     "See how Civant's forecasting model uses procurement records, contract lifecycles, buyer behavior, and public signals to estimate likely tender timing.",
   path: "/methodology",
@@ -47,167 +53,348 @@ const methodologyFaqs = [
     answer:
       "No. Civant provides planning and prioritization intelligence, not guarantees about tender publication dates, procurement decisions, or contract award outcomes.",
   },
+  {
+    question: "How do external signals affect forecast confidence?",
+    answer:
+      "External signals such as PINs, hiring, budgets, funding, policy movement, news, and press releases help strengthen or weaken confidence when they align with procurement history, lifecycle timing, and buyer recurrence patterns.",
+  },
 ];
 
 const methodologySchema = buildFaqSchema(methodologyFaqs);
 
-const dataSources = [
-  "European procurement notices",
-  "Contract award records",
-  "PINs and pre-market notices",
-  "Supplier participation data",
-  "Contract lifecycle information",
-  "Budgets, grants, policy, and hiring signals",
+const methodologyPipeline = [
+  {
+    step: "01",
+    title: "Data ingestion",
+    body: "Public procurement records and external signals are collected across supported markets.",
+  },
+  {
+    step: "02",
+    title: "Normalization",
+    body: "Sources are reconciled into comparable buyers, suppliers, categories, dates, and contract events.",
+  },
+  {
+    step: "03",
+    title: "Signal engineering",
+    body: "Lifecycle timing, recurrence, incumbency, participation, and external movement become forecast signals.",
+  },
+  {
+    step: "04",
+    title: "Forecast modeling",
+    body: "Signals are modeled to estimate likely tender timing, demand movement, and opportunity fit.",
+  },
+  {
+    step: "05",
+    title: "Confidence scoring",
+    body: "Forecasts are weighted by evidence quality, corroboration, market context, and observed patterns.",
+  },
+  {
+    step: "06",
+    title: "Actionable intelligence",
+    body: "Outputs are translated into planning visibility for bid, sales, and market intelligence teams.",
+  },
+];
+
+const dataUniverse = [
+  "Procurement portals",
+  "Contract and award notices",
+  "Budgets and grants",
+  "PINs and eForms",
+  "Policy updates",
+  "Company and people signals",
+  "Market and industry data",
+  "News and media sources",
+  "Buyer activity patterns",
+];
+
+const evidenceSources = [
+  {
+    icon: FileText as LucideIcon,
+    title: "Tender notices",
+    signal: "Publication history",
+  },
+  {
+    icon: Trophy as LucideIcon,
+    title: "Award outcomes",
+    signal: "Supplier movement",
+  },
+  {
+    icon: Clock3 as LucideIcon,
+    title: "Contract lifecycles",
+    signal: "Renewal timing",
+  },
+  {
+    icon: Radar as LucideIcon,
+    title: "Buyer recurrence",
+    signal: "Buying cadence",
+  },
+  {
+    icon: Activity as LucideIcon,
+    title: "Competitor movement",
+    signal: "Market pressure",
+  },
+  {
+    icon: Globe2 as LucideIcon,
+    title: "External signals",
+    signal: "Public context",
+  },
+];
+
+const methodologyOutputs = [
+  {
+    icon: CalendarDays as LucideIcon,
+    title: "Timing",
+    body: "When preparation should start",
+  },
+  {
+    icon: ShieldCheck as LucideIcon,
+    title: "Confidence",
+    body: "How strong the evidence is",
+  },
+  {
+    icon: ListChecks as LucideIcon,
+    title: "Priority",
+    body: "Where teams should focus",
+  },
 ];
 
 const coreSignals = [
   {
-    title: "Procurement history",
-    body: "Historical notice and award sequences reveal how institutions buy over time.",
+    title: "PINs and early-market notices",
+    body: "Prior information notices, market consultations, and eForms can indicate buyer intent before a formal tender is published.",
   },
   {
-    title: "Contract duration signals",
-    body: "Known and inferred contract windows highlight likely retender time ranges.",
+    title: "Hiring and team expansion",
+    body: "New roles, delivery teams, and specialist hiring can corroborate demand movement around upcoming programmes or service needs.",
   },
   {
-    title: "Renewal patterns",
-    body: "Category-level renewal behavior helps identify repeatable procurement cycles.",
+    title: "Budgets, grants, and funding",
+    body: "Approved budgets, grant allocations, and funding rounds help Civant assess whether a need has financial support behind it.",
   },
   {
-    title: "Buyer behavior",
-    body: "Institution-specific buying cadence and category emphasis support targeting accuracy.",
+    title: "Policy and regulatory movement",
+    body: "Policy deadlines, compliance changes, and public-sector reform priorities can raise confidence that procurement activity is likely to follow.",
   },
   {
-    title: "Market participation",
-    body: "Supplier entry, repeat participation, and award dynamics indicate competitive movement.",
+    title: "News feeds and public announcements",
+    body: "Local news, public statements, board updates, and programme announcements provide context around timing, scope, and urgency.",
   },
   {
-    title: "Competitor incumbency exposure",
-    body: "Incumbent supplier footprint and concentration patterns reveal where competitive defensibility may be strongest.",
-  },
-  {
-    title: "External public signals",
-    body: "Budgets, grants, PINs, hiring, compliance, and policy movement provide corroborating context before formal tender publication.",
+    title: "Press releases and supplier movement",
+    body: "Supplier wins, partnerships, framework activity, and press releases help Civant read competitive pressure around a buyer or category.",
   },
 ];
 
-const analysisFlow = [
+const coreSignalPrinciple = {
+  title: "Confidence corroboration",
+  body: "External signals do not replace hard procurement evidence. They strengthen or weaken confidence when they align with lifecycle timing, buyer recurrence, and observed procurement patterns.",
+};
+
+const responsibleInterpretation = [
   {
-    step: "01",
-    icon: Database as LucideIcon,
-    title: "Ingest and normalize",
-    body: "Civant standardizes procurement data across sources, structures, and jurisdictions.",
+    icon: FileText as LucideIcon,
+    title: "Evidence-led",
+    body: "Civant uses public procurement records and public external signals to support earlier planning.",
   },
   {
-    step: "02",
-    icon: Binary as LucideIcon,
-    title: "Extract lifecycle context",
-    body: "Contract timelines and renewal indicators are modeled into comparable procurement-cycle signals.",
+    icon: ShieldCheck as LucideIcon,
+    title: "Confidence-aware",
+    body: "Forecasts are weighted by evidence quality, corroboration, and observed buyer patterns.",
   },
   {
-    step: "03",
-    icon: TrendingUp as LucideIcon,
-    title: "Model market behavior",
-    body: "Participation and award patterns are analyzed to estimate where demand is likely to emerge.",
+    icon: ListChecks as LucideIcon,
+    title: "Decision-supportive",
+    body: "Civant helps teams prioritize where to prepare, engage, and bid while commercial judgment stays with the team.",
   },
+];
+
+const validationLoop = [
   {
-    step: "04",
     icon: SearchCheck as LucideIcon,
-    title: "Prioritize opportunities",
-    body: "Signals are translated into ranked intelligence outputs for planning and execution workflows.",
+    title: "Forecast signal identified",
+    body: "A lifecycle pattern or external signal raises the likelihood of future procurement activity.",
+  },
+  {
+    icon: CalendarDays as LucideIcon,
+    title: "Published tender observed",
+    body: "Civant checks whether a matching tender later appears in the public procurement record.",
+  },
+  {
+    icon: Activity as LucideIcon,
+    title: "Alignment compared",
+    body: "Buyer, category, timing, scope, and evidence quality are compared against the original signal.",
+  },
+  {
+    icon: ShieldCheck as LucideIcon,
+    title: "Confidence calibrated",
+    body: "Signal weights are refined so future forecasts reflect observed downstream alignment.",
   },
 ];
 
-const validationPrinciples = [
-  {
-    title: "Evidence first",
-    body: "Forecasts start from structured procurement records, lifecycle timing, and observable buyer or market activity.",
-  },
-  {
-    title: "Corroborated signals",
-    body: "External signals strengthen context, but Civant does not rely on isolated, unsupported public hints as forecast proof.",
-  },
-  {
-    title: "Live calibration",
-    body: "Validation updates as new tenders are published, keeping public pages stable while the product shows current performance.",
-  },
+const validationMeasures = [
+  "Downstream publication alignment",
+  "Evidence quality",
+  "ML Engine",
 ];
 
 export default function MethodologyPage() {
   return (
     <div className="methodology-page">
-      <Section className="hero-block hero-section">
-        <p className="eyebrow">Methodology</p>
-        <h1 className="headline-xl">How Civant forecasts tenders from public evidence</h1>
-        <p className="text-lead">
-          Civant uses a procurement forecasting methodology built on public
-          procurement data, contract lifecycles, buyer behavior, competitor
-          movement, and external public signals to identify where tender demand
-          is more likely to emerge.
-        </p>
+      <Section
+        className="hero-block hero-section methodology-hero"
+        containerClassName="methodology-hero-container"
+      >
+        <div className="methodology-hero-copy">
+          <p className="eyebrow">Methodology</p>
+          <h1 className="headline-xl">How Civant forecasts tenders from public evidence</h1>
+          <p className="text-lead">
+            Civant connects procurement records, contract lifecycles, buyer
+            behavior, competitor movement, and external public signals into
+            forecasting visibility teams can use before tender windows open.
+          </p>
+          <CTAGroup
+            primaryHref="/pricing"
+            primaryLabel="Get Started"
+            secondaryHref="/contact"
+            secondaryLabel="Talk to Us"
+          />
+        </div>
+        <div className="methodology-hero-model" aria-label="Civant methodology model">
+          <div className="methodology-model-source">
+            <span>Public evidence</span>
+            <small>Notices</small>
+            <small>PINs</small>
+            <small>Awards</small>
+            <small>Lifecycles</small>
+            <small>External signals</small>
+          </div>
+          <div className="methodology-model-flow" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </div>
+          <div className="methodology-model-output">
+            <span>Forecasting visibility</span>
+            <strong>Earlier planning signals</strong>
+            <p>Timing, confidence, fit, and competitive context for bid and market teams.</p>
+          </div>
+        </div>
       </Section>
 
       <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Data Sources</p>
-          <h2 className="headline-lg">
-            The evidence behind Civant forecasting
-          </h2>
+        <div className="methodology-data-engine">
+          <div className="methodology-data-copy">
+            <p className="eyebrow">Data Sources</p>
+            <h2 className="headline-lg">Inside the forecasting engine</h2>
+            <p className="text-lead section-intro">
+              Civant does not treat sources as a flat feed. Public evidence is
+              normalized, engineered into signals, scored for confidence, and
+              turned into planning intelligence.
+            </p>
+          </div>
+          <div className="methodology-engine-visual" aria-label="Civant forecasting engine">
+            <div className="methodology-engine-board">
+              <div className="methodology-evidence-bank">
+                <span className="methodology-board-label">Evidence inputs</span>
+                <div className="methodology-evidence-grid">
+                  {evidenceSources.map((source) => {
+                    const Icon = source.icon;
+                    return (
+                      <article key={source.title} className="methodology-evidence-tile">
+                        <Icon aria-hidden="true" />
+                        <div>
+                          <h3>{source.title}</h3>
+                          <p>{source.signal}</p>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="methodology-core-stack">
+                <span className="methodology-board-label">Methodology core</span>
+                <div className="methodology-core-orbit" aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                </div>
+                <div className="methodology-core">
+                  <Image
+                    className="methodology-core-mark"
+                    src="/icon-512.png"
+                    alt="Civant"
+                    width={92}
+                    height={92}
+                  />
+                  <span>Normalize</span>
+                  <strong>Forecasting model</strong>
+                  <small>Signals weighted by timing, recurrence, corroboration, and market context.</small>
+                </div>
+              </div>
+              <div className="methodology-output-bank">
+                <span className="methodology-board-label">Planning outputs</span>
+                {methodologyOutputs.map((output) => {
+                  const Icon = output.icon;
+                  return (
+                    <article key={output.title} className="methodology-output-tile">
+                      <Icon aria-hidden="true" />
+                      <div>
+                        <h3>{output.title}</h3>
+                        <p>{output.body}</p>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="methodology-engine-stage-row" aria-label="Forecasting methodology stages">
+              {methodologyPipeline.map((item) => (
+                <article
+                  key={item.step}
+                  className="methodology-engine-stage"
+                  aria-label={`${item.title}: ${item.body}`}
+                >
+                  <span>{item.step}</span>
+                  <h3>{item.title}</h3>
+                </article>
+              ))}
+            </div>
+            <div className="methodology-data-universe">
+              <span>Data universe</span>
+              <div>
+                {dataUniverse.map((source) => (
+                  <small key={source}>{source}</small>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="grid grid-3 methodology-grid">
-          {dataSources.map((source) => (
-            <article key={source} className="card signal-card">
-              <h3 className="card-title">{source}</h3>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section muted>
-        <MarketCoverageLinks
-          eyebrow="Country Rollout"
-          title="A consistent evidence model across European markets"
-          body="Civant applies the same procurement forecasting methodology to live country coverage and the next wave of European markets."
-          compact
-        />
       </Section>
 
       <Section>
         <div className="section-heading-wrap">
           <p className="eyebrow">Core Signals</p>
           <h2 className="headline-lg">
-            The forecasting signals Civant tracks continuously
+            External signals that sharpen forecast confidence
           </h2>
+          <p className="text-lead section-intro">
+            Civant separates hard procurement evidence from public context. External
+            signals help explain whether a likely opportunity has timing, budget,
+            urgency, and market movement behind it.
+          </p>
         </div>
-        <div className="grid grid-3 methodology-grid">
+        <div className="grid grid-3 methodology-grid methodology-signal-grid">
           {coreSignals.map((signal) => (
-            <article key={signal.title} className="card">
+            <article key={signal.title} className="card methodology-signal-card">
               <h3 className="card-title">{signal.title}</h3>
               <p className="card-body">{signal.body}</p>
             </article>
           ))}
         </div>
-      </Section>
-
-      <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">How Analysis Works</p>
-          <h2 className="headline-lg">
-            From procurement evidence to forecasting and prioritization
-          </h2>
-        </div>
-        <div className="flow-track methodology-flow">
-          {analysisFlow.map((item) => (
-            <article key={item.step} className="flow-card methodology-flow-card">
-              <div className="flow-title-row">
-                <span className="flow-icon" aria-hidden="true">
-                  <item.icon />
-                </span>
-                <h3 className="card-title">{item.title}</h3>
-              </div>
-              <p className="card-body">{item.body}</p>
-            </article>
-          ))}
+        <div className="methodology-signal-principle">
+          <span>Scoring principle</span>
+          <h3>{coreSignalPrinciple.title}</h3>
+          <p>{coreSignalPrinciple.body}</p>
         </div>
       </Section>
 
@@ -215,102 +402,150 @@ export default function MethodologyPage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Validation</p>
           <h2 className="headline-lg">
-            Continuously tested against subsequently published tenders
+            Forecasts are validated against what actually happens
           </h2>
           <p className="text-lead section-intro">
-            Civant continuously compares identified forecasting signals with
-            tenders that are later published. This allows signal tuning,
-            confidence calibration, and transparent methodology refinement over
-            time.
+            Civant compares identified forecasting signals with tenders that are
+            later published, creating a calibration loop between evidence,
+            public outcomes, and future confidence scoring.
           </p>
         </div>
-        <article className="card comparison-card">
-          <p className="comparison-line">
+        <div className="methodology-validation-console">
+          <div className="methodology-validation-loop" aria-label="Civant validation loop">
+            {validationLoop.map((item) => {
+              const Icon = item.icon;
+              return (
+                <article key={item.title} className="methodology-validation-step">
+                  <Icon aria-hidden="true" />
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <div className="methodology-validation-measures" aria-label="Validation measures">
+            {validationMeasures.map((measure) => (
+              <span key={measure}>{measure}</span>
+            ))}
+          </div>
+          <p className="methodology-validation-principle">
             <strong>Validation principle:</strong> signal quality is measured by
             observed downstream publication alignment, not by marketing claims.
           </p>
-        </article>
-        <div className="grid grid-3 methodology-grid">
-          {validationPrinciples.map((item) => (
-            <article key={item.title} className="card">
-              <h3 className="card-title">{item.title}</h3>
-              <p className="card-body">{item.body}</p>
-            </article>
-          ))}
         </div>
-        <div className="grid grid-2 solution-related-grid" style={{ marginTop: "2rem" }}>
+        <div className="grid grid-2 solution-related-grid methodology-validation-links">
           <Link
             href="/resources/external-signals-in-public-procurement"
-            className="card card-link interactive-surface"
+            className="card card-link interactive-surface methodology-resource-card"
           >
-            <h3 className="card-title">Go deeper on external signals</h3>
-            <p className="card-body">
-              See how budgets, grants, PINs, hiring, and policy changes support
-              earlier procurement timing when they are tied back to hard public
-              evidence.
-            </p>
-            <span className="card-link-cta">Read the resource</span>
+            <div className="methodology-resource-image">
+              <Image
+                src="/images/resources/guide-external-signals.jpg"
+                alt="External public signals feeding procurement intelligence"
+                width={1200}
+                height={675}
+                sizes="(max-width: 900px) 100vw, 44vw"
+              />
+            </div>
+            <div className="methodology-resource-copy">
+              <h3 className="card-title">Go deeper on external signals</h3>
+              <p className="card-body">
+                See how budgets, grants, PINs, hiring, and policy changes support
+                earlier procurement timing when they are tied back to hard public
+                evidence.
+              </p>
+              <span className="card-link-cta">Read the resource</span>
+            </div>
           </Link>
           <Link
             href="/resources/competitor-intelligence-in-public-procurement"
-            className="card card-link interactive-surface"
+            className="card card-link interactive-surface methodology-resource-card"
           >
-            <h3 className="card-title">Go deeper on competitor context</h3>
-            <p className="card-body">
-              Understand how incumbent position, participation patterns, and
-              market pressure strengthen forecasting and prioritization.
-            </p>
-            <span className="card-link-cta">Read the resource</span>
+            <div className="methodology-resource-image">
+              <Image
+                src="/images/resources/guide-competitor-intelligence.jpg"
+                alt="Competitor intelligence signals for public procurement"
+                width={1200}
+                height={675}
+                sizes="(max-width: 900px) 100vw, 44vw"
+              />
+            </div>
+            <div className="methodology-resource-copy">
+              <h3 className="card-title">Go deeper on competitor context</h3>
+              <p className="card-body">
+                Understand how incumbent position, participation patterns, and
+                market pressure strengthen forecasting and prioritization.
+              </p>
+              <span className="card-link-cta">Read the resource</span>
+            </div>
           </Link>
         </div>
       </Section>
 
       <Section muted>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Responsible Interpretation</p>
-          <h2 className="headline-lg">
-            Intelligence for planning and prioritization, not guarantees
-          </h2>
+        <div className="methodology-governance-band">
+          <div className="methodology-governance-copy">
+            <p className="eyebrow">Responsible Interpretation</p>
+            <h2 className="headline-lg">
+              Forecasting intelligence built for disciplined decisions
+            </h2>
+            <p className="text-lead section-intro">
+              Civant helps teams move earlier with evidence and confidence context,
+              without treating forecasts as certainty or replacing commercial judgment.
+            </p>
+          </div>
+          <div className="methodology-governance-rail">
+            {responsibleInterpretation.map((item) => {
+              const Icon = item.icon;
+              return (
+                <article key={item.title} className="methodology-governance-item">
+                  <Icon aria-hidden="true" />
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
-        <article className="card">
-          <p className="card-body">
-            Civant supports earlier planning, sharper prioritization, and better
-            resource allocation. It does not guarantee tender publication dates,
-            procurement decisions, or contract award outcomes.
-          </p>
-        </article>
       </Section>
 
       <Section>
-        <div className="section-heading-wrap">
-          <p className="eyebrow">Methodology FAQ</p>
-          <h2 className="headline-lg">Common questions about Civant forecasting methodology</h2>
-        </div>
-        <div className="grid grid-2 methodology-grid">
+        <div className="methodology-compact-faq">
+          <h3 className="card-title">Methodology FAQ</h3>
+          <div className="methodology-compact-faq-list">
           {methodologyFaqs.map((item) => (
-            <article key={item.question} className="card">
-              <h3 className="card-title">{item.question}</h3>
-              <p className="card-body">{item.answer}</p>
-            </article>
+            <details key={item.question} className="methodology-compact-faq-item">
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
           ))}
+          </div>
         </div>
       </Section>
 
       <Section>
-        <div className="final-cta">
-          <h2 className="headline-lg final-cta-title">
-            See Civant methodology in practice
-          </h2>
-          <p className="text-lead platform-cta-copy">
-            Review plans when you are ready to start, or request a custom plan
-            for a deeper methodology walkthrough against your target markets.
-          </p>
-          <CTAGroup
-            primaryHref="/pricing"
-            primaryLabel="View Pricing"
-            secondaryHref="/contact"
-            secondaryLabel="Request Custom Plan"
-          />
+        <div className="methodology-final-cta">
+          <div className="methodology-final-cta-copy">
+            <p className="eyebrow">From method to market timing</p>
+            <h2 className="headline-lg final-cta-title">
+              Turn public evidence into earlier procurement decisions
+            </h2>
+            <p className="text-lead platform-cta-copy">
+              See how Civant converts tender history, external signals, and
+              validation feedback into forecast visibility your team can act on
+              before tender windows open.
+            </p>
+            <CTAGroup
+              primaryHref="/pricing"
+              primaryLabel="Get Started"
+              secondaryHref="/contact"
+              secondaryLabel="Talk to Us"
+            />
+          </div>
         </div>
       </Section>
       <SchemaScript data={methodologySchema} />
