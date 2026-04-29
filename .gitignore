@@ -19,6 +19,8 @@ dist-ssr
 .next-main
 .lighthouseci
 .lighthouseci-production
+output/playwright/
+.playwright-cli/
 out
 *.tsbuildinfo
 *.local
