@@ -266,6 +266,7 @@ export function buildPricingProductSchema() {
     },
     description:
       "Procurement forecasting intelligence software for European public-sector market monitoring, tender forecasting, competitor intelligence, and external signal analysis.",
+    image: [`${SITE_URL}/screenshots/forecast-validation.png`],
     url: `${SITE_URL}/pricing`,
     offers: [
       {
