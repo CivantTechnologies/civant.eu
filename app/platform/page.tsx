@@ -21,7 +21,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Procurement Forecasting Software | Civant Platform",
+  title: "Civant Platform | Procurement Forecasting Intelligence",
   description:
     "Civant is procurement forecasting software that turns buyer cycles, contract lifecycles, competitor context, and public signals into earlier targeting and bid planning.",
   path: "/platform",

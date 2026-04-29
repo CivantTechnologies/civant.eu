@@ -153,7 +153,7 @@ export const companySupport: CompanySupportItem[] = [
   {
     name: "Dundalk Chamber",
     href: "https://www.dundalk.ie/",
-    logo: "/images/company/dundalk-chamber-member-2026.jpg",
+    logo: "/images/company/dundalk-chamber-member-2026.webp",
     logoWidth: 1757,
     logoHeight: 753,
     logoTone: "frosted" as const,

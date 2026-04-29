@@ -15,7 +15,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Win Before the Tender | Procurement Forecasting Intelligence | Civant",
+  title: "Procurement Forecasting Intelligence | Civant",
   description:
     "Civant is procurement forecasting software for European B2G teams, helping teams identify likely tender timing using buyer cycles, contract lifecycles, and public signals.",
   path: "/",
@@ -218,10 +218,10 @@ export default function HomePage() {
               bid planning.
             </p>
             <CTAGroup
-              primaryHref="/pricing"
-              primaryLabel="Get Started"
-              secondaryHref="/platform"
-              secondaryLabel="See Platform"
+              primaryHref="/contact"
+              primaryLabel="Book a 20-minute walkthrough"
+              secondaryHref="/pricing"
+              secondaryLabel="View Pricing"
             />
             <p className="cred-line">
               Validated against 79K evidence checks across live and upcoming
@@ -441,10 +441,10 @@ export default function HomePage() {
             Start mastering procurement cycles
           </h2>
           <CTAGroup
-            primaryHref="/pricing"
-            primaryLabel="Get Started"
-            secondaryHref="/contact"
-            secondaryLabel="Request Custom Plan"
+            primaryHref="/contact"
+            primaryLabel="Book a 20-minute walkthrough"
+            secondaryHref="/pricing"
+            secondaryLabel="View Pricing"
           />
         </div>
       </Section>

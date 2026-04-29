@@ -92,7 +92,7 @@ const article: ResourceArticle = {
           <p className="article-body-text">
             AI-like methods can help detect patterns in award history, buyer
             behavior, competition, and contract lifecycles. In procurement
-            strategy, however, the value is not magic prediction. The value is
+            strategy, however, the value is not guesswork. The value is
             structured comparison across opportunities.
           </p>
           <p className="article-body-text">

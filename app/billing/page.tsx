@@ -4,7 +4,9 @@ import BillingPageClient from "./BillingPageClient";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Billing | Civant",
+  title: {
+    absolute: "Billing | Civant",
+  },
   description:
     "Manage Civant subscription billing, upgrades, and portal access.",
   robots: {

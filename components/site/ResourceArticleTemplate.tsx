@@ -14,6 +14,7 @@ import {
 import type { ArticleSource } from "../../lib/articleSources";
 import { RelatedArticles } from "./RelatedArticles";
 import { RelatedSolution } from "./RelatedSolution";
+import { InsightsSignup } from "./InsightsSignup";
 import { SchemaScript } from "./SchemaScript";
 import { Section } from "./Section";
 import { ShareArticleButton } from "./ShareArticleButton";
@@ -163,6 +164,8 @@ export function ResourceArticleTemplate({ article }: { article: ResourceArticle 
             secondaryLabel={article.action.secondaryLabel}
           />
 
+          <InsightsSignup compact source={`Article ${article.path}`} />
+
           {article.sources ? <ArticleSources items={article.sources} /> : null}
 
           <ArticleFaq items={article.faqs} />
@@ -182,7 +185,7 @@ export function ResourceArticleTemplate({ article }: { article: ResourceArticle 
               Back to Resources
             </Link>
             <Link href="/pricing" className="btn btn-primary">
-              Get Started
+              View Pricing
             </Link>
           </div>
         </article>

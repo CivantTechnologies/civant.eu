@@ -23,6 +23,31 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/about",
+        destination: "/company",
+        permanent: true,
+      },
+      {
+        source: "/home",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/solution",
+        destination: "/solutions",
+        permanent: true,
+      },
+      {
+        source: "/proof",
+        destination: "/methodology",
+        permanent: true,
+      },
+      {
+        source: "/challenge",
+        destination: "/methodology",
+        permanent: true,
+      },
+      {
         source: "/resources/the-incumbent-advantage",
         destination: "/resources/the-incumbent-advantage-in-public-sector-procurement",
         permanent: true,

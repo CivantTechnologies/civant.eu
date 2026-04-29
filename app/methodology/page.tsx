@@ -16,12 +16,17 @@ import {
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
-import { buildFaqSchema, buildPageMetadata } from "../../lib/seo";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildPageMetadata,
+  SITE_URL,
+} from "../../lib/seo";
 
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Tender Forecasting Methodology",
+  title: "Civant Methodology | Evidence-Led Procurement Forecasting",
   description:
     "See how Civant's forecasting model uses procurement records, contract lifecycles, buyer behavior, and public signals to estimate likely tender timing.",
   path: "/methodology",
@@ -60,8 +65,6 @@ const methodologyFaqs = [
   },
 ];
 
-const methodologySchema = buildFaqSchema(methodologyFaqs);
-
 const methodologyPipeline = [
   {
     step: "01",
@@ -93,6 +96,29 @@ const methodologyPipeline = [
     title: "Actionable intelligence",
     body: "Outputs are translated into planning visibility for bid, sales, and market intelligence teams.",
   },
+];
+
+const methodologyItemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Civant evidence-led procurement forecasting methodology",
+  description:
+    "A structured workflow for turning public procurement records, lifecycle timing, and external public signals into confidence-scored forecasting intelligence.",
+  itemListElement: methodologyPipeline.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.title,
+    description: item.body,
+  })),
+};
+
+const methodologySchema = [
+  buildFaqSchema(methodologyFaqs),
+  methodologyItemListSchema,
+  buildBreadcrumbSchema([
+    { name: "Home", item: SITE_URL },
+    { name: "Methodology", item: `${SITE_URL}/methodology` },
+  ]),
 ];
 
 const dataUniverse = [

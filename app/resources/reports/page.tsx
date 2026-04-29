@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { InsightsSignup } from "../../../components/site/InsightsSignup";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { Section } from "../../../components/site/Section";
 import { getAllReports } from "../../../lib/reportDownloads";
@@ -77,10 +78,17 @@ export default function ReportsPage() {
           <Link href="/resources/request-report" className="btn btn-secondary">
             Request a Sector Report
           </Link>
+          <Link href="/contact" className="btn btn-secondary">
+            Book a 20-minute walkthrough
+          </Link>
           <Link href="/pricing" className="btn btn-primary">
             View Pricing
           </Link>
         </div>
+      </Section>
+
+      <Section muted>
+        <InsightsSignup source="Forecast Reports Hub" />
       </Section>
 
       <SchemaScript data={pageSchema} />

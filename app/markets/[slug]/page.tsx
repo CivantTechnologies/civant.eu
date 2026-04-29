@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: MarketPageProps) {
   }
 
   return buildPageMetadata({
-    title: `${market.country} Public Procurement Intelligence | Civant`,
+    title: `${market.country} Public Procurement Intelligence`,
     description: market.metaDescription || market.description,
     path: `/markets/${market.slug}`,
   });

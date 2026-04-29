@@ -67,12 +67,31 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Civant Technologies Limited",
+  name: "Civant Technologies",
+  legalName: "Civant Technologies Limited",
   url: SITE_URL,
   logo: `${SITE_URL}/og-civant.png`,
-  foundingLocation: "Ireland",
+  description:
+    "Civant is an Irish procurement forecasting intelligence company helping teams understand procurement timing, renewal windows, buyer cycles, competitor movement, and public market signals.",
+  foundingLocation: {
+    "@type": "Place",
+    name: "Ireland",
+  },
+  areaServed: "Europe",
   email: "hello@civant.eu",
-  sameAs: ["https://www.linkedin.com/company/civant-technologies"],
+  founder: {
+    "@type": "Person",
+    name: "David Manrique",
+    jobTitle: "Founder & CEO",
+    url: "https://www.linkedin.com/in/davidmanriquec/",
+  },
+  sameAs: ["https://www.linkedin.com/company/civant-technologies/"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "Sales",
+    email: "hello@civant.eu",
+    availableLanguage: ["en"],
+  },
 };
 
 const websiteSchema = {
@@ -81,10 +100,10 @@ const websiteSchema = {
   name: SITE_NAME,
   url: SITE_URL,
   description:
-    "Public procurement intelligence platform for enterprise teams across Europe.",
+    "Procurement forecasting intelligence platform for enterprise teams across Europe.",
   publisher: {
     "@type": "Organization",
-    name: "Civant Technologies Limited",
+    name: "Civant Technologies",
   },
 };
 

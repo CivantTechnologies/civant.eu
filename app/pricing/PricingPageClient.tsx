@@ -353,7 +353,7 @@ function SignupModal({
           Continue with {intent.planName}
         </h2>
         <p className="pricing-signup-plan-readonly">
-          {intent.planName} — {intent.priceLabel}
+          {intent.planName}, {intent.priceLabel}
         </p>
 
         <form className="contact-live-form-grid" onSubmit={handleSubmit}>
@@ -830,7 +830,7 @@ function PlanCard({
             {plan.ctaLabel}
           </button>
           <p className="pricing-plan-reassurance">
-            Start setting up your workspace right away
+            Secure Stripe checkout, then workspace setup begins
           </p>
         </>
       ) : (
@@ -843,7 +843,7 @@ function PlanCard({
             {plan.ctaLabel}
           </Link>
           <p className="pricing-plan-reassurance">
-            Best for rollout, onboarding, and tailored support
+            Request a setup call for rollout, billing, and support
           </p>
         </>
       )}
@@ -906,10 +906,10 @@ export default function PricingPageClient() {
         </p>
         <div className="pricing-hero-actions">
           <Link href="#plans" className="btn btn-primary">
-            Get Started
+            Choose a Plan
           </Link>
           <Link href="/contact" className="btn btn-secondary">
-            Talk to Us
+            Book a 20-minute walkthrough
           </Link>
         </div>
         <div className="pricing-hero-proof" aria-label="Pricing highlights">
@@ -970,6 +970,17 @@ export default function PricingPageClient() {
           ))}
         </div>
 
+        <div className="pricing-next-step-card">
+          <p className="eyebrow">What happens next?</p>
+          <h3 className="card-title">Self-serve when you are ready, supported when you need it.</h3>
+          <p className="card-body">
+            Choose Vanguard or Summit to begin self-serve setup. After checkout,
+            your workspace is created and configured for your selected market
+            focus. For larger teams, custom workflows, additional seats, or
+            multi-market rollout, request a Custom Plan and Civant will arrange
+            a short setup call.
+          </p>
+        </div>
       </Section>
 
       {/* ROI Calculator */}
@@ -1006,9 +1017,9 @@ export default function PricingPageClient() {
           </p>
           <CTAGroup
             primaryHref="#plans"
-            primaryLabel="Get Started"
+            primaryLabel="Choose a Plan"
             secondaryHref="/contact"
-            secondaryLabel="Talk to Us"
+            secondaryLabel="Book a 20-minute walkthrough"
           />
         </div>
       </Section>

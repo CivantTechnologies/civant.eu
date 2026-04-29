@@ -174,7 +174,7 @@ const article: ResourceArticle = {
   ]),
   relatedSolution: {
     solutionSlug: "tender-prediction-software",
-    linkLabel: "Explore tender prediction software",
+    linkLabel: "Explore tender forecasting software",
     children:
       "See how Civant connects policy, lifecycle, buyer, and supplier signals into earlier public-sector opportunity intelligence.",
   },

@@ -1,4 +1,5 @@
 import { ContactLiveSections } from "../../components/site/ContactLiveSections";
+import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { buildContactPointSchema, buildPageMetadata } from "../../lib/seo";
@@ -6,7 +7,7 @@ import { buildContactPointSchema, buildPageMetadata } from "../../lib/seo";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Contact",
+  title: "Contact Civant | Procurement Forecasting Intelligence",
   description:
     "Request a Civant custom plan or contact our team to discuss procurement intelligence use cases.",
   path: "/contact",
@@ -25,6 +26,12 @@ export default function ContactPage() {
           or strategic collaboration, send the right context and we will route it
           to the right conversation.
         </p>
+        <CTAGroup
+          primaryHref="#contact-form"
+          primaryLabel="Book a 20-minute walkthrough"
+          secondaryHref="/pricing"
+          secondaryLabel="View Pricing"
+        />
       </Section>
 
       <ContactLiveSections />

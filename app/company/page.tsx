@@ -13,7 +13,7 @@ import { buildPageMetadata } from "../../lib/seo";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Company",
+  title: "Company, Mission and Trust | Civant",
   description:
     "About Civant Technologies and the evidence-led procurement intelligence system we are building for European public-sector markets.",
   path: "/company",

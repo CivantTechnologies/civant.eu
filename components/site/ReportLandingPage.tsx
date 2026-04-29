@@ -1,4 +1,5 @@
 import { ReportLeadCapture } from "./ReportLeadCapture";
+import { InsightsSignup } from "./InsightsSignup";
 import { SchemaScript } from "./SchemaScript";
 import { Section } from "./Section";
 import { getReportBySlug } from "../../lib/reportDownloads";
@@ -87,6 +88,10 @@ export function ReportLandingPage({ reportSlug }: ReportLandingPageProps) {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section muted>
+        <InsightsSignup compact source={`Forecast Report ${report.slug}`} />
       </Section>
 
       <SchemaScript data={pageSchema} />

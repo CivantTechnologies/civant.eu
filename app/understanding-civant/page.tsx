@@ -12,7 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Understanding Civant | Procurement Intelligence Explained",
+  title: "Understanding Civant | Procurement Forecasting Intelligence",
   description:
     "Learn how Civant works, what data it uses, how tender forecasting supports earlier public-sector decisions, and who the platform is built for.",
   path: "/understanding-civant",
@@ -166,6 +166,7 @@ const explainerLinks = [
   { href: "#about-civant", label: "About Civant" },
   { href: "#how-civant-works", label: "How it works" },
   { href: "#use-and-value", label: "Use & value" },
+  { href: "#what-civant-is-not", label: "What it is not" },
   { href: "#company-and-trust", label: "Company & trust" },
 ];
 
@@ -247,6 +248,38 @@ export default function UnderstandingCivantPage() {
         </Section>
       ))}
 
+      <Section id="what-civant-is-not" muted>
+        <div className="understanding-trust-grid">
+          <div className="understanding-trust-copy">
+            <p className="eyebrow">Clarity</p>
+            <h2 className="headline-lg">What Civant is not</h2>
+            <p className="text-lead section-intro">
+              Civant is built for disciplined public-sector planning. It gives
+              teams earlier context without pretending the market is certain.
+            </p>
+          </div>
+          <ul className="understanding-not-list" aria-label="What Civant is not">
+            <li>Civant is not a tender alert tool.</li>
+            <li>Civant is not an insider information platform.</li>
+            <li>Civant does not guarantee tender outcomes.</li>
+            <li>Civant does not replace sales, bid, or account strategy.</li>
+            <li>Civant does not rely on AI guesswork alone.</li>
+          </ul>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="understanding-example-callout">
+          <p className="eyebrow">Example</p>
+          <p>
+            A supplier targeting universities in Spain can use Civant to
+            identify likely renewal windows, understand incumbent activity,
+            prioritise the right institutions, and prepare outreach before a
+            formal tender is released.
+          </p>
+        </div>
+      </Section>
+
       <Section>
         <div className="final-cta understanding-final-cta">
           <h2 className="headline-lg final-cta-title">
@@ -257,10 +290,10 @@ export default function UnderstandingCivantPage() {
             where demand is likely to emerge.
           </p>
           <CTAGroup
-            primaryHref="/pricing"
-            primaryLabel="Get Started"
-            secondaryHref="/contact"
-            secondaryLabel="Talk to Us"
+            primaryHref="/contact"
+            primaryLabel="Book a 20-minute walkthrough"
+            secondaryHref="/pricing"
+            secondaryLabel="View Pricing"
           />
         </div>
       </Section>

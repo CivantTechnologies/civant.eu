@@ -147,7 +147,7 @@ const article: ResourceArticle = {
         "It helps suppliers plan bid capacity, engagement, partner development, and internal preparation before activity peaks.",
     },
     {
-      question: "Can procurement timing be predicted exactly?",
+      question: "Can procurement timing be forecast exactly?",
       answer:
         "No. Timing intelligence estimates likely windows based on evidence such as buyer history, lifecycle timing, budget signals, and publication patterns.",
     },

@@ -79,7 +79,7 @@ function assertCompression(headers, label) {
 }
 
 function findStaticChunk(html) {
-  const match = html.match(/src="(\/_next\/static\/chunks\/[^"]+\.js)"/);
+  const match = html.match(/src="(\/_next\/static\/chunks\/[^"]+\.js(?:\?[^"]*)?)"/);
   return match?.[1] ?? null;
 }
 

@@ -56,7 +56,7 @@ const article: ResourceArticle = {
     title: "Lifecycle evidence is one of the clearest early-warning layers.",
     content: (
       <p>
-        Contract lifecycle signals are not predictions by themselves. They are
+        Contract lifecycle signals are not forecasts by themselves. They are
         structured evidence that helps teams decide which buyers and categories
         deserve attention before the formal tender appears.
       </p>

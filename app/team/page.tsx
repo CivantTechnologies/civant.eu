@@ -12,7 +12,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Team",
+  title: "Founder and Advisory Team | Civant",
   description:
     "Meet the founder and advisory network behind Civant Technologies, the Irish procurement intelligence platform for European public-sector markets.",
   path: "/team",
@@ -66,8 +66,9 @@ export default function TeamPage() {
           <p className="eyebrow">Team</p>
           <h1 className="headline-xl">The people behind Civant</h1>
           <p className="text-lead">
-            Founder-led and advised by experienced leaders across company
-            building, product, finance, and go-to-market execution.
+            Civant is founder-led and built from direct experience in SaaS,
+            EdTech, public-sector selling, and partner-led go-to-market
+            execution.
           </p>
           <CTAGroup
             primaryHref="/contact"

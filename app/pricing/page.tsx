@@ -10,7 +10,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "EU Procurement Intelligence Pricing from €299/month",
+  title: "Pricing for Procurement Forecasting Intelligence | Civant",
   description:
     "Compare Civant pricing plans, estimate return with procurement intelligence, and choose the package that matches your team.",
   path: "/pricing",

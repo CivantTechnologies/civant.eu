@@ -15,7 +15,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Procurement Intelligence Solution",
+  title: "Procurement Forecasting Intelligence Solutions | Civant",
   description:
     "Explore the Civant solution for procurement intelligence software, tender forecasting, EU tender monitoring, and public procurement strategy.",
   path: "/solutions",
@@ -141,7 +141,7 @@ export default function SolutionsPage() {
         <div className="solution-engine-panel">
           <div className="solution-engine-visual">
             <Image
-              src="/images/solutions/civant-evidence-engine.png"
+              src="/images/solutions/civant-evidence-engine.webp"
               alt="Abstract Civant evidence engine showing public-sector signals flowing into a European procurement forecast"
               width={1586}
               height={992}

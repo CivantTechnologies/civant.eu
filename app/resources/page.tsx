@@ -1,8 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { InsightsSignup } from "../../components/site/InsightsSignup";
 import { ResourceIndexAccordion } from "../../components/site/ResourceIndexAccordion";
+import {
+  ResourceLibrarySearch,
+  type ResourceSearchItem,
+} from "../../components/site/ResourceLibrarySearch";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { Section } from "../../components/site/Section";
+import { getAllReports } from "../../lib/reportDownloads";
 import {
   buildBreadcrumbSchema,
   buildCollectionPageSchema,
@@ -12,7 +18,7 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Resources",
+  title: "Procurement Intelligence Resources and Forecast Reports | Civant",
   description:
     "Procurement intelligence resources from Civant: guides on procurement cycles, lifecycle signals, market intelligence, bidding strategy, and SME access.",
   path: "/resources",
@@ -481,6 +487,8 @@ const forecastReportVisuals = [
   },
 ];
 
+const forecastReports = getAllReports();
+
 const pillarProfiles: Record<string, PillarProfile> = {
   "Market Intelligence": {
     title: "Data-driven procurement insights",
@@ -608,6 +616,60 @@ const pillarOrder = [
   "Strategy",
   "SME Access",
   "Market Structure",
+];
+
+function slugFromHref(href: string) {
+  return href.split("/").filter(Boolean).at(-1);
+}
+
+function reportSectorFromTitle(title: string) {
+  const normalizedTitle = title.toLowerCase();
+  if (normalizedTitle.includes("education")) return "Education";
+  if (normalizedTitle.includes("healthcare")) return "Healthcare";
+  if (normalizedTitle.includes("construction")) return "Public construction";
+  return undefined;
+}
+
+const resourceSearchItems: ResourceSearchItem[] = [
+  ...forecastReports.map((report) => ({
+    href: report.landingPath,
+    title: report.title,
+    description: report.summary || report.metaDescription || report.subtitle,
+    type: "Report" as const,
+    category: "Forecast reports",
+    sector: reportSectorFromTitle(report.title),
+    slug: report.slug,
+    tags: [
+      report.eyebrow,
+      "forecast reports",
+      "public-sector demand",
+      "market timing",
+      reportSectorFromTitle(report.title),
+    ].filter((tag): tag is string => Boolean(tag)),
+    searchableText: [
+      report.subtitle,
+      report.metaDescription,
+      report.landingIntro,
+      report.audience.join(" "),
+      report.visibleSignals.join(" "),
+      report.visibleActions.join(" "),
+      report.reportIncludes.join(" "),
+    ].join(" "),
+  })),
+  ...articles.map((article) => ({
+    href: article.href,
+    title: article.title,
+    description: article.summary,
+    type: "Briefing" as const,
+    category: article.pillar,
+    slug: slugFromHref(article.href),
+    tags: [
+      article.pillar,
+      "resource briefings",
+      "procurement forecasting intelligence",
+    ],
+    searchableText: `${article.title} ${article.summary} ${article.pillar}`,
+  })),
 ];
 
 function groupByPillar(items: Article[]) {
@@ -741,8 +803,8 @@ export default function ResourcesPage() {
               <Link href="/resources/reports" className="btn btn-primary">
                 Browse Forecast Reports
               </Link>
-              <Link href="/resources/request-report" className="btn btn-secondary">
-                Request a Sector Report
+              <Link href="/contact" className="btn btn-secondary">
+                Book a 20-minute walkthrough
               </Link>
             </div>
           </div>
@@ -764,6 +826,10 @@ export default function ResourcesPage() {
             ))}
           </div>
         </div>
+      </Section>
+
+      <Section>
+        <InsightsSignup source="Resources Hub" />
       </Section>
 
       <Section className="resource-featured-section">
@@ -836,14 +902,7 @@ export default function ResourcesPage() {
       </Section>
 
       <Section id="complete-index" className="resource-index-section">
-        <div className="section-heading-wrap resource-library-heading">
-          <p className="eyebrow">Full Library Archive</p>
-          <h2 className="headline-lg">Go deeper without losing the structure</h2>
-          <p className="text-lead section-intro">
-            Browse every guide by learning path. The archive stays grouped so
-            readers can go deep without turning the page into a wall of links.
-          </p>
-        </div>
+        <ResourceLibrarySearch items={resourceSearchItems} />
         <ResourceIndexAccordion
           collections={topicCollections.map(({ pillar, articles: group, id }) => ({
             pillar,
@@ -904,10 +963,10 @@ export default function ResourcesPage() {
           </div>
           <div className="button-row">
             <Link href="/pricing" className="btn btn-primary">
-              Get Started
+              View Pricing
             </Link>
             <Link href="/contact" className="btn btn-secondary">
-              Contact
+              Book a 20-minute walkthrough
             </Link>
           </div>
         </div>
