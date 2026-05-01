@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BriefcaseBusiness, Compass, Landmark } from "lucide-react";
 import { BrowserFrame } from "../components/site/BrowserFrame";
@@ -73,6 +74,30 @@ const pricingPreview = [
     description: "For teams that need broader coverage and competitor context.",
     note: "All available countries included.",
     featured: true,
+  },
+];
+
+const homeForecastReports = [
+  {
+    label: "Education",
+    title: "Education Procurement Outlook Q4 2026",
+    href: "/resources/education-procurement-outlook-q4-2026",
+    src: "/images/resources/report-education-forecast.jpg",
+    alt: "Civant education procurement forecast report cover",
+  },
+  {
+    label: "Healthcare",
+    title: "Healthcare Procurement Outlook Q4 2026",
+    href: "/resources/healthcare-procurement-outlook-q4-2026",
+    src: "/images/resources/report-healthcare-forecast.jpg",
+    alt: "Civant healthcare procurement forecast report cover",
+  },
+  {
+    label: "Public construction",
+    title: "Public Construction Procurement Outlook Q4 2026",
+    href: "/resources/public-construction-procurement-outlook-q4-2026",
+    src: "/images/resources/report-construction-forecast.jpg",
+    alt: "Civant public construction procurement forecast report cover",
   },
 ];
 
@@ -418,6 +443,47 @@ export default function HomePage() {
               <span className="pricing-preview-cta">View pricing</span>
             </Link>
           ))}
+        </div>
+      </Section>
+
+      <Section className="home-reports-after-pricing-section">
+        <div className="home-report-strip">
+          <div className="home-report-strip-heading">
+            <div>
+              <p className="eyebrow">Forecast Reports</p>
+              <h2 className="headline-lg">Public-sector demand, by sector</h2>
+            </div>
+            <p>
+              Read concise Civant outlooks on where demand, renewal windows,
+              buyer activity, and market movement are forming across priority
+              sectors.
+            </p>
+          </div>
+
+          <div className="home-report-grid">
+            {homeForecastReports.map((report) => (
+              <Link key={report.href} href={report.href} className="home-report-card">
+                <span className="home-report-thumb">
+                  <Image
+                    src={report.src}
+                    alt={report.alt}
+                    width={520}
+                    height={680}
+                    sizes="(max-width: 700px) 34vw, 140px"
+                  />
+                </span>
+                <span className="home-report-copy">
+                  <span className="micro-label">{report.label}</span>
+                  <strong>{report.title}</strong>
+                  <span>View report</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="home-report-footer">
+            <Link href="/resources/reports">Browse forecast reports</Link>
+          </div>
         </div>
       </Section>
 
