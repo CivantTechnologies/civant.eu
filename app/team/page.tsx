@@ -19,6 +19,7 @@ export const metadata = buildPageMetadata({
 });
 
 const founderSchema = buildFounderPersonSchema();
+const visibleAdvisors = advisors.filter((advisor) => advisor.visible);
 
 const teamFaqs = [
   {
@@ -155,12 +156,13 @@ export default function TeamPage() {
               Guidance across the decisions that define Civant
             </h2>
             <p className="card-body section-intro company-copy">
-              From product architecture and data infrastructure to financial
-              strategy and go-to-market execution.
+              Civant draws on a compact group of approved advisors across
+              company building, technical infrastructure, and go-to-market
+              execution.
             </p>
           </div>
-          <div className="grid grid-4 advisor-grid">
-            {advisors.map((advisor) => (
+          <div className="grid grid-3 advisor-grid advisor-grid-approved">
+            {visibleAdvisors.map((advisor) => (
               <article key={advisor.name} className="card advisor-card">
                 <a
                   href={advisor.profileHref}
