@@ -156,12 +156,12 @@ export default function TeamPage() {
               Guidance across the decisions that define Civant
             </h2>
             <p className="card-body section-intro company-copy">
-              Civant draws on a compact group of approved advisors across
-              company building, technical infrastructure, and go-to-market
+              Civant draws on a compact group of advisors across company
+              building, technical infrastructure, finance, and go-to-market
               execution.
             </p>
           </div>
-          <div className="grid grid-3 advisor-grid advisor-grid-approved">
+          <div className="grid grid-3 advisor-grid">
             {visibleAdvisors.map((advisor) => (
               <article key={advisor.name} className="card advisor-card">
                 <a

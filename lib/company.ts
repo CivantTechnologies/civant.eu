@@ -121,8 +121,7 @@ export const advisors = [
     imagePosition: "50% 50%",
     profileHref: "https://www.linkedin.com/in/anita-van-der-laan-40450218/",
     profileLabel: "View Anita on LinkedIn",
-    // Hidden until Anita receives approval from her company to appear publicly.
-    visible: false,
+    visible: true,
   },
   {
     name: "Jukka Sormunen",
