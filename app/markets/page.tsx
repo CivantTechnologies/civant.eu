@@ -278,7 +278,7 @@ const methodologyLinks = [
 export default function MarketsPage() {
   return (
     <>
-      <Section className="hero-block hero-section markets-hero">
+      <Section className="hero-block hero-section hero-feature markets-hero">
         <div className="markets-hero-grid">
           <div className="markets-hero-copy">
             <p className="eyebrow">Markets</p>

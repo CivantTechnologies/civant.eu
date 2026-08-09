@@ -729,7 +729,7 @@ export default function ResourcesPage() {
 
   return (
     <div className="resources-page resources-library-page">
-      <Section className="hero-block hero-section resource-library-hero">
+      <Section className="hero-block hero-section hero-feature resource-library-hero">
         <div className="resource-library-hero-grid">
           <div className="resource-library-hero-copy">
             <p className="eyebrow">Civant Intelligence Library</p>

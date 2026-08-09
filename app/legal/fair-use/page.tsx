@@ -5,7 +5,7 @@ import { Section } from "../../../components/site/Section";
 export default function FairUsePage() {
   return (
     <>
-      <Section className="hero-block hero-section">
+      <Section className="hero-block hero-section hero-compact hero-utility">
         <p className="eyebrow">Legal</p>
         <h1 className="headline-xl">Fair Usage Policy</h1>
         <p className="text-lead">

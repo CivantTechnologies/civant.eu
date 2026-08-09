@@ -223,7 +223,7 @@ export default function HomePage() {
   return (
     <>
       <Section
-        className="hero-block hero-section home-hero"
+        className="hero-block hero-section hero-feature home-hero"
         containerClassName="home-hero-container"
       >
         <div className="home-hero-layout">

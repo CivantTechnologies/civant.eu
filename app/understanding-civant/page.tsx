@@ -190,7 +190,7 @@ export default function UnderstandingCivantPage() {
   return (
     <>
       <Section
-        className="hero-block hero-section company-hero understanding-hero"
+        className="hero-block hero-section hero-compact company-hero understanding-hero"
         containerClassName="company-hero-container team-hero-container"
       >
         <div className="company-hero-copy understanding-hero-copy">

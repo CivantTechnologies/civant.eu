@@ -18,7 +18,7 @@ const contactSchema = buildContactPointSchema();
 export default function ContactPage() {
   return (
     <>
-      <Section className="hero-block hero-section">
+      <Section className="hero-block hero-section hero-compact">
         <p className="eyebrow">Contact</p>
         <h1 className="headline-xl">Talk to Civant</h1>
         <p className="text-lead">

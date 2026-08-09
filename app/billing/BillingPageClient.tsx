@@ -69,7 +69,7 @@ export default function BillingPageClient() {
 
   return (
     <>
-      <Section className="hero-block hero-section">
+      <Section className="hero-block hero-section hero-compact hero-utility">
         <p className="eyebrow">Billing</p>
         <h1 className="headline-xl">Manage your Civant subscription</h1>
         <p className="text-lead">

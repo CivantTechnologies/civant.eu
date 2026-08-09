@@ -908,7 +908,7 @@ export default function PricingPageClient() {
   return (
     <>
       {/* Hero */}
-      <Section className="hero-block hero-section">
+      <Section className="hero-block hero-section hero-compact hero-pricing">
         <p className="eyebrow">Pricing</p>
         <h1 className="headline-xl">Pricing for serious public-sector growth</h1>
         <p className="text-lead">

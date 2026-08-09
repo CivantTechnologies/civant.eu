@@ -330,7 +330,7 @@ export default function PlatformPage() {
   return (
     <>
       <Section
-        className="hero-block hero-section platform-hero"
+        className="hero-block hero-section hero-feature platform-hero"
         containerClassName="platform-hero-container"
       >
         <div className="platform-hero-layout">

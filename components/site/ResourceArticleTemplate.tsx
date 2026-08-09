@@ -97,7 +97,7 @@ export function ResourceArticleTemplate({ article }: { article: ResourceArticle 
 
   return (
     <>
-      <Section className="hero-block hero-section">
+      <Section className="hero-block hero-section hero-compact hero-article">
         <p className="eyebrow">{article.eyebrow || "Resources"}</p>
         <h1 className="headline-xl">{article.title}</h1>
         <div className="article-hero-meta">

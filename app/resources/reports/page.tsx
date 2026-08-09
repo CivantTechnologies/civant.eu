@@ -42,7 +42,7 @@ const pageSchema = [
 export default function ReportsPage() {
   return (
     <>
-      <Section muted>
+      <Section className="hero-block hero-section hero-compact hero-reports" muted>
         <p className="eyebrow">Forecast Reports</p>
         <h1 className="headline-xl">Sector reports built to spark smarter prospection</h1>
         <p className="text-lead">

@@ -53,7 +53,7 @@ export function ReportLandingPage({ reportSlug }: ReportLandingPageProps) {
 
   return (
     <>
-      <Section className="report-gate-page" muted>
+      <Section className="hero-gate report-gate-page" muted>
         <div className="report-gate-shell">
           <article className="report-gate-copy">
             <p className="eyebrow">{report.eyebrow}</p>

@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 export default function NotFound() {
   return (
-    <Section className="hero-block">
+    <Section className="hero-block hero-section hero-compact hero-utility">
       <p className="eyebrow">404</p>
       <h1 className="headline-xl">Page not found</h1>
       <p className="text-lead">

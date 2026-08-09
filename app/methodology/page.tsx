@@ -268,7 +268,7 @@ export default function MethodologyPage() {
   return (
     <div className="methodology-page">
       <Section
-        className="hero-block hero-section methodology-hero"
+        className="hero-block hero-section hero-feature methodology-hero"
         containerClassName="methodology-hero-container"
       >
         <div className="methodology-hero-copy">

@@ -5,7 +5,7 @@ import { Section } from "../../../components/site/Section";
 export default function TermsPage() {
   return (
     <>
-      <Section className="hero-block hero-section">
+      <Section className="hero-block hero-section hero-compact hero-utility">
         <p className="eyebrow">Legal</p>
         <h1 className="headline-xl">Terms of Service</h1>
         <p className="text-lead">

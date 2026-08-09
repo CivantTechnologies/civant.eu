@@ -93,7 +93,7 @@ export default function SolutionsPage() {
   return (
     <>
       <Section
-        className="hero-block hero-section solution-hero"
+        className="hero-block hero-section hero-editorial solution-hero"
         containerClassName="solution-hero-container"
       >
         <div className="solution-hero-editorial">

@@ -27,7 +27,7 @@ const pageSchema = buildBreadcrumbSchema([
 export default function RequestReportPage() {
   return (
     <>
-      <Section className="hero-block hero-section">
+      <Section className="hero-block hero-section hero-compact">
         <p className="eyebrow">Forecast Reports</p>
         <h1 className="headline-xl">Request a sector report</h1>
         <p className="text-lead">

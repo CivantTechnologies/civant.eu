@@ -25,7 +25,7 @@ export default function CompanyPage() {
   return (
     <>
       <Section
-        className="hero-block hero-section company-hero"
+        className="hero-block hero-section hero-feature company-hero"
         containerClassName="company-hero-container"
       >
         <div className="company-hero-copy">

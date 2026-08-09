@@ -61,7 +61,7 @@ export default function TeamPage() {
   return (
     <>
       <Section
-        className="hero-block hero-section company-hero team-hero"
+        className="hero-block hero-section hero-compact company-hero team-hero"
         containerClassName="company-hero-container team-hero-container"
       >
         <div className="company-hero-copy team-hero-copy">

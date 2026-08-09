@@ -224,7 +224,7 @@ export default function UseCasesPage() {
   return (
     <>
       <Section
-        className="hero-block hero-section use-cases-hero"
+        className="hero-block hero-section hero-feature use-cases-hero"
         containerClassName="use-cases-hero-container"
       >
         <div className="use-cases-hero-copy">

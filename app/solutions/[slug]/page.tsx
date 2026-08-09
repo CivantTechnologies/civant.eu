@@ -138,7 +138,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
 
   return (
     <>
-      <Section className="hero-block hero-section">
+      <Section className="hero-block hero-section hero-compact">
         <p className="eyebrow">{solution.eyebrow}</p>
         <h1 className="headline-xl">{solution.headline}</h1>
         <p className="text-lead">{solution.description}</p>

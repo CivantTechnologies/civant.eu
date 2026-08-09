@@ -14,6 +14,9 @@
   --space-stack-sm: 0.75rem;
   --space-stack-md: 1rem;
   --space-stack-lg: 1.7rem;
+  --hero-space-feature-y: clamp(3.75rem, 4.5vw, 4.25rem);
+  --hero-space-compact-y: clamp(3rem, 4vw, 3.6rem);
+  --hero-space-utility-y: clamp(2.75rem, 3.5vw, 3.25rem);
   --radius-sm: 0.52rem;
   --radius-md: 0.625rem;
   --radius-lg: 0.9rem;
@@ -419,15 +422,15 @@ a {
   min-height: clamp(360px, 48vh, 520px);
 }
 
-.hero-block:not(.home-hero) > .eyebrow,
-.hero-block:not(.home-hero) > .headline-xl,
-.hero-block:not(.home-hero) > .text-lead {
+.hero-block:not(.home-hero) > .page-container > .eyebrow,
+.hero-block:not(.home-hero) > .page-container > .headline-xl,
+.hero-block:not(.home-hero) > .page-container > .text-lead {
   max-width: var(--content-max);
   margin-left: auto;
   margin-right: auto;
 }
 
-.hero-block:not(.home-hero) > .text-lead {
+.hero-block:not(.home-hero) > .page-container > .text-lead {
   max-width: var(--reading-max);
 }
 
@@ -11267,7 +11270,7 @@ a {
 
 @media (max-width: 700px) {
   .page-container {
-    width: min(var(--container-max), calc(100% - 1.5rem));
+    width: min(var(--container-max), calc(100% - 2rem));
   }
 
   .section {
@@ -11286,7 +11289,7 @@ a {
   }
 
   .company-hero-container {
-    width: min(var(--container-max), calc(100% - 1.5rem));
+    width: min(var(--container-max), calc(100% - 2rem));
     gap: 1.25rem;
   }
 
@@ -13333,5 +13336,104 @@ a {
   .understanding-example-callout,
   .insights-signup {
     border-radius: var(--radius-md);
+  }
+}
+
+/* ───────────────────────────────────────────
+   Unified public hero system
+   ─────────────────────────────────────────── */
+.hero-block .eyebrow,
+.hero-gate .eyebrow {
+  margin-top: 0;
+}
+
+.hero-block.hero-feature:not(.home-hero),
+.hero-block.hero-editorial {
+  min-height: 0;
+  padding-top: var(--hero-space-feature-y);
+  padding-bottom: var(--hero-space-feature-y);
+}
+
+.hero-block.hero-compact,
+.company-hero.hero-block.hero-compact {
+  display: block;
+  min-height: 0;
+  padding-top: var(--hero-space-compact-y);
+  padding-bottom: var(--hero-space-compact-y);
+}
+
+.hero-block.hero-utility {
+  padding-top: var(--hero-space-utility-y);
+  padding-bottom: var(--hero-space-utility-y);
+}
+
+.hero-block.hero-compact > .page-container {
+  display: block;
+}
+
+.hero-block.hero-compact > .page-container > .eyebrow,
+.hero-block.hero-compact > .page-container > .headline-xl,
+.hero-block.hero-compact > .page-container > .text-lead {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero-block.hero-compact > .page-container > .headline-xl {
+  max-width: var(--content-max);
+}
+
+.hero-block.hero-compact > .page-container > .text-lead {
+  max-width: var(--reading-max);
+}
+
+.hero-gate {
+  padding-top: var(--hero-space-feature-y);
+  padding-bottom: var(--hero-space-feature-y);
+}
+
+.markets-hero-copy .headline-xl {
+  font-weight: 600;
+}
+
+.hero-article .article-hero-meta {
+  justify-content: flex-start;
+  margin: 0.75rem 0 0;
+}
+
+@media (min-width: 1025px) {
+  .platform-hero-copy .headline-xl {
+    max-width: 18ch;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-block.hero-feature:not(.home-hero),
+  .hero-block.hero-editorial,
+  .hero-block.hero-compact,
+  .company-hero.hero-block.hero-compact,
+  .hero-gate {
+    min-height: 0;
+    padding-top: 2.5rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .hero-block.hero-utility {
+    padding-top: 2.25rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-block.hero-pricing .pricing-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .hero-block.hero-pricing .pricing-hero-actions .btn {
+    width: 100%;
+  }
+
+  .understanding-hero-nav a {
+    min-height: 44px;
+    font-size: 0.84rem;
   }
 }

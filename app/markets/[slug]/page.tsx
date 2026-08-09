@@ -117,7 +117,7 @@ export default async function MarketPage({ params }: MarketPageProps) {
 
   return (
     <>
-      <Section className="hero-block hero-section">
+      <Section className="hero-block hero-section hero-compact">
         <p className="eyebrow">Markets / {market.country}</p>
         <h1 className="headline-xl">{market.headline}</h1>
         <p className="text-lead">{market.description}</p>
