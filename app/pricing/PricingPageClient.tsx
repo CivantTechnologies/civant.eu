@@ -1,11 +1,20 @@
 "use client";
 
-import { type CSSProperties, type FormEvent, useEffect, useMemo, useState } from "react";
+import {
+  type CSSProperties,
+  type FormEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Link from "next/link";
-import { Check, Minus, Plus } from "lucide-react";
+import { Check, Minus, Plus, X } from "lucide-react";
 import { Section } from "../../components/site/Section";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { ProofSection } from "../../components/site/ProofSection";
+import { PRICING_FAQS } from "../../lib/pricing";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -21,11 +30,6 @@ type Plan = {
   ctaHref: string;
   featured: boolean;
   features: string[];
-};
-
-type FaqItem = {
-  q: string;
-  a: string;
 };
 
 type PriceKey =
@@ -115,49 +119,6 @@ const plans: Plan[] = [
       "Team training",
       "Workflow, SLA, and billing alignment",
     ],
-  },
-];
-
-const faqs: FaqItem[] = [
-  {
-    q: "What does every Civant plan include?",
-    a: "Every plan includes all live Civant countries, buyer and award history, renewal forecasting, tender monitoring, saved alerts, competitor tracking, and intelligence briefs. Plan differences are mainly about seats, alert volume, competitor coverage, support, and rollout needs.",
-  },
-  {
-    q: "What happens after I choose Vanguard or Summit?",
-    a: "You enter a short signup flow, complete payment through Stripe, and your Civant workspace is created after payment. From there, onboarding starts with your company profile, target markets, competitors, and alert setup.",
-  },
-  {
-    q: "When should I request a custom plan instead?",
-    a: "Use a custom plan when you need more seats, procurement workflow support, tailored onboarding, enterprise billing, SLA requirements, or help rolling Civant out across multiple teams.",
-  },
-  {
-    q: "Which markets are covered?",
-    a: "Every plan covers the markets Civant currently operates in: Ireland, the United Kingdom (England, Scotland, Wales, and Northern Ireland), Spain, France, and Italy. Finland, Belgium, Germany, and the Netherlands are coming next and will be included automatically at no extra cost.",
-  },
-  {
-    q: "Can we add more seats or markets later?",
-    a: "Yes. Live markets are included automatically as Civant expands coverage. Summit includes three seats and additional seats can be added; larger rollout needs are best handled through a custom plan.",
-  },
-  {
-    q: "Do you support invoices?",
-    a: "Stripe provides payment receipts for self-serve plans. If your organisation needs invoice-based billing, purchase orders, procurement approval, or custom commercial terms, request a custom plan.",
-  },
-  {
-    q: "Can I cancel at any time?",
-    a: "Yes. Monthly plans can be cancelled at any time with no penalty. Annual plans include a 14-day money-back guarantee. After the 14-day window, annual plans run to the end of the contract period.",
-  },
-  {
-    q: "How fresh is the procurement data?",
-    a: "Tender data is updated daily across all markets. Award and contract history is updated weekly. AI intelligence briefs are cached for 7 days to maintain quality and consistency, then refreshed on demand.",
-  },
-  {
-    q: "How accurate is the ROI calculator?",
-    a: "The ROI calculator is an illustrative planning model, not a revenue guarantee. It helps teams estimate the potential upside of earlier visibility, sharper prioritisation, and better pursuit focus using their own tender volume, win rate, and contract value assumptions.",
-  },
-  {
-    q: "How long does onboarding take?",
-    a: "Most teams are fully set up within 15 minutes. You complete a short company profile that calibrates your CPV codes, target markets, and buyer types. From there, your dashboard and alerts are live immediately.",
   },
 ];
 
@@ -257,6 +218,8 @@ function SignupModal({
   const [ownerEmail, setOwnerEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const companyInputRef = useRef<HTMLInputElement | null>(null);
 
   const workspaceSlug = useMemo(() => slugifyWorkspace(companyName), [companyName]);
   const canSubmit =
@@ -266,19 +229,53 @@ function SignupModal({
     !submitting;
 
   useEffect(() => {
-    function handleEscape(event: KeyboardEvent) {
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const focusFrame = window.requestAnimationFrame(() => {
+      companyInputRef.current?.focus();
+    });
+
+    function handleDialogKeydown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) {
+        return;
+      }
+
+      const focusableElements = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => !element.hasAttribute("hidden"));
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
       }
     }
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleEscape);
+    document.addEventListener("keydown", handleDialogKeydown);
 
     return () => {
+      window.cancelAnimationFrame(focusFrame);
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("keydown", handleDialogKeydown);
+      previouslyFocused?.focus();
     };
   }, [onClose]);
 
@@ -343,16 +340,26 @@ function SignupModal({
       }}
     >
       <div
+        ref={dialogRef}
         className="pricing-signup-modal card"
         role="dialog"
         aria-modal="true"
         aria-labelledby="pricing-signup-modal-title"
+        aria-describedby="pricing-signup-modal-description"
       >
+        <button
+          type="button"
+          className="pricing-signup-modal-close"
+          onClick={onClose}
+          aria-label="Close signup"
+        >
+          <X aria-hidden="true" />
+        </button>
         <p className="eyebrow">Complete signup</p>
         <h2 id="pricing-signup-modal-title" className="headline-lg pricing-signup-modal-title">
           Continue with {intent.planName}
         </h2>
-        <p className="pricing-signup-plan-readonly">
+        <p id="pricing-signup-modal-description" className="pricing-signup-plan-readonly">
           {intent.planName}, {intent.priceLabel}
         </p>
 
@@ -360,6 +367,7 @@ function SignupModal({
           <label className="contact-field">
             <span className="contact-label">Company name</span>
             <input
+              ref={companyInputRef}
               type="text"
               className="contact-input"
               value={companyName}
@@ -410,7 +418,11 @@ function SignupModal({
             )}
           </button>
 
-          {error ? <p className="pricing-signup-error">{error}</p> : null}
+          {error ? (
+            <p className="pricing-signup-error" role="alert">
+              {error}
+            </p>
+          ) : null}
 
           <p className="pricing-checkout-footnote">
             Secure Stripe checkout. Your Civant workspace is created after
@@ -856,7 +868,7 @@ function FaqAccordion() {
     <div className="solution-compact-faq pricing-compact-faq">
       <h3 className="card-title">Pricing FAQ</h3>
       <div className="solution-compact-faq-list pricing-compact-faq-list">
-        {faqs.map((item) => (
+        {PRICING_FAQS.map((item) => (
           <details key={item.q} className="solution-compact-faq-item pricing-compact-faq-item">
             <summary>{item.q}</summary>
             <p>{item.a}</p>
@@ -891,6 +903,7 @@ function BuyingPathCards() {
 export default function PricingPageClient() {
   const [annual, setAnnual] = useState(false);
   const [activeIntent, setActiveIntent] = useState<SignupIntent | null>(null);
+  const closeSignup = useCallback(() => setActiveIntent(null), []);
 
   return (
     <>
@@ -909,7 +922,7 @@ export default function PricingPageClient() {
             Choose a Plan
           </Link>
           <Link href="/contact" className="btn btn-secondary">
-            Book a 20-minute walkthrough
+            Book a Walkthrough
           </Link>
         </div>
         <div className="pricing-hero-proof" aria-label="Pricing highlights">
@@ -1019,13 +1032,13 @@ export default function PricingPageClient() {
             primaryHref="#plans"
             primaryLabel="Choose a Plan"
             secondaryHref="/contact"
-            secondaryLabel="Book a 20-minute walkthrough"
+            secondaryLabel="Book a Walkthrough"
           />
         </div>
       </Section>
 
       {activeIntent ? (
-        <SignupModal intent={activeIntent} onClose={() => setActiveIntent(null)} />
+        <SignupModal intent={activeIntent} onClose={closeSignup} />
       ) : null}
     </>
   );

@@ -11,6 +11,7 @@ export const metadata = buildPageMetadata({
   description:
     "Request a Civant sector forecast report for a specific industry, market, buyer type, or European public procurement question.",
   path: "/resources/request-report",
+  index: false,
 });
 
 const pageSchema = buildBreadcrumbSchema([

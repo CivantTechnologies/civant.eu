@@ -4,11 +4,13 @@ import { CTAGroup } from "../../components/site/CTAGroup";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { Section } from "../../components/site/Section";
+import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "../../lib/markets";
 import { SOLUTIONS } from "../../lib/solutions";
 import {
   buildFaqSchema,
   buildPageMetadata,
   buildSoftwareApplicationSchema,
+  ORGANIZATION_ID,
   SITE_URL,
 } from "../../lib/seo";
 
@@ -19,6 +21,7 @@ export const metadata = buildPageMetadata({
   description:
     "Explore the Civant solution for procurement intelligence software, tender forecasting, EU tender monitoring, and public procurement strategy.",
   path: "/solutions",
+  image: "/images/solutions/civant-evidence-engine.webp",
 });
 
 const solutionFaqs = [
@@ -69,9 +72,7 @@ const solutionsSchema = [
       description: solution.description,
     })),
     publisher: {
-      "@type": "Organization",
-      name: "Civant Technologies Limited",
-      url: SITE_URL,
+      "@id": ORGANIZATION_ID,
     },
   },
   buildSoftwareApplicationSchema(),
@@ -107,9 +108,9 @@ export default function SolutionsPage() {
           </p>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="Get Started"
+            primaryLabel="View Plans"
             secondaryHref="/contact"
-            secondaryLabel="Talk to Us"
+            secondaryLabel="Book a Walkthrough"
           />
         </div>
 
@@ -239,7 +240,7 @@ export default function SolutionsPage() {
         <MarketCoverageLinks
           eyebrow="Coverage"
           title="One intelligence model across live and upcoming markets"
-          body="Civant is live in Ireland, the United Kingdom, Spain, France, and Italy, with Finland, Belgium, Germany, and the Netherlands coming next."
+          body={`Civant is live in ${LIVE_MARKET_LIST}, with ${COMING_MARKET_LIST} coming soon.`}
           compact
         />
       </Section>
@@ -255,9 +256,9 @@ export default function SolutionsPage() {
           </p>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="Get Started"
+            primaryLabel="View Plans"
             secondaryHref="/contact"
-            secondaryLabel="Talk to Us"
+            secondaryLabel="Book a Walkthrough"
           />
         </div>
       </Section>

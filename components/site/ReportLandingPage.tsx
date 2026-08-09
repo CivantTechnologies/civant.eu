@@ -24,6 +24,7 @@ export function getReportLandingMetadata(reportSlug: string) {
     title: report.metaTitle,
     description: report.metaDescription,
     path: report.landingPath,
+    image: report.image,
   });
 }
 
@@ -40,6 +41,7 @@ export function ReportLandingPage({ reportSlug }: ReportLandingPageProps) {
       description: report.metaDescription,
       path: report.landingPath,
       datePublished: report.datePublished,
+      image: report.image,
     }),
     buildBreadcrumbSchema([
       { name: "Home", item: "https://civant.eu" },
@@ -55,6 +57,7 @@ export function ReportLandingPage({ reportSlug }: ReportLandingPageProps) {
         <div className="report-gate-shell">
           <article className="report-gate-copy">
             <p className="eyebrow">{report.eyebrow}</p>
+            <p className="comparison-line">Snapshot dated {report.snapshotDate}</p>
             <h1 className="headline-xl">{report.title}</h1>
             <p className="text-lead report-gate-subtitle">{report.subtitle}</p>
             <p className="card-body report-gate-summary">{report.landingIntro}</p>

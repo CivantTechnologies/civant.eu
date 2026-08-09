@@ -90,6 +90,7 @@ export function ContactLiveSections() {
   const [consentOptional, setConsentOptional] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const formRef = useRef<HTMLDivElement | null>(null);
 
   function updateField<K extends keyof FormData>(field: K, value: FormData[K]) {
@@ -105,6 +106,7 @@ export function ContactLiveSections() {
     event.preventDefault();
     if (!consentRequired) return;
 
+    setErrorMessage(null);
     setIsSubmitting(true);
 
     try {
@@ -131,7 +133,11 @@ export function ContactLiveSections() {
       setIsSubmitted(true);
     } catch (error) {
       console.error("Failed to submit form:", error);
-      alert("Failed to submit form. Please try again.");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "We could not send your message. Please try again.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -249,6 +255,12 @@ export function ContactLiveSections() {
                   "Send inquiry"
                 )}
               </button>
+
+              {errorMessage ? (
+                <p className="contact-live-error" role="alert">
+                  {errorMessage}
+                </p>
+              ) : null}
 
               <div className="contact-live-consents">
                 <label className="contact-live-consent-row">

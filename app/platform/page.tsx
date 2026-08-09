@@ -23,8 +23,9 @@ export const dynamic = "force-static";
 export const metadata = buildPageMetadata({
   title: "Civant Platform | Procurement Forecasting Intelligence",
   description:
-    "Civant is procurement forecasting software that turns buyer cycles, contract lifecycles, competitor context, and public signals into earlier targeting and bid planning.",
+    "Forecast tender timing, prioritise buyers, and plan bids earlier with Civant's procurement intelligence platform for European B2G teams.",
   path: "/platform",
+  image: "/screenshots/forecast-pipeline.png",
 });
 
 const platformSchema = buildSoftwareApplicationSchema();
@@ -98,16 +99,16 @@ const platformHeroMetrics = [
     href: "#forecast",
   },
   {
-    label: "Evidence checks",
-    value: "79K",
-    detail: "Validated against notices.",
+    label: "Evidence model",
+    value: "Traceable",
+    detail: "Signals linked to their sources.",
     href: "/methodology",
   },
   {
-    label: "Live markets",
-    value: "5",
-    detail: "Europe-wide model.",
-    href: "/markets",
+    label: "Workflow",
+    value: "Action",
+    detail: "Alerts, bids, and reporting.",
+    href: "#bids",
   },
 ];
 
@@ -120,20 +121,20 @@ const platformHeroLinks = [
 
 const platformProofMetrics = [
   {
-    label: "Evidence checks",
-    value: "79K",
-    body: "Validation compares forecast logic against official notices and historical procurement evidence.",
+    label: "Evidence model",
+    value: "Sourced",
+    body: "Records, awards, lifecycle signals, and public context remain traceable to their sources.",
     href: "/methodology",
   },
   {
-    label: "Live markets",
-    value: "5",
-    body: "Ireland, the UK, Spain, France, and Italy run on the same country-aware platform model.",
-    href: "/markets",
+    label: "Forecast logic",
+    value: "Visible",
+    body: "Teams can review the signals and timing logic behind each forecast.",
+    href: "#forecast",
   },
   {
-    label: "Workflow modules",
-    value: "7",
+    label: "Workflow",
+    value: "Connected",
     body: "Forecast, Panorama, Finder, Competitors, Alerts, Bids, and Reports connect signal to action.",
     href: "#forecast",
   },
@@ -293,7 +294,7 @@ const platformPathLinks = [
   },
   {
     title: "Explore market coverage",
-    body: "See where Civant is live now and which countries are coming next in the rollout.",
+    body: "See where Civant is live now and which countries are coming soon.",
     href: "/markets",
     cta: "View Markets",
   },
@@ -301,7 +302,7 @@ const platformPathLinks = [
     title: "Start with pricing",
     body: "Move from product understanding into a self-serve or custom buying path.",
     href: "/pricing",
-    cta: "View Pricing",
+    cta: "View Plans",
   },
 ];
 
@@ -350,7 +351,7 @@ export default function PlatformPage() {
             </p>
             <CTAGroup
               primaryHref="/pricing"
-              primaryLabel="Get Started"
+              primaryLabel="View Plans"
               secondaryHref="/methodology"
               secondaryLabel="See Methodology"
             />
@@ -617,9 +618,9 @@ export default function PlatformPage() {
           </p>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="Get Started"
+            primaryLabel="View Plans"
             secondaryHref="/contact"
-            secondaryLabel="Talk to Us"
+            secondaryLabel="Book a Walkthrough"
           />
           <p className="final-cta-note">
             All plans include available Civant markets from the start.

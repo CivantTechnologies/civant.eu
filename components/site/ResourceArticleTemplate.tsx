@@ -19,6 +19,7 @@ import { SchemaScript } from "./SchemaScript";
 import { Section } from "./Section";
 import { ShareArticleButton } from "./ShareArticleButton";
 import { buildArticleSchema, buildFaqSchema } from "../../lib/seo";
+import { FOUNDER_LINKEDIN_URL } from "../../lib/brand";
 
 export type ResourceArticleSection = {
   id: string;
@@ -83,6 +84,7 @@ export function ResourceArticleTemplate({ article }: { article: ResourceArticle 
       path: article.path,
       datePublished: article.publishedAt,
       dateModified: article.modifiedAt,
+      image: article.visual?.src,
       citations: article.sources,
     }),
     buildFaqSchema(article.faqs),
@@ -102,7 +104,7 @@ export function ResourceArticleTemplate({ article }: { article: ResourceArticle 
           <p className="article-byline">
             By{" "}
             <a
-              href="https://www.linkedin.com/in/davidmanriquecivant/"
+              href={FOUNDER_LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -185,7 +187,7 @@ export function ResourceArticleTemplate({ article }: { article: ResourceArticle 
               Back to Resources
             </Link>
             <Link href="/pricing" className="btn btn-primary">
-              View Pricing
+              View Plans
             </Link>
           </div>
         </article>

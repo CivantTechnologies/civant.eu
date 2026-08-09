@@ -5,6 +5,12 @@ import { CTAGroup } from "../../../components/site/CTAGroup";
 import { MarketCoverageLinks } from "../../../components/site/MarketCoverageLinks";
 import { SchemaScript } from "../../../components/site/SchemaScript";
 import { Section } from "../../../components/site/Section";
+import {
+  COMING_MARKET_LIST,
+  COMING_MARKETS,
+  LIVE_MARKET_LIST,
+  LIVE_MARKETS,
+} from "../../../lib/markets";
 import { getSolutionBySlug, SOLUTIONS } from "../../../lib/solutions";
 import {
   buildBreadcrumbSchema,
@@ -126,7 +132,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
       title: "Move into pricing",
       body: "Choose a self-serve plan or talk through a custom rollout for a larger team.",
       href: "/pricing",
-      cta: "View Pricing",
+      cta: "View Plans",
     },
   ];
 
@@ -138,7 +144,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
         <p className="text-lead">{solution.description}</p>
         <CTAGroup
           primaryHref="/pricing"
-          primaryLabel="View Pricing"
+          primaryLabel="View Plans"
           secondaryHref="/contact"
           secondaryLabel="Request Custom Plan"
         />
@@ -244,8 +250,8 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
       <Section muted>
         <MarketCoverageLinks
           eyebrow="Market Coverage"
-          title="Live coverage across five markets, with four coming next"
-          body="Civant is live in Ireland, the United Kingdom, Spain, France, and Italy. Finland, Belgium, Germany, and the Netherlands are part of the next rollout."
+          title={`Live coverage across ${LIVE_MARKETS.length} markets, with ${COMING_MARKETS.length} coming soon`}
+          body={`Civant is live in ${LIVE_MARKET_LIST}. ${COMING_MARKET_LIST} are coming soon.`}
           compact
         />
       </Section>
@@ -344,7 +350,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
           </p>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="View Pricing"
+            primaryLabel="View Plans"
             secondaryHref="/contact"
             secondaryLabel="Request Custom Plan"
           />

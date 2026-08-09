@@ -11,6 +11,8 @@ export type ReportDefinition = {
   eyebrow: string;
   datePublished: string;
   snapshotDate: string;
+  image: string;
+  imageAlt: string;
   metaTitle: string;
   metaDescription: string;
   landingPath: string;
@@ -82,17 +84,19 @@ export const REPORTS: ReportDefinition[] = [
     eyebrow: "Forecast Report",
     datePublished: "2026-04-23T00:00:00+00:00",
     snapshotDate: "23 April 2026",
+    image: "/images/resources/report-education-forecast.jpg",
+    imageAlt: "Civant Education Procurement Outlook Q4 2026 report cover",
     metaTitle: "Education Procurement Outlook Q4 2026 | Civant",
     metaDescription:
-      "Download Civant's Education Procurement Outlook for Q4 2026 to see a dated runway snapshot, country benchmarks, and supplier pressure across public education buyers.",
+      "Download Civant's dated Q4 2026 education procurement outlook with market runway, country benchmarks, and supplier pressure.",
     landingPath: "/resources/education-procurement-outlook-q4-2026",
     fileName: "civant-education-procurement-outlook-q4-2026.html",
     subtitle:
-      "A dated Q4 runway snapshot for teams selling into public education markets across Civant's current European coverage layers.",
+      "A dated Q4 runway snapshot for teams selling into public education markets across Civant's published European coverage snapshot.",
     summary:
       "This report uses a dated Civant snapshot from 23 April 2026 to show where high-confidence education runway is already visible, how contract values differ by market, and where repeat supplier pressure is already visible in public award history.",
     landingIntro:
-      "Download a concise public-safe brief designed to help your team decide where education demand is moving now, what that demand can look like by market, and where deeper follow-up is worth the effort.",
+      "Download a concise public-safe brief showing where education demand appeared to be moving in the 23 April 2026 snapshot, what it looked like by market, and where deeper follow-up was worth the effort.",
     audience: [
       "Bid teams preparing for education-sector opportunities",
       "B2G sales teams building earlier account plans in public education",
@@ -169,17 +173,19 @@ export const REPORTS: ReportDefinition[] = [
     eyebrow: "Forecast Report",
     datePublished: "2026-04-23T00:00:00+00:00",
     snapshotDate: "23 April 2026",
+    image: "/images/resources/report-healthcare-forecast.jpg",
+    imageAlt: "Civant Healthcare Procurement Outlook Q4 2026 report cover",
     metaTitle: "Healthcare Procurement Outlook Q4 2026 | Civant",
     metaDescription:
-      "Download Civant's Healthcare Procurement Outlook for Q4 2026 to see a dated runway snapshot, contract-value context, and supplier pressure across public healthcare buyers.",
+      "Download Civant's dated Q4 2026 healthcare procurement outlook with market runway, contract-value context, and supplier pressure.",
     landingPath: "/resources/healthcare-procurement-outlook-q4-2026",
     fileName: "civant-healthcare-procurement-outlook-q4-2026.html",
     subtitle:
-      "A dated Q4 runway snapshot for teams selling into public healthcare markets across Civant's current European coverage layers.",
+      "A dated Q4 runway snapshot for teams selling into public healthcare markets across Civant's published European coverage snapshot.",
     summary:
       "This report uses a dated Civant snapshot from 23 April 2026 to show where healthcare demand is already clustering, how contract shapes differ by market, and where repeat supplier pressure may change qualification decisions.",
     landingIntro:
-      "Download a concise public-safe brief designed to help your team understand where healthcare demand is forming, which buying patterns matter most, and where deeper account work is worth the effort.",
+      "Download a concise public-safe brief showing where healthcare demand appeared to be forming in the 23 April 2026 snapshot, which buying patterns mattered, and where deeper account work was worth the effort.",
     audience: [
       "Bid teams preparing for healthcare-sector opportunities",
       "Commercial leaders deciding where to focus near-term healthcare effort",
@@ -253,17 +259,19 @@ export const REPORTS: ReportDefinition[] = [
     eyebrow: "Forecast Report",
     datePublished: "2026-04-23T00:00:00+00:00",
     snapshotDate: "23 April 2026",
+    image: "/images/resources/report-construction-forecast.jpg",
+    imageAlt: "Civant Public Construction Procurement Outlook Q4 2026 report cover",
     metaTitle: "Public Construction Procurement Outlook Q4 2026 | Civant",
     metaDescription:
-      "Download Civant's Public Construction Procurement Outlook for Q4 2026 to see a dated runway snapshot, contract-value context, and supplier pressure across public construction buyers.",
+      "Download Civant's dated Q4 2026 construction procurement outlook with market runway, contract-value context, and supplier pressure.",
     landingPath: "/resources/public-construction-procurement-outlook-q4-2026",
     fileName: "civant-public-construction-procurement-outlook-q4-2026.html",
     subtitle:
-      "A dated Q4 runway snapshot for teams selling into public construction and capital-project markets across Civant's current European coverage layers.",
+      "A dated Q4 runway snapshot for teams selling into public construction and capital-project markets across Civant's published European coverage snapshot.",
     summary:
       "This report uses a dated Civant snapshot from 23 April 2026 to show where public construction demand is clustering, how contract shapes differ by market, and where repeat supplier pressure may alter qualification and partner strategy.",
     landingIntro:
-      "Download a concise public-safe brief designed to help your team understand where public construction demand is forming, how project sizes can differ by market, and where account effort should go first.",
+      "Download a concise public-safe brief showing where public construction demand appeared to be forming in the 23 April 2026 snapshot, how project sizes differed by market, and where account effort was most relevant.",
     audience: [
       "Construction bid teams and commercial leaders planning Q4 public-sector effort",
       "B2G sales teams working around capital programmes and infrastructure demand",

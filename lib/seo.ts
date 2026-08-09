@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
+import {
+  CIVANT_LEGAL_NAME,
+  FOUNDER_LINKEDIN_URL,
+  FOUNDER_NAME,
+} from "./brand";
+import { getResourceSeoOverride } from "./resourceSeo";
 
 export const SITE_NAME = "Civant";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://civant.eu";
 export const DEFAULT_OG_IMAGE = "/og-civant.png";
+export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 const BRAND_TITLE_SUFFIX = "| Civant";
 
 type MetadataArgs = {
   title: string;
   description: string;
   path: string;
+  image?: string;
+  index?: boolean;
 };
 
 type ArticleMetadataArgs = MetadataArgs & {
@@ -22,6 +31,7 @@ type ArticleSchemaArgs = {
   path: string;
   datePublished: string;
   dateModified?: string;
+  image?: string;
   citations?: Array<{
     label: string;
     href: string;
@@ -84,6 +94,8 @@ export function buildPageMetadata({
   title,
   description,
   path,
+  image = DEFAULT_OG_IMAGE,
+  index = true,
 }: MetadataArgs): Metadata {
   const metadataTitle = buildMetadataTitle(title);
 
@@ -96,7 +108,7 @@ export function buildPageMetadata({
       canonical: path,
     },
     robots: {
-      index: true,
+      index,
       follow: true,
       "max-snippet": -1,
       "max-image-preview": "large",
@@ -110,10 +122,9 @@ export function buildPageMetadata({
       siteName: SITE_NAME,
       images: [
         {
-          url: DEFAULT_OG_IMAGE,
-          width: 1200,
-          height: 630,
+          url: image,
           alt: `${metadataTitle} preview`,
+          ...(image === DEFAULT_OG_IMAGE ? { width: 1200, height: 630 } : {}),
         },
       ],
     },
@@ -121,7 +132,7 @@ export function buildPageMetadata({
       card: "summary_large_image",
       title: metadataTitle,
       description,
-      images: [DEFAULT_OG_IMAGE],
+      images: [image],
     },
   };
 }
@@ -132,19 +143,23 @@ export function buildArticleMetadata({
   path,
   datePublished,
   dateModified,
+  image = DEFAULT_OG_IMAGE,
+  index = true,
 }: ArticleMetadataArgs): Metadata {
-  const metadataTitle = buildMetadataTitle(title);
+  const override = getResourceSeoOverride(path);
+  const metadataDescription = override?.description ?? description;
+  const metadataTitle = buildMetadataTitle(override?.title ?? title);
 
   return {
     title: {
       absolute: metadataTitle,
     },
-    description,
+    description: metadataDescription,
     alternates: {
       canonical: path,
     },
     robots: {
-      index: true,
+      index,
       follow: true,
       "max-snippet": -1,
       "max-image-preview": "large",
@@ -152,7 +167,7 @@ export function buildArticleMetadata({
     },
     openGraph: {
       title: metadataTitle,
-      description,
+      description: metadataDescription,
       type: "article",
       url: path,
       siteName: SITE_NAME,
@@ -160,18 +175,17 @@ export function buildArticleMetadata({
       modifiedTime: dateModified || datePublished,
       images: [
         {
-          url: DEFAULT_OG_IMAGE,
-          width: 1200,
-          height: 630,
+          url: image,
           alt: `${metadataTitle} preview`,
+          ...(image === DEFAULT_OG_IMAGE ? { width: 1200, height: 630 } : {}),
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
       title: metadataTitle,
-      description,
-      images: [DEFAULT_OG_IMAGE],
+      description: metadataDescription,
+      images: [image],
     },
   };
 }
@@ -182,6 +196,7 @@ export function buildArticleSchema({
   path,
   datePublished,
   dateModified,
+  image = DEFAULT_OG_IMAGE,
   citations = [],
 }: ArticleSchemaArgs) {
   const articleUrl = `${SITE_URL}${path}`;
@@ -200,27 +215,19 @@ export function buildArticleSchema({
       inLanguage: "en",
       author: {
         "@type": "Person",
-        name: "David Manrique",
-        url: "https://www.linkedin.com/in/davidmanriquecivant/",
+        name: FOUNDER_NAME,
+        url: FOUNDER_LINKEDIN_URL,
         worksFor: {
-          "@type": "Organization",
-          name: "Civant Technologies Limited",
+          "@id": ORGANIZATION_ID,
         },
       },
       publisher: {
-        "@type": "Organization",
-        name: "Civant Technologies Limited",
-        url: SITE_URL,
-        logo: {
-          "@type": "ImageObject",
-          url: `${SITE_URL}/og-civant.png`,
-        },
+        "@id": ORGANIZATION_ID,
       },
       image: {
         "@type": "ImageObject",
-        url: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
-        width: 1200,
-        height: 630,
+        url: `${SITE_URL}${image}`,
+        ...(image === DEFAULT_OG_IMAGE ? { width: 1200, height: 630 } : {}),
       },
       ...(citations.length > 0
         ? {
@@ -277,9 +284,7 @@ export function buildSoftwareApplicationSchema() {
       availability: "https://schema.org/InStock",
     },
     publisher: {
-      "@type": "Organization",
-      name: "Civant Technologies Limited",
-      url: SITE_URL,
+      "@id": ORGANIZATION_ID,
     },
   };
 }
@@ -369,9 +374,7 @@ export function buildCollectionPageSchema({
       })),
     },
     publisher: {
-      "@type": "Organization",
-      name: "Civant Technologies Limited",
-      url: SITE_URL,
+      "@id": ORGANIZATION_ID,
     },
   };
 }
@@ -394,9 +397,7 @@ export function buildServiceSchema({
     areaServed,
     ...(audience ? { audience } : {}),
     provider: {
-      "@type": "Organization",
-      name: "Civant Technologies Limited",
-      url: SITE_URL,
+      "@id": ORGANIZATION_ID,
     },
     offers: {
       "@type": "Offer",
@@ -411,12 +412,12 @@ export function buildContactPointSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Civant Technologies Limited",
+    "@id": ORGANIZATION_ID,
+    name: CIVANT_LEGAL_NAME,
     url: SITE_URL,
     email: "hello@civant.eu",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Dublin",
       addressCountry: "IE",
     },
     contactPoint: {
@@ -433,14 +434,12 @@ export function buildFounderPersonSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "David Manrique",
+    name: FOUNDER_NAME,
     jobTitle: "Founder",
-    url: `${SITE_URL}/company`,
-    sameAs: ["https://www.linkedin.com/in/davidmanriquec/"],
+    url: `${SITE_URL}/team#founder`,
+    sameAs: [FOUNDER_LINKEDIN_URL],
     worksFor: {
-      "@type": "Organization",
-      name: "Civant Technologies Limited",
-      url: SITE_URL,
+      "@id": ORGANIZATION_ID,
     },
   };
 }

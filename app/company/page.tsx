@@ -8,6 +8,7 @@ import {
   whatCivantIs,
   whatCivantIsNot,
 } from "../../lib/company";
+import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "../../lib/markets";
 import { buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
@@ -17,6 +18,7 @@ export const metadata = buildPageMetadata({
   description:
     "About Civant Technologies and the evidence-led procurement intelligence system we are building for European public-sector markets.",
   path: "/company",
+  image: "/images/company/public-procurement-architecture.jpg",
 });
 
 export default function CompanyPage() {
@@ -36,7 +38,7 @@ export default function CompanyPage() {
           </p>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="Get Started"
+            primaryLabel="View Plans"
             secondaryHref="/team"
             secondaryLabel="Meet the Team"
           />
@@ -140,7 +142,7 @@ export default function CompanyPage() {
         <MarketCoverageLinks
           eyebrow="Country Coverage"
           title="A consistent intelligence model across European markets"
-          body="Civant applies the same evidence model country by country: live coverage across Ireland, the United Kingdom, Spain, France, and Italy, with Finland, Belgium, Germany, and the Netherlands coming next."
+          body={`Civant applies the same evidence model country by country: live coverage across ${LIVE_MARKET_LIST}, with ${COMING_MARKET_LIST} coming soon.`}
         />
       </Section>
 
@@ -183,9 +185,9 @@ export default function CompanyPage() {
               <p>Turn public procurement data into earlier market decisions.</p>
               <CTAGroup
                 primaryHref="/pricing"
-                primaryLabel="Get Started"
+                primaryLabel="View Plans"
                 secondaryHref="/contact"
-                secondaryLabel="Talk to Us"
+                secondaryLabel="Book a Walkthrough"
               />
             </div>
           </div>
@@ -277,7 +279,7 @@ export default function CompanyPage() {
           <h2 className="headline-lg final-cta-title">Build from evidence, not reaction</h2>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="Get Started"
+            primaryLabel="View Plans"
             secondaryHref="/team"
             secondaryLabel="Meet the Team"
           />

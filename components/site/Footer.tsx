@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageContainer } from "./PageContainer";
+import { CIVANT_LINKEDIN_URL } from "../../lib/brand";
 
 const FOOTER_NAV_ITEMS = [
   { href: "/platform", label: "Platform" },
@@ -11,8 +12,6 @@ const FOOTER_NAV_ITEMS = [
   { href: "/contact", label: "Contact" },
 ];
 
-const LINKEDIN_URL = "https://www.linkedin.com/company/civant-technologies/";
-
 export function Footer() {
   return (
     <footer className="site-footer">
@@ -21,8 +20,8 @@ export function Footer() {
           <div>
             <h3 className="footer-title">Civant</h3>
             <p className="footer-copy">
-              Procurement forecasting intelligence for enterprise teams operating
-              in European public-sector markets.
+              Procurement forecasting intelligence for B2G teams operating in
+              European public-sector markets.
             </p>
           </div>
           <div>
@@ -56,14 +55,14 @@ export function Footer() {
                 <a href="mailto:hello@civant.eu">hello@civant.eu</a>
               </li>
               <li>
-                <Link href="/pricing">View Pricing</Link>
+                <Link href="/pricing">View Plans</Link>
               </li>
               <li>
                 <Link href="/contact">Custom Plans</Link>
               </li>
               <li>
                 <a
-                  href={LINKEDIN_URL}
+                  href={CIVANT_LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-social-link"

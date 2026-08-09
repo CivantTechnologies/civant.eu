@@ -8,6 +8,7 @@ import {
   buildPageMetadata,
   SITE_URL,
 } from "../../lib/seo";
+import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "../../lib/markets";
 
 export const dynamic = "force-static";
 
@@ -54,7 +55,7 @@ const understandingSections: UnderstandingSection[] = [
       {
         question: "What markets does Civant cover?",
         answer:
-          "Civant is currently live across Ireland, the United Kingdom, Spain, France, and Italy, with additional European markets being added over time.",
+          `Civant is currently live across ${LIVE_MARKET_LIST}, with ${COMING_MARKET_LIST} coming soon.`,
       },
     ],
   },
@@ -145,7 +146,7 @@ const understandingSections: UnderstandingSection[] = [
       {
         question: "How is Civant supported?",
         answer:
-          "Civant is supported by Enterprise Ireland, the Local Enterprise Office, and Dundalk Institute of Technology through structured programmes designed to support high-potential companies.",
+          "Civant has received founder and enterprise support through programmes connected with Enterprise Ireland, Local Enterprise Office Louth, and the Regional Development Centre at Dundalk Institute of Technology.",
       },
     ],
   },
@@ -290,10 +291,10 @@ export default function UnderstandingCivantPage() {
             where demand is likely to emerge.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Book a 20-minute walkthrough"
-            secondaryHref="/pricing"
-            secondaryLabel="View Pricing"
+            primaryHref="/pricing"
+            primaryLabel="View Plans"
+            secondaryHref="/contact"
+            secondaryLabel="Book a Walkthrough"
           />
         </div>
       </Section>

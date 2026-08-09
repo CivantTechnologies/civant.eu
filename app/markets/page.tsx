@@ -2,23 +2,36 @@ import Link from "next/link";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { Section } from "../../components/site/Section";
-import { COMING_MARKETS, LIVE_MARKETS, MARKETS } from "../../lib/markets";
-import { buildFaqSchema, buildPageMetadata, SITE_URL } from "../../lib/seo";
+import {
+  COMING_MARKET_LIST,
+  COMING_MARKETS,
+  LIVE_MARKET_LIST,
+  LIVE_MARKETS,
+  MARKETS,
+} from "../../lib/markets";
+import {
+  buildFaqSchema,
+  buildPageMetadata,
+  ORGANIZATION_ID,
+  SITE_URL,
+} from "../../lib/seo";
+import { MARKET_COVERAGE_SNAPSHOT } from "../../lib/siteFacts";
 
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
   title: "European Procurement Intelligence Coverage | Civant",
   description:
-    "See where Civant is live now and which markets are coming next for procurement intelligence, tender monitoring, and expansion planning.",
+    "See where Civant is live now and which markets are coming soon for procurement intelligence, tender monitoring, and expansion planning.",
   path: "/markets",
+  image: "/screenshots/panorama.png",
 });
 
 const marketCoverageFaqs = [
   {
     question: "Which European public procurement markets does Civant cover?",
     answer:
-      "Civant is live for Ireland, the United Kingdom, Spain, France, and Italy. Finland, Belgium, Germany, and the Netherlands are listed as coming next in the rollout.",
+      `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: Civant listed ${LIVE_MARKET_LIST} as live, with ${COMING_MARKET_LIST} coming soon.`,
   },
   {
     question: "What does market coverage mean in Civant?",
@@ -65,9 +78,7 @@ const marketHubSchema = [
       })),
     },
     publisher: {
-      "@type": "Organization",
-      name: "Civant Technologies Limited",
-      url: SITE_URL,
+      "@id": ORGANIZATION_ID,
     },
   },
   buildFaqSchema(marketCoverageFaqs),
@@ -127,17 +138,17 @@ const marketEvidencePreview: Partial<
     signals: ["Sources", "Awards", "Renewals", "Signals"],
   },
   finland: {
-    title: "Finland rollout passport",
+    title: "Finland coverage passport",
     sources: ["Hilma", "TED", "Buyer history", "Policy signals"],
     signals: ["Sources", "Buyers", "Cycles", "Signals"],
   },
   belgium: {
-    title: "Belgium rollout passport",
+    title: "Belgium coverage passport",
     sources: ["eProc", "TED", "BOSA", "Regions"],
     signals: ["Sources", "Buyers", "Cycles", "Signals"],
   },
   germany: {
-    title: "Germany rollout passport",
+    title: "Germany coverage passport",
     sources: ["Bund.de", "TED", "Destatis", "Buyer history"],
     signals: ["Sources", "Buyers", "Cycles", "Signals"],
   },
@@ -205,19 +216,19 @@ function MarketCard({ market }: { market: (typeof MARKETS)[number] }) {
 
 const coverageMetrics = [
   {
-    label: "Live markets",
-    value: LIVE_MARKETS.length.toString(),
+    label: "Country coverage",
+    value: "Mapped",
     href: "#live-coverage",
   },
   {
-    label: "Next rollout",
-    value: COMING_MARKETS.length.toString(),
+    label: "Evidence model",
+    value: "Linked",
+    href: "/methodology",
+  },
+  {
+    label: "Market expansion",
+    value: "Demand-led",
     href: "#coming-next",
-  },
-  {
-    label: "Market size",
-    value: "€1.1tn+",
-    href: "#live-coverage",
     tone: "market-size",
   },
 ];
@@ -280,6 +291,10 @@ export default function MarketsPage() {
               competitor movement, and external public signals across live and
               upcoming markets.
             </p>
+            <p className="cred-line">
+              Coverage status and market-size estimates last reviewed{" "}
+              {MARKET_COVERAGE_SNAPSHOT.dateLabel}.
+            </p>
           </div>
 
           <aside className="markets-glass-console liquid-panel" aria-label="Civant market coverage summary">
@@ -321,11 +336,11 @@ export default function MarketsPage() {
         <div className="market-glass-stage">
           <div className="section-heading-wrap market-stage-heading">
             <p className="eyebrow">Live Coverage</p>
-            <h2 className="headline-lg">Markets available in Civant today</h2>
+            <h2 className="headline-lg">Markets listed as live in the published snapshot</h2>
             <p className="text-lead section-intro">
-              Current coverage helps teams move from reactive tender alerts to
-              structured opportunity planning across active European
-              public-sector markets.
+              Coverage listed as live on {MARKET_COVERAGE_SNAPSHOT.dateLabel}{" "}
+              helps teams move from reactive tender alerts to structured
+              opportunity planning.
             </p>
           </div>
           <nav className="market-glass-toolbar liquid-panel" aria-label="Market methodology shortcuts">
@@ -349,11 +364,12 @@ export default function MarketsPage() {
 
       <Section id="coming-next" className="market-anchor-section">
         <div className="section-heading-wrap">
-          <p className="eyebrow">Coming Next</p>
-          <h2 className="headline-lg">Next markets in the rollout</h2>
+          <p className="eyebrow">Coming Soon</p>
+          <h2 className="headline-lg">Markets coming soon to Civant</h2>
           <p className="text-lead section-intro">
-            Civant is expanding European market coverage steadily so suppliers
-            can plan public-sector growth with a consistent intelligence layer.
+            These markets were listed as coming soon on{" "}
+            {MARKET_COVERAGE_SNAPSHOT.dateLabel}. Contact Civant if one is
+            critical to your current plan.
           </p>
         </div>
         <div className="grid grid-4 market-grid">
@@ -441,7 +457,7 @@ export default function MarketsPage() {
           </h2>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="Get Started"
+            primaryLabel="View Plans"
             secondaryHref="/contact?request=new-market"
             secondaryLabel="Request New Market"
           />

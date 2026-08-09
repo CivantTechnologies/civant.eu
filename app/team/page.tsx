@@ -16,6 +16,7 @@ export const metadata = buildPageMetadata({
   description:
     "Meet the founder and advisory network behind Civant Technologies, the Irish procurement intelligence platform for European public-sector markets.",
   path: "/team",
+  image: "/people/david-manrique.jpg",
 });
 
 const founderSchema = buildFounderPersonSchema();
@@ -50,7 +51,7 @@ const teamFaqs = [
   {
     question: "How is Civant supported?",
     answer:
-      "Civant is supported by Enterprise Ireland, the Local Enterprise Office, and Dundalk Institute of Technology through structured programmes designed to support high-potential companies.",
+      "Civant has received founder and enterprise support through programmes connected with Enterprise Ireland, Local Enterprise Office Louth, and the Regional Development Centre at Dundalk Institute of Technology.",
   },
 ];
 
@@ -72,10 +73,10 @@ export default function TeamPage() {
             execution.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Talk to Us"
-            secondaryHref="/company"
-            secondaryLabel="Company Thesis"
+            primaryHref="/pricing"
+            primaryLabel="View Plans"
+            secondaryHref="/contact"
+            secondaryLabel="Contact Civant"
           />
           <p className="company-hero-proof">
             Founder-led · Advisor-supported · Built in Ireland
@@ -84,7 +85,7 @@ export default function TeamPage() {
       </Section>
 
       <Section muted>
-        <div className="section-heading-wrap company-reading team-founder-section">
+        <div id="founder" className="section-heading-wrap company-reading team-founder-section">
           <div className="team-founder-copy">
             <p className="eyebrow">Founder</p>
             <h2 className="headline-lg">Built from close contact with public-sector markets</h2>
@@ -231,10 +232,10 @@ export default function TeamPage() {
             understand what is forming before the tender window closes.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Talk to Us"
-            secondaryHref="/platform"
-            secondaryLabel="Explore the Platform"
+            primaryHref="/pricing"
+            primaryLabel="View Plans"
+            secondaryHref="/contact"
+            secondaryLabel="Book a Walkthrough"
           />
         </div>
       </Section>

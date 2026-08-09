@@ -1,3 +1,5 @@
+import { FOUNDER_LINKEDIN_URL } from "./brand";
+
 export type AdvisorProof = {
   name: string;
   href: string;
@@ -48,7 +50,7 @@ export const founder = {
   name: "David Manrique",
   role: "Founder & CEO, Civant",
   image: "/people/david-manrique.jpg",
-  profileHref: "https://www.linkedin.com/in/davidmanriquec/",
+  profileHref: FOUNDER_LINKEDIN_URL,
 };
 
 export const whatCivantIs = [

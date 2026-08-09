@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PageContainer } from "./PageContainer";
 
 const BRAND_LOGO_URL = "/civant-logo.png";
@@ -67,6 +67,9 @@ function isActivePath(pathname: string, href: string) {
 export function Navbar() {
   const pathname = usePathname() ?? "";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileToggleRef = useRef<HTMLButtonElement | null>(null);
+  const mobilePanelRef = useRef<HTMLDivElement | null>(null);
+  const mobileCloseRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -75,19 +78,51 @@ export function Navbar() {
   useEffect(() => {
     if (!mobileMenuOpen) return;
 
+    const mobileToggle = mobileToggleRef.current;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const focusFrame = window.requestAnimationFrame(() => {
+      mobileCloseRef.current?.focus();
+    });
 
-    function onEscape(event: KeyboardEvent) {
+    function onMenuKeydown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setMobileMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !mobilePanelRef.current) {
+        return;
+      }
+
+      const focusableElements = Array.from(
+        mobilePanelRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (!firstElement || !lastElement) {
+        event.preventDefault();
+        return;
+      }
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
       }
     }
 
-    window.addEventListener("keydown", onEscape);
+    document.addEventListener("keydown", onMenuKeydown);
     return () => {
+      window.cancelAnimationFrame(focusFrame);
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", onEscape);
+      document.removeEventListener("keydown", onMenuKeydown);
+      mobileToggle?.focus();
     };
   }, [mobileMenuOpen]);
 
@@ -159,10 +194,11 @@ export function Navbar() {
         </nav>
 
         <Link href="/pricing" className="btn btn-primary btn-sm site-cta-desktop">
-          View Pricing
+          View Plans
         </Link>
 
         <button
+          ref={mobileToggleRef}
           type="button"
           className="site-mobile-toggle"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -180,17 +216,20 @@ export function Navbar() {
           id="site-mobile-menu"
           role="dialog"
           aria-modal="true"
+          aria-labelledby="site-mobile-menu-title"
         >
           <button
             type="button"
             className="site-mobile-backdrop"
             aria-label="Close menu"
+            tabIndex={-1}
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="site-mobile-panel">
+          <div ref={mobilePanelRef} className="site-mobile-panel">
             <div className="site-mobile-head">
-              <span className="site-mobile-title">Menu</span>
+              <span id="site-mobile-menu-title" className="site-mobile-title">Menu</span>
               <button
+                ref={mobileCloseRef}
                 type="button"
                 className="site-mobile-close"
                 aria-label="Close menu"
@@ -238,7 +277,7 @@ export function Navbar() {
             </nav>
 
             <Link href="/pricing" className="btn btn-primary site-mobile-cta">
-              View Pricing
+              View Plans
             </Link>
           </div>
         </div>

@@ -76,9 +76,30 @@ export const MARKET_ROUTES: ContentRoute[] = [
   { href: "/markets/belgium", changeFrequency: "monthly", priority: 0.65 },
   { href: "/markets/germany", changeFrequency: "monthly", priority: 0.65 },
   { href: "/markets/netherlands", changeFrequency: "monthly", priority: 0.65 },
+  { href: "/markets/czechia", changeFrequency: "monthly", priority: 0.65 },
 ];
 
 export const RESOURCE_ARTICLE_ROUTES: ContentRoute[] = [
+  {
+    href: "/resources/ireland-sme-public-procurement-gap",
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    href: "/resources/external-signals-in-public-procurement",
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    href: "/resources/competitor-intelligence-in-public-procurement",
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    href: "/resources/european-procurement-coverage-what-market-coverage-really-means",
+    changeFrequency: "weekly",
+    priority: 0.65,
+  },
   {
     href: "/resources/what-is-procurement-intelligence",
     changeFrequency: "weekly",

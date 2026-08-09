@@ -7,9 +7,9 @@ import { buildContactPointSchema, buildPageMetadata } from "../../lib/seo";
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Contact Civant | Procurement Forecasting Intelligence",
+  title: "Contact Civant | Procurement Intelligence",
   description:
-    "Request a Civant custom plan or contact our team to discuss procurement intelligence use cases.",
+    "Ask a Civant platform question, discuss a custom rollout, or contact the company about partnerships, research, funding, or investment.",
   path: "/contact",
 });
 
@@ -22,15 +22,15 @@ export default function ContactPage() {
         <p className="eyebrow">Contact</p>
         <h1 className="headline-xl">Talk to Civant</h1>
         <p className="text-lead">
-          For platform questions, custom plans, partnerships, funding, research,
-          or strategic collaboration, send the right context and we will route it
-          to the right conversation.
+          Choose a self-serve plan for immediate access. Use this page for
+          platform fit, a custom rollout, or a company, partnership, research,
+          funding, or investment enquiry.
         </p>
         <CTAGroup
           primaryHref="#contact-form"
-          primaryLabel="Book a 20-minute walkthrough"
+          primaryLabel="Ask a Platform Question"
           secondaryHref="/pricing"
-          secondaryLabel="View Pricing"
+          secondaryLabel="View Plans"
         />
       </Section>
 

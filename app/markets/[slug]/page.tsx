@@ -11,6 +11,7 @@ import {
   buildServiceSchema,
   SITE_URL,
 } from "../../../lib/seo";
+import { MARKET_COVERAGE_SNAPSHOT } from "../../../lib/siteFacts";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -106,13 +107,13 @@ export default async function MarketPage({ params }: MarketPageProps) {
           ? "Move from market understanding into a self-serve or custom buying path."
           : "Discuss early access, rollout priorities, and the setup your team will need.",
       href: market.status === "live" ? "/pricing" : "/contact",
-      cta: market.status === "live" ? "View Pricing" : "Contact Civant",
+      cta: market.status === "live" ? "View Plans" : "Contact Civant",
     },
   ];
   const ctaCopy =
     market.status === "live"
       ? `Start with ${market.country} coverage now, or book a custom walkthrough if your team needs a multi-market setup.`
-      : `${market.country} is part of the next rollout. Talk to us about early access, target categories, and country-specific planning.`;
+      : `${market.country} is coming soon. Talk to us about early access, target categories, and country-specific planning.`;
 
   return (
     <>
@@ -120,6 +121,9 @@ export default async function MarketPage({ params }: MarketPageProps) {
         <p className="eyebrow">Markets / {market.country}</p>
         <h1 className="headline-xl">{market.headline}</h1>
         <p className="text-lead">{market.description}</p>
+        <p className="cred-line">
+          Coverage status last reviewed {MARKET_COVERAGE_SNAPSHOT.dateLabel}.
+        </p>
       </Section>
 
       <Section muted>
@@ -128,7 +132,7 @@ export default async function MarketPage({ params }: MarketPageProps) {
           <h2 className="headline-lg">
             {market.status === "live"
               ? `${market.country} is live in Civant`
-              : `${market.country} is coming next in the rollout`}
+              : `${market.country} is coming soon to Civant`}
           </h2>
           <p className="text-lead section-intro">{market.summary}</p>
         </div>
@@ -140,12 +144,12 @@ export default async function MarketPage({ params }: MarketPageProps) {
             <h3 className="card-title">
               {market.status === "live"
                 ? `Is ${market.country} live in Civant?`
-                : `When does ${market.country} join the rollout?`}
+                : `When is ${market.country} coming to Civant?`}
             </h3>
             <p className="card-body">
               {market.status === "live"
                 ? `Civant currently supports public procurement intelligence for ${market.buyersLabel}.`
-                : `${market.country} is prepared as part of Civant's next country rollout.`}
+                : `${market.country} is coming soon as part of Civant's expanding European coverage.`}
             </p>
           </article>
           <article className="card market-detail-card">

@@ -55,10 +55,40 @@ export const ARTICLE_SOURCES = {
     href: "https://www.eca.europa.eu/en/publications/SR-2023-28%26od%3D1",
     note: "Competition trends in EU public procurement through 2021.",
   },
+  csoBusinessIreland2023: {
+    label: "CSO: Business in Ireland 2023",
+    href: "https://www.cso.ie/en/releasesandpublications/ep/p-biiilb/businessinireland2023-insightsonthelifecycleofbusinesses/keyfindings/",
+    note: "Enterprise demographics, firm size distribution, active enterprise counts, and SME composition in Ireland.",
+  },
+  interTradeIrelandGo2Tender: {
+    label: "InterTradeIreland: Go-2-Tender Programme Relaunch",
+    href: "https://intertradeireland.com/news/intertradeireland-re-launch-go-2-tender-programme-opening-21bn-18bn-public-procurement-market-to-smes",
+    note: "Public procurement market estimate across the island of Ireland and Go-2-Tender participation figures for 2021-2024.",
+  },
+  irelandCircular1014: {
+    label: "Government of Ireland: Circular 10/2014",
+    href: "https://www.gov.ie/en/department-of-public-expenditure-infrastructure-public-service-reform-and-digitalisation/circulars/initiatives-to-assist-smes-in-public-procurement/",
+    note: "Initiatives to assist SMEs in public procurement.",
+  },
+  irelandOgpSmes: {
+    label: "Office of Government Procurement: SMEs",
+    href: "https://www.gov.ie/en/office-of-government-procurement/publications/smes/",
+    note: "Policy context and guidance on SME participation in public procurement.",
+  },
   tedEforms: {
     label: "TED: eForms standards",
     href: "https://ted.europa.eu/en/simap/eforms",
     note: "EU notice forms and eForms publication standards for TED.",
+  },
+  euOpenDataDirective: {
+    label: "EU Open Data Directive 2019/1024",
+    href: "https://eur-lex.europa.eu/eli/dir/2019/1024/oj?locale=en",
+    note: "Framework for open data and reuse of public-sector information.",
+  },
+  oecdIrelandDigitalProcurement: {
+    label: "OECD: The Digital Transformation of Public Procurement in Ireland",
+    href: "https://www.oecd.org/en/publications/the-digital-transformation-of-public-procurement-in-ireland_87912457-en.html",
+    note: "Assessment of Ireland's procurement digitalisation progress and recommendations.",
   },
   europeanCommissionEforms: {
     label: "European Commission: eForms",

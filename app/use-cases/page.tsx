@@ -12,6 +12,7 @@ import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { SchemaScript } from "../../components/site/SchemaScript";
+import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "../../lib/markets";
 import { buildFaqSchema, buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
@@ -21,6 +22,7 @@ export const metadata = buildPageMetadata({
   description:
     "See how sales, marketing, account, bid, technical, partnership, and leadership teams use Civant to turn procurement timing into practical operating decisions.",
   path: "/use-cases",
+  image: "/images/use-cases/civant-use-cases-boardroom.webp",
 });
 
 const decisionGrid = [
@@ -236,10 +238,10 @@ export default function UseCasesPage() {
             to decide where to focus next.
           </p>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Book a 20-minute walkthrough"
-            secondaryHref="/pricing"
-            secondaryLabel="View Pricing"
+            primaryHref="/pricing"
+            primaryLabel="View Plans"
+            secondaryHref="/contact"
+            secondaryLabel="Book a Walkthrough"
           />
         </div>
         <div className="use-cases-hero-visual use-cases-hero-panel" aria-label="Civant operating layer">
@@ -393,7 +395,7 @@ export default function UseCasesPage() {
         <MarketCoverageLinks
           eyebrow="Coverage"
           title="One intelligence model across live and upcoming markets"
-          body="Civant is live in Ireland, the United Kingdom, Spain, France, and Italy, with Finland, Belgium, Germany, and the Netherlands coming next."
+          body={`Civant is live in ${LIVE_MARKET_LIST}, with ${COMING_MARKET_LIST} coming soon.`}
           compact
         />
       </Section>
@@ -425,10 +427,10 @@ export default function UseCasesPage() {
               procurement timing.
             </p>
             <CTAGroup
-              primaryHref="/contact"
-              primaryLabel="Book a 20-minute walkthrough"
-              secondaryHref="/pricing"
-              secondaryLabel="View Pricing"
+              primaryHref="/pricing"
+              primaryLabel="View Plans"
+              secondaryHref="/contact"
+              secondaryLabel="Book a Walkthrough"
             />
           </div>
           <div className="use-cases-final-cta-panel" aria-label="Civant workflow outcomes">

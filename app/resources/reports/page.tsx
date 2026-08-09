@@ -16,7 +16,7 @@ const reports = getAllReports();
 export const metadata = buildPageMetadata({
   title: "Forecast Reports",
   description:
-    "Sector forecast reports from Civant, including public-safe outlooks for education, healthcare, and public construction demand across European public-sector markets.",
+    "Download dated Civant forecast reports for education, healthcare, and public construction demand across European procurement markets.",
   path: "/resources/reports",
 });
 
@@ -79,10 +79,10 @@ export default function ReportsPage() {
             Request a Sector Report
           </Link>
           <Link href="/contact" className="btn btn-secondary">
-            Book a 20-minute walkthrough
+            Book a Walkthrough
           </Link>
           <Link href="/pricing" className="btn btn-primary">
-            View Pricing
+            View Plans
           </Link>
         </div>
       </Section>

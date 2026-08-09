@@ -30,6 +30,7 @@ export const metadata = buildPageMetadata({
   description:
     "See how Civant's forecasting model uses procurement records, contract lifecycles, buyer behavior, and public signals to estimate likely tender timing.",
   path: "/methodology",
+  image: "/screenshots/forecast-validation.png",
 });
 
 const methodologyFaqs = [
@@ -280,9 +281,9 @@ export default function MethodologyPage() {
           </p>
           <CTAGroup
             primaryHref="/pricing"
-            primaryLabel="Get Started"
+            primaryLabel="View Plans"
             secondaryHref="/contact"
-            secondaryLabel="Talk to Us"
+            secondaryLabel="Book a Walkthrough"
           />
         </div>
         <div className="methodology-hero-model" aria-label="Civant methodology model">
@@ -424,7 +425,7 @@ export default function MethodologyPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section id="forecast-validation">
         <div className="section-heading-wrap">
           <p className="eyebrow">Validation</p>
           <h2 className="headline-lg">
@@ -567,9 +568,9 @@ export default function MethodologyPage() {
             </p>
             <CTAGroup
               primaryHref="/pricing"
-              primaryLabel="Get Started"
+              primaryLabel="View Plans"
               secondaryHref="/contact"
-              secondaryLabel="Talk to Us"
+              secondaryLabel="Book a Walkthrough"
             />
           </div>
         </div>

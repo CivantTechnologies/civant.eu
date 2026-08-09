@@ -1,3 +1,6 @@
+import { MARKET_COVERAGE_SNAPSHOT } from "./siteFacts";
+import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "./markets";
+
 export type SolutionFaq = {
   question: string;
   answer: string;
@@ -44,7 +47,7 @@ export const SOLUTIONS: SolutionPage[] = [
     differentiator:
       "Civant is not a chatbot layered on top of tender notices. AI helps interpret match, scope, intent, and strategy, while the forecasting layer is grounded in structured procurement evidence.",
     proofPoint:
-      "Live coverage includes Ireland, the United Kingdom, Spain, France, and Italy, with Finland, Belgium, Germany, and the Netherlands coming next.",
+      `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: ${LIVE_MARKET_LIST} were live, with ${COMING_MARKET_LIST} coming soon.`,
     useCases: [
       "Build a target account plan around buyers with recurring demand.",
       "Prioritize bid effort before live notices compress the response window.",
@@ -146,9 +149,9 @@ export const SOLUTIONS: SolutionPage[] = [
     civantApproach:
       "Civant combines live market monitoring with a consistent intelligence model across countries, helping teams compare buyers, categories, contract cycles, and competitor activity in one workflow.",
     differentiator:
-      "Civant separates live market intelligence from rollout messaging: Ireland, the UK, Spain, France, and Italy are live; Finland, Belgium, Germany, and the Netherlands are coming next.",
+      `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: ${LIVE_MARKET_LIST} were live; ${COMING_MARKET_LIST} were coming soon.`,
     proofPoint:
-      "The same procurement-cycle workflow is applied country by country as Civant expands, with an average target of one new EU market per month.",
+      "The same procurement-cycle workflow is applied country by country, with live and planned coverage recorded on the Markets page.",
     useCases: [
       "Compare procurement activity across live European markets.",
       "Prepare expansion into upcoming Civant countries.",
@@ -163,9 +166,9 @@ export const SOLUTIONS: SolutionPage[] = [
     ],
     faqs: [
       {
-        question: "Which European markets does Civant cover today?",
+        question: "Which European markets are listed as live?",
         answer:
-          "Civant currently covers Ireland, the United Kingdom, Spain, France, and Italy. Finland, Belgium, Germany, and the Netherlands are coming next.",
+          `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: Civant covered ${LIVE_MARKET_LIST}, with ${COMING_MARKET_LIST} coming soon.`,
       },
       {
         question: "Is EU tender monitoring the same as procurement intelligence?",

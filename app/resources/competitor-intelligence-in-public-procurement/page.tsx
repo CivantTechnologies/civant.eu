@@ -185,6 +185,7 @@ export const metadata = buildArticleMetadata({
   path: article.path,
   datePublished: article.publishedAt,
   dateModified: article.modifiedAt,
+  image: article.visual?.src,
 });
 
 export default function ArticlePage() {

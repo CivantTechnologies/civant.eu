@@ -3,7 +3,19 @@ import { Montserrat } from "next/font/google";
 import type { ReactNode } from "react";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "../lib/seo";
+import {
+  CIVANT_DISPLAY_NAME,
+  CIVANT_LEGAL_NAME,
+  CIVANT_LINKEDIN_URL,
+  FOUNDER_LINKEDIN_URL,
+  FOUNDER_NAME,
+} from "../lib/brand";
+import {
+  DEFAULT_OG_IMAGE,
+  ORGANIZATION_ID,
+  SITE_NAME,
+  SITE_URL,
+} from "../lib/seo";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -19,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Civant",
   },
   description:
-    "Civant helps enterprise teams master European public procurement cycles with contract lifecycle intelligence, market signals, and tender forecasting.",
+    "Civant helps B2G teams forecast European public procurement opportunities using buyer cycles, contract lifecycles, competitor context, and public signals.",
   alternates: {
     canonical: "/",
   },
@@ -33,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Civant | Public Procurement Intelligence Platform",
     description:
-      "Civant helps enterprise teams master European public procurement cycles with contract lifecycle intelligence, market signals, and tender forecasting.",
+      "Civant helps B2G teams forecast European public procurement opportunities using buyer cycles, contract lifecycles, competitor context, and public signals.",
     type: "website",
     url: "/",
     siteName: SITE_NAME,
@@ -50,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Civant | Public Procurement Intelligence Platform",
     description:
-      "Civant helps enterprise teams master European public procurement cycles with contract lifecycle intelligence, market signals, and tender forecasting.",
+      "Civant helps B2G teams forecast European public procurement opportunities using buyer cycles, contract lifecycles, competitor context, and public signals.",
     images: [DEFAULT_OG_IMAGE],
   },
   icons: {
@@ -67,8 +79,9 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Civant Technologies",
-  legalName: "Civant Technologies Limited",
+  "@id": ORGANIZATION_ID,
+  name: CIVANT_DISPLAY_NAME,
+  legalName: CIVANT_LEGAL_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/og-civant.png`,
   description:
@@ -81,11 +94,11 @@ const organizationSchema = {
   email: "hello@civant.eu",
   founder: {
     "@type": "Person",
-    name: "David Manrique",
+    name: FOUNDER_NAME,
     jobTitle: "Founder & CEO",
-    url: "https://www.linkedin.com/in/davidmanriquec/",
+    url: FOUNDER_LINKEDIN_URL,
   },
-  sameAs: ["https://www.linkedin.com/company/civant-technologies/"],
+  sameAs: [CIVANT_LINKEDIN_URL],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Sales",
@@ -100,10 +113,9 @@ const websiteSchema = {
   name: SITE_NAME,
   url: SITE_URL,
   description:
-    "Procurement forecasting intelligence platform for enterprise teams across Europe.",
+    "Procurement forecasting intelligence platform for B2G teams across Europe.",
   publisher: {
-    "@type": "Organization",
-    name: "Civant Technologies",
+    "@id": ORGANIZATION_ID,
   },
 };
 

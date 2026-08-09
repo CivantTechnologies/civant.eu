@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { BrowserFrame } from "../../components/site/BrowserFrame";
 import { InsightsSignup } from "../../components/site/InsightsSignup";
 import { ResourceIndexAccordion } from "../../components/site/ResourceIndexAccordion";
 import {
@@ -18,10 +19,11 @@ import {
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
-  title: "Procurement Intelligence Resources and Forecast Reports | Civant",
+  title: "Procurement Intelligence Resources | Civant",
   description:
-    "Procurement intelligence resources from Civant: guides on procurement cycles, lifecycle signals, market intelligence, bidding strategy, and SME access.",
+    "Read procurement intelligence guides and dated forecast reports on buyer cycles, lifecycle signals, competition, bidding strategy, and SME access.",
   path: "/resources",
+  image: "/images/resources/guide-procurement-intelligence.jpg",
 });
 
 type Article = {
@@ -40,6 +42,12 @@ type PillarProfile = {
 };
 
 const articles: Article[] = [
+  {
+    href: "/resources/ireland-sme-public-procurement-gap",
+    title: "Ireland's SME Public Procurement Gap: Why Capable Suppliers Arrive Too Late",
+    summary: "Evidence on Ireland's SME procurement gap, the barriers behind late tender discovery, and how earlier market intelligence can improve preparation.",
+    pillar: "Market Intelligence",
+  },
   {
     href: "/resources/external-signals-in-public-procurement",
     title: "External Signals in Public Procurement",
@@ -439,12 +447,14 @@ const articles: Article[] = [
 ];
 
 const featuredArticleHrefs = [
+  "/resources/ireland-sme-public-procurement-gap",
   "/resources/what-is-procurement-intelligence",
   "/resources/external-signals-in-public-procurement",
   "/resources/competitor-intelligence-in-public-procurement",
 ];
 
 const featuredArticleCtas: Record<string, string> = {
+  "/resources/ireland-sme-public-procurement-gap": "Read the Ireland brief",
   "/resources/what-is-procurement-intelligence": "Understand the category",
   "/resources/external-signals-in-public-procurement": "Read the signal guide",
   "/resources/competitor-intelligence-in-public-procurement":
@@ -452,6 +462,10 @@ const featuredArticleCtas: Record<string, string> = {
 };
 
 const featuredArticleVisuals: Record<string, { src: string; alt: string }> = {
+  "/resources/ireland-sme-public-procurement-gap": {
+    src: "/images/resources/ireland-sme-public-procurement-gap.jpg",
+    alt: "Editorial procurement intelligence visual showing Irish tender data, lifecycle timelines, and buyer-supplier signal networks",
+  },
   "/resources/what-is-procurement-intelligence": {
     src: "/images/resources/guide-procurement-intelligence.jpg",
     alt: "Abstract procurement intelligence evidence layers converging into one Civant view",
@@ -547,9 +561,9 @@ const libraryStats = [
     body: "Built around the way bid and market teams actually learn.",
   },
   {
-    value: "70+",
-    label: "authority resources",
-    body: "Articles, reports, and practical procurement explainers.",
+    value: String(articles.length + forecastReports.length),
+    label: "published guides & reports",
+    body: "An exact count of the resources available in this library.",
   },
   {
     value: "3",
@@ -591,7 +605,7 @@ const resourcePathLinks = [
   },
   {
     title: "Match the right solution path",
-    body: "Jump from education into the solution page that best fits your search intent.",
+    body: "Find the Civant workflow that matches the decision your team needs to make.",
     href: "/solutions",
     cta: "Explore Solutions",
   },
@@ -605,7 +619,7 @@ const resourcePathLinks = [
     title: "Turn research into action",
     body: "Move from reading to rollout with self-serve pricing and custom paths.",
     href: "/pricing",
-    cta: "View Pricing",
+    cta: "View Plans",
   },
 ];
 
@@ -787,6 +801,42 @@ export default function ResourcesPage() {
         </div>
       </Section>
 
+      <Section className="resource-product-section">
+        <div className="resource-product-bridge">
+          <div className="resource-product-copy">
+            <p className="eyebrow">Inside Civant</p>
+            <h2 className="headline-lg">
+              Turn the signals you read about into a working forecast
+            </h2>
+            <p className="text-lead">
+              Civant connects buyer history, contract lifecycles, competitor
+              context, and external public signals so teams can see where to
+              prepare before a formal tender appears.
+            </p>
+            <ul className="resource-product-points">
+              <li>Forecast likely opportunity windows and inspect the evidence behind them.</li>
+              <li>Prioritise buyers and markets before bid deadlines compress the decision.</li>
+              <li>Move selected opportunities into alerts, account plans, and bid workflows.</li>
+            </ul>
+            <div className="button-row">
+              <Link href="/platform" className="btn btn-primary">
+                Explore the Platform
+              </Link>
+              <Link href="/pricing" className="btn btn-secondary">
+                View Plans
+              </Link>
+            </div>
+          </div>
+          <BrowserFrame
+            src="/screenshots/forecast-pipeline.png"
+            alt="Civant Forecast showing upcoming opportunity windows, confidence, timing, and supporting evidence"
+            caption="Forecast turns fragmented public evidence into a prioritised opportunity runway"
+            width={2880}
+            height={1558}
+          />
+        </div>
+      </Section>
+
       <Section muted>
         <div className="resource-report-panel resource-report-panel-premium">
           <div className="resource-report-copy">
@@ -803,8 +853,8 @@ export default function ResourcesPage() {
               <Link href="/resources/reports" className="btn btn-primary">
                 Browse Forecast Reports
               </Link>
-              <Link href="/contact" className="btn btn-secondary">
-                Book a 20-minute walkthrough
+              <Link href="/platform" className="btn btn-secondary">
+                See the Platform
               </Link>
             </div>
           </div>
@@ -923,8 +973,8 @@ export default function ResourcesPage() {
               Connect research to the Civant workflow
             </h2>
             <p className="text-lead section-intro">
-              Educational content should lead into a platform view, a
-              methodology explanation, a solution path, or a buying decision.
+              Choose the next step that matches your decision: inspect the
+              product, understand the method, find a use case, or start a plan.
             </p>
           </div>
           <div className="resource-action-body">
@@ -963,10 +1013,10 @@ export default function ResourcesPage() {
           </div>
           <div className="button-row">
             <Link href="/pricing" className="btn btn-primary">
-              View Pricing
+              View Plans
             </Link>
-            <Link href="/contact" className="btn btn-secondary">
-              Book a 20-minute walkthrough
+            <Link href="/platform" className="btn btn-secondary">
+              Explore the Platform
             </Link>
           </div>
         </div>

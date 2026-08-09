@@ -174,7 +174,7 @@ const article: ResourceArticle = {
 };
 
 export const metadata = buildArticleMetadata({
-  title: article.title,
+  title: "European Procurement Coverage Explained",
   description: article.description,
   path: article.path,
   datePublished: article.publishedAt,

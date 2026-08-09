@@ -24,6 +24,7 @@ export type Pillar = (typeof PILLAR_ORDER)[number];
 
 export const ARTICLES: ArticleMeta[] = [
   // --- Market Intelligence ---
+  { href: "/resources/ireland-sme-public-procurement-gap", title: "Ireland's SME Public Procurement Gap: Why Capable Suppliers Arrive Too Late", pillar: "Market Intelligence" },
   { href: "/resources/beyond-raw-data-extracting-insights-from-historical-contract-records", title: "Beyond Raw Data: Extracting Insights from Historical Contract Records", pillar: "Market Intelligence" },
   { href: "/resources/detecting-procurement-patterns-what-past-awards-reveal-about-future-tenders", title: "Detecting Procurement Patterns: What Past Awards Reveal About Future Tenders", pillar: "Market Intelligence" },
   { href: "/resources/unified-data-hubs-the-case-for-aggregated-procurement-intelligence", title: "Unified Data Hubs: The Case for Aggregated Procurement Intelligence", pillar: "Market Intelligence" },

@@ -1,61 +1,59 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BriefcaseBusiness, Compass, Landmark } from "lucide-react";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  CalendarRange,
+  Check,
+  ChevronRight,
+  Compass,
+  Landmark,
+  RadioTower,
+  RefreshCw,
+  UserRound,
+} from "lucide-react";
 import { BrowserFrame } from "../components/site/BrowserFrame";
 import { CTAGroup } from "../components/site/CTAGroup";
 import { ProofSection } from "../components/site/ProofSection";
 import { SchemaScript } from "../components/site/SchemaScript";
 import { Section } from "../components/site/Section";
+import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "../lib/markets";
 import {
   buildFaqSchema,
   buildPageMetadata,
   buildPricingProductSchema,
   buildSoftwareApplicationSchema,
 } from "../lib/seo";
+import { MARKET_COVERAGE_SNAPSHOT, VALIDATION_SNAPSHOT } from "../lib/siteFacts";
 
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
   title: "Procurement Forecasting Intelligence | Civant",
   description:
-    "Civant is procurement forecasting software for European B2G teams, helping teams identify likely tender timing using buyer cycles, contract lifecycles, and public signals.",
+    "Civant helps European B2G teams forecast tender timing using buyer cycles, contract lifecycles, competitor context, and public signals.",
   path: "/",
+  image: "/screenshots/forecast-validation.png",
 });
 
-const heroProof = [
+const heroEvidenceLayers = [
   {
-    label: "Match rate",
-    value: "90.8%",
-    detail: "Against tender activity.",
-    href: "/methodology",
+    label: "Contract lifecycle",
+    detail: "Renewal pattern detected",
+    href: "/platform#forecast",
+    icon: RefreshCw,
   },
   {
-    label: "Validated",
-    value: "79K",
-    detail: "Evidence checks.",
-    href: "/platform",
+    label: "Buyer behaviour",
+    detail: "Repeat category activity",
+    href: "/platform#panorama",
+    icon: UserRound,
   },
   {
-    label: "Opportunity",
-    value: "€1.1tn+",
-    detail: "Covered markets.",
-    href: "/markets",
-  },
-];
-
-const heroSignalLayers = [
-  { label: "Buyer cycles", href: "/resources/public-procurement-cycles" },
-  {
-    label: "Renewal windows",
-    href: "/resources/renewal-cycles-how-contract-expiry-drives-tender-pipelines",
-  },
-  {
-    label: "Competitor movement",
-    href: "/resources/competitor-intelligence-in-public-procurement",
-  },
-  {
-    label: "Public signals",
-    href: "/resources/external-signals-in-public-procurement",
+    label: "External signals",
+    detail: "Public evidence strengthening",
+    href: "/platform#alerts",
+    icon: RadioTower,
   },
 ];
 
@@ -106,7 +104,7 @@ const audienceCards = [
     label: "Market entry",
     title: "Teams entering new public-sector markets",
     body: "Choose countries, buyers, and renewal windows before a formal tender appears.",
-    fit: "Best fit: expansion into Ireland, the UK, Spain, France, or Italy.",
+    fit: `Best fit: expansion across ${LIVE_MARKET_LIST}.`,
     href: "/markets",
     icon: BriefcaseBusiness,
   },
@@ -196,7 +194,7 @@ const homeFaqs = [
   {
     question: "Which European markets does Civant cover?",
     answer:
-      "Civant currently covers Ireland, the United Kingdom, Spain, France, and Italy, with Finland, Belgium, Germany, and the Netherlands listed as upcoming markets.",
+      `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: ${LIVE_MARKET_LIST} were live, with ${COMING_MARKET_LIST} coming soon.`,
   },
   {
     question: "Do Civant plans include all available countries?",
@@ -243,53 +241,80 @@ export default function HomePage() {
               bid planning.
             </p>
             <CTAGroup
-              primaryHref="/contact"
-              primaryLabel="Book a 20-minute walkthrough"
-              secondaryHref="/pricing"
-              secondaryLabel="View Pricing"
+              primaryHref="/pricing"
+              primaryLabel="View Plans"
+              secondaryHref="/contact"
+              secondaryLabel="Book a Walkthrough"
             />
             <p className="cred-line">
-              Validated against 79K evidence checks across live and upcoming
-              European markets.
+              Forecasts link back to their supporting evidence.{" "}
+              <Link href="/methodology#forecast-validation">
+                See how Civant validates them.
+              </Link>
             </p>
           </div>
 
           <aside className="home-hero-console" aria-label="Civant forecasting console">
             <div className="home-hero-console-head">
               <p>Forecast operating layer</p>
-              <span>Evidence loop</span>
+              <h2>See what&rsquo;s driving the forecast.</h2>
             </div>
 
-            <div className="home-hero-console-metrics">
-              {heroProof.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`home-hero-metric ${
-                    item.label === "Opportunity" ? "home-hero-metric-opportunity" : ""
-                  }`}
-                  aria-label={`${item.label}: ${item.value}. ${item.detail}`}
-                >
-                  <span>{item.label}</span>
-                  <strong>{item.value}</strong>
-                  <em>{item.detail}</em>
-                </Link>
-              ))}
-            </div>
-
-            <div className="home-hero-signal-panel">
-              <div className="home-hero-signal-copy">
-                <p>Signals into forecast</p>
-                <span>Each layer links to the evidence behind the model.</span>
+            <div className="home-hero-forecast-summary">
+              <span className="home-hero-forecast-icon" aria-hidden="true">
+                <CalendarRange />
+              </span>
+              <div>
+                <strong>Likely renewal window</strong>
+                <p>
+                  Buyer cycle and contract evidence point to an upcoming opportunity.
+                </p>
               </div>
-              <div className="home-hero-signal-list">
-                {heroSignalLayers.map((item) => (
-                  <Link key={item.label} href={item.href}>
-                    {item.label}
+            </div>
+
+            <nav className="home-hero-evidence-list" aria-label="Forecast evidence layers">
+              {heroEvidenceLayers.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="home-hero-evidence-row"
+                    aria-label={`${item.label}: ${item.detail}`}
+                  >
+                    <span className="home-hero-evidence-icon" aria-hidden="true">
+                      <Icon />
+                    </span>
+                    <span className="home-hero-evidence-copy">
+                      <strong>{item.label}</strong>
+                      <span>{item.detail}</span>
+                    </span>
+                    <ChevronRight
+                      className="home-hero-evidence-arrow"
+                      aria-hidden="true"
+                    />
                   </Link>
-                ))}
+                );
+              })}
+            </nav>
+
+            <div className="home-hero-ready-state">
+              <span className="home-hero-ready-icon" aria-hidden="true">
+                <Check />
+              </span>
+              <div>
+                <strong>Ready to prepare</strong>
+                <span>Build the account plan before the tender appears.</span>
               </div>
             </div>
+
+            <Link
+              className="home-hero-evidence-cta"
+              href="/methodology#forecast-validation"
+            >
+              Open the evidence trail
+              <ArrowRight aria-hidden="true" />
+            </Link>
           </aside>
         </div>
       </Section>
@@ -482,6 +507,7 @@ export default function HomePage() {
           </div>
 
           <div className="home-report-footer">
+            <span>Reports use a dated snapshot from {VALIDATION_SNAPSHOT.dateLabel}.</span>
             <Link href="/resources/reports">Browse forecast reports</Link>
           </div>
         </div>
@@ -507,10 +533,10 @@ export default function HomePage() {
             Start mastering procurement cycles
           </h2>
           <CTAGroup
-            primaryHref="/contact"
-            primaryLabel="Book a 20-minute walkthrough"
-            secondaryHref="/pricing"
-            secondaryLabel="View Pricing"
+            primaryHref="/pricing"
+            primaryLabel="View Plans"
+            secondaryHref="/contact"
+            secondaryLabel="Book a Walkthrough"
           />
         </div>
       </Section>

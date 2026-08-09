@@ -111,7 +111,7 @@ const article: ResourceArticle = {
             Civant is built as a procurement intelligence platform centered on
             procurement-cycle analysis. It combines historical procurement
             records, contract lifecycle signals, and market participation data
-            into actionable workflows for enterprise teams.
+            into actionable workflows for public-sector growth teams.
           </p>
           <p className="article-body-text">
             Explore how Civant modules work on the{" "}
@@ -174,6 +174,7 @@ export const metadata = buildArticleMetadata({
   path: article.path,
   datePublished: article.publishedAt,
   dateModified: article.modifiedAt,
+  image: article.visual?.src,
 });
 
 export default function ArticlePage() {

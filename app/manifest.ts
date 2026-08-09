@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Civant",
     short_name: "Civant",
     description:
-      "Public procurement intelligence platform for enterprise teams across Europe.",
+      "Public procurement intelligence platform for B2G teams across Europe.",
     start_url: "/",
     display: "standalone",
     background_color: "#050f24",
