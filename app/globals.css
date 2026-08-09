@@ -446,32 +446,12 @@ a {
   pointer-events: none;
 }
 
-.hero-section::after {
-  content: "";
-  position: absolute;
-  inset: -32% -24%;
-  background-image: url("/civant-micrologo.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: min(94vw, 1120px) auto;
-  opacity: 0.03;
-  filter: saturate(0.78) blur(0.2px);
-  pointer-events: none;
-}
-
 .company-hero {
   padding: 4.4rem 0;
 }
 
 .company-hero.hero-block {
   min-height: clamp(520px, 64vh, 700px);
-}
-
-.company-hero::after {
-  inset: -32% -24%;
-  background-position: center;
-  background-size: min(94vw, 1120px) auto;
-  opacity: 0.03;
 }
 
 .company-hero-container {
@@ -640,24 +620,6 @@ a {
   transform-origin: 58% 40%;
   animation: heroGlowDrift 46s ease-in-out infinite alternate;
   will-change: transform, opacity;
-  z-index: 0;
-}
-
-.home-hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 100vw;
-  height: clamp(368px, 50vh, 460px);
-  background-image: url("/civant-micrologo.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: min(90vw, 1080px) auto;
-  opacity: 0.026;
-  filter: saturate(0.78) blur(0.2px);
-  pointer-events: none;
-  transform: translateX(-50%);
   z-index: 0;
 }
 
@@ -980,13 +942,6 @@ a {
     radial-gradient(50% 56% at 62% 82%, rgba(214, 184, 105, 0.055) 0%, transparent 76%);
 }
 
-.platform-hero::after {
-  inset: 0;
-  background-position: center center;
-  background-size: min(88vw, 1040px) auto;
-  opacity: 0.026;
-}
-
 .platform-hero-container {
   position: relative;
   z-index: 1;
@@ -1230,13 +1185,6 @@ a {
     radial-gradient(56% 62% at 26% 22%, rgba(0, 196, 196, 0.08) 0%, transparent 74%),
     radial-gradient(58% 62% at 72% 26%, rgba(0, 196, 196, 0.115) 0%, transparent 72%),
     radial-gradient(48% 54% at 64% 82%, rgba(214, 184, 105, 0.045) 0%, transparent 76%);
-}
-
-.solution-hero::after {
-  inset: 0;
-  background-position: center center;
-  background-size: min(88vw, 1040px) auto;
-  opacity: 0.024;
 }
 
 .solution-hero-container {
@@ -5071,12 +5019,6 @@ a {
     radial-gradient(50% 58% at 24% 26%, rgba(0, 196, 196, 0.08) 0%, transparent 74%),
     radial-gradient(52% 62% at 78% 32%, rgba(0, 196, 196, 0.13) 0%, transparent 72%),
     radial-gradient(44% 50% at 72% 84%, rgba(99, 179, 237, 0.055) 0%, transparent 76%);
-}
-
-.methodology-hero::after {
-  background-position: 52% center;
-  background-size: min(86vw, 1040px) auto;
-  opacity: 0.024;
 }
 
 .methodology-hero-container {
@@ -12233,8 +12175,7 @@ a {
     opacity: 0.032;
   }
 
-  .home-hero::before,
-  .home-hero::after {
+  .home-hero::before {
     animation: none;
     filter: none;
     will-change: auto;
@@ -12444,8 +12385,7 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-hero::before,
-  .home-hero::after {
+  .home-hero::before {
     animation: none;
   }
 
