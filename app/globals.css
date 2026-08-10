@@ -970,6 +970,17 @@ a {
   max-width: 12.5ch;
 }
 
+.platform-hero-copy .headline-xl.platform-hero-title {
+  max-width: none;
+  font-size: clamp(2.45rem, 3.35vw, 3rem);
+  line-height: 1.17;
+}
+
+.platform-hero-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
 .platform-hero-copy .text-lead {
   margin-top: 1.2rem;
   max-width: 700px;
@@ -1063,8 +1074,9 @@ a {
 
 .platform-hero-metric {
   display: grid;
-  grid-template-rows: 2.2rem auto 2.8rem;
-  min-height: 118px;
+  grid-template-rows: auto minmax(2.85rem, auto) auto;
+  gap: 0.5rem;
+  min-height: 142px;
   min-width: 0;
   align-content: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1094,29 +1106,41 @@ a {
 
 .platform-hero-metric span {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   color: rgba(214, 222, 235, 0.7);
   font-size: 0.64rem;
   font-weight: 600;
   letter-spacing: 0.095em;
   line-height: 1.35;
+  text-align: center;
   text-transform: uppercase;
 }
 
-.platform-hero-metric strong {
-  color: #ffffff;
-  font-size: clamp(1.35rem, 2.05vw, 1.72rem);
-  font-weight: 600;
+.platform-hero-metric .platform-hero-metric-icon {
+  color: #8ceeed;
   letter-spacing: 0;
-  line-height: 1;
-  transition: color 180ms ease, text-shadow 180ms ease;
+  text-transform: none;
+  transition: color 180ms ease, filter 180ms ease;
 }
 
-.platform-hero-metric:hover strong,
-.platform-hero-metric:focus-visible strong,
-.platform-hero-metric-featured strong {
+.platform-hero-metric-icon svg {
+  width: clamp(2.35rem, 3.7vw, 2.8rem);
+  height: clamp(2.35rem, 3.7vw, 2.8rem);
+  stroke-width: 1.75;
+}
+
+.platform-hero-metric:hover .platform-hero-metric-icon,
+.platform-hero-metric:focus-visible .platform-hero-metric-icon {
+  color: #ffffff;
+  filter: drop-shadow(0 0 12px rgba(140, 238, 237, 0.22));
+}
+
+.platform-hero-metric-featured .platform-hero-metric-icon,
+.platform-hero-metric-featured:hover .platform-hero-metric-icon,
+.platform-hero-metric-featured:focus-visible .platform-hero-metric-icon {
   color: #f4cf7a;
-  text-shadow: 0 0 18px rgba(244, 207, 122, 0.16);
+  filter: drop-shadow(0 0 12px rgba(244, 207, 122, 0.18));
 }
 
 .platform-hero-metric-featured {
@@ -1127,11 +1151,11 @@ a {
 }
 
 .platform-hero-metric em {
-  margin-top: 0.3rem;
   color: #b8c3d2;
   font-size: 0.77rem;
   font-style: normal;
   line-height: 1.35;
+  text-align: center;
 }
 
 .platform-hero-flow {
@@ -13430,6 +13454,10 @@ a {
 
   .hero-block.hero-pricing .pricing-hero-actions .btn {
     width: 100%;
+  }
+
+  .platform-hero-title-line {
+    white-space: normal;
   }
 
   .understanding-hero-nav a {

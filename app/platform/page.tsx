@@ -1,7 +1,10 @@
 import Link from "next/link";
 import {
+  CalendarClock,
   CircleGauge,
   Crosshair,
+  Link2,
+  ListChecks,
   ScanSearch,
   Target,
   type LucideIcon,
@@ -93,20 +96,21 @@ const systemLayers = [
 
 const platformHeroMetrics = [
   {
+    icon: CalendarClock as LucideIcon,
     label: "Forecast layer",
-    value: "Timing",
     detail: "Buyer and category windows.",
     href: "#forecast",
+    featured: true,
   },
   {
+    icon: Link2 as LucideIcon,
     label: "Evidence model",
-    value: "Traceable",
     detail: "Signals linked to their sources.",
     href: "/methodology",
   },
   {
+    icon: ListChecks as LucideIcon,
     label: "Workflow",
-    value: "Action",
     detail: "Alerts, bids, and reporting.",
     href: "#bids",
   },
@@ -336,8 +340,13 @@ export default function PlatformPage() {
         <div className="platform-hero-layout">
           <div className="platform-hero-copy">
             <p className="eyebrow">Platform</p>
-            <h1 className="headline-xl">
-              Procurement forecasting software for earlier public-sector decisions
+            <h1 className="headline-xl platform-hero-title">
+              <span className="platform-hero-title-line">
+                Forecast public-sector demand.
+              </span>
+              <span className="platform-hero-title-line">
+                Act before the tender.
+              </span>
             </h1>
             <p className="text-lead">
               Civant connects market context, contract lifecycle signals,
@@ -368,11 +377,14 @@ export default function PlatformPage() {
                   key={item.label}
                   href={item.href}
                   className={`platform-hero-metric ${
-                    item.label === "Forecast layer" ? "platform-hero-metric-featured" : ""
+                    item.featured ? "platform-hero-metric-featured" : ""
                   }`}
+                  aria-label={`${item.label}: ${item.detail}`}
                 >
                   <span>{item.label}</span>
-                  <strong>{item.value}</strong>
+                  <span className="platform-hero-metric-icon" aria-hidden="true">
+                    <item.icon />
+                  </span>
                   <em>{item.detail}</em>
                 </Link>
               ))}
