@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
+import { CIVANT_DEFINITION, founder } from "../../lib/company";
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -9,6 +10,7 @@ import {
   SITE_URL,
 } from "../../lib/seo";
 import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "../../lib/markets";
+import { MARKET_COVERAGE_SNAPSHOT } from "../../lib/siteFacts";
 
 export const dynamic = "force-static";
 
@@ -39,8 +41,7 @@ const understandingSections: UnderstandingSection[] = [
     faqs: [
       {
         question: "What is Civant?",
-        answer:
-          "Civant is a procurement intelligence platform that helps teams identify likely future public-sector opportunities before formal tenders are published. It combines procurement history, contract lifecycles, buyer behaviour, competitor activity, and public signals into a structured, forward-looking view.",
+        answer: CIVANT_DEFINITION,
       },
       {
         question: "Who is Civant for?",
@@ -50,12 +51,12 @@ const understandingSections: UnderstandingSection[] = [
       {
         question: "How is Civant different from tender alerts?",
         answer:
-          "Tender alerts notify teams once a procurement process is already live. Civant focuses on what happens before that point, helping teams understand where demand is likely to emerge so they can prepare earlier, engage sooner, and prioritise more effectively.",
+          "Tender alerts notify teams once a procurement process is already live. Civant focuses on what happens before that point, helping teams understand where demand is likely to emerge, decide where to compete, and act before the formal response window opens.",
       },
       {
         question: "What markets does Civant cover?",
         answer:
-          `Civant is currently live across ${LIVE_MARKET_LIST}, with ${COMING_MARKET_LIST} coming soon.`,
+          `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: Civant was live across ${LIVE_MARKET_LIST}, with ${COMING_MARKET_LIST} coming soon. A market is live when it is accessible to users and fully operational in the platform.`,
       },
     ],
   },
@@ -82,7 +83,7 @@ const understandingSections: UnderstandingSection[] = [
       {
         question: "How accurate are Civant forecasts?",
         answer:
-          "Civant forecasts are evidence-led and continuously validated against subsequently published tenders. Outputs are confidence-scored and designed to support planning and prioritisation rather than provide guaranteed outcomes.",
+          "Civant forecasts are evidence-led and checked against subsequently published tenders. Outputs are confidence-scored and support planning rather than guarantee outcomes. Public performance results are published only when the cohort, method, time window, limitations, and supporting documentation are inspectable.",
       },
       {
         question: "How does Civant use AI?",
@@ -131,7 +132,7 @@ const understandingSections: UnderstandingSection[] = [
       {
         question: "Who is behind Civant?",
         answer:
-          "Civant is led by its founder, combining commercial, partnerships, and go-to-market experience in SaaS and public-sector ecosystems, supported by an advisory network across product, data infrastructure, and financial strategy.",
+          `${founder.name} is Civant's founder and CEO. He is directly accountable for the product, its evidence standards, and its public claims, supported by named advisors across product, infrastructure, finance, and market strategy.`,
       },
       {
         question: "Is Civant a large team?",
@@ -144,9 +145,9 @@ const understandingSections: UnderstandingSection[] = [
           "Civant is based in Ireland and focused on European public procurement markets.",
       },
       {
-        question: "How is Civant supported?",
+        question: "How does Civant publish independent review outcomes?",
         answer:
-          "Civant has received founder and enterprise support through programmes connected with Enterprise Ireland, Local Enterprise Office Louth, and the Regional Development Centre at Dundalk Institute of Technology.",
+          "Civant publishes an external review outcome only when the scope, findings, resulting actions, implementation status, and limitations are documented. Participation, selection, or funding is not presented as evidence of product performance.",
       },
     ],
   },
@@ -183,6 +184,10 @@ const contextLinks = [
   {
     href: "/markets",
     label: "Market coverage",
+  },
+  {
+    href: founder.profilePath,
+    label: "Founder profile",
   },
 ];
 

@@ -4,6 +4,7 @@ import {
   FOUNDER_LINKEDIN_URL,
   FOUNDER_NAME,
 } from "./brand";
+import { CIVANT_DEFINITION, founder } from "./company";
 import { getResourceSeoOverride } from "./resourceSeo";
 
 export const SITE_NAME = "Civant";
@@ -216,7 +217,8 @@ export function buildArticleSchema({
       author: {
         "@type": "Person",
         name: FOUNDER_NAME,
-        url: FOUNDER_LINKEDIN_URL,
+        url: `${SITE_URL}${founder.profilePath}`,
+        sameAs: [FOUNDER_LINKEDIN_URL],
         worksFor: {
           "@id": ORGANIZATION_ID,
         },
@@ -274,8 +276,7 @@ export function buildSoftwareApplicationSchema() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     url: `${SITE_URL}/platform`,
-    description:
-      "Civant is a procurement forecasting intelligence platform for estimating tender opportunity timing, tracking contract lifecycle signals, reading competitor movement, and prioritizing public-sector market activity.",
+    description: CIVANT_DEFINITION,
     offers: {
       "@type": "Offer",
       url: `${SITE_URL}/pricing`,
@@ -436,7 +437,8 @@ export function buildFounderPersonSchema() {
     "@type": "Person",
     name: FOUNDER_NAME,
     jobTitle: "Founder",
-    url: `${SITE_URL}/team#founder`,
+    url: `${SITE_URL}${founder.profilePath}`,
+    image: `${SITE_URL}${founder.image}`,
     sameAs: [FOUNDER_LINKEDIN_URL],
     worksFor: {
       "@id": ORGANIZATION_ID,

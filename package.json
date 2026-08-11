@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "npm run marketing:build",
     "start": "next start",
-    "test": "node -e \"console.log('No tests configured yet')\"",
+    "test": "node --test scripts/marketing-claims.test.mjs",
     "lint": "npm run marketing:lint",
     "lint:fix": "npm run marketing:lint -- --fix",
     "lighthouse:ci": "lhci autorun",

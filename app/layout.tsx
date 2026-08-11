@@ -7,9 +7,8 @@ import {
   CIVANT_DISPLAY_NAME,
   CIVANT_LEGAL_NAME,
   CIVANT_LINKEDIN_URL,
-  FOUNDER_LINKEDIN_URL,
-  FOUNDER_NAME,
 } from "../lib/brand";
+import { CIVANT_DEFINITION, CIVANT_SHORT_DEFINITION, founder } from "../lib/company";
 import {
   DEFAULT_OG_IMAGE,
   ORGANIZATION_ID,
@@ -27,11 +26,10 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Civant | Public Procurement Intelligence Platform",
+    default: "Civant | Procurement Intelligence with Forecasting at Its Core",
     template: "%s | Civant",
   },
-  description:
-    "Civant helps B2G teams forecast European public procurement opportunities using buyer cycles, contract lifecycles, competitor context, and public signals.",
+  description: CIVANT_DEFINITION,
   alternates: {
     canonical: "/",
   },
@@ -43,9 +41,8 @@ export const metadata: Metadata = {
     "max-video-preview": -1,
   },
   openGraph: {
-    title: "Civant | Public Procurement Intelligence Platform",
-    description:
-      "Civant helps B2G teams forecast European public procurement opportunities using buyer cycles, contract lifecycles, competitor context, and public signals.",
+    title: "Civant | Procurement Intelligence with Forecasting at Its Core",
+    description: CIVANT_DEFINITION,
     type: "website",
     url: "/",
     siteName: SITE_NAME,
@@ -60,9 +57,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Civant | Public Procurement Intelligence Platform",
-    description:
-      "Civant helps B2G teams forecast European public procurement opportunities using buyer cycles, contract lifecycles, competitor context, and public signals.",
+    title: "Civant | Procurement Intelligence with Forecasting at Its Core",
+    description: CIVANT_DEFINITION,
     images: [DEFAULT_OG_IMAGE],
   },
   icons: {
@@ -84,8 +80,7 @@ const organizationSchema = {
   legalName: CIVANT_LEGAL_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/og-civant.png`,
-  description:
-    "Civant is an Irish procurement forecasting intelligence company helping teams understand procurement timing, renewal windows, buyer cycles, competitor movement, and public market signals.",
+  description: CIVANT_DEFINITION,
   foundingLocation: {
     "@type": "Place",
     name: "Ireland",
@@ -94,9 +89,10 @@ const organizationSchema = {
   email: "hello@civant.eu",
   founder: {
     "@type": "Person",
-    name: FOUNDER_NAME,
+    name: founder.name,
     jobTitle: "Founder & CEO",
-    url: FOUNDER_LINKEDIN_URL,
+    url: `${SITE_URL}${founder.profilePath}`,
+    sameAs: [founder.profileHref],
   },
   sameAs: [CIVANT_LINKEDIN_URL],
   contactPoint: {
@@ -112,8 +108,7 @@ const websiteSchema = {
   "@type": "WebSite",
   name: SITE_NAME,
   url: SITE_URL,
-  description:
-    "Procurement forecasting intelligence platform for B2G teams across Europe.",
+  description: CIVANT_SHORT_DEFINITION,
   publisher: {
     "@id": ORGANIZATION_ID,
   },

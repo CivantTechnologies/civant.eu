@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { Section } from "../../components/site/Section";
 import {
-  companySupport,
+  CIVANT_DEFINITION,
   companyWhyPoints,
+  founder,
   whatCivantIs,
   whatCivantIsNot,
 } from "../../lib/company";
@@ -15,8 +17,7 @@ export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
   title: "Company, Mission and Trust | Civant",
-  description:
-    "About Civant Technologies and the evidence-led procurement intelligence system we are building for European public-sector markets.",
+  description: `${CIVANT_DEFINITION} Learn why Civant exists and how the company approaches trust, evidence, and accountability.`,
   path: "/company",
   image: "/images/company/public-procurement-architecture.jpg",
 });
@@ -43,7 +44,7 @@ export default function CompanyPage() {
             secondaryLabel="Meet the Team"
           />
           <p className="company-hero-proof">
-            For teams preparing earlier, choosing better, and competing on evidence.
+            For teams choosing carefully, planning before publication, and competing on evidence.
           </p>
         </div>
 
@@ -150,13 +151,13 @@ export default function CompanyPage() {
         <div className="company-reading company-matters-panel">
           <figure className="company-matters-image">
             <Image
-              src="/images/company/public-procurement-architecture.jpg"
-              alt="Modern public-sector architecture with glass and concrete"
-              width={2200}
-              height={1469}
-              className="company-matters-photo"
+              src="/screenshots/panorama.png"
+              alt="Civant Panorama showing strategic runway and renewal opportunities"
+              width={2880}
+              height={1558}
+              className="company-matters-photo company-matters-product"
             />
-            <figcaption>Public markets should be readable before the tender window closes.</figcaption>
+            <figcaption>Real product evidence: Civant Panorama connects market signals to strategic runway.</figcaption>
           </figure>
 
           <div className="company-matters-copy">
@@ -220,57 +221,49 @@ export default function CompanyPage() {
       </Section>
 
       <Section>
-        <div className="section-heading-wrap company-reading">
-          <p className="eyebrow">Supported by & member of</p>
-          <h2 className="headline-lg">
-            Institutional support around Civant in Ireland
-          </h2>
-          <p className="card-body section-intro company-copy">
-            These programmes, institutions, and membership networks support
-            Civant as the company takes shape in Ireland and builds its early
-            operating foundation.
-          </p>
-          <div className="company-support-network">
-            <div className="company-support-core">
-              <span>Built in Ireland</span>
-              <strong>Enterprise support around Civant</strong>
-              <p>
-                Founder development, regional incubation, and local business
-                membership give Civant a practical base as the company grows.
-              </p>
-            </div>
-
-            <div className="company-support-nodes" aria-label="Civant support network">
-              {companySupport.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="company-support-node interactive-surface"
-                  aria-label={`${item.relationship}: ${item.name}. ${item.context}`}
-                >
-                  {item.logo && item.logoWidth && item.logoHeight ? (
-                    <span
-                      className={`advisor-logo-wrap advisor-logo-wrap-${item.logoTone ?? "light"}`}
-                    >
-                      <Image
-                        src={item.logo}
-                        alt={`${item.name} logo`}
-                        width={item.logoWidth}
-                        height={item.logoHeight}
-                        quality={100}
-                        className={`advisor-logo advisor-logo-${item.logoSize ?? "standard"}`}
-                      />
-                    </span>
-                  ) : null}
-                  <span className="support-relationship">{item.relationship}</span>
-                  <strong>{item.name}</strong>
-                  <p>{item.supportLine}</p>
-                </a>
-              ))}
-            </div>
+        <div className="section-heading-wrap company-reading team-founder-section">
+          <div className="team-founder-copy">
+            <p className="eyebrow">Founder Accountability</p>
+            <h2 className="headline-lg">A named person behind the company and its claims</h2>
+            <p className="card-body section-intro company-copy">
+              Civant is founder-led. David Manrique remains directly accountable
+              for how the platform is described, what evidence is published, and
+              where uncertainty or limitations need to be stated clearly.
+            </p>
+            <p className="card-body company-copy">
+              Independent work will be reported only when its scope, findings,
+              actions, implementation status, and limitations can be documented.
+            </p>
           </div>
+
+          <article className="team-founder-card">
+            <div className="team-founder-identity">
+              <Link
+                href={founder.profilePath}
+                className="founder-photo-link team-founder-photo-link"
+                aria-label={`Read about ${founder.name}`}
+              >
+                <Image
+                  src={founder.image}
+                  alt={founder.name}
+                  width={220}
+                  height={220}
+                  className="founder-photo team-founder-photo"
+                />
+              </Link>
+              <div>
+                <p className="module-label">Founder &amp; CEO</p>
+                <h3 className="card-title">{founder.name}</h3>
+                <p className="card-body founder-role">{founder.role}</p>
+              </div>
+            </div>
+            <div className="team-founder-note">
+              <p>Evidence before promotion. Limits before certainty. Named ownership throughout.</p>
+              <Link href={founder.profilePath} className="text-link">
+                Read David&apos;s profile
+              </Link>
+            </div>
+          </article>
         </div>
       </Section>
 

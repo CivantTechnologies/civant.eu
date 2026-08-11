@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
+import { CIVANT_SHORT_DEFINITION } from "../lib/company";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Civant",
     short_name: "Civant",
-    description:
-      "Public procurement intelligence platform for B2G teams across Europe.",
+    description: CIVANT_SHORT_DEFINITION,
     start_url: "/",
     display: "standalone",
     background_color: "#050f24",

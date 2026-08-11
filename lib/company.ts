@@ -1,60 +1,23 @@
 import { FOUNDER_LINKEDIN_URL } from "./brand";
 
-export type AdvisorProof = {
-  name: string;
-  href: string;
-  context: string;
-  logo?: string;
-  logoWidth?: number;
-  logoHeight?: number;
-  logoTone?: "dark" | "light" | "frosted";
-  logoSize?: "compact" | "standard" | "wide" | "membership";
-};
+export const CIVANT_SHORT_DEFINITION =
+  "Civant is a procurement intelligence platform with forecasting at its core.";
 
-export const advisedBy: AdvisorProof[] = [
-  {
-    name: "Local Enterprise Office Louth",
-    href: "https://www.localenterprise.ie/louth/",
-    logo: "/logos/local-enterprise-office-logo.png",
-    logoWidth: 267,
-    logoHeight: 189,
-    logoTone: "dark",
-    logoSize: "compact",
-    context: "Enterprise support and advisory network for Louth-based businesses.",
-  },
-  {
-    name: "Enterprise Ireland / New Frontiers",
-    href: "https://www.enterprise-ireland.com/en/about-enterprise-ireland",
-    logo: "/logos/enterprise-ireland-logo.png",
-    logoWidth: 615,
-    logoHeight: 173,
-    logoTone: "dark",
-    logoSize: "standard",
-    context:
-      "Enterprise Ireland's national entrepreneur development programme, delivered locally through the Regional Development Centre in Dundalk.",
-  },
-  {
-    name: "Regional Development Centre Dundalk",
-    href: "https://www.louthmeathhubs.ie/hubs/regional-development-center/",
-    logo: "/logos/dkit-rdc-logo-white.png",
-    logoWidth: 300,
-    logoHeight: 100,
-    logoTone: "dark",
-    logoSize: "wide",
-    context:
-      "Dundalk enterprise hub supporting early-stage companies with incubation, development, and growth infrastructure.",
-  },
-];
+export const CIVANT_DEFINITION =
+  `${CIVANT_SHORT_DEFINITION} It connects procurement history, contract lifecycles, buyer behaviour, competitor activity, and market signals to help B2G teams identify likely opportunities, decide where to compete, and prepare before formal tenders are published.`;
 
 export const founder = {
   name: "David Manrique",
   role: "Founder & CEO, Civant",
   image: "/people/david-manrique.jpg",
+  profilePath: "/team/david-manrique",
   profileHref: FOUNDER_LINKEDIN_URL,
+  experience:
+    "Commercial, partnerships, and go-to-market experience across SaaS, education technology, and European public-sector markets.",
 };
 
 export const whatCivantIs = [
-  "Civant is a procurement forecasting intelligence platform for Europe.",
+  CIVANT_SHORT_DEFINITION,
   "Civant reconciles and normalizes data from EU, national, and public-domain procurement sources.",
   "Civant analyzes hard procurement evidence, contract lifecycles, competitor activity, and external signals.",
   "Civant uses AI to interpret match, scope, buyer intent, and strategy on top of structured evidence.",
@@ -137,36 +100,5 @@ export const advisors = [
     profileHref: "https://www.linkedin.com/in/jukkasormunen/",
     profileLabel: "View Jukka on LinkedIn",
     visible: true,
-  },
-];
-
-export type CompanySupportItem = AdvisorProof & {
-  relationship: "Supported by" | "Member of";
-  supportLine: string;
-};
-
-export const companySupport: CompanySupportItem[] = [
-  ...advisedBy.map((item) => ({
-    ...item,
-    relationship: "Supported by" as const,
-    supportLine:
-      item.name === "Local Enterprise Office Louth"
-        ? "Louth enterprise advisory"
-        : item.name === "Enterprise Ireland / New Frontiers"
-          ? "National founder programme"
-          : "Dundalk incubation base",
-  })),
-  {
-    name: "Dundalk Chamber",
-    href: "https://www.dundalk.ie/",
-    logo: "/images/company/dundalk-chamber-member-2026.webp",
-    logoWidth: 1757,
-    logoHeight: 753,
-    logoTone: "frosted" as const,
-    logoSize: "membership" as const,
-    relationship: "Member of" as const,
-    supportLine: "Local business membership",
-    context:
-      "Membership in Dundalk's business network, connecting Civant to the County Louth enterprise community.",
   },
 ];

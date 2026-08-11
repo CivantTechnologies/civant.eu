@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
@@ -26,7 +27,7 @@ const teamFaqs = [
   {
     question: "Who is behind Civant?",
     answer:
-      "Civant is led by its founder, combining commercial, partnerships, and go-to-market experience in SaaS and public-sector ecosystems, supported by an advisory network across product, data infrastructure, and financial strategy.",
+      "Civant is led by David Manrique, its founder and CEO. He combines commercial, partnerships, and go-to-market experience across SaaS, education technology, and public-sector markets, supported by an advisory network across product, infrastructure, finance, and market strategy.",
   },
   {
     question: "How involved is the advisory network?",
@@ -49,9 +50,9 @@ const teamFaqs = [
       "Civant is based in Ireland and focused on European public procurement markets.",
   },
   {
-    question: "How is Civant supported?",
+    question: "How does Civant report external validation?",
     answer:
-      "Civant has received founder and enterprise support through programmes connected with Enterprise Ireland, Local Enterprise Office Louth, and the Regional Development Centre at Dundalk Institute of Technology.",
+      "Civant publishes external review outcomes only when the scope, findings, resulting actions, implementation status, and limitations are documented. Support or selection alone is not presented as evidence of product performance.",
   },
 ];
 
@@ -104,12 +105,10 @@ export default function TeamPage() {
 
           <article className="team-founder-card">
             <div className="team-founder-identity">
-              <a
-                href={founder.profileHref}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={founder.profilePath}
                 className="founder-photo-link team-founder-photo-link"
-                aria-label="View David Manrique on LinkedIn"
+                aria-label="Read about David Manrique"
               >
                 <Image
                   src={founder.image}
@@ -118,7 +117,7 @@ export default function TeamPage() {
                   height={220}
                   className="founder-photo team-founder-photo"
                 />
-              </a>
+              </Link>
               <div>
                 <p className="module-label">Founder & CEO</p>
                 <h3 className="card-title">{founder.name}</h3>
@@ -132,20 +131,25 @@ export default function TeamPage() {
                 public-data only, and disciplined decisions before the tender
                 window closes.
               </p>
-              <a
-                href={founder.profileHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-link"
-              >
-                View David on LinkedIn →
-              </a>
+              <div className="button-row team-founder-actions">
+                <Link href={founder.profilePath} className="text-link">
+                  Read David&apos;s profile
+                </Link>
+                <a
+                  href={founder.profileHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-link"
+                >
+                  View David on LinkedIn
+                </a>
+              </div>
             </div>
           </article>
         </div>
         <p className="team-trust-line">
-          Supported by Irish enterprise networks, with advisory input across
-          product, finance, and market expansion.
+          Founder-led, with named advisory input across product, infrastructure,
+          finance, and market expansion.
         </p>
       </Section>
 

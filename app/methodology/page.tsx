@@ -22,6 +22,10 @@ import {
   buildPageMetadata,
   SITE_URL,
 } from "../../lib/seo";
+import {
+  VALIDATION_RECORD_PATH,
+  VALIDATION_SUMMARY,
+} from "../../lib/validation";
 
 export const dynamic = "force-static";
 
@@ -47,7 +51,7 @@ const methodologyFaqs = [
   {
     question: "How accurate are Civant forecasts?",
     answer:
-      "Civant continuously validates forecast signals against subsequently published tenders. Validation results evolve as new tenders are published, so customers review current figures inside the live platform.",
+      "Civant checks forecast signals against subsequently published tenders. Current platform results evolve as new procurement activity appears. Public performance results are published only when the cohort, method, time window, limitations, and supporting documentation are inspectable.",
   },
   {
     question: "Is Civant an AI chatbot?",
@@ -171,7 +175,7 @@ const methodologyOutputs = [
   {
     icon: CalendarDays as LucideIcon,
     title: "Timing",
-    body: "When preparation should start",
+    body: "When account planning should begin",
   },
   {
     icon: ShieldCheck as LucideIcon,
@@ -260,8 +264,8 @@ const validationLoop = [
 
 const validationMeasures = [
   "Downstream publication alignment",
-  "Evidence quality",
-  "ML Engine",
+  "Evidence quality and calibration",
+  "Scope and limitations",
 ];
 
 export default function MethodologyPage() {
@@ -461,6 +465,16 @@ export default function MethodologyPage() {
             <strong>Validation principle:</strong> signal quality is measured by
             observed downstream publication alignment, not by marketing claims.
           </p>
+        </div>
+        <div className="methodology-independent-review">
+          <div>
+            <p className="module-label">Independent review publication standard</p>
+            <h3>Outcomes will be published only when the evidence is inspectable</h3>
+            <p>{VALIDATION_SUMMARY}</p>
+          </div>
+          <Link href={VALIDATION_RECORD_PATH} className="btn btn-secondary">
+            Read the Publication Standard
+          </Link>
         </div>
         <div className="grid grid-2 solution-related-grid methodology-validation-links">
           <Link

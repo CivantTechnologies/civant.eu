@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageContainer } from "./PageContainer";
 import { CIVANT_LINKEDIN_URL } from "../../lib/brand";
+import { CIVANT_SHORT_DEFINITION } from "../../lib/company";
 
 const FOOTER_NAV_ITEMS = [
   { href: "/platform", label: "Platform" },
@@ -19,10 +20,7 @@ export function Footer() {
         <div className="footer-grid">
           <div>
             <h3 className="footer-title">Civant</h3>
-            <p className="footer-copy">
-              Procurement forecasting intelligence for B2G teams operating in
-              European public-sector markets.
-            </p>
+            <p className="footer-copy">{CIVANT_SHORT_DEFINITION}</p>
           </div>
           <div>
             <h3 className="footer-title">Navigation</h3>

@@ -17,6 +17,7 @@ import { CTAGroup } from "../components/site/CTAGroup";
 import { ProofSection } from "../components/site/ProofSection";
 import { SchemaScript } from "../components/site/SchemaScript";
 import { Section } from "../components/site/Section";
+import { CIVANT_DEFINITION } from "../lib/company";
 import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "../lib/markets";
 import {
   buildFaqSchema,
@@ -24,14 +25,13 @@ import {
   buildPricingProductSchema,
   buildSoftwareApplicationSchema,
 } from "../lib/seo";
-import { MARKET_COVERAGE_SNAPSHOT, VALIDATION_SNAPSHOT } from "../lib/siteFacts";
+import { MARKET_COVERAGE_SNAPSHOT } from "../lib/siteFacts";
 
 export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
   title: "Procurement Forecasting Intelligence | Civant",
-  description:
-    "Civant helps European B2G teams forecast tender timing using buyer cycles, contract lifecycles, competitor context, and public signals.",
+  description: CIVANT_DEFINITION,
   path: "/",
   image: "/screenshots/forecast-validation.png",
 });
@@ -184,7 +184,7 @@ const homeFaqs = [
   {
     question: "What is procurement forecasting intelligence?",
     answer:
-      "Procurement forecasting intelligence helps teams identify likely tender timing before formal notices appear. Civant builds forecasts from buyer cycles, contract lifecycles, award history, competitor movement, and public signals.",
+      `${CIVANT_DEFINITION} Procurement forecasting intelligence is the forecasting layer within that wider platform.`,
   },
   {
     question: "How is Civant different from tender alerts?",
@@ -231,15 +231,10 @@ export default function HomePage() {
             <p className="eyebrow">Procurement Forecasting Intelligence</p>
             <h1 className="headline-xl hero-headline">Win before the tender.</h1>
             <p className="text-lead hero-subheadline">
-              Evidence-led forecasting for European procurement teams, built
-              from buyer cycles, contract lifecycles, competitor movement, and
-              public signals.
+              Evidence-led forecasting built from buyer cycles, contract
+              lifecycles, competitor movement, and public signals.
             </p>
-            <p className="home-hero-definition">
-              Civant is procurement forecasting software for B2G teams that
-              need earlier market timing, buyer intelligence, and evidence-led
-              bid planning.
-            </p>
+            <p className="home-hero-definition">{CIVANT_DEFINITION}</p>
             <CTAGroup
               primaryHref="/pricing"
               primaryLabel="View Plans"
@@ -303,7 +298,7 @@ export default function HomePage() {
                 <Check />
               </span>
               <div>
-                <strong>Ready to prepare</strong>
+                <strong>Planning window identified</strong>
                 <span>Build the account plan before the tender appears.</span>
               </div>
             </div>
@@ -368,12 +363,12 @@ export default function HomePage() {
         <div className="section-heading-wrap product-tour-heading">
           <p className="eyebrow">Product</p>
           <h2 className="headline-lg">
-            Procurement forecasting software built from buyer cycles, awards, and public signals
+            One procurement intelligence platform, with forecasting at its core
           </h2>
           <p className="text-lead section-intro">
-            Forecast sits at the center of Civant. Market visibility, target
-            discovery, and competitor context all feed the workflow that helps
-            public-sector growth teams act earlier.
+            Forecast sits at the centre of Civant. Buyer intelligence, target
+            discovery, contract lifecycles, and competitor context make each
+            forecast more useful and turn timing into a practical workflow.
           </p>
         </div>
 
@@ -507,7 +502,7 @@ export default function HomePage() {
           </div>
 
           <div className="home-report-footer">
-            <span>Reports use a dated snapshot from {VALIDATION_SNAPSHOT.dateLabel}.</span>
+            <span>Each report states its own data snapshot, scope, and limitations.</span>
             <Link href="/resources/reports">Browse forecast reports</Link>
           </div>
         </div>

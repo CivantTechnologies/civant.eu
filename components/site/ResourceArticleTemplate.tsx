@@ -19,7 +19,7 @@ import { SchemaScript } from "./SchemaScript";
 import { Section } from "./Section";
 import { ShareArticleButton } from "./ShareArticleButton";
 import { buildArticleSchema, buildFaqSchema } from "../../lib/seo";
-import { FOUNDER_LINKEDIN_URL } from "../../lib/brand";
+import { founder } from "../../lib/company";
 
 export type ResourceArticleSection = {
   id: string;
@@ -103,13 +103,7 @@ export function ResourceArticleTemplate({ article }: { article: ResourceArticle 
         <div className="article-hero-meta">
           <p className="article-byline">
             By{" "}
-            <a
-              href={FOUNDER_LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              David Manrique
-            </a>{" "}
+            <Link href={founder.profilePath}>{founder.name}</Link>{" "}
             | {article.publishedLabel}
             {article.modifiedLabel ? ` | Updated ${article.modifiedLabel}` : ""}
           </p>
