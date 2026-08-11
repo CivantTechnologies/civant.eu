@@ -113,7 +113,7 @@ export default async function MarketPage({ params }: MarketPageProps) {
   const ctaCopy =
     market.status === "live"
       ? `Start with ${market.country} coverage now, or book a custom walkthrough if your team needs a multi-market setup.`
-      : `${market.country} is coming soon. Talk to us about early access, target categories, and country-specific planning.`;
+      : `${market.country} is planned next. Talk to us about early access, target categories, and country-specific planning.`;
 
   return (
     <>
@@ -132,7 +132,7 @@ export default async function MarketPage({ params }: MarketPageProps) {
           <h2 className="headline-lg">
             {market.status === "live"
               ? `${market.country} is live in Civant`
-              : `${market.country} is coming soon to Civant`}
+              : `${market.country} is planned next for Civant`}
           </h2>
           <p className="text-lead section-intro">{market.summary}</p>
         </div>
@@ -149,7 +149,7 @@ export default async function MarketPage({ params }: MarketPageProps) {
             <p className="card-body">
               {market.status === "live"
                 ? `Civant currently supports public procurement intelligence for ${market.buyersLabel}.`
-                : `${market.country} is coming soon as part of Civant's expanding European coverage.`}
+                : `${market.country} is planned next as Civant expands market coverage.`}
             </p>
           </article>
           <article className="card market-detail-card">
