@@ -1,3 +1,5 @@
+import { CIVANT_SHORT_DEFINITION } from "./company";
+
 export type MarketStatus = "live" | "coming";
 
 export type MarketFaq = {
@@ -64,7 +66,7 @@ export const MARKETS: Market[] = [
       "Competitor and incumbent movement",
     ],
     useCases: [
-      "Prepare earlier for repeat public-sector buying cycles.",
+      "Prepare before repeat public-sector buying cycles reach formal publication.",
       "Prioritize Irish buyers and categories with stronger strategic fit.",
       "Track incumbent positions before renewal windows become active tenders.",
     ],
@@ -230,7 +232,7 @@ export const MARKETS: Market[] = [
       {
         question: "Is Civant an AI chatbot for French tenders?",
         answer:
-          "No. Civant is a procurement forecasting intelligence platform. AI helps interpret match, scope, intent, and strategy, but the forecast layer is built on structured procurement evidence.",
+          `No. ${CIVANT_SHORT_DEFINITION} AI helps interpret match, scope, intent, and strategy, but the forecast layer is built on structured procurement evidence.`,
       },
     ],
   },
@@ -280,7 +282,7 @@ export const MARKETS: Market[] = [
       {
         question: "How can Italian procurement intelligence improve bid planning?",
         answer:
-          "It helps teams prepare earlier, reduce low-fit reactive bids, and coordinate account activity around likely future procurement windows.",
+          "It gives teams more preparation time, reduces low-fit reactive bids, and helps coordinate account activity around likely future procurement windows.",
       },
     ],
   },
@@ -313,7 +315,7 @@ export const MARKETS: Market[] = [
       "External education, budget, policy, and hiring signals",
     ],
     useCases: [
-      "Prepare earlier for Nordic public-sector buying cycles.",
+      "Prepare before Nordic public-sector buying cycles reach formal publication.",
       "Map target buyer and category priorities across Finland.",
       "Coordinate education-market expansion with procurement timing signals.",
     ],
@@ -380,7 +382,7 @@ export const MARKETS: Market[] = [
       {
         question: "Who should follow Belgian procurement intelligence?",
         answer:
-          "Suppliers with cross-border European sales, public-sector account teams, bid teams, and market intelligence teams can use Belgian coverage to plan earlier.",
+          "Suppliers with cross-border European sales, public-sector account teams, bid teams, and market intelligence teams can use Belgian coverage to plan before formal publication.",
       },
     ],
   },

@@ -13,6 +13,7 @@ import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { BrowserFrame } from "../../components/site/BrowserFrame";
 import { SchemaScript } from "../../components/site/SchemaScript";
+import { CIVANT_DEFINITION } from "../../lib/company";
 import {
   buildBreadcrumbSchema,
   buildCollectionPageSchema,
@@ -25,8 +26,7 @@ export const dynamic = "force-static";
 
 export const metadata = buildPageMetadata({
   title: "Civant Platform | Procurement Forecasting Intelligence",
-  description:
-    "Forecast tender timing, prioritise buyers, and plan bids earlier with Civant's procurement intelligence platform for European B2G teams.",
+  description: CIVANT_DEFINITION,
   path: "/platform",
   image: "/screenshots/forecast-pipeline.png",
 });
@@ -47,7 +47,7 @@ const platformFaqs = [
   {
     question: "Who is the platform built for?",
     answer:
-      "Civant is built for bid teams, sales teams, partnerships teams, and commercial leaders working across European public-sector markets.",
+      "Civant is built for bid teams, sales teams, partnerships teams, and commercial leaders competing across public-sector markets in Civant's live country coverage.",
   },
   {
     question: "What data does Civant use to forecast procurement opportunities?",
@@ -139,7 +139,7 @@ const platformProofMetrics = [
   {
     label: "Workflow",
     value: "Connected",
-    body: "Forecast, Panorama, Finder, Competitors, Alerts, Bids, and Reports connect signal to action.",
+    body: "Forecast, Panorama, Finder, Buyers, Competitors, Alerts, Bids, and Reports connect signal to action.",
     href: "#forecast",
   },
 ];
@@ -218,6 +218,22 @@ const modules: PlatformModule[] = [
     screenshotAlt: "Finder search interface with country, source, buyer, and CPV category filters",
     screenshotCaption: "Finder: precision filters to narrow your target market",
     label: "Target Discovery",
+  },
+  {
+    slug: "buyers",
+    title: "Buyers",
+    purpose:
+      "Brings tracked, suggested, and discoverable public buyers into one workspace, with market filters, forecast windows, and buyer context.",
+    benefit:
+      "Helps teams decide which institutions to watch, understand timing and account fit, and coordinate activity around the strongest prospects.",
+    role: "Workflow role: buyer intelligence and target-account planning.",
+    label: "Buyer Intelligence",
+    screenshot: "/screenshots/buyers.png?v=20260811-1",
+    screenshotWidth: 1230,
+    screenshotHeight: 689,
+    screenshotAlt:
+      "Buyers directory filtered to Ireland, showing public-sector accounts, forecast windows, and tracking controls",
+    screenshotCaption: "Buyers: discover, assess, and track public-sector accounts",
   },
   {
     slug: "competitors",
@@ -317,7 +333,7 @@ export default function PlatformPage() {
     buildCollectionPageSchema({
       name: "Civant Platform Modules",
       description:
-        "Platform modules for procurement intelligence, target discovery, tender forecasting, competitor analysis, alerts, and bid execution.",
+        "Platform modules for procurement intelligence, target discovery, buyer intelligence, tender forecasting, competitor analysis, alerts, and bid execution.",
       path: "/platform",
       items: modules.map((module) => ({
         name: module.title,
@@ -354,9 +370,7 @@ export default function PlatformPage() {
               layer for public-sector growth teams.
             </p>
             <p className="platform-hero-definition">
-              Civant is procurement forecasting software for B2G teams that need
-              to identify likely tender timing, prioritize strategic buyers, and
-              act before formal notices appear.
+              {CIVANT_DEFINITION}
             </p>
             <CTAGroup
               primaryHref="/pricing"
@@ -449,8 +463,9 @@ export default function PlatformPage() {
           <p className="eyebrow">Platform Modules</p>
           <h2 className="headline-lg">Forecast leads the platform workflow</h2>
           <p className="text-lead section-intro">
-            Forecast is the planning layer. Panorama, Finder, Competitors,
-            Alerts, and Bids support the path from market evidence to action.
+            Forecast is the planning layer. Panorama, Finder, Buyers,
+            Competitors, Alerts, and Bids support the path from market evidence
+            to action.
           </p>
         </div>
         <div className="platform-modules-system">
@@ -487,7 +502,7 @@ export default function PlatformPage() {
                 id={module.slug}
                 className={`platform-module-section platform-module-section-support ${
                   module.screenshot ? "platform-module-section-support-visual" : ""
-                }`}
+                } ${module.slug === "buyers" ? "platform-module-section-buyers" : ""}`}
               >
                 <div className="platform-module-text">
                   <p className="module-label">{module.label}</p>

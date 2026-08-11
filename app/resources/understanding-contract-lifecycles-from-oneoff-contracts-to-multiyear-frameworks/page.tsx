@@ -105,7 +105,7 @@ const article: ResourceArticle = {
           <p className="article-body-text">
             A supplier targeting short-cycle one-off contracts needs fast
             qualification and delivery proof. A supplier targeting frameworks
-            needs earlier preparation, because missing the access window can
+            needs more preparation time, because missing the access window can
             delay entry for years.
           </p>
           <p className="article-body-text">
@@ -158,7 +158,7 @@ const article: ResourceArticle = {
     {
       question: "Why do contract lifecycles matter for suppliers?",
       answer:
-        "They help suppliers forecast when demand may return to market, prepare earlier, qualify opportunities, and avoid wasting effort where market access is currently closed.",
+        "They help suppliers forecast when demand may return to market, prepare before publication, qualify opportunities, and avoid wasting effort where market access is currently closed.",
     },
   ],
   sources: getArticleSources([

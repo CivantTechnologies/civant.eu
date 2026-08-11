@@ -28,8 +28,8 @@ const article: ResourceArticle = {
       <p className="article-body-text">
         Suppliers that track expiry patterns can build a more reliable pipeline
         than teams relying only on live notices. The point is not to predict
-        every tender perfectly. It is to create enough visibility to prepare
-        earlier and choose pursuits more intelligently.
+        every tender perfectly. It is to create enough visibility to begin
+        preparation before publication and choose pursuits more intelligently.
       </p>
     </>
   ),
@@ -115,7 +115,7 @@ const article: ResourceArticle = {
           </p>
           <p className="article-body-text">
             This also supports capacity planning. If several relevant contracts
-            may re-compete in the same quarter, the team can prepare earlier or
+            may re-compete in the same quarter, the team can begin preparation before publication or
             decide which ones deserve priority.
           </p>
         </>

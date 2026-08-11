@@ -175,6 +175,7 @@ const productTour = [
 ];
 
 const connectedWorkflows = [
+  { label: "Buyers", href: "/platform#buyers" },
   { label: "Alerts", href: "/platform#alerts" },
   { label: "Bids", href: "/platform#bids" },
   { label: "Reports", href: "/resources/reports" },
@@ -189,7 +190,7 @@ const homeFaqs = [
   {
     question: "How is Civant different from tender alerts?",
     answer:
-      "Tender alerts tell teams when a notice has already been published. Civant helps teams plan earlier by monitoring renewal windows, buyer behaviour, incumbent patterns, and external public signals before the tender appears.",
+      "Tender alerts tell teams when a notice has already been published. Civant helps teams plan before formal publication by monitoring renewal windows, buyer behaviour, incumbent patterns, and external public signals before the tender appears.",
   },
   {
     question: "Which European markets does Civant cover?",

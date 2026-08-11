@@ -12,7 +12,7 @@ const article: ResourceArticle = {
   path: "/resources/procurement-intelligence-for-smes",
   title: "Procurement Intelligence for SMEs",
   description:
-    "How SMEs can use procurement intelligence to focus on better-fit public-sector opportunities, prepare earlier, reduce wasted bid effort, and compete with larger incumbents.",
+    "How SMEs can use procurement intelligence to focus on better-fit public-sector opportunities, gain preparation time, reduce wasted bid effort, and compete with larger incumbents.",
   publishedAt: "2026-03-14T00:00:00+00:00",
   publishedLabel: "March 2026",
   modifiedAt: "2026-04-25T00:00:00+00:00",

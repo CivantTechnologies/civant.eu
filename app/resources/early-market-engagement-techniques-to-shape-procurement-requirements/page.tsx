@@ -18,7 +18,7 @@ const article: ResourceArticle = {
   modifiedAt: "2026-04-25T00:00:00+00:00",
   modifiedLabel: "April 2026",
   answer:
-    "Early market engagement is the pre-tender process buyers use to test requirements, understand supplier capability, and reduce delivery risk. Suppliers should use it to educate the buyer, clarify outcomes, and prepare earlier, while staying transparent and avoiding any behavior that could distort competition.",
+    "Early market engagement is the pre-tender process buyers use to test requirements, understand supplier capability, and reduce delivery risk. Suppliers should use it to educate the buyer, clarify outcomes, and build readiness before the formal process, while staying transparent and avoiding any behavior that could distort competition.",
   intro: (
     <>
       <p className="article-body-text">

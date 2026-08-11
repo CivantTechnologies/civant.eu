@@ -13405,6 +13405,12 @@ a {
   align-self: end;
 }
 
+.platform-module-section-buyers {
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(240px, 0.5fr) minmax(0, 1fr);
+  align-items: center;
+}
+
 .platform-module-section-support .card-title {
   font-size: 1.15rem;
 }
@@ -13449,6 +13455,11 @@ a {
   }
 
   .platform-module-support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-module-section-buyers {
+    grid-column: auto;
     grid-template-columns: 1fr;
   }
 

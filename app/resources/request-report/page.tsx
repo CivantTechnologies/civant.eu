@@ -33,7 +33,7 @@ export default function RequestReportPage() {
         <p className="text-lead">
           Civant&apos;s report library will keep growing. Tell us which sector,
           country, buyer group, or procurement question would help your team
-          plan earlier, and we will review it for a future report cycle.
+          plan before formal publication, and we will review it for a future report cycle.
         </p>
         <div className="button-row">
           <Link href="/resources/reports" className="btn btn-secondary">

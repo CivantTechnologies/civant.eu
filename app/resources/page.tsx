@@ -51,7 +51,7 @@ const articles: Article[] = [
   {
     href: "/resources/external-signals-in-public-procurement",
     title: "External Signals in Public Procurement",
-    summary: "Public procurement intent often shows up before a formal notice. Budgets, grants, PINs, hiring, policy changes, and strategic plans can all help teams prepare earlier.",
+    summary: "Public procurement intent often shows up before a formal notice. Budgets, grants, PINs, hiring, policy changes, and strategic plans can all help teams build readiness before publication.",
     pillar: "Timing & Signals",
   },
   {
@@ -249,7 +249,7 @@ const articles: Article[] = [
   {
     href: "/resources/procurement-market-size-assessing-the-14-of-eu-gdp-opportunity",
     title: "Procurement Market Size: Assessing the 14 % of EU GDP Opportunity",
-    summary: "The sheer scale of public procurement in Europe makes it an attractive target for businesses. According to Mercell, public procurement accounts for more than 14 % of EU GDP【811032459588661†L70-L79】...",
+    summary: "Public procurement represents a significant share of European economic activity. This briefing examines what market size means for suppliers and where aggregate figures can mislead.",
     pillar: "Market Intelligence",
   },
   {
@@ -267,7 +267,7 @@ const articles: Article[] = [
   {
     href: "/resources/the-preparation-gap-in-european-public-procurement",
     title: "The Preparation Gap in European Public Procurement",
-    summary: "European public procurement represents approximately two trillion euros in annual spending, accounting for roughly 13.6% of EU GDP. This market is governed by directives designed to ensure transpar...",
+    summary: "Reactive tender discovery leaves capable suppliers with too little time to qualify, position, and build a strong response. Procurement intelligence can widen that preparation window.",
     pillar: "Timing & Signals",
   },
   {
@@ -303,7 +303,7 @@ const articles: Article[] = [
   {
     href: "/resources/the-role-of-procurement-data-in-strategic-market-intelligence",
     title: "The Role of Procurement Data in Strategic Market Intelligence",
-    summary: "The digitisation of European public procurement has created an unprecedented dataset of market activity. TED alone publishes over 3,000 procurement notices daily, spanning contract notices, award n...",
+    summary: "Digitised procurement records create a rich evidence base for market intelligence. The value comes from connecting notices, awards, buyers, suppliers, and contract lifecycles into decisions.",
     pillar: "Market Intelligence",
   },
   {
@@ -585,7 +585,7 @@ const libraryEntryPoints = [
     title: "Turn signals into preparation time",
     body: "Learn how early evidence becomes an account plan: buyer research, team alignment, positioning, partner strategy, and next-best actions before the notice appears.",
     href: "/resources/external-signals-in-public-procurement",
-    cta: "Plan earlier",
+    cta: "Build readiness",
   },
   {
     label: "Decision",
@@ -644,6 +644,22 @@ function reportSectorFromTitle(title: string) {
   return undefined;
 }
 
+function publicArticleSummary(article: Article) {
+  const cleaned = article.summary.replace(/【[^】]+】/g, "").replace(/\s+/g, " ").trim();
+
+  if (!cleaned.endsWith("...")) return cleaned;
+
+  const truncated = cleaned.slice(0, -3).trim();
+  const sentenceEnds = Array.from(truncated.matchAll(/[.!?](?=\s|$)/g));
+  const lastCompleteSentence = sentenceEnds.at(-1);
+
+  if (lastCompleteSentence?.index && lastCompleteSentence.index >= 70) {
+    return truncated.slice(0, lastCompleteSentence.index + 1);
+  }
+
+  return `A practical briefing covering ${article.title}.`;
+}
+
 const resourceSearchItems: ResourceSearchItem[] = [
   ...forecastReports.map((report) => ({
     href: report.landingPath,
@@ -673,7 +689,7 @@ const resourceSearchItems: ResourceSearchItem[] = [
   ...articles.map((article) => ({
     href: article.href,
     title: article.title,
-    description: article.summary,
+    description: publicArticleSummary(article),
     type: "Briefing" as const,
     category: article.pillar,
     slug: slugFromHref(article.href),
@@ -682,7 +698,7 @@ const resourceSearchItems: ResourceSearchItem[] = [
       "resource briefings",
       "procurement forecasting intelligence",
     ],
-    searchableText: `${article.title} ${article.summary} ${article.pillar}`,
+    searchableText: `${article.title} ${publicArticleSummary(article)} ${article.pillar}`,
   })),
 ];
 
@@ -718,7 +734,7 @@ export default function ResourcesPage() {
       items: articles.map((article) => ({
         name: article.title,
         path: article.href,
-        description: article.summary,
+        description: publicArticleSummary(article),
       })),
     }),
     buildBreadcrumbSchema([
@@ -993,7 +1009,7 @@ export default function ResourcesPage() {
             </div>
             <div className="resource-action-image" aria-hidden="true">
               <Image
-                src="/images/resources/action-team-preparation.jpg"
+                src="/screenshots/reports.png"
                 alt=""
                 fill
                 sizes="(max-width: 920px) 100vw, 40vw"

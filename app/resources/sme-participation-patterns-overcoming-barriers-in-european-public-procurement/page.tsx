@@ -145,7 +145,7 @@ const article: ResourceArticle = {
     {
       question: "How can SMEs improve procurement participation?",
       answer:
-        "They can focus on better-fit opportunities, prepare earlier, build reusable bid assets, monitor renewal signals, use partnerships, and target lots or categories where they have clear strengths.",
+        "They can focus on better-fit opportunities, gain preparation time, build reusable bid assets, monitor renewal signals, use partnerships, and target lots or categories where they have clear strengths.",
     },
     {
       question: "How does procurement intelligence help SMEs?",
