@@ -121,47 +121,47 @@ const marketEvidencePreview: Partial<
   >
 > = {
   ireland: {
-    title: "Ireland coverage passport",
+    title: "Ireland coverage",
     sources: ["eTenders", "TED", "OGP", "Buyer history"],
     signals: ["Sources", "Awards", "Renewals", "Signals"],
   },
   "united-kingdom": {
-    title: "UK coverage passport",
+    title: "UK coverage",
     sources: ["Find a Tender", "Contracts Finder", "TED", "Buyer history"],
     signals: ["Sources", "Awards", "Renewals", "Signals"],
   },
   spain: {
-    title: "Spain coverage passport",
+    title: "Spain coverage",
     sources: ["PLACSP", "TED", "OIReScon", "Awards"],
     signals: ["Sources", "Awards", "Renewals", "Signals"],
   },
   france: {
-    title: "France coverage passport",
+    title: "France coverage",
     sources: ["BOAMP", "TED", "OECP", "Awards"],
     signals: ["Sources", "Awards", "Renewals", "Signals"],
   },
   italy: {
-    title: "Italy coverage passport",
+    title: "Italy coverage",
     sources: ["ANAC", "TED", "BDNCP", "MEPA"],
     signals: ["Sources", "Awards", "Renewals", "Signals"],
   },
   finland: {
-    title: "Finland coverage passport",
+    title: "Finland coverage",
     sources: ["Hilma", "TED", "Buyer history", "Policy signals"],
     signals: ["Sources", "Buyers", "Cycles", "Signals"],
   },
   belgium: {
-    title: "Belgium coverage passport",
+    title: "Belgium coverage",
     sources: ["eProc", "TED", "BOSA", "Regions"],
     signals: ["Sources", "Buyers", "Cycles", "Signals"],
   },
   germany: {
-    title: "Germany coverage passport",
+    title: "Germany coverage",
     sources: ["Bund.de", "TED", "Destatis", "Buyer history"],
     signals: ["Sources", "Buyers", "Cycles", "Signals"],
   },
   netherlands: {
-    title: "Netherlands rollout passport",
+    title: "Netherlands rollout",
     sources: ["TenderNed", "TED", "PIANOo", "Buyer history"],
     signals: ["Sources", "Buyers", "Cycles", "Signals"],
   },
