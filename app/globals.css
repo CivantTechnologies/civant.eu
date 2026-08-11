@@ -4947,35 +4947,6 @@ a {
     rgba(255, 255, 255, 0.028);
   min-height: 5.4rem;
   padding: 0.72rem;
-  transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    transform 180ms ease;
-}
-
-.methodology-evidence-tile:hover,
-.methodology-output-tile:hover {
-  border-color: rgba(140, 238, 237, 0.3);
-  background:
-    linear-gradient(135deg, rgba(0, 196, 196, 0.08), rgba(255, 255, 255, 0.04)),
-    rgba(255, 255, 255, 0.032);
-  transform: translateY(-1px);
-}
-
-.methodology-evidence-tile::after,
-.methodology-output-tile::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(140, 238, 237, 0.28), transparent);
-  opacity: 0;
-  transition: opacity 180ms ease;
-}
-
-.methodology-evidence-tile:hover::after,
-.methodology-output-tile:hover::after {
-  opacity: 1;
 }
 
 .methodology-evidence-tile svg,
@@ -5115,7 +5086,7 @@ a {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.5rem;
   margin-top: 0.75rem;
 }
@@ -5128,18 +5099,6 @@ a {
     rgba(255, 255, 255, 0.035);
   min-height: 4.65rem;
   padding: 0.7rem 0.62rem;
-  transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    transform 180ms ease;
-}
-
-.methodology-engine-stage:hover {
-  border-color: rgba(140, 238, 237, 0.3);
-  background:
-    linear-gradient(145deg, rgba(0, 196, 196, 0.09), rgba(255, 255, 255, 0.032)),
-    rgba(255, 255, 255, 0.04);
-  transform: translateY(-1px);
 }
 
 .methodology-engine-stage span {
@@ -5158,7 +5117,7 @@ a {
   line-height: 1.22;
 }
 
-.methodology-data-universe {
+.methodology-intelligence-boundary {
   position: relative;
   z-index: 1;
   margin-top: clamp(0.85rem, 2vw, 1.1rem);
@@ -5170,37 +5129,82 @@ a {
   padding: 0.95rem;
 }
 
-.methodology-data-universe > span {
-  display: block;
-  color: #f8fafc;
-  font-size: 0.84rem;
-  font-weight: 600;
-  line-height: 1.25;
+.methodology-intelligence-boundary-copy {
+  max-width: 52rem;
+  margin: 0 auto;
   text-align: center;
 }
 
-.methodology-data-universe div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.45rem;
-  margin-top: 0.75rem;
+.methodology-intelligence-boundary-copy > span {
+  display: block;
+  color: #8ceeed;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
-.methodology-data-universe small {
-  border: 1px solid rgba(140, 238, 237, 0.15);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.035);
-  color: rgba(216, 225, 238, 0.76);
-  font-size: 0.72rem;
+.methodology-intelligence-boundary-copy h3 {
+  margin: 0.5rem 0 0;
+  color: #f8fafc;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
   font-weight: 600;
-  line-height: 1;
-  padding: 0.38rem 0.55rem;
+  line-height: 1.2;
+}
+
+.methodology-intelligence-boundary-copy p {
+  margin: 0.55rem 0 0;
+  color: rgba(216, 225, 238, 0.72);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.methodology-intelligence-layer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.methodology-intelligence-layer {
+  display: grid;
+  align-content: start;
+  min-height: 11.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(0, 196, 196, 0.035)),
+    rgba(255, 255, 255, 0.028);
+  padding: 0.95rem;
+}
+
+.methodology-intelligence-layer h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.methodology-intelligence-layer p {
+  margin: 0.45rem 0 0;
+  color: rgba(216, 225, 238, 0.7);
+  font-size: 0.86rem;
+  line-height: 1.48;
+}
+
+.methodology-intelligence-layer span {
+  align-self: end;
+  margin-top: 0.85rem;
+  color: #8ceeed;
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
 .methodology-hero {
-  padding-top: 3.15rem;
-  padding-bottom: 4.1rem;
+  padding-top: 2.8rem;
+  padding-bottom: 3.25rem;
 }
 
 .methodology-hero::before {
@@ -5214,14 +5218,13 @@ a {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.72fr);
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-  width: min(1240px, calc(100% - 2rem));
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  width: min(1040px, calc(100% - 2rem));
 }
 
 .methodology-hero-copy {
-  max-width: 760px;
+  max-width: 900px;
 }
 
 .methodology-hero-copy .headline-xl {
@@ -5237,108 +5240,6 @@ a {
   margin-top: 1.75rem;
 }
 
-.methodology-hero-model {
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  gap: 1rem;
-  border: 1px solid rgba(140, 238, 237, 0.18);
-  border-radius: var(--radius-lg);
-  background:
-    linear-gradient(145deg, rgba(0, 196, 196, 0.08), rgba(255, 255, 255, 0.03)),
-    rgba(8, 17, 31, 0.76);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 24px 70px rgba(0, 0, 0, 0.24);
-  padding: clamp(1.1rem, 2.8vw, 1.55rem);
-}
-
-.methodology-hero-model::before {
-  content: "";
-  position: absolute;
-  inset: 18% -18% auto auto;
-  width: min(19rem, 50vw);
-  aspect-ratio: 1;
-  border: 1px solid rgba(140, 238, 237, 0.1);
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(0, 196, 196, 0.18), transparent 66%);
-  pointer-events: none;
-}
-
-.methodology-hero-model > * {
-  position: relative;
-  z-index: 1;
-}
-
-.methodology-model-source,
-.methodology-model-output {
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 1rem;
-}
-
-.methodology-model-source {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.48rem;
-}
-
-.methodology-model-source span,
-.methodology-model-output span {
-  flex: 1 0 100%;
-  color: #8ceeed;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.methodology-model-source small {
-  border: 1px solid rgba(140, 238, 237, 0.16);
-  border-radius: 999px;
-  background: rgba(0, 196, 196, 0.06);
-  color: rgba(216, 225, 238, 0.78);
-  font-size: 0.72rem;
-  font-weight: 600;
-  line-height: 1;
-  padding: 0.38rem 0.5rem;
-}
-
-.methodology-model-flow {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.42rem;
-  padding: 0 0.45rem;
-}
-
-.methodology-model-flow i {
-  display: block;
-  height: 0.3rem;
-  border-radius: 999px;
-  background:
-    linear-gradient(90deg, rgba(0, 196, 196, 0.84), rgba(140, 238, 237, 0.28)),
-    rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 18px rgba(0, 196, 196, 0.18);
-}
-
-.methodology-model-output strong {
-  display: block;
-  margin-top: 0.65rem;
-  color: #f8fafc;
-  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
-  font-weight: 600;
-  line-height: 1.12;
-}
-
-.methodology-model-output p {
-  margin: 0.65rem 0 0;
-  color: rgba(216, 225, 238, 0.76);
-  font-size: 0.94rem;
-  line-height: 1.5;
-}
-
 .methodology-flow {
   margin-top: 1rem;
 }
@@ -5349,6 +5250,7 @@ a {
 
 .methodology-signal-grid {
   align-items: stretch;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .methodology-signal-card {
@@ -5444,18 +5346,6 @@ a {
     linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(0, 196, 196, 0.035)),
     rgba(255, 255, 255, 0.028);
   padding: 1rem;
-  transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    transform 180ms ease;
-}
-
-.methodology-validation-step:hover {
-  border-color: rgba(140, 238, 237, 0.3);
-  background:
-    linear-gradient(145deg, rgba(0, 196, 196, 0.085), rgba(255, 255, 255, 0.038)),
-    rgba(255, 255, 255, 0.032);
-  transform: translateY(-1px);
 }
 
 .methodology-validation-step svg {
@@ -5619,18 +5509,6 @@ a {
     linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(0, 196, 196, 0.032)),
     rgba(255, 255, 255, 0.028);
   padding: 0.9rem;
-  transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    transform 180ms ease;
-}
-
-.methodology-governance-item:hover {
-  border-color: rgba(140, 238, 237, 0.28);
-  background:
-    linear-gradient(135deg, rgba(0, 196, 196, 0.075), rgba(255, 255, 255, 0.036)),
-    rgba(255, 255, 255, 0.032);
-  transform: translateX(2px);
 }
 
 .methodology-governance-item svg {
@@ -11224,10 +11102,6 @@ a {
     max-width: 780px;
   }
 
-  .methodology-hero-model {
-    max-width: 760px;
-  }
-
   .methodology-data-engine {
     grid-template-columns: 1fr;
   }
@@ -11688,7 +11562,10 @@ a {
     padding: 0.72rem;
   }
 
-  .methodology-evidence-grid,
+  .methodology-evidence-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .methodology-output-bank {
     grid-template-columns: 1fr;
   }
@@ -11705,6 +11582,14 @@ a {
     min-height: 0;
   }
 
+  .methodology-intelligence-layer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .methodology-intelligence-layer {
+    min-height: 0;
+  }
+
   .methodology-validation-loop {
     grid-template-columns: 1fr;
   }
@@ -11714,7 +11599,7 @@ a {
   }
 
   .methodology-validation-step svg {
-    margin-top: 2.1rem;
+    margin-top: 0.1rem;
   }
 
   .methodology-final-cta {

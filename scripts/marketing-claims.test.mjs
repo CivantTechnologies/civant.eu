@@ -176,6 +176,24 @@ test("the main Civant explainer shows how forecasting, buyers, and competitors w
   assert.doesNotMatch(understandingSource, /coming soon/i);
 });
 
+test("the methodology page preserves the deterministic model boundary", async () => {
+  const methodologySource = await read("app/methodology/page.tsx");
+
+  assert.match(methodologySource, /Civant&apos;s deterministic forecasting model/);
+  assert.match(methodologySource, /cycle proximity, seasonality, framework expiry, buyer cadence/);
+  assert.match(methodologySource, /not a direct forecast formula input/);
+  assert.match(methodologySource, /General news and press coverage remain research context/);
+  assert.match(methodologySource, /Forecast outcomes are evaluated against later publication/);
+  assert.match(methodologySource, /primaryHref="#forecast-validation"/);
+  assert.match(methodologySource, /screenshots\/alerts\.png/);
+  assert.match(methodologySource, /screenshots\/competitors\.png/);
+
+  assert.doesNotMatch(methodologySource, /Signal weights are refined/);
+  assert.doesNotMatch(methodologySource, /Confidence calibrated/);
+  assert.doesNotMatch(methodologySource, /funding rounds/i);
+  assert.doesNotMatch(methodologySource, /methodology-hero-model/);
+});
+
 test("resource index copy removes synthetic truncation and citation artifacts before display", async () => {
   const resourcesSource = await read("app/resources/page.tsx");
 

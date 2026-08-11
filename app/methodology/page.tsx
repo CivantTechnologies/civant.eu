@@ -10,7 +10,6 @@ import {
   Radar,
   SearchCheck,
   ShieldCheck,
-  Trophy,
   type LucideIcon,
 } from "lucide-react";
 import { CTAGroup } from "../../components/site/CTAGroup";
@@ -33,7 +32,7 @@ export const dynamic = "force-static";
 export const metadata = buildPageMetadata({
   title: "Civant Methodology | Evidence-Led Procurement Forecasting",
   description:
-    "See how Civant's forecasting model uses procurement records, contract lifecycles, buyer behavior, and public signals to estimate likely tender timing.",
+    "See how Civant's deterministic forecasting model uses procurement history, contract lifecycles, buyer cadence, seasonality, framework expiry, and qualified public signals to estimate likely tender timing.",
   path: "/methodology",
   image: "/screenshots/forecast-validation.png",
 });
@@ -42,12 +41,12 @@ const methodologyFaqs = [
   {
     question: "How does Civant forecast upcoming tenders?",
     answer:
-      "Civant analyzes historical procurement records, contract lifecycle windows, buyer behavior, renewal patterns, and market participation signals to identify where future procurement activity is more likely to emerge.",
+      "Civant's deterministic model evaluates procurement history, cycle proximity, seasonality, framework expiry, buyer cadence, and qualified public signals to estimate a likely tender window, forecast score, and confidence context.",
   },
   {
     question: "What data sources does Civant use?",
     answer:
-      "Civant uses public procurement notices, contract award records, supplier participation data, contract lifecycle information, PINs and early-market notices, public expenditure budgets, grants, policy signals, and buyer activity patterns.",
+      "The forecast model uses structured procurement notices, award events, contract lifecycle information, buyer and category patterns, PINs and early-market notices, public-sector hiring, approved budgets, public funding and grant awards, and policy or programme signals that have been normalized and linked to a buyer or category.",
   },
   {
     question: "How accurate are Civant forecasts?",
@@ -57,7 +56,7 @@ const methodologyFaqs = [
   {
     question: "Is Civant an AI chatbot?",
     answer:
-      `No. ${CIVANT_SHORT_DEFINITION} AI helps interpret matches, documents, buyer intent, and scope, while the forecasting methodology is grounded in structured procurement evidence and external public signals.`,
+      `No. ${CIVANT_SHORT_DEFINITION} AI helps interpret matches, documents, buyer intent, and scope. It does not calculate forecast probability or override the numeric score produced from structured evidence.`,
   },
   {
     question: "Does Civant guarantee tender publication dates?",
@@ -67,40 +66,35 @@ const methodologyFaqs = [
   {
     question: "How do external signals affect forecast confidence?",
     answer:
-      "External signals such as PINs, hiring, budgets, funding, policy movement, news, and press releases help strengthen or weaken confidence when they align with procurement history, lifecycle timing, and buyer recurrence patterns.",
+      "Qualified signals such as PINs, public-sector hiring, approved budgets, public funding and grant awards, and policy or programme movement can provide capped, time-decayed corroboration when they are normalized, linked, and supported by evidence. General news and press coverage remain research context unless they pass that process.",
+  },
+  {
+    question: "How do buyer and competitor intelligence fit the methodology?",
+    answer:
+      "Buyer cadence and procurement history can contribute directly to forecast features. Wider buyer intelligence explains recurrence and account context. Competitor intelligence supports incumbency analysis, positioning, and bid decisions, but it is not a direct input to the forecast formula.",
   },
 ];
 
 const methodologyPipeline = [
   {
     step: "01",
-    title: "Data ingestion",
-    body: "Public procurement records and external signals are collected across supported markets.",
+    title: "Normalize evidence",
+    body: "Structured events are reconciled into comparable buyers, suppliers, categories, dates, and contract records.",
   },
   {
     step: "02",
-    title: "Normalization",
-    body: "Sources are reconciled into comparable buyers, suppliers, categories, dates, and contract events.",
+    title: "Calculate features",
+    body: "Cycle proximity, seasonality, framework expiry, buyer cadence, public-signal timing, and data quality are calculated deterministically.",
   },
   {
     step: "03",
-    title: "Signal engineering",
-    body: "Lifecycle timing, recurrence, incumbency, participation, and external movement become forecast signals.",
+    title: "Estimate the window",
+    body: "The model returns a likely publication window, forecast score, probability, and confidence context.",
   },
   {
     step: "04",
-    title: "Forecast modeling",
-    body: "Signals are modeled to estimate likely tender timing, demand movement, and opportunity fit.",
-  },
-  {
-    step: "05",
-    title: "Confidence scoring",
-    body: "Forecasts are weighted by evidence quality, corroboration, market context, and observed patterns.",
-  },
-  {
-    step: "06",
-    title: "Actionable intelligence",
-    body: "Outputs are translated into planning visibility for bid, sales, and market intelligence teams.",
+    title: "Publish the evidence trail",
+    body: "Supporting drivers and evidence remain available for review before teams commit bid effort.",
   },
 ];
 
@@ -109,7 +103,7 @@ const methodologyItemListSchema = {
   "@type": "ItemList",
   name: "Civant evidence-led procurement forecasting methodology",
   description:
-    "A structured workflow for turning public procurement records, lifecycle timing, and external public signals into confidence-scored forecasting intelligence.",
+    "A deterministic workflow for turning structured procurement evidence and qualified public signals into likely tender windows, forecast scores, and confidence context.",
   itemListElement: methodologyPipeline.map((item, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -127,106 +121,107 @@ const methodologySchema = [
   ]),
 ];
 
-const dataUniverse = [
-  "Procurement portals",
-  "Contract and award notices",
-  "Budgets and grants",
-  "PINs and eForms",
-  "Policy updates",
-  "Company and people signals",
-  "Market and industry data",
-  "News and media sources",
-  "Buyer activity patterns",
-];
-
 const evidenceSources = [
   {
     icon: FileText as LucideIcon,
-    title: "Tender notices",
-    signal: "Publication history",
-  },
-  {
-    icon: Trophy as LucideIcon,
-    title: "Award outcomes",
-    signal: "Supplier movement",
+    title: "Procurement history",
+    signal: "Notice and award events",
   },
   {
     icon: Clock3 as LucideIcon,
     title: "Contract lifecycles",
-    signal: "Renewal timing",
+    signal: "Cycle proximity and renewal timing",
+  },
+  {
+    icon: CalendarDays as LucideIcon,
+    title: "Seasonality",
+    signal: "Month and category alignment",
+  },
+  {
+    icon: ListChecks as LucideIcon,
+    title: "Framework expiry",
+    signal: "Structural timing evidence",
   },
   {
     icon: Radar as LucideIcon,
-    title: "Buyer recurrence",
-    signal: "Buying cadence",
-  },
-  {
-    icon: Activity as LucideIcon,
-    title: "Competitor movement",
-    signal: "Market pressure",
+    title: "Buyer cadence",
+    signal: "Recurrence reliability",
   },
   {
     icon: Globe2 as LucideIcon,
-    title: "External signals",
-    signal: "Public context",
+    title: "Qualified public signals",
+    signal: "Capped, time-decayed corroboration",
   },
 ];
 
 const methodologyOutputs = [
   {
     icon: CalendarDays as LucideIcon,
-    title: "Timing",
-    body: "When account planning should begin",
+    title: "Timing window",
+    body: "Estimated publication period",
+  },
+  {
+    icon: Activity as LucideIcon,
+    title: "Forecast score",
+    body: "Strength of the timing opportunity",
   },
   {
     icon: ShieldCheck as LucideIcon,
     title: "Confidence",
-    body: "How strong the evidence is",
+    body: "Reliability of the supporting evidence",
+  },
+];
+
+const intelligenceLayers = [
+  {
+    title: "Forecast model",
+    body: "Estimates likely tender timing and returns a forecast score, probability, confidence, and supporting drivers.",
+    href: "/platform#forecast",
+    cta: "Explore forecasting",
   },
   {
-    icon: ListChecks as LucideIcon,
-    title: "Priority",
-    body: "Where teams should focus",
+    title: "Buyer intelligence",
+    body: "Explains procurement history, recurrence, and account context. Buyer cadence can support direct forecast features.",
+    href: "/platform#buyers",
+    cta: "Explore buyers",
+  },
+  {
+    title: "Competitor intelligence",
+    body: "Shows incumbency, wins, participation, and market pressure for positioning and bid decisions. It is not a direct forecast formula input.",
+    href: "/platform#competitors",
+    cta: "Explore competitors",
   },
 ];
 
 const coreSignals = [
   {
     title: "PINs and early-market notices",
-    body: "Prior information notices, market consultations, and eForms can indicate buyer intent before a formal tender is published.",
+    body: "Prior information notices, market consultations, and eForms can indicate buyer intent before a formal tender is published when they are linked to the relevant buyer and category.",
   },
   {
-    title: "Hiring and team expansion",
-    body: "New roles, delivery teams, and specialist hiring can corroborate demand movement around upcoming programmes or service needs.",
+    title: "Public-sector hiring",
+    body: "Verified roles, delivery teams, and specialist hiring can corroborate demand movement around an upcoming programme or service need.",
   },
   {
-    title: "Budgets, grants, and funding",
-    body: "Approved budgets, grant allocations, and funding rounds help Civant assess whether a need has financial support behind it.",
+    title: "Budgets, public funding, and grant awards",
+    body: "Approved budgets, public funding allocations, and documented grant awards can show that a stated need has financial support behind it.",
   },
   {
-    title: "Policy and regulatory movement",
-    body: "Policy deadlines, compliance changes, and public-sector reform priorities can raise confidence that procurement activity is likely to follow.",
-  },
-  {
-    title: "News feeds and public announcements",
-    body: "Local news, public statements, board updates, and programme announcements provide context around timing, scope, and urgency.",
-  },
-  {
-    title: "Press releases and supplier movement",
-    body: "Supplier wins, partnerships, framework activity, and press releases help Civant read competitive pressure around a buyer or category.",
+    title: "Policy, regulatory, and programme signals",
+    body: "Evidence-backed policy deadlines, compliance changes, and public programmes can corroborate timing when they are normalized and category-relevant.",
   },
 ];
 
 const coreSignalPrinciple = {
-  title: "Confidence corroboration",
-  body: "External signals do not replace hard procurement evidence. They strengthen or weaken confidence when they align with lifecycle timing, buyer recurrence, and observed procurement patterns.",
+  title: "Corroboration, not replacement",
+  body: "Qualified public signals are capped and time-decayed. They cannot replace behavioural procurement evidence, and general news or press coverage remains research context unless it is normalized, linked, and evidenced.",
 };
 
 const responsibleInterpretation = [
   {
     icon: FileText as LucideIcon,
     title: "Evidence-led",
-    body: "Civant uses public procurement records and public external signals to support earlier planning.",
+    body: "Civant uses structured procurement records and qualified public signals to support planning before a tender is published.",
   },
   {
     icon: ShieldCheck as LucideIcon,
@@ -242,31 +237,31 @@ const responsibleInterpretation = [
 
 const validationLoop = [
   {
-    icon: SearchCheck as LucideIcon,
-    title: "Forecast signal identified",
-    body: "A lifecycle pattern or external signal raises the likelihood of future procurement activity.",
+    icon: FileText as LucideIcon,
+    title: "Forecast snapshot recorded",
+    body: "The estimated window, score, confidence, drivers, and supporting evidence are stored at computation time.",
   },
   {
     icon: CalendarDays as LucideIcon,
-    title: "Published tender observed",
-    body: "Civant checks whether a matching tender later appears in the public procurement record.",
+    title: "Later publication observed",
+    body: "A subsequently published tender is identified in the public procurement record.",
   },
   {
-    icon: Activity as LucideIcon,
-    title: "Alignment compared",
-    body: "Buyer, category, timing, scope, and evidence quality are compared against the original signal.",
+    icon: SearchCheck as LucideIcon,
+    title: "Outcome matched and compared",
+    body: "Buyer, category, publication timing, and supporting evidence are compared with the recorded forecast.",
   },
   {
     icon: ShieldCheck as LucideIcon,
-    title: "Confidence calibrated",
-    body: "Signal weights are refined so future forecasts reflect observed downstream alignment.",
+    title: "Performance evaluated",
+    body: "Resolved cohorts support performance evaluation and probability calibration review. Model changes remain deliberate and separately validated.",
   },
 ];
 
 const validationMeasures = [
-  "Downstream publication alignment",
-  "Evidence quality and calibration",
-  "Scope and limitations",
+  "Forecast snapshot integrity",
+  "Buyer, category, and window alignment",
+  "Cohort performance and calibration",
 ];
 
 export default function MethodologyPage() {
@@ -278,50 +273,32 @@ export default function MethodologyPage() {
       >
         <div className="methodology-hero-copy">
           <p className="eyebrow">Methodology</p>
-          <h1 className="headline-xl">How Civant forecasts tenders from public evidence</h1>
+          <h1 className="headline-xl">How Civant estimates likely tender timing</h1>
           <p className="text-lead">
-            Civant connects procurement records, contract lifecycles, buyer
-            behavior, competitor movement, and external public signals into
-            forecasting visibility teams can use before tender windows open.
+            Civant&apos;s deterministic forecasting model evaluates procurement
+            history, contract lifecycles, cycle timing, seasonality, buyer cadence,
+            framework expiry, and qualified public signals to estimate a likely
+            tender window and confidence context.
           </p>
           <CTAGroup
-            primaryHref="/pricing"
-            primaryLabel="View Plans"
-            secondaryHref="/contact"
-            secondaryLabel="Book a Walkthrough"
+            primaryHref="#forecast-validation"
+            primaryLabel="See the Evidence Trail"
+            secondaryHref="/platform#forecast"
+            secondaryLabel="Explore Forecasts"
           />
-        </div>
-        <div className="methodology-hero-model" aria-label="Civant methodology model">
-          <div className="methodology-model-source">
-            <span>Public evidence</span>
-            <small>Notices</small>
-            <small>PINs</small>
-            <small>Awards</small>
-            <small>Lifecycles</small>
-            <small>External signals</small>
-          </div>
-          <div className="methodology-model-flow" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </div>
-          <div className="methodology-model-output">
-            <span>Forecasting visibility</span>
-            <strong>Earlier planning signals</strong>
-            <p>Timing, confidence, fit, and competitive context for bid and market teams.</p>
-          </div>
         </div>
       </Section>
 
-      <Section muted>
+      <Section id="evidence-model" muted>
         <div className="methodology-data-engine">
           <div className="methodology-data-copy">
-            <p className="eyebrow">Data Sources</p>
-            <h2 className="headline-lg">Inside the forecasting engine</h2>
+            <p className="eyebrow">Evidence Model</p>
+            <h2 className="headline-lg">What the deterministic model evaluates</h2>
             <p className="text-lead section-intro">
-              Civant does not treat sources as a flat feed. Public evidence is
-              normalized, engineered into signals, scored for confidence, and
-              turned into planning intelligence.
+              Structured procurement evidence is normalized into explicit timing,
+              recurrence, structural, corroboration, and data-quality features.
+              Those features produce the forecast. AI does not calculate or override
+              the numeric result.
             </p>
           </div>
           <div className="methodology-engine-visual" aria-label="Civant forecasting engine">
@@ -344,7 +321,7 @@ export default function MethodologyPage() {
                 </div>
               </div>
               <div className="methodology-core-stack">
-                <span className="methodology-board-label">Methodology core</span>
+                <span className="methodology-board-label">Deterministic model</span>
                 <div className="methodology-core-orbit" aria-hidden="true">
                   <i />
                   <i />
@@ -358,9 +335,9 @@ export default function MethodologyPage() {
                     width={92}
                     height={92}
                   />
-                  <span>Normalize</span>
-                  <strong>Forecasting model</strong>
-                  <small>Signals weighted by timing, recurrence, corroboration, and market context.</small>
+                  <span>Calculate</span>
+                  <strong>Timing model</strong>
+                  <small>Features are weighted into probability, score, and confidence outputs with evidence and coverage constraints.</small>
                 </div>
               </div>
               <div className="methodology-output-bank">
@@ -391,11 +368,27 @@ export default function MethodologyPage() {
                 </article>
               ))}
             </div>
-            <div className="methodology-data-universe">
-              <span>Data universe</span>
-              <div>
-                {dataUniverse.map((source) => (
-                  <small key={source}>{source}</small>
+            <div className="methodology-intelligence-boundary">
+              <div className="methodology-intelligence-boundary-copy">
+                <span>Model boundary</span>
+                <h3>Forecasting at the core, context around the decision</h3>
+                <p>
+                  Buyer and competitor intelligence remain first-class platform
+                  capabilities. Their roles are explicit so teams can distinguish
+                  forecast inputs from account and bid-decision context.
+                </p>
+              </div>
+              <div className="methodology-intelligence-layer-grid">
+                {intelligenceLayers.map((layer) => (
+                  <Link
+                    key={layer.title}
+                    href={layer.href}
+                    className="methodology-intelligence-layer interactive-surface"
+                  >
+                    <h3>{layer.title}</h3>
+                    <p>{layer.body}</p>
+                    <span>{layer.cta}</span>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -405,17 +398,17 @@ export default function MethodologyPage() {
 
       <Section>
         <div className="section-heading-wrap">
-          <p className="eyebrow">Core Signals</p>
+          <p className="eyebrow">Qualified Public Signals</p>
           <h2 className="headline-lg">
-            External signals that sharpen forecast confidence
+            Public signals can corroborate forecast timing
           </h2>
           <p className="text-lead section-intro">
-            Civant separates hard procurement evidence from public context. External
-            signals help explain whether a likely opportunity has timing, budget,
-            urgency, and market movement behind it.
+            Only normalized, buyer-linked, category-relevant, and evidenced public
+            events can affect scoring. General news and press coverage remain
+            research context unless they pass that process.
           </p>
         </div>
-        <div className="grid grid-3 methodology-grid methodology-signal-grid">
+        <div className="grid grid-2 methodology-grid methodology-signal-grid">
           {coreSignals.map((signal) => (
             <article key={signal.title} className="card methodology-signal-card">
               <h3 className="card-title">{signal.title}</h3>
@@ -434,12 +427,13 @@ export default function MethodologyPage() {
         <div className="section-heading-wrap">
           <p className="eyebrow">Validation</p>
           <h2 className="headline-lg">
-            Forecasts are validated against what actually happens
+            Forecast outcomes are evaluated against later publication
           </h2>
           <p className="text-lead section-intro">
-            Civant compares identified forecasting signals with tenders that are
-            later published, creating a calibration loop between evidence,
-            public outcomes, and future confidence scoring.
+            Civant records forecast evidence and later compares it with published
+            tenders. Resolved cohorts support performance evaluation and probability
+            calibration review. Model changes are deliberate and separately
+            validated, not automatic after each outcome.
           </p>
         </div>
         <div className="methodology-validation-console">
@@ -463,8 +457,9 @@ export default function MethodologyPage() {
             ))}
           </div>
           <p className="methodology-validation-principle">
-            <strong>Validation principle:</strong> signal quality is measured by
-            observed downstream publication alignment, not by marketing claims.
+            <strong>Validation principle:</strong> evaluation is based on recorded
+            forecasts and observed outcomes. Model changes require separate review
+            and validation.
           </p>
         </div>
         <div className="methodology-independent-review">
@@ -484,8 +479,8 @@ export default function MethodologyPage() {
           >
             <div className="methodology-resource-image">
               <Image
-                src="/images/resources/guide-external-signals.jpg"
-                alt="External public signals feeding procurement intelligence"
+                src="/screenshots/alerts.png"
+                alt="Civant alerts showing evidence-backed market signals"
                 width={1200}
                 height={675}
                 sizes="(max-width: 900px) 100vw, 44vw"
@@ -494,9 +489,9 @@ export default function MethodologyPage() {
             <div className="methodology-resource-copy">
               <h3 className="card-title">Go deeper on external signals</h3>
               <p className="card-body">
-                See how budgets, grants, PINs, hiring, and policy changes support
-                earlier procurement timing when they are tied back to hard public
-                evidence.
+                See how PINs, public-sector hiring, budgets, public funding, grant
+                awards, and policy signals can corroborate timing after they are
+                normalized, linked, and evidenced.
               </p>
               <span className="card-link-cta">Read the resource</span>
             </div>
@@ -507,8 +502,8 @@ export default function MethodologyPage() {
           >
             <div className="methodology-resource-image">
               <Image
-                src="/images/resources/guide-competitor-intelligence.jpg"
-                alt="Competitor intelligence signals for public procurement"
+                src="/screenshots/competitors.png"
+                alt="Civant competitor intelligence showing incumbency and market context"
                 width={1200}
                 height={675}
                 sizes="(max-width: 900px) 100vw, 44vw"
@@ -518,7 +513,8 @@ export default function MethodologyPage() {
               <h3 className="card-title">Go deeper on competitor context</h3>
               <p className="card-body">
                 Understand how incumbent position, participation patterns, and
-                market pressure strengthen forecasting and prioritization.
+                market pressure support positioning, account planning, and bid
+                decisions without becoming direct forecast formula inputs.
               </p>
               <span className="card-link-cta">Read the resource</span>
             </div>
@@ -574,12 +570,11 @@ export default function MethodologyPage() {
           <div className="methodology-final-cta-copy">
             <p className="eyebrow">From method to market timing</p>
             <h2 className="headline-lg final-cta-title">
-              Turn public evidence into earlier procurement decisions
+              Move from forecast evidence to a bid decision
             </h2>
             <p className="text-lead platform-cta-copy">
-              See how Civant converts tender history, external signals, and
-              validation feedback into forecast visibility your team can act on
-              before tender windows open.
+              Use forecast timing, buyer context, competitor intelligence, and the
+              evidence trail together before your team commits bid effort.
             </p>
             <CTAGroup
               primaryHref="/pricing"
