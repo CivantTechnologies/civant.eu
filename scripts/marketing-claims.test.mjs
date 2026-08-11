@@ -42,6 +42,10 @@ test("the canonical Civant definition has one source of truth", async () => {
   assert.match(companySource, new RegExp(expectedDefinition.replaceAll(".", "\\.")));
   assert.match(homeSource, /CIVANT_DEFINITION/);
   assert.match(understandingSource, /answer: CIVANT_DEFINITION/);
+  assert.match(
+    understandingSource,
+    /<p className="text-lead">\{CIVANT_DEFINITION\}<\/p>/,
+  );
   assert.match(platformSource, /CIVANT_DEFINITION/);
   assert.match(solutionsSource, /answer: CIVANT_DEFINITION/);
   assert.match(methodologySource, /CIVANT_SHORT_DEFINITION/);
@@ -159,6 +163,17 @@ test("buyer intelligence has a first-class platform path", async () => {
   assert.match(platformSource, /slug: "buyers"/);
   assert.match(platformSource, /screenshot: "\/screenshots\/buyers\.png\?v=20260811-1"/);
   assert.match(platformSource, /Buyer Intelligence/);
+});
+
+test("the main Civant explainer shows how forecasting, buyers, and competitors work together", async () => {
+  const understandingSource = await read("app/understanding-civant/page.tsx");
+
+  assert.match(understandingSource, /id="operating-model"/);
+  assert.match(understandingSource, /href: "\/platform#forecast"/);
+  assert.match(understandingSource, /href: "\/platform#buyers"/);
+  assert.match(understandingSource, /href: "\/platform#competitors"/);
+  assert.match(understandingSource, /screenshots\/forecast-pipeline\.png/);
+  assert.doesNotMatch(understandingSource, /coming soon/i);
 });
 
 test("resource index copy removes synthetic truncation and citation artifacts before display", async () => {

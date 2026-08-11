@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrowserFrame } from "../../components/site/BrowserFrame";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
@@ -17,7 +18,7 @@ export const dynamic = "force-static";
 export const metadata = buildPageMetadata({
   title: "Understanding Civant | Procurement Forecasting Intelligence",
   description:
-    "Learn how Civant works, what data it uses, how tender forecasting supports earlier public-sector decisions, and who the platform is built for.",
+    "Learn how Civant connects forecast timing, buyer intelligence, competitor activity, and procurement evidence for public-sector growth decisions.",
   path: "/understanding-civant",
 });
 
@@ -33,10 +34,34 @@ type UnderstandingSection = {
   faqs: UnderstandingFaq[];
 };
 
+const operatingLayers = [
+  {
+    label: "Core planning engine",
+    title: "Forecast",
+    body: "Connects procurement evidence, recurrence, and contract timing to identify likely future opportunity windows.",
+    href: "/platform#forecast",
+    featured: true,
+  },
+  {
+    label: "Buyer intelligence",
+    title: "Buyers",
+    body: "Helps teams discover, assess, and track the public institutions that fit their market and account strategy.",
+    href: "/platform#buyers",
+    featured: false,
+  },
+  {
+    label: "Competitive context",
+    title: "Competitors",
+    body: "Adds incumbent footprint, participation patterns, and market pressure before a team commits bid effort.",
+    href: "/platform#competitors",
+    featured: false,
+  },
+];
+
 const understandingSections: UnderstandingSection[] = [
   {
     id: "about-civant",
-    eyebrow: "Section 1",
+    eyebrow: "Platform",
     title: "About Civant",
     faqs: [
       {
@@ -56,19 +81,24 @@ const understandingSections: UnderstandingSection[] = [
       {
         question: "What markets does Civant cover?",
         answer:
-          `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: Civant was live across ${LIVE_MARKET_LIST}, with ${COMING_MARKET_LIST} coming soon. A market is live when it is accessible to users and fully operational in the platform.`,
+          `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: Civant was live across ${LIVE_MARKET_LIST}, with ${COMING_MARKET_LIST} planned next. A market is live when it is accessible to users and fully operational in the platform.`,
       },
     ],
   },
   {
     id: "how-civant-works",
-    eyebrow: "Section 2",
+    eyebrow: "Method",
     title: "How Civant Works",
     faqs: [
       {
         question: "How does Civant forecast tenders?",
         answer:
           "Civant identifies patterns across procurement history, contract lifecycles, buyer behaviour, and public signals. These signals are structured into a forecasting layer that highlights likely future procurement activity based on timing, recurrence, and market movement.",
+      },
+      {
+        question: "Where do Buyers and Competitors fit?",
+        answer:
+          "They are core parts of the Civant workflow. Forecast identifies likely opportunity timing. Buyers helps teams discover and track the relevant public institutions. Competitors adds incumbent position, participation patterns, and market pressure so teams can judge where to compete with better context.",
       },
       {
         question: "What data does Civant use?",
@@ -78,7 +108,7 @@ const understandingSections: UnderstandingSection[] = [
       {
         question: "What are PINs and eForms?",
         answer:
-          "PINs, or Prior Information Notices, and eForms are official pre-procurement signals used across European public procurement. They provide early indications of upcoming activity and are a key input into Civant's forecasting model.",
+          "PINs, or Prior Information Notices, can provide advance notice of planned procurement activity. eForms are the EU-standard digital forms used to publish procurement notices across planning, competition, and award stages. Civant uses relevant records as evidence across the procurement lifecycle.",
       },
       {
         question: "How accurate are Civant forecasts?",
@@ -99,7 +129,7 @@ const understandingSections: UnderstandingSection[] = [
   },
   {
     id: "use-and-value",
-    eyebrow: "Section 3",
+    eyebrow: "In practice",
     title: "Use & Value",
     faqs: [
       {
@@ -126,7 +156,7 @@ const understandingSections: UnderstandingSection[] = [
   },
   {
     id: "company-and-trust",
-    eyebrow: "Section 4",
+    eyebrow: "Accountability",
     title: "Company & Trust",
     faqs: [
       {
@@ -164,33 +194,6 @@ const pageSchema = [
   ]),
 ];
 
-const explainerLinks = [
-  { href: "#about-civant", label: "About Civant" },
-  { href: "#how-civant-works", label: "How it works" },
-  { href: "#use-and-value", label: "Use & value" },
-  { href: "#what-civant-is-not", label: "What it is not" },
-  { href: "#company-and-trust", label: "Company & trust" },
-];
-
-const contextLinks = [
-  {
-    href: "/platform",
-    label: "Procurement intelligence platform",
-  },
-  {
-    href: "/methodology",
-    label: "Forecasting methodology",
-  },
-  {
-    href: "/markets",
-    label: "Market coverage",
-  },
-  {
-    href: founder.profilePath,
-    label: "Founder profile",
-  },
-];
-
 export default function UnderstandingCivantPage() {
   return (
     <>
@@ -199,27 +202,47 @@ export default function UnderstandingCivantPage() {
         containerClassName="company-hero-container team-hero-container"
       >
         <div className="company-hero-copy understanding-hero-copy">
-          <p className="eyebrow">Company</p>
+          <p className="eyebrow">Platform explainer</p>
           <h1 className="headline-xl">Understanding Civant</h1>
-          <p className="text-lead">
-            Civant helps teams understand where public-sector demand is likely
-            to move before the tender is published. This page answers the most
-            common questions about how the platform works, what it&apos;s built
-            on, and who it&apos;s for.
+          <p className="text-lead">{CIVANT_DEFINITION}</p>
+        </div>
+      </Section>
+
+      <Section id="operating-model" muted className="understanding-operating-section">
+        <div className="section-heading-wrap understanding-operating-heading">
+          <p className="eyebrow">The operating model</p>
+          <h2 className="headline-lg">Forecasting leads. Context makes it useful.</h2>
+          <p className="text-lead section-intro">
+            Civant does not treat a forecast as a detached score. It connects
+            likely timing to the buyer, competitor landscape, and supporting
+            evidence so teams can make a practical commercial decision.
           </p>
+        </div>
 
-          <nav className="understanding-hero-nav" aria-label="Understanding Civant sections">
-            {explainerLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+        <div className="understanding-operating-layout">
+          <div className="understanding-operating-visual">
+            <BrowserFrame
+              src="/screenshots/forecast-pipeline.png"
+              alt="Civant Forecast showing likely opportunity windows, buyer context, and planning status"
+              caption="Forecast: likely opportunity timing connected to buyer and planning context"
+              width={1352}
+              height={760}
+            />
+          </div>
 
-          <div className="understanding-context-links" aria-label="Related Civant pages">
-            {contextLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
+          <div className="understanding-operating-layers">
+            {operatingLayers.map((layer) => (
+              <Link
+                key={layer.title}
+                href={layer.href}
+                className={`understanding-operating-layer${
+                  layer.featured ? " understanding-operating-layer-featured" : ""
+                }`}
+              >
+                <p className="module-label">{layer.label}</p>
+                <h3 className="card-title">{layer.title}</h3>
+                <p className="card-body">{layer.body}</p>
+                <span className="text-link">See this platform layer</span>
               </Link>
             ))}
           </div>
@@ -230,7 +253,7 @@ export default function UnderstandingCivantPage() {
         <Section
           key={section.id}
           id={section.id}
-          muted={index % 2 === 0}
+          muted={index % 2 !== 0}
           className="understanding-faq-section"
         >
           <div className="section-heading-wrap understanding-faq-heading">
@@ -254,7 +277,7 @@ export default function UnderstandingCivantPage() {
         </Section>
       ))}
 
-      <Section id="what-civant-is-not" muted>
+      <Section id="what-civant-is-not">
         <div className="understanding-trust-grid">
           <div className="understanding-trust-copy">
             <p className="eyebrow">Clarity</p>
@@ -274,14 +297,14 @@ export default function UnderstandingCivantPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section muted>
         <div className="understanding-example-callout">
           <p className="eyebrow">Example</p>
           <p>
-            A supplier targeting universities in Spain can use Civant to
-            identify likely renewal windows, understand incumbent activity,
-            prioritise the right institutions, and prepare outreach before a
-            formal tender is released.
+            A supplier targeting universities in Spain can use Forecast to
+            identify likely renewal windows, Buyers to assess and track the
+            right institutions, and Competitors to understand incumbent
+            activity before deciding where to focus commercial and bid effort.
           </p>
         </div>
       </Section>

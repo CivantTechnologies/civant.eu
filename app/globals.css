@@ -7142,56 +7142,85 @@ a {
   text-wrap: balance;
 }
 
-.understanding-hero-nav,
-.understanding-context-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.85rem;
-  margin-top: clamp(1rem, 2vw, 1.25rem);
+.understanding-operating-heading {
+  max-width: 820px;
 }
 
-.understanding-hero-nav a,
-.understanding-context-links a {
-  display: inline-flex;
-  min-height: 1.9rem;
+.understanding-operating-heading .section-intro {
+  max-width: 760px;
+}
+
+.understanding-operating-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: clamp(1rem, 3vw, 1.8rem);
   align-items: center;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: rgba(216, 225, 238, 0.82);
-  font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.2;
-  padding: 0;
+  margin-top: 1.3rem;
+}
+
+.understanding-operating-visual {
+  min-width: 0;
+}
+
+.understanding-operating-layers {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.understanding-operating-layer {
+  display: block;
+  border: 1px solid rgba(140, 238, 237, 0.15);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(145deg, rgba(140, 238, 237, 0.05), rgba(255, 255, 255, 0.024)),
+    rgba(7, 17, 31, 0.58);
+  padding: 0.95rem 1rem;
   text-decoration: none;
   transition:
-    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
     transform 180ms ease;
 }
 
-.understanding-hero-nav a:not(:last-child)::after,
-.understanding-context-links a:not(:last-child)::after {
-  content: "";
-  width: 1px;
-  height: 0.8rem;
-  margin-left: 0.85rem;
-  background: rgba(143, 241, 234, 0.18);
+.understanding-operating-layer:hover,
+.understanding-operating-layer:focus-visible {
+  border-color: rgba(140, 238, 237, 0.32);
+  background:
+    linear-gradient(145deg, rgba(140, 238, 237, 0.08), rgba(255, 255, 255, 0.032)),
+    rgba(7, 17, 31, 0.66);
+  transform: translateY(-2px);
 }
 
-.understanding-hero-nav a:hover,
-.understanding-hero-nav a:focus-visible,
-.understanding-context-links a:hover,
-.understanding-context-links a:focus-visible {
-  color: #8ceeed;
-  transform: translateY(-1px);
+.understanding-operating-layer-featured {
+  border-color: rgba(214, 184, 105, 0.3);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(214, 184, 105, 0.12), transparent 34%),
+    linear-gradient(145deg, rgba(140, 238, 237, 0.065), rgba(214, 184, 105, 0.05)),
+    rgba(7, 17, 31, 0.64);
 }
 
-.understanding-context-links {
-  margin-top: 0.45rem;
+.understanding-operating-layer .module-label {
+  margin-bottom: 0.32rem;
 }
 
-.understanding-context-links a {
-  color: rgba(216, 225, 238, 0.64);
+.understanding-operating-layer .card-title {
+  font-size: 1.1rem;
+}
+
+.understanding-operating-layer-featured .card-title {
+  color: #f4cf7a;
+}
+
+.understanding-operating-layer .card-body {
+  margin-top: 0.36rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.understanding-operating-layer .text-link {
+  display: inline-flex;
+  margin-top: 0.58rem;
+  font-size: 0.78rem;
 }
 
 .understanding-faq-heading {
@@ -13536,6 +13565,7 @@ a {
 
 @media (max-width: 860px) {
   .understanding-trust-grid,
+  .understanding-operating-layout,
   .insights-signup {
     grid-template-columns: 1fr;
   }
@@ -13654,8 +13684,4 @@ a {
     white-space: normal;
   }
 
-  .understanding-hero-nav a {
-    min-height: 44px;
-    font-size: 0.84rem;
-  }
 }
