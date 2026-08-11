@@ -150,7 +150,7 @@ const article: ResourceArticle = {
           <p className="article-body-text">
             But training alone cannot solve the structural visibility problem.
             Training helps companies respond better. Procurement intelligence
-            helps them prepare earlier. Both are needed.
+            gives them time to prepare before publication. Both are needed.
           </p>
         </>
       ),

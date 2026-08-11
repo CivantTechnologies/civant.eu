@@ -156,7 +156,7 @@ export const RESOURCE_SEO_OVERRIDES: Record<string, ResourceSeoOverride> = {
   },
   "/resources/procurement-intelligence-for-smes": {
     description:
-      "How SMEs use procurement intelligence to focus on better-fit opportunities, prepare earlier, reduce wasted effort, and challenge larger incumbents.",
+      "How SMEs use procurement intelligence to focus on better-fit opportunities, gain preparation time, reduce wasted effort, and challenge larger incumbents.",
   },
   "/resources/the-preparation-gap-in-european-public-procurement": {
     description:

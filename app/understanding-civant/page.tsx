@@ -265,7 +265,7 @@ export default function UnderstandingCivantPage() {
             </p>
           </div>
           <ul className="understanding-not-list" aria-label="What Civant is not">
-            <li>Civant is not a tender alert tool.</li>
+            <li>Civant is not limited to tender alerts.</li>
             <li>Civant is not an insider information platform.</li>
             <li>Civant does not guarantee tender outcomes.</li>
             <li>Civant does not replace sales, bid, or account strategy.</li>

@@ -12,13 +12,13 @@ const article: ResourceArticle = {
   path: "/resources/what-is-procurement-intelligence",
   title: "What Is Procurement Intelligence?",
   description:
-    "Learn what procurement intelligence means, how it differs from tender alerts, and why buyer cycles, lifecycle signals, and market evidence help teams prepare earlier.",
+    "Learn what procurement intelligence means, how it differs from tender alerts, and why buyer cycles, lifecycle signals, and market evidence give teams time to prepare before publication.",
   publishedAt: "2026-03-14T00:00:00+00:00",
   publishedLabel: "March 2026",
   modifiedAt: "2026-04-25T00:00:00+00:00",
   modifiedLabel: "April 2026",
   answer:
-    "Procurement intelligence is the practice of reading public-sector buying evidence before formal notices appear. It connects contract cycles, buyer behavior, award history, competitor movement, and verified signals so teams can prioritize accounts, prepare earlier, and avoid treating every tender as a surprise.",
+    "Procurement intelligence is the practice of reading public-sector buying evidence before formal notices appear. It connects contract cycles, buyer behavior, award history, competitor movement, and verified signals so teams can prioritize accounts, build readiness before publication, and avoid treating every tender as a surprise.",
   intro: (
     <>
       <p className="article-body-text">
@@ -95,7 +95,7 @@ const article: ResourceArticle = {
             structures, category norms, and internal planning rhythms.
           </p>
           <p className="article-body-text">
-            Teams that understand cycle patterns can prepare earlier and make
+            Teams that understand cycle patterns can prepare before publication and make
             better prioritization decisions. Teams relying only on publication
             alerts often react too late.
           </p>
@@ -150,7 +150,7 @@ const article: ResourceArticle = {
     {
       question: "How does Civant use procurement intelligence?",
       answer:
-        "Civant connects buyer history, awards, lifecycle signals, competitor movement, and public external signals into forecasting intelligence that helps teams prioritize accounts and prepare earlier.",
+        "Civant connects buyer history, awards, lifecycle signals, competitor movement, and public external signals into forecasting intelligence that helps teams prioritize accounts and prepare before publication.",
     },
   ],
   sources: getArticleSources([

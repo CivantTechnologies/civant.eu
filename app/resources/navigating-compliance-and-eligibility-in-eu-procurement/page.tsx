@@ -11,7 +11,7 @@ const article: ResourceArticle = {
   path: "/resources/navigating-compliance-and-eligibility-in-eu-procurement",
   title: "Navigating Compliance and Eligibility in EU Procurement",
   description:
-    "A practical guide to EU procurement compliance, eligibility, exclusion grounds, evidence requirements, thresholds, and how suppliers can prepare earlier.",
+    "A practical guide to EU procurement compliance, eligibility, exclusion grounds, evidence requirements, thresholds, and how suppliers can prepare before the formal procedure.",
   publishedAt: "2026-03-14T00:00:00+00:00",
   publishedLabel: "March 2026",
   modifiedAt: "2026-04-25T00:00:00+00:00",

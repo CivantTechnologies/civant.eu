@@ -16,6 +16,7 @@ import {
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
+import { CIVANT_SHORT_DEFINITION } from "../../lib/company";
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -56,7 +57,7 @@ const methodologyFaqs = [
   {
     question: "Is Civant an AI chatbot?",
     answer:
-      "No. Civant is a procurement forecasting intelligence platform. AI helps interpret matches, documents, buyer intent, and scope, while the forecasting methodology is grounded in structured procurement evidence and external public signals.",
+      `No. ${CIVANT_SHORT_DEFINITION} AI helps interpret matches, documents, buyer intent, and scope, while the forecasting methodology is grounded in structured procurement evidence and external public signals.`,
   },
   {
     question: "Does Civant guarantee tender publication dates?",

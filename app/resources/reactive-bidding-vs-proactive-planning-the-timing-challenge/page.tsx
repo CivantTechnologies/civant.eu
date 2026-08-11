@@ -42,7 +42,7 @@ const article: ResourceArticle = {
     },
     {
       label: "Discipline",
-      text: "The goal is not to prepare for everything; it is to prepare earlier for the right things.",
+      text: "The goal is not to prepare for everything; it is to build readiness for the right opportunities before publication.",
     },
   ],
   civantView: {

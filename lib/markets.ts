@@ -1,3 +1,5 @@
+import { CIVANT_SHORT_DEFINITION } from "./company";
+
 export type MarketStatus = "live" | "coming";
 
 export type MarketFaq = {
@@ -32,7 +34,7 @@ const liveFaqSuffix =
   "Civant combines official procurement records, award history, contract lifecycle signals, competitor movement, and external public signals to help teams plan before formal tender deadlines compress the response window.";
 
 const comingFaqSuffix =
-  "The market is coming soon to Civant. Teams can use Civant's current European coverage now and discuss upcoming market requirements for category, buyer, and workflow planning.";
+  "Teams can use Civant's current live coverage now and discuss planned market requirements for category, buyer, and workflow planning.";
 
 export const MARKETS: Market[] = [
   {
@@ -64,7 +66,7 @@ export const MARKETS: Market[] = [
       "Competitor and incumbent movement",
     ],
     useCases: [
-      "Prepare earlier for repeat public-sector buying cycles.",
+      "Prepare before repeat public-sector buying cycles reach formal publication.",
       "Prioritize Irish buyers and categories with stronger strategic fit.",
       "Track incumbent positions before renewal windows become active tenders.",
     ],
@@ -230,7 +232,7 @@ export const MARKETS: Market[] = [
       {
         question: "Is Civant an AI chatbot for French tenders?",
         answer:
-          "No. Civant is a procurement forecasting intelligence platform. AI helps interpret match, scope, intent, and strategy, but the forecast layer is built on structured procurement evidence.",
+          `No. ${CIVANT_SHORT_DEFINITION} AI helps interpret match, scope, intent, and strategy, but the forecast layer is built on structured procurement evidence.`,
       },
     ],
   },
@@ -280,7 +282,7 @@ export const MARKETS: Market[] = [
       {
         question: "How can Italian procurement intelligence improve bid planning?",
         answer:
-          "It helps teams prepare earlier, reduce low-fit reactive bids, and coordinate account activity around likely future procurement windows.",
+          "It gives teams more preparation time, reduces low-fit reactive bids, and helps coordinate account activity around likely future procurement windows.",
       },
     ],
   },
@@ -313,7 +315,7 @@ export const MARKETS: Market[] = [
       "External education, budget, policy, and hiring signals",
     ],
     useCases: [
-      "Prepare earlier for Nordic public-sector buying cycles.",
+      "Prepare before Nordic public-sector buying cycles reach formal publication.",
       "Map target buyer and category priorities across Finland.",
       "Coordinate education-market expansion with procurement timing signals.",
     ],
@@ -380,7 +382,7 @@ export const MARKETS: Market[] = [
       {
         question: "Who should follow Belgian procurement intelligence?",
         answer:
-          "Suppliers with cross-border European sales, public-sector account teams, bid teams, and market intelligence teams can use Belgian coverage to plan earlier.",
+          "Suppliers with cross-border European sales, public-sector account teams, bid teams, and market intelligence teams can use Belgian coverage to plan before formal publication.",
       },
     ],
   },
@@ -439,14 +441,14 @@ export const MARKETS: Market[] = [
     country: "Netherlands",
     adjective: "Dutch",
     status: "coming",
-    statusLabel: "Coming soon",
+    statusLabel: "Coming next",
     headline: "Public procurement intelligence for the Netherlands",
     description:
-      "The Netherlands is coming soon to Civant for public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+      "The Netherlands is planned next for Civant coverage across procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
     metaDescription:
       "The Netherlands is part of Civant's next rollout for public procurement intelligence, forecasting, and contract lifecycle monitoring.",
     summary:
-      "Dutch coverage is coming soon, supporting teams preparing Benelux public-sector expansion and earlier opportunity planning.",
+      "Dutch coverage is planned next, supporting teams preparing Benelux public-sector expansion and earlier opportunity planning.",
     buyersLabel: "Dutch public-sector buyers",
     procurementSpend: {
       value: "€116.2bn",
@@ -470,7 +472,7 @@ export const MARKETS: Market[] = [
     faqs: [
       {
         question: "Does Civant cover public procurement in the Netherlands?",
-        answer: `The Netherlands is coming soon to Civant. ${comingFaqSuffix}`,
+        answer: `The Netherlands is planned next for Civant. ${comingFaqSuffix}`,
       },
       {
         question: "What will Dutch procurement intelligence include?",
@@ -489,14 +491,14 @@ export const MARKETS: Market[] = [
     country: "Czechia",
     adjective: "Czech",
     status: "coming",
-    statusLabel: "Coming soon",
+    statusLabel: "Coming next",
     headline: "Public procurement intelligence for Czechia",
     description:
-      "Czechia is coming soon to Civant for public procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+      "Czechia is planned next for Civant coverage across procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
     metaDescription:
-      "Czechia is coming soon to Civant for procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
+      "Czechia is planned next for Civant coverage across procurement intelligence, tender forecasting, and contract lifecycle monitoring.",
     summary:
-      "Czech coverage is coming soon, supporting teams preparing Central European public-sector expansion and earlier opportunity planning.",
+      "Czech coverage is planned next, supporting teams preparing Central European public-sector expansion and earlier opportunity planning.",
     buyersLabel: "Czech public-sector buyers",
     signalFocus: [
       "National and TED procurement records",
@@ -512,7 +514,7 @@ export const MARKETS: Market[] = [
     faqs: [
       {
         question: "Does Civant cover public procurement in Czechia?",
-        answer: `Czechia is coming soon to Civant. ${comingFaqSuffix}`,
+        answer: `Czechia is planned next for Civant. ${comingFaqSuffix}`,
       },
       {
         question: "What will Czech procurement intelligence include?",

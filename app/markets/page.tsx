@@ -1,4 +1,12 @@
 import Link from "next/link";
+import {
+  CalendarRange,
+  FileChartColumn,
+  Landmark,
+  RadioTower,
+  Search,
+  UsersRound,
+} from "lucide-react";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { Section } from "../../components/site/Section";
@@ -22,7 +30,7 @@ export const dynamic = "force-static";
 export const metadata = buildPageMetadata({
   title: "European Procurement Intelligence Coverage | Civant",
   description:
-    "See where Civant is live now and which markets are coming soon for procurement intelligence, tender monitoring, and expansion planning.",
+    "See where Civant is live now and which markets are planned next for procurement intelligence, tender monitoring, and expansion planning.",
   path: "/markets",
   image: "/screenshots/panorama.png",
 });
@@ -31,7 +39,7 @@ const marketCoverageFaqs = [
   {
     question: "Which European public procurement markets does Civant cover?",
     answer:
-      `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: Civant listed ${LIVE_MARKET_LIST} as live, with ${COMING_MARKET_LIST} coming soon.`,
+      `Coverage status last reviewed ${MARKET_COVERAGE_SNAPSHOT.dateLabel}: Civant listed ${LIVE_MARKET_LIST} as live, with ${COMING_MARKET_LIST} planned next.`,
   },
   {
     question: "What does market coverage mean in Civant?",
@@ -214,45 +222,82 @@ function MarketCard({ market }: { market: (typeof MARKETS)[number] }) {
   );
 }
 
-const coverageMetrics = [
+const liveMarketCodes = [
   {
-    label: "Country coverage",
-    value: "Mapped",
-    href: "#live-coverage",
+    code: "IE",
+    country: "Ireland",
   },
   {
-    label: "Evidence model",
-    value: "Linked",
-    href: "/methodology",
+    code: "UK",
+    country: "United Kingdom",
   },
   {
-    label: "Market expansion",
-    value: "Demand-led",
-    href: "#coming-next",
-    tone: "market-size",
+    code: "FR",
+    country: "France",
+  },
+  {
+    code: "ES",
+    country: "Spain",
+  },
+  {
+    code: "IT",
+    country: "Italy",
+  },
+  {
+    code: "BE",
+    country: "Belgium",
+  },
+  {
+    code: "DE",
+    country: "Germany",
+  },
+  {
+    code: "FI",
+    country: "Finland",
   },
 ];
 
-const coverageSignals = [
+const comingMarketCodes = [
   {
-    label: "Official notices",
-    href: "/solutions/eu-tender-monitoring",
+    code: "NL",
+    country: "Netherlands",
   },
   {
-    label: "Award history",
-    href: "/resources/detecting-procurement-patterns-what-past-awards-reveal-about-future-tenders",
+    code: "CZ",
+    country: "Czechia",
+  },
+];
+
+const coverageCapabilities = [
+  {
+    label: "Forecasts",
+    href: "/platform#forecast",
+    icon: CalendarRange,
   },
   {
-    label: "Renewal cycles",
-    href: "/resources/renewal-cycles-how-contract-expiry-drives-tender-pipelines",
+    label: "Buyers",
+    href: "/platform#buyers",
+    icon: Landmark,
   },
   {
-    label: "Competitor movement",
-    href: "/resources/competitor-intelligence-in-public-procurement",
+    label: "Competitors",
+    href: "/platform#competitors",
+    icon: UsersRound,
   },
   {
-    label: "External public signals",
-    href: "/resources/external-signals-in-public-procurement",
+    label: "Tenders",
+    href: "/platform#finder",
+    icon: Search,
+  },
+  {
+    label: "Signals",
+    href: "/platform#alerts",
+    icon: RadioTower,
+  },
+  {
+    label: "Reports",
+    href: "/platform#reports",
+    icon: FileChartColumn,
   },
 ];
 
@@ -283,50 +328,73 @@ export default function MarketsPage() {
           <div className="markets-hero-copy">
             <p className="eyebrow">Markets</p>
             <h1 className="headline-xl">
-              European procurement intelligence coverage by country
+              Procurement intelligence across eight live markets
             </h1>
             <p className="text-lead">
-              Civant gives teams a Europe-wide, country-by-country view of
-              procurement cycles, buyer behavior, contract lifecycles,
-              competitor movement, and external public signals across live and
-              upcoming markets.
+              Civant applies one evidence model across every live market,
+              connecting procurement history, contract lifecycles, buyer
+              behaviour, competitor activity, and market signals to identify
+              likely future opportunities.
             </p>
             <p className="cred-line">
-              Coverage status and market-size estimates last reviewed{" "}
-              {MARKET_COVERAGE_SNAPSHOT.dateLabel}.
+              Netherlands and Czechia are planned next.
             </p>
           </div>
 
           <aside className="markets-glass-console liquid-panel" aria-label="Civant market coverage summary">
             <div className="liquid-panel-head">
-              <span>Coverage Lens</span>
-              <strong>EU signal map</strong>
+              <span>Market coverage</span>
             </div>
-            <div className="markets-console-metrics">
-              {coverageMetrics.map((metric) => (
+            <div className="markets-coverage-groups">
+              <Link
+                aria-label="8 live markets: Ireland, United Kingdom, France, Spain, Italy, Belgium, Germany, and Finland"
+                className="markets-coverage-group markets-coverage-group-live"
+                href="#live-coverage"
+              >
+                <span className="markets-coverage-group-head">
+                  <span>Live markets</span>
+                  <strong>{LIVE_MARKETS.length}</strong>
+                </span>
+                <span className="markets-country-pills" aria-hidden="true">
+                  {liveMarketCodes.map((market) => (
+                    <span key={market.code} title={market.country}>
+                      {market.code}
+                    </span>
+                  ))}
+                </span>
+              </Link>
+              <Link
+                aria-label="2 markets planned next: Netherlands and Czechia"
+                className="markets-coverage-group"
+                href="#coming-next"
+              >
+                <span className="markets-coverage-group-head">
+                  <span>Coming next</span>
+                  <strong>{COMING_MARKETS.length}</strong>
+                </span>
+                <span className="markets-country-pills markets-country-pills-coming" aria-hidden="true">
+                  {comingMarketCodes.map((market) => (
+                    <span key={market.code} title={market.country}>
+                      {market.code}
+                    </span>
+                  ))}
+                </span>
+              </Link>
+            </div>
+            <div className="markets-capability-panel">
+              <span className="markets-capability-label">Available in every live market</span>
+              <div className="markets-capability-grid" aria-label="Capabilities available in every live market">
+                {coverageCapabilities.map((capability) => (
                 <Link
-                  className="markets-console-metric markets-console-link"
-                  href={metric.href}
-                  key={metric.label}
+                    className="markets-capability-link"
+                    href={capability.href}
+                    key={capability.label}
                 >
-                  <span>{metric.label}</span>
-                  <strong className={metric.tone ? `metric-value-${metric.tone}` : undefined}>
-                    {metric.value}
-                  </strong>
+                    <capability.icon aria-hidden="true" />
+                    <span>{capability.label}</span>
                 </Link>
               ))}
-            </div>
-            <div className="markets-signal-stack" aria-label="Coverage signal layers">
-              {coverageSignals.map((signal) => (
-                <Link
-                  className="markets-signal-link"
-                  href={signal.href}
-                  key={signal.label}
-                >
-                  <span>{signal.label}</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-              ))}
+              </div>
             </div>
           </aside>
         </div>
@@ -364,11 +432,10 @@ export default function MarketsPage() {
 
       <Section id="coming-next" className="market-anchor-section">
         <div className="section-heading-wrap">
-          <p className="eyebrow">Coming Soon</p>
-          <h2 className="headline-lg">Markets coming soon to Civant</h2>
+          <p className="eyebrow">Coming Next</p>
+          <h2 className="headline-lg">Markets planned next for Civant</h2>
           <p className="text-lead section-intro">
-            These markets were listed as coming soon on{" "}
-            {MARKET_COVERAGE_SNAPSHOT.dateLabel}. Contact Civant if one is
+            These markets are planned next for Civant. Contact us if one is
             critical to your current plan.
           </p>
         </div>
@@ -394,7 +461,7 @@ export default function MarketsPage() {
       <Section muted>
         <div className="section-heading-wrap">
           <p className="eyebrow">What Coverage Means</p>
-          <h2 className="headline-lg">The same European intelligence model across each market</h2>
+          <h2 className="headline-lg">One evidence model across every live market</h2>
           <p className="text-lead section-intro">
             For a closer explanation of what coverage really means beyond a
             country list, read{" "}

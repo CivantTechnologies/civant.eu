@@ -1,5 +1,6 @@
 import { MARKET_COVERAGE_SNAPSHOT } from "./siteFacts";
 import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "./markets";
+import { CIVANT_SHORT_DEFINITION } from "./company";
 
 export type SolutionFaq = {
   question: string;
@@ -33,7 +34,7 @@ export const SOLUTIONS: SolutionPage[] = [
     eyebrow: "Solution / Procurement Intelligence Software",
     headline: "Procurement intelligence software for earlier public-sector growth",
     description:
-      "Civant is procurement intelligence software that turns fragmented procurement records, buyer cycles, awards, competitor movement, and external public signals into a focused market planning layer.",
+      `${CIVANT_SHORT_DEFINITION} It turns fragmented procurement records, buyer cycles, awards, competitor movement, and external public signals into a focused market planning layer.`,
     metaDescription:
       "Civant helps teams turn procurement records, buyer cycles, competitor context, and public signals into earlier public-sector market planning.",
     definition:
@@ -64,7 +65,7 @@ export const SOLUTIONS: SolutionPage[] = [
       {
         question: "What is procurement intelligence software?",
         answer:
-          "Procurement intelligence software analyzes public procurement records, awards, buyer behavior, contract lifecycles, and external signals so suppliers can plan earlier and prioritize better-fit public-sector opportunities.",
+          "Procurement intelligence software analyzes public procurement records, awards, buyer behavior, contract lifecycles, and external signals so suppliers can prioritize better-fit opportunities and plan before formal publication.",
       },
       {
         question: "How is Civant different from tender alert software?",
@@ -74,7 +75,7 @@ export const SOLUTIONS: SolutionPage[] = [
       {
         question: "Is Civant an AI chatbot?",
         answer:
-          "No. Civant is a procurement forecasting intelligence platform. AI supports interpretation of match, tender documents, buyer intent, and strategic context, but it does not replace the evidence-based forecast engine.",
+          `No. ${CIVANT_SHORT_DEFINITION} AI supports interpretation of match, tender documents, buyer intent, and strategic context, but it does not replace the evidence-based forecast engine.`,
       },
     ],
   },

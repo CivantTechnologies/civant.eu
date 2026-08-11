@@ -22,7 +22,7 @@ export const metadata = buildPageMetadata({
   description:
     "See how sales, marketing, account, bid, technical, partnership, and leadership teams use Civant to turn procurement timing into practical operating decisions.",
   path: "/use-cases",
-  image: "/images/use-cases/civant-use-cases-boardroom.webp",
+  image: "/screenshots/competitors.png",
 });
 
 const decisionGrid = [
@@ -319,15 +319,15 @@ export default function UseCasesPage() {
         </div>
         <figure className="use-cases-operating-image-band">
           <Image
-            src="/images/use-cases/civant-use-cases-boardroom.webp"
-            alt="Civant boardroom presentation for public-sector market planning"
-            width={1661}
-            height={947}
+            src="/screenshots/competitors.png"
+            alt="Civant Competitors workspace showing intelligence within a tracked company scope"
+            width={2880}
+            height={1552}
             sizes="(max-width: 980px) 100vw, 92vw"
             priority
           />
           <figcaption>
-            Commercial teams need one shared view before the tender window opens.
+            Competitor intelligence becomes specific to your tracked scope and target markets.
           </figcaption>
         </figure>
         <div className="use-cases-decision-grid">

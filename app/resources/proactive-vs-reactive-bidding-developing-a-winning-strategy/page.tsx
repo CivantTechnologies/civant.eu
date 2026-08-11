@@ -34,7 +34,7 @@ const article: ResourceArticle = {
   takeaways: [
     {
       label: "Tiering",
-      text: "Strategic opportunities deserve earlier preparation than routine or low-fit tenders.",
+      text: "Strategic opportunities warrant more preparation time than routine or low-fit tenders.",
     },
     {
       label: "Evidence",

@@ -4,6 +4,7 @@ import { CTAGroup } from "../../components/site/CTAGroup";
 import { MarketCoverageLinks } from "../../components/site/MarketCoverageLinks";
 import { SchemaScript } from "../../components/site/SchemaScript";
 import { Section } from "../../components/site/Section";
+import { CIVANT_DEFINITION } from "../../lib/company";
 import { COMING_MARKET_LIST, LIVE_MARKET_LIST } from "../../lib/markets";
 import { SOLUTIONS } from "../../lib/solutions";
 import {
@@ -21,14 +22,13 @@ export const metadata = buildPageMetadata({
   description:
     "Explore the Civant solution for procurement intelligence software, tender forecasting, EU tender monitoring, and public procurement strategy.",
   path: "/solutions",
-  image: "/images/solutions/civant-evidence-engine.webp",
+  image: "/screenshots/finder-filters.png",
 });
 
 const solutionFaqs = [
   {
     question: "What is Civant?",
-    answer:
-      "Civant is a public procurement forecasting intelligence platform that connects tender history, award outcomes, contract lifecycles, competitor movement, and external public signals into earlier market visibility.",
+    answer: CIVANT_DEFINITION,
   },
   {
     question: "How is Civant different from tender alerts?",
@@ -64,7 +64,7 @@ const solutionsSchema = [
     name: "Civant Procurement Intelligence Solution",
     url: `${SITE_URL}/solutions`,
     description:
-      "Search paths explaining Civant's procurement intelligence platform for European public-sector markets.",
+      "Search paths explaining how Civant supports public-sector growth teams across its live country coverage.",
     hasPart: SOLUTIONS.map((solution) => ({
       "@type": "WebPage",
       name: solution.title,
@@ -142,10 +142,10 @@ export default function SolutionsPage() {
         <div className="solution-engine-panel">
           <div className="solution-engine-visual">
             <Image
-              src="/images/solutions/civant-evidence-engine.webp"
-              alt="Abstract Civant evidence engine showing public-sector signals flowing into a European procurement forecast"
-              width={1586}
-              height={992}
+              src="/screenshots/finder-filters.png"
+              alt="Civant Finder showing company scope, country, source, buyer, and CPV filters"
+              width={2876}
+              height={1436}
               sizes="(max-width: 900px) 100vw, 58vw"
             />
           </div>
@@ -218,7 +218,7 @@ export default function SolutionsPage() {
             <span className="solution-positioning-index">03</span>
             <h3 className="card-title">Commercial discipline</h3>
             <p className="card-body">
-              Teams prepare earlier, prioritize better, and make stronger
+              Teams gain preparation time, prioritize better, and make stronger
               bid/no-bid decisions before the market becomes reactive.
             </p>
           </article>

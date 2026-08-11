@@ -12,7 +12,7 @@ const article: ResourceArticle = {
   path: "/resources/the-preparation-gap-in-european-public-procurement",
   title: "The Preparation Gap in European Public Procurement",
   description:
-    "Understand why reactive tender discovery creates a structural preparation gap in European public procurement and how procurement intelligence helps teams prepare earlier.",
+    "Understand why reactive tender discovery creates a structural preparation gap in European public procurement and how procurement intelligence gives teams more preparation time.",
   publishedAt: "2026-03-18T00:00:00+00:00",
   publishedLabel: "March 2026",
   modifiedAt: "2026-04-21T00:00:00+00:00",

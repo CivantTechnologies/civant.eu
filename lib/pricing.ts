@@ -39,7 +39,7 @@ export const PRICING_FAQS: PricingFaq[] = [
   },
   {
     q: "How fresh is the procurement data?",
-    a: "Civant's published processing cadence is daily for tender data and weekly for award and contract history. AI intelligence briefs may be cached for up to seven days for consistency before they are refreshed on demand. Source availability can affect when individual records appear.",
+    a: "Civant runs scheduled, source-specific ingestion and refresh pipelines. Timing varies by market, source, and data type, and source availability can affect when individual records appear. Buyer research briefs are cached for up to seven days and refreshed after expiry.",
   },
   {
     q: "How accurate is the ROI calculator?",

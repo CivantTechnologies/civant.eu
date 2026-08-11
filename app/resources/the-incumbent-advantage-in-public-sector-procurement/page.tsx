@@ -29,7 +29,7 @@ const article: ResourceArticle = {
       <p className="article-body-text">
         For challengers, the question is not whether incumbent advantage exists.
         It is how to identify the opportunities where that advantage can be
-        reduced through earlier preparation, stronger evidence, and a credible
+        reduced through more preparation time, stronger evidence, and a credible
         reason for change.
       </p>
     </>

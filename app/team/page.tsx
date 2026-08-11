@@ -15,7 +15,7 @@ export const dynamic = "force-static";
 export const metadata = buildPageMetadata({
   title: "Founder and Advisory Team | Civant",
   description:
-    "Meet the founder and advisory network behind Civant Technologies, the Irish procurement intelligence platform for European public-sector markets.",
+    "Meet David Manrique and the advisory network behind Civant Technologies, a procurement intelligence platform built in Ireland.",
   path: "/team",
   image: "/people/david-manrique.jpg",
 });

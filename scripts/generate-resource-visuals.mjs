@@ -221,7 +221,7 @@ function matrix(id, title, kicker, rows, opts = {}) {
     <g transform="translate(${recommendationX} ${recommendationY})">
       <rect width="${recommendationWidth}" height="${recommendationHeight}" rx="20" fill="#06222f" stroke="${accent}" stroke-opacity="0.65"/>
       <text x="${recommendationPadding}" y="${opts.recommendationLabelY || 34}" fill="${accent}" font-size="15" font-weight="900" letter-spacing="3.2">RECOMMENDED</text>
-      ${multilineText(labelLines(opts.recommendation || "Prepare earlier", 22), recommendationPadding, opts.recommendationTextY || 62, {
+      ${multilineText(labelLines(opts.recommendation || "Build readiness", 22), recommendationPadding, opts.recommendationTextY || 62, {
         fill: "#f8fafc",
         size: 21,
         weight: 850,
@@ -328,7 +328,7 @@ function operatingSystem() {
     </g>
     <rect x="1130" y="300" width="300" height="150" rx="28" fill="#06222f" fill-opacity="0.78" stroke="${accent}" stroke-opacity="0.65"/>
     <text x="1170" y="365" fill="${accent}" font-size="22" font-weight="900">ACCOUNT FOCUS</text>
-    <text x="1170" y="405" fill="#f8fafc" font-size="26" font-weight="900">Prepare earlier</text>
+    <text x="1170" y="405" fill="#f8fafc" font-size="26" font-weight="900">Build readiness</text>
     <rect x="1130" y="580" width="300" height="150" rx="28" fill="#111827" fill-opacity="0.78" stroke="#6ee7b7" stroke-opacity="0.52"/>
     <text x="1170" y="645" fill="#6ee7b7" font-size="22" font-weight="900">BID DECISION</text>
     <text x="1170" y="685" fill="#f8fafc" font-size="26" font-weight="900">Prioritize effort</text>
@@ -359,7 +359,7 @@ const assets = [
       ],
       {
         activeUntil: 3,
-        primary: "Earlier preparation",
+        primary: "Preparation time",
         primaryNote: "Signals appear before the formal notice.",
         secondaryTitle: "Published tender",
         secondaryNote: "The market becomes aware when time is already compressed.",
@@ -489,7 +489,7 @@ const assets = [
         },
       ],
       {
-        xLabel: "Earlier preparation",
+        xLabel: "Preparation time",
         yLabel: "Buyer confidence",
         zone: "Challenger window",
         sideOne: "Renewal timing",
