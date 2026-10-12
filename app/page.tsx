@@ -223,6 +223,33 @@ const homeSchema = [
 export default function HomePage() {
   return (
     <>
+      <Link
+        href="/press/seedcorn-regional-finalist-2026"
+        className="home-announcement"
+        aria-label="Civant named Seedcorn Regional Finalist 2026. Read the announcement."
+      >
+        <span className="home-announcement-inner">
+          <span className="home-announcement-badge" aria-hidden="true">
+            <Image
+              src="/images/press/seedcorn-regional-finalist-2026-stamp.png"
+              alt=""
+              width={720}
+              height={720}
+            />
+          </span>
+          <span className="home-announcement-copy">
+            <strong>Civant named Seedcorn Regional Finalist 2026</strong>
+            <span>
+              One of three B2B finalists for Connacht and Leinster.
+            </span>
+          </span>
+          <span className="home-announcement-cta">
+            Read the announcement
+            <ArrowRight aria-hidden="true" />
+          </span>
+        </span>
+      </Link>
+
       <Section
         className="hero-block hero-section hero-feature home-hero"
         containerClassName="home-hero-container"
