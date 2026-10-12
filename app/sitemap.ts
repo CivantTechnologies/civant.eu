@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import {
   MARKET_ROUTES,
+  PRESS_RELEASE_ROUTES,
   REPORT_ROUTES,
   RESOURCE_ARTICLE_ROUTES,
   SOLUTION_ROUTES,
@@ -32,6 +33,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
+  const pressEntries: MetadataRoute.Sitemap = PRESS_RELEASE_ROUTES.map((route) => ({
+    url: `${SITE_URL}${route.href}`,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
   const marketEntries: MetadataRoute.Sitemap = MARKET_ROUTES.map((route) => ({
     url: `${SITE_URL}${route.href}`,
     changeFrequency: route.changeFrequency,
@@ -54,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...solutionEntries,
     ...marketEntries,
     ...reportEntries,
+    ...pressEntries,
     ...resourceEntries,
     ...legalEntries,
   ];

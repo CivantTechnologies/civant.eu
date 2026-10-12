@@ -10,6 +10,7 @@ const FOOTER_NAV_ITEMS = [
   { href: "/pricing", label: "Pricing" },
   { href: "/resources", label: "Resources" },
   { href: "/company", label: "Company" },
+  { href: "/press", label: "Press" },
   { href: "/contact", label: "Contact" },
 ];
 

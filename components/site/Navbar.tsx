@@ -53,6 +53,7 @@ const PRIMARY_NAV_GROUPS: NavGroup[] = [
       { href: "/company", label: "Company" },
       { href: "/team", label: "Team" },
       { href: "/understanding-civant", label: "Understanding Civant" },
+      { href: "/press", label: "Press" },
       { href: "/contact", label: "Contact" },
     ],
   },

@@ -101,10 +101,12 @@ test("data freshness copy reflects source-specific platform schedules", async ()
   assert.match(pricingSource, /cached for up to seven days/);
 });
 
-test("programme names and undocumented aggregate validation figures stay out of public source", async () => {
+test("programme names and undocumented aggregate validation figures stay out of general marketing source", async () => {
   const sourceFiles = (
     await Promise.all(publicSourceRoots.map((root) => collectSourceFiles(root)))
-  ).flat();
+  ).flat().filter(
+    (file) => file !== "lib/press.ts" && !file.startsWith("app/press/"),
+  );
   const publicSource = (
     await Promise.all(sourceFiles.map(async (file) => `${file}\n${await read(file)}`))
   ).join("\n");

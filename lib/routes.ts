@@ -23,7 +23,16 @@ export const TOP_LEVEL_ROUTES: SiteRoute[] = [
   { href: "/team", label: "Team" },
   { href: "/team/david-manrique", label: "David Manrique" },
   { href: "/understanding-civant", label: "Understanding Civant" },
+  { href: "/press", label: "Press" },
   { href: "/contact", label: "Contact" },
+];
+
+export const PRESS_RELEASE_ROUTES: ContentRoute[] = [
+  {
+    href: "/press/seedcorn-regional-finalist-2026",
+    changeFrequency: "monthly",
+    priority: 0.68,
+  },
 ];
 
 export const REPORT_ROUTES: ContentRoute[] = [
