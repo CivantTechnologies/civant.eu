@@ -19,8 +19,24 @@ export const CIVANT_OFFICE_ADDRESS_LINES = [
   `${CIVANT_OFFICE_ADDRESS.postalCode}, ${CIVANT_OFFICE_ADDRESS.country}`,
 ];
 
-export const CIVANT_OFFICE_MAP_URL =
-  `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(CIVANT_OFFICE_ADDRESS_LINES.join(", "))}`;
+// RDC venue pin, verified in Google Maps on 2026-10-13.
+const CIVANT_OFFICE_COORDINATES = "53.9854477,-6.3944895";
+const officeMapDestination = encodeURIComponent(CIVANT_OFFICE_COORDINATES);
+
+export const CIVANT_OFFICE_MAP_LINKS = [
+  {
+    name: "Google Maps",
+    href: `https://www.google.com/maps/dir/?api=1&destination=${officeMapDestination}`,
+  },
+  {
+    name: "Apple Maps",
+    href: `https://maps.apple.com/directions?destination=${officeMapDestination}&mode=driving`,
+  },
+  {
+    name: "Waze",
+    href: `https://www.waze.com/ul?ll=${officeMapDestination}&navigate=yes`,
+  },
+] as const;
 
 export const CIVANT_SHORT_DEFINITION =
   "Civant is a procurement intelligence platform with forecasting at its core.";

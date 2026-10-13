@@ -7,7 +7,7 @@ import { SchemaScript } from "../../components/site/SchemaScript";
 import { CIVANT_LEGAL_NAME } from "../../lib/brand";
 import {
   CIVANT_OFFICE_ADDRESS_LINES,
-  CIVANT_OFFICE_MAP_URL,
+  CIVANT_OFFICE_MAP_LINKS,
   founder,
 } from "../../lib/company";
 import { buildContactPointSchema, buildPageMetadata } from "../../lib/seo";
@@ -99,14 +99,27 @@ export default function ContactPage() {
             <span key={line}>{line}</span>
           ))}
         </address>
-        <a
-          href={CIVANT_OFFICE_MAP_URL}
-          className="text-link"
-          target="_blank"
-          rel="noopener noreferrer"
+        <nav
+          className="contact-office-directions"
+          aria-label="Directions to our Dundalk office"
         >
-          Get directions to our Dundalk office
-        </a>
+          <h3 className="card-title">Get directions</h3>
+          <p className="card-body">Choose your navigation app.</p>
+          <div className="button-row">
+            {CIVANT_OFFICE_MAP_LINKS.map((map) => (
+              <a
+                key={map.name}
+                href={map.href}
+                className="btn btn-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Get directions to our Dundalk office with ${map.name}`}
+              >
+                {map.name}
+              </a>
+            ))}
+          </div>
+        </nav>
       </Section>
       <SchemaScript data={contactSchema} />
     </>
