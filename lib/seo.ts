@@ -4,7 +4,7 @@ import {
   FOUNDER_LINKEDIN_URL,
   FOUNDER_NAME,
 } from "./brand";
-import { CIVANT_DEFINITION, founder } from "./company";
+import { CIVANT_DEFINITION, CIVANT_OFFICE_ADDRESS, founder } from "./company";
 import { getResourceSeoOverride } from "./resourceSeo";
 
 export const SITE_NAME = "Civant";
@@ -409,6 +409,17 @@ export function buildServiceSchema({
   };
 }
 
+export function buildOfficeAddressSchema() {
+  return {
+    "@type": "PostalAddress",
+    streetAddress: CIVANT_OFFICE_ADDRESS.streetLines.join(", "),
+    addressLocality: CIVANT_OFFICE_ADDRESS.locality,
+    addressRegion: CIVANT_OFFICE_ADDRESS.region,
+    postalCode: CIVANT_OFFICE_ADDRESS.postalCode,
+    addressCountry: CIVANT_OFFICE_ADDRESS.countryCode,
+  };
+}
+
 export function buildContactPointSchema() {
   return {
     "@context": "https://schema.org",
@@ -417,10 +428,7 @@ export function buildContactPointSchema() {
     name: CIVANT_LEGAL_NAME,
     url: SITE_URL,
     email: "hello@civant.eu",
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "IE",
-    },
+    address: buildOfficeAddressSchema(),
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",

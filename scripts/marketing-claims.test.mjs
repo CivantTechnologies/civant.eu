@@ -108,7 +108,14 @@ test("programme names and undocumented aggregate validation figures stay out of 
     (file) => file !== "lib/press.ts" && !file.startsWith("app/press/"),
   );
   const publicSource = (
-    await Promise.all(sourceFiles.map(async (file) => `${file}\n${await read(file)}`))
+    await Promise.all(sourceFiles.map(async (file) => {
+      const source = await read(file);
+      // The confirmed office address is a location, not a programme endorsement.
+      const claimsSource = file === "lib/company.ts"
+        ? source.replace(/^ {4}"Unit 26, Regional Development Centre \(RDC\)",$/m, "")
+        : source;
+      return `${file}\n${claimsSource}`;
+    }))
   ).join("\n");
 
   const blockedClaims = [

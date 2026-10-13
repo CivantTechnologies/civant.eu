@@ -4,7 +4,12 @@ import { ContactLiveSections } from "../../components/site/ContactLiveSections";
 import { CTAGroup } from "../../components/site/CTAGroup";
 import { Section } from "../../components/site/Section";
 import { SchemaScript } from "../../components/site/SchemaScript";
-import { founder } from "../../lib/company";
+import { CIVANT_LEGAL_NAME } from "../../lib/brand";
+import {
+  CIVANT_OFFICE_ADDRESS_LINES,
+  CIVANT_OFFICE_MAP_URL,
+  founder,
+} from "../../lib/company";
 import { buildContactPointSchema, buildPageMetadata } from "../../lib/seo";
 
 export const dynamic = "force-static";
@@ -85,6 +90,24 @@ export default function ContactPage() {
       </Section>
 
       <ContactLiveSections />
+      <Section muted id="office">
+        <p className="eyebrow">Find us</p>
+        <h2 className="headline-lg">Dundalk office</h2>
+        <address className="contact-office-address">
+          <strong>{CIVANT_LEGAL_NAME}</strong>
+          {CIVANT_OFFICE_ADDRESS_LINES.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
+        </address>
+        <a
+          href={CIVANT_OFFICE_MAP_URL}
+          className="text-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get directions to our Dundalk office
+        </a>
+      </Section>
       <SchemaScript data={contactSchema} />
     </>
   );

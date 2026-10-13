@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { PageContainer } from "./PageContainer";
 import { CIVANT_LINKEDIN_URL } from "../../lib/brand";
-import { CIVANT_SHORT_DEFINITION } from "../../lib/company";
+import {
+  CIVANT_OFFICE_ADDRESS_LINES,
+  CIVANT_SHORT_DEFINITION,
+} from "../../lib/company";
 
 const FOOTER_NAV_ITEMS = [
   { href: "/platform", label: "Platform" },
@@ -22,6 +25,14 @@ export function Footer() {
           <div>
             <h3 className="footer-title">Civant</h3>
             <p className="footer-copy">{CIVANT_SHORT_DEFINITION}</p>
+            <address className="footer-copy footer-office-address">
+              <Link href="/contact#office" className="footer-office-title">
+                Dundalk office
+              </Link>
+              {CIVANT_OFFICE_ADDRESS_LINES.map((line) => (
+                <span key={line}>{line}</span>
+              ))}
+            </address>
           </div>
           <div>
             <h3 className="footer-title">Navigation</h3>

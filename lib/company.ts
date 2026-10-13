@@ -1,5 +1,27 @@
 import { FOUNDER_LINKEDIN_URL } from "./brand";
 
+export const CIVANT_OFFICE_ADDRESS = {
+  streetLines: [
+    "Unit 26, Regional Development Centre (RDC)",
+    "Dundalk Institute of Technology (DkIT)",
+    "Dublin Road",
+  ],
+  locality: "Dundalk",
+  region: "Co. Louth",
+  postalCode: "A91 K584",
+  country: "Ireland",
+  countryCode: "IE",
+} as const;
+
+export const CIVANT_OFFICE_ADDRESS_LINES = [
+  ...CIVANT_OFFICE_ADDRESS.streetLines,
+  `${CIVANT_OFFICE_ADDRESS.locality}, ${CIVANT_OFFICE_ADDRESS.region}`,
+  `${CIVANT_OFFICE_ADDRESS.postalCode}, ${CIVANT_OFFICE_ADDRESS.country}`,
+];
+
+export const CIVANT_OFFICE_MAP_URL =
+  `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(CIVANT_OFFICE_ADDRESS_LINES.join(", "))}`;
+
 export const CIVANT_SHORT_DEFINITION =
   "Civant is a procurement intelligence platform with forecasting at its core.";
 
