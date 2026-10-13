@@ -10,6 +10,7 @@ import {
 } from "../lib/brand";
 import { CIVANT_DEFINITION, CIVANT_SHORT_DEFINITION, founder } from "../lib/company";
 import {
+  buildOfficeAddressSchema,
   DEFAULT_OG_IMAGE,
   ORGANIZATION_ID,
   SITE_NAME,
@@ -87,6 +88,7 @@ const organizationSchema = {
   },
   areaServed: "Europe",
   email: "hello@civant.eu",
+  address: buildOfficeAddressSchema(),
   founder: {
     "@type": "Person",
     name: founder.name,
