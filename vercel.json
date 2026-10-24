@@ -1,5 +1,8 @@
 {
   "framework": "nextjs",
-  "buildCommand": "npm run marketing:build",
-  "devCommand": "npm run marketing:dev"
+  "buildCommand": "npm run security:check && npm test && npm run typecheck && npm run marketing:build",
+  "devCommand": "npm run marketing:dev",
+  "git": {
+    "deploymentEnabled": false
+  }
 }

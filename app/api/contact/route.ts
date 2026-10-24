@@ -1,53 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ApiRequestError, assertFormOrigin, enforceFormRateLimit, readBoundedJson, requireMailApiKey } from "../../../lib/apiSecurity";
+import { validateContactPayload } from "../../../lib/formValidation";
 
 /**
  * POST /api/contact
  *
  * Accepts contact form submissions and forwards them to hello@civant.eu
  * via Resend. Set the RESEND_API_KEY environment variable in Vercel.
- *
- * Fallback: if RESEND_API_KEY is not set, logs the submission and returns
- * success so the form still works during development.
  */
-
-type ContactPayload = {
-  name: string;
-  email: string;
-  reason: string;
-  message: string;
-  marketingOptIn: boolean;
-};
 
 export async function POST(request: NextRequest) {
   try {
-    const body: ContactPayload = await request.json();
-
-    const { name, email, reason, message, marketingOptIn } = body;
-
-    if (!name || !email || !reason || !message) {
-      return NextResponse.json(
-        { error: "All fields are required." },
-        { status: 400 },
-      );
-    }
-
-    const apiKey = process.env.RESEND_API_KEY;
-
-    if (!apiKey) {
-      // Dev fallback: log and return success
-      console.log("[contact] No RESEND_API_KEY set. Submission:", {
-        name,
-        email,
-        reason,
-        marketingOptIn,
-        messagePreview: message.slice(0, 80),
-      });
-      return NextResponse.json({ success: true, mode: "dev" });
-    }
+    assertFormOrigin(request);
+    const validation = validateContactPayload(await readBoundedJson(request));
+    if (!validation.ok) throw new ApiRequestError(400, validation.message);
+    const { name, email, reason, message, marketingOptIn } = validation.data;
+    const apiKey = requireMailApiKey();
+    await enforceFormRateLimit(request, email);
 
     // Send via Resend API (no SDK needed, just fetch)
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
+      redirect: "error",
+      signal: AbortSignal.timeout(10000),
       headers: {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
@@ -90,8 +65,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (!res.ok) {
-      const errorData = await res.json().catch(() => ({}));
-      console.error("[contact] Resend error:", res.status, errorData);
+      console.error("[contact] Email provider rejected request:", res.status);
       return NextResponse.json(
         { error: "Failed to send message. Please try again." },
         { status: 500 },
@@ -100,7 +74,13 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("[contact] Unexpected error:", error);
+    if (error instanceof ApiRequestError) {
+      return NextResponse.json({ error: error.message }, {
+        status: error.status,
+        headers: error.retryAfter ? { "Retry-After": String(error.retryAfter) } : undefined,
+      });
+    }
+    console.error("[contact] Email delivery failed.");
     return NextResponse.json(
       { error: "Something went wrong. Please try again." },
       { status: 500 },

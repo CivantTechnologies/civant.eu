@@ -12,23 +12,34 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           cache: npm
+
+      - name: Record checkout and runtime identity
+        run: |
+          git log -1 --format='Checkout SHA: %H%nCheckout tree: %T'
+          node --version
+          npm --version
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Security gate
+        run: npm run security:check
 
       - name: Verify live production
         run: npm run verify:production
 
       - name: Upload production Lighthouse reports
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: lighthouse-production-reports
           path: .lighthouseci-production

@@ -15,16 +15,27 @@ jobs:
     timeout-minutes: 25
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           cache: npm
+
+      - name: Record checkout and runtime identity
+        run: |
+          git log -1 --format='Checkout SHA: %H%nCheckout tree: %T'
+          node --version
+          npm --version
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Security gate
+        run: npm run security:check
 
       - name: Test
         run: npm test
@@ -38,13 +49,64 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Browser security smoke
+        timeout-minutes: 5
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+          SECURITY_SMOKE_OUTPUT_DIR: output/ci-release-gates-20261024/browser
+        run: |
+          set -euo pipefail
+          server_log="${RUNNER_TEMP}/civant-security-smoke-server.log"
+          node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3100 >"${server_log}" 2>&1 &
+          server_pid=$!
+          cleanup() {
+            kill "${server_pid}" 2>/dev/null || true
+            wait "${server_pid}" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+          trap 'exit 130' INT
+          trap 'exit 143' TERM
+          ready=0
+          for attempt in {1..30}; do
+            if ! kill -0 "${server_pid}" 2>/dev/null; then
+              cat "${server_log}"
+              exit 1
+            fi
+            if curl --silent --fail --max-time 2 http://127.0.0.1:3100/ >/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [[ "${ready}" != "1" ]]; then
+            cat "${server_log}"
+            exit 1
+          fi
+          node scripts/security-browser-smoke.mjs http://127.0.0.1:3100
+
+      - name: Isolated Redis limiter integration
+        timeout-minutes: 5
+        run: node scripts/verify-redis-limiter.mjs
+
       - name: Lighthouse CI
         run: npm run lighthouse:ci
 
       - name: Upload Lighthouse reports
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: lighthouse-local-reports
           path: .lighthouseci
           if-no-files-found: ignore
+
+      - name: Upload security check reports
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: local-security-reports
+          path: |
+            output/ci-release-gates-20261024/browser/summary.json
+            output/ci-release-gates-20261024/browser/*.png
+            output/security-fixes-20261024/redis-validation.json
+          if-no-files-found: ignore
+          include-hidden-files: false
