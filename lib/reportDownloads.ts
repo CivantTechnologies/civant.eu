@@ -1,4 +1,6 @@
 import crypto from "node:crypto";
+import { ApiRequestError } from "./apiSecurity";
+import { hasOnlyKeys, isBoundedText, isRecord, isValidEmail, type ValidationResult } from "./formValidation";
 
 export type ReportSection = {
   title: string;
@@ -349,77 +351,96 @@ export function getAllReports() {
   return REPORTS;
 }
 
-export function validateWorkEmail(email: string) {
+export function validateWorkEmail(email: unknown) {
+  if (!isValidEmail(email)) return { ok: false as const, message: "Please enter a valid email address." };
   const normalized = email.trim().toLowerCase();
   const parts = normalized.split("@");
 
   if (parts.length !== 2 || !parts[0] || !parts[1]) {
-    return { ok: false, message: "Please enter a valid email address." };
+    return { ok: false as const, message: "Please enter a valid email address." };
   }
 
   const domain = parts[1];
 
   if (COMMON_PERSONAL_EMAIL_DOMAINS.has(domain)) {
     return {
-      ok: false,
+      ok: false as const,
       message: "Please use your work email to access this report.",
     };
   }
 
   if (COMMON_DISPOSABLE_EMAIL_DOMAINS.has(domain)) {
     return {
-      ok: false,
+      ok: false as const,
       message: "Temporary email addresses are not accepted for this report.",
     };
   }
 
   if (!domain.includes(".") || domain.startsWith(".") || domain.endsWith(".")) {
-    return { ok: false, message: "Please enter a valid work email address." };
+    return { ok: false as const, message: "Please enter a valid work email address." };
   }
 
-  return { ok: true, normalized };
+  return { ok: true as const, normalized };
 }
 
-export function validateReportLead(payload: ReportLeadPayload) {
-  if (payload.honeypot?.trim()) {
+export function validateReportLead(payload: unknown): ValidationResult<ReportLeadPayload> {
+  if (!isRecord(payload) || !hasOnlyKeys(payload, ["reportSlug", "name", "email", "company", "role", "companyWebsite", "marketingOptIn", "consentRequired", "honeypot"])) {
+    return { ok: false, message: "Please provide valid report request fields." };
+  }
+  if (payload.honeypot !== undefined && (typeof payload.honeypot !== "string" || payload.honeypot.length > 200 || payload.honeypot.trim())) {
     return { ok: false, message: "Submission blocked." };
   }
 
-  if (!payload.reportSlug || !getReportBySlug(payload.reportSlug)) {
+  if (!isBoundedText(payload.reportSlug, 120) || !getReportBySlug(payload.reportSlug)) {
     return { ok: false, message: "That report is not available." };
   }
 
-  if (!payload.name.trim() || !payload.company.trim() || !payload.role.trim()) {
-    return { ok: false, message: "Please complete all required fields." };
+  if (!isBoundedText(payload.name, 120) || !isBoundedText(payload.company, 200) || !isBoundedText(payload.role, 120)) {
+    return { ok: false, message: "Please complete the name, company and role fields with valid text." };
   }
 
-  if (!payload.consentRequired) {
+  if (payload.consentRequired !== true || (payload.marketingOptIn !== undefined && typeof payload.marketingOptIn !== "boolean")) {
     return {
       ok: false,
       message: "Please confirm consent so we can deliver the report.",
     };
   }
 
-  return validateWorkEmail(payload.email);
+  if (payload.companyWebsite !== undefined && payload.companyWebsite !== "") {
+    if (!isBoundedText(payload.companyWebsite, 2048)) return { ok: false, message: "Please enter a valid company website." };
+    try {
+      const url = new URL(payload.companyWebsite.trim());
+      if (!["http:", "https:"].includes(url.protocol) || url.username || url.password) throw new Error();
+    } catch {
+      return { ok: false, message: "Please enter a valid company website." };
+    }
+  }
+  const email = validateWorkEmail(payload.email);
+  if (!email.ok) return email;
+  return { ok: true, data: {
+    reportSlug: payload.reportSlug, name: payload.name.trim(), email: email.normalized,
+    company: payload.company.trim(), role: payload.role.trim(), consentRequired: true,
+    marketingOptIn: payload.marketingOptIn === true,
+    companyWebsite: typeof payload.companyWebsite === "string" ? payload.companyWebsite.trim() : "",
+  } };
 }
 
 function getDownloadSecret() {
-  return (
-    process.env.REPORT_DOWNLOAD_SECRET ||
-    process.env.RESEND_API_KEY ||
-    "civant-local-report-secret"
-  );
+  const secret = process.env.REPORT_DOWNLOAD_SECRET;
+  // Dedicated secret only. Mail credentials and a shared development constant
+  // must never silently become the signing key in a production deployment.
+  if (!secret || Buffer.byteLength(secret.trim(), "utf8") < 32) {
+    throw new ApiRequestError(503, "Report downloads are temporarily unavailable.");
+  }
+  return secret;
 }
 
 function toBase64Url(input: string) {
   return Buffer.from(input).toString("base64url");
 }
 
-function fromBase64Url(input: string) {
-  return Buffer.from(input, "base64url").toString("utf8");
-}
-
 export function createReportDownloadToken(reportSlug: string, email: string) {
+  if (!getReportBySlug(reportSlug) || !isValidEmail(email)) throw new ApiRequestError(400, "Invalid report request.");
   const payload = JSON.stringify({
     reportSlug,
     email: email.trim().toLowerCase(),
@@ -434,34 +455,32 @@ export function createReportDownloadToken(reportSlug: string, email: string) {
   return `${encodedPayload}.${signature}`;
 }
 
-export function verifyReportDownloadToken(token: string) {
+export function verifyReportDownloadToken(token: unknown) {
+  if (typeof token !== "string" || token.length > 2048 || !/^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]{43}$/.test(token)) return null;
   const [encodedPayload, signature] = token.split(".");
-
-  if (!encodedPayload || !signature) {
-    return null;
-  }
+  const suppliedSignature = Buffer.from(signature, "base64url");
+  const payloadBytes = Buffer.from(encodedPayload, "base64url");
+  if (suppliedSignature.length !== 32 || suppliedSignature.toString("base64url") !== signature || payloadBytes.toString("base64url") !== encodedPayload) return null;
 
   const expectedSignature = crypto
     .createHmac("sha256", getDownloadSecret())
     .update(encodedPayload)
-    .digest("base64url");
+    .digest();
 
-  if (!crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
+  if (suppliedSignature.length !== expectedSignature.length || !crypto.timingSafeEqual(suppliedSignature, expectedSignature)) {
     return null;
   }
 
   try {
-    const parsed = JSON.parse(fromBase64Url(encodedPayload)) as {
-      reportSlug: string;
-      email: string;
-      exp: number;
-    };
-
-    if (!parsed.reportSlug || !parsed.email || typeof parsed.exp !== "number") {
+    const parsed: unknown = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(payloadBytes));
+    if (!isRecord(parsed) || !hasOnlyKeys(parsed, ["reportSlug", "email", "exp"]) ||
+      !isBoundedText(parsed.reportSlug, 120) || !isValidEmail(parsed.email) ||
+      typeof parsed.exp !== "number" || !Number.isSafeInteger(parsed.exp)) {
       return null;
     }
 
-    if (parsed.exp < Date.now()) {
+    const now = Date.now();
+    if (parsed.exp <= now || parsed.exp > now + REPORT_DOWNLOAD_TTL_MS) {
       return null;
     }
 
@@ -471,7 +490,7 @@ export function verifyReportDownloadToken(token: string) {
       return null;
     }
 
-    return parsed;
+    return { reportSlug: parsed.reportSlug, email: parsed.email, exp: parsed.exp };
   } catch {
     return null;
   }

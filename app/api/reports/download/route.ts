@@ -4,15 +4,25 @@ import {
   renderReportHtml,
   verifyReportDownloadToken,
 } from "../../../../lib/reportDownloads";
+import { ApiRequestError } from "../../../../lib/apiSecurity";
 
 export async function GET(request: NextRequest) {
-  const token = request.nextUrl.searchParams.get("token");
+  const tokens = request.nextUrl.searchParams.getAll("token");
+  const token = tokens[0];
 
-  if (!token) {
+  if (!token || tokens.length !== 1) {
     return new NextResponse("Missing token.", { status: 400 });
   }
 
-  const payload = verifyReportDownloadToken(token);
+  let payload;
+  try {
+    payload = verifyReportDownloadToken(token);
+  } catch (error) {
+    if (error instanceof ApiRequestError) {
+      return new NextResponse(error.message, { status: error.status, headers: { "Cache-Control": "private, no-store" } });
+    }
+    throw error;
+  }
 
   if (!payload) {
     return new NextResponse("This download link is invalid or has expired.", {
@@ -32,6 +42,9 @@ export async function GET(request: NextRequest) {
       "Content-Type": "text/html; charset=utf-8",
       "Content-Disposition": `attachment; filename="${report.fileName}"`,
       "Cache-Control": "private, no-store, max-age=0",
+      "Referrer-Policy": "no-referrer",
+      "X-Content-Type-Options": "nosniff",
+      "Content-Security-Policy": "default-src 'none'; img-src https://civant.eu; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
     },
   });
 }

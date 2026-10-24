@@ -3,29 +3,18 @@ import {
   createReportDownloadToken,
   getReportBySlug,
   validateReportLead,
-  type ReportLeadPayload,
 } from "../../../../lib/reportDownloads";
-
-const RATE_LIMIT_WINDOW_MS = 1000 * 60 * 10;
-const MAX_SUBMISSIONS_PER_WINDOW = 5;
-
-const globalForRateLimit = globalThis as typeof globalThis & {
-  __civantReportLeadRateLimit?: Map<string, number[]>;
-};
-
-const rateLimitStore =
-  globalForRateLimit.__civantReportLeadRateLimit ||
-  (globalForRateLimit.__civantReportLeadRateLimit = new Map<string, number[]>());
+import { ApiRequestError, assertFormOrigin, enforceFormRateLimit, getSiteOrigin, readBoundedJson, requireMailApiKey } from "../../../../lib/apiSecurity";
 
 export async function POST(request: NextRequest) {
   try {
-    const body: ReportLeadPayload = await request.json();
-    const validation = validateReportLead(body);
+    assertFormOrigin(request);
+    const validation = validateReportLead(await readBoundedJson(request));
 
     if (!validation.ok) {
       return NextResponse.json({ error: validation.message }, { status: 400 });
     }
-
+    const body = validation.data;
     const report = getReportBySlug(body.reportSlug);
 
     if (!report) {
@@ -35,47 +24,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const clientIp =
-      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-      request.headers.get("x-real-ip") ||
-      "unknown";
-
-    if (isRateLimited(clientIp)) {
-      return NextResponse.json(
-        { error: "Too many requests. Please try again shortly." },
-        { status: 429 },
-      );
-    }
-
-    const email = body.email.trim().toLowerCase();
-    const siteUrl =
-      process.env.NEXT_PUBLIC_SITE_URL || request.nextUrl.origin || "https://civant.eu";
+    const email = body.email;
+    const siteUrl = getSiteOrigin();
+    const apiKey = requireMailApiKey();
     const token = createReportDownloadToken(report.slug, email);
     const downloadUrl = `${siteUrl}/api/reports/download?token=${encodeURIComponent(token)}`;
-    const apiKey = process.env.RESEND_API_KEY;
-
-    if (!apiKey) {
-      console.log("[report-access] No RESEND_API_KEY set. Submission:", {
-        report: report.slug,
-        name: body.name,
-        email,
-        company: body.company,
-        role: body.role,
-        companyWebsite: body.companyWebsite,
-        marketingOptIn: Boolean(body.marketingOptIn),
-      });
-
-      return NextResponse.json({
-        success: true,
-        mode: "dev",
-        downloadUrl,
-        deliveredByEmail: false,
-      });
-    }
+    await enforceFormRateLimit(request, email);
 
     await Promise.all([
       fetch("https://api.resend.com/emails", {
         method: "POST",
+        redirect: "error",
+        signal: AbortSignal.timeout(10000),
         headers: {
           Authorization: `Bearer ${apiKey}`,
           "Content-Type": "application/json",
@@ -123,6 +83,8 @@ export async function POST(request: NextRequest) {
       }),
       fetch("https://api.resend.com/emails", {
         method: "POST",
+        redirect: "error",
+        signal: AbortSignal.timeout(10000),
         headers: {
           Authorization: `Bearer ${apiKey}`,
           "Content-Type": "application/json",
@@ -155,10 +117,7 @@ export async function POST(request: NextRequest) {
       const failed = responses.find((response) => !response.ok);
 
       if (failed) {
-        const errorData = await failed.json().catch(() => ({}));
-        throw new Error(
-          `Resend request failed with status ${failed.status}: ${JSON.stringify(errorData)}`,
-        );
+        throw new Error(`Email provider rejected request: ${failed.status}`);
       }
     });
 
@@ -168,28 +127,18 @@ export async function POST(request: NextRequest) {
       deliveredByEmail: true,
     });
   } catch (error) {
-    console.error("[report-access] Unexpected error:", error);
+    if (error instanceof ApiRequestError) {
+      return NextResponse.json({ error: error.message }, {
+        status: error.status,
+        headers: error.retryAfter ? { "Retry-After": String(error.retryAfter) } : undefined,
+      });
+    }
+    console.error("[report-access] Email delivery failed.");
     return NextResponse.json(
       { error: "We could not deliver the report. Please try again." },
       { status: 500 },
     );
   }
-}
-
-function isRateLimited(clientKey: string) {
-  const now = Date.now();
-  const recentAttempts = (rateLimitStore.get(clientKey) || []).filter(
-    (timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS,
-  );
-
-  if (recentAttempts.length >= MAX_SUBMISSIONS_PER_WINDOW) {
-    rateLimitStore.set(clientKey, recentAttempts);
-    return true;
-  }
-
-  recentAttempts.push(now);
-  rateLimitStore.set(clientKey, recentAttempts);
-  return false;
 }
 
 function escapeHtml(value: string) {
