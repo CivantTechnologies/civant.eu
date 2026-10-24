@@ -130,7 +130,8 @@ audits both report zero findings after a clean installation.
 5. **Complete release integration checks without lifting the hold early.**
    GitHub ruleset `25782603` now requires the exact `quality` check from GitHub
    Actions app `15368` on `main`, with strict freshness and no bypass actors.
-   The unpublished candidate has not run in GitHub-hosted CI. Vercel automatic
+   Exact-candidate hosted results are tracked on [draft PR #40](https://github.com/CivantTechnologies/civant.eu/pull/40).
+   Require passing checks on its current commit. Vercel automatic
    production aliasing is disabled and the current deployment is unchanged.
    A Vercel GitHub `quality` Deployment Check is now configured through the
    project-check API for production deployment aliases, with a 30-minute timeout.
@@ -172,7 +173,8 @@ effective GitHub rules, the production origin, signing checks, mail DNS,
 authenticated inbox receipt and provider-runtime findings.
 Its `checks/summary.json` confirms `npm test`, `npm run lint`,
 `npm run typecheck`, `npm run build` and `npm run security:check` all passed
-under Node 24.22.1. GitHub-hosted CI has not run for this unpublished branch.
+under Node 24.22.1. Local results do not substitute for GitHub-hosted CI; use the
+draft PR's current checks and `output/ci-release-gates-20261024/` for that evidence.
 
 No database rollback or validation SQL applies. Before release, reverting
 unpublished candidate changes restores the previous local source, but the old
