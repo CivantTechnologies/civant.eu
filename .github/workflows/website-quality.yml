@@ -97,7 +97,8 @@ jobs:
         with:
           name: lighthouse-local-reports
           path: .lighthouseci
-          if-no-files-found: ignore
+          if-no-files-found: error
+          include-hidden-files: true
 
       - name: Upload security check reports
         if: always()
